@@ -17,8 +17,8 @@
 
 
 Layer::Layer(int width, int height, std::string tileset) : width(width), height(height),
-                                                           tileset(tileset) {//TODO in mappa
-
+                                                           tileset(tileset) {
+    tile = new Tile[width * height];
 }
 
 bool Layer::load(sf::Vector2u tileSize, std::string map_path) {
@@ -29,6 +29,11 @@ bool Layer::load(sf::Vector2u tileSize, std::string map_path) {
 
     for (int i = 0; i < width * height; i++) {
         my_file >> layer[i];
+        tile[i].setId(layer[i]);
+        if (tile[i].getId() != 0) {
+            tile[i].getCollision().height = tileSize.y;
+            tile[i].getCollision().width = tileSize.x;
+        }
     }
 
     // load the tileset texture

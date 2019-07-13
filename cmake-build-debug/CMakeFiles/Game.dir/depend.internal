@@ -16,24 +16,31 @@ CMakeFiles/Game.dir/Item.cpp.o
  /home/federico/Documenti/ClionWorkspace/GameProject/Item.cpp
  /home/federico/Documenti/ClionWorkspace/GameProject/Item.h
 CMakeFiles/Game.dir/Layer.cpp.o
+ /home/federico/Documenti/ClionWorkspace/GameProject/Collision.h
  /home/federico/Documenti/ClionWorkspace/GameProject/Layer.cpp
  /home/federico/Documenti/ClionWorkspace/GameProject/Layer.h
+ /home/federico/Documenti/ClionWorkspace/GameProject/Tile.h
 CMakeFiles/Game.dir/Map.cpp.o
+ /home/federico/Documenti/ClionWorkspace/GameProject/Collision.h
  /home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.h
  /home/federico/Documenti/ClionWorkspace/GameProject/Item.h
  /home/federico/Documenti/ClionWorkspace/GameProject/Layer.h
  /home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp
  /home/federico/Documenti/ClionWorkspace/GameProject/Map.h
+ /home/federico/Documenti/ClionWorkspace/GameProject/Tile.h
 CMakeFiles/Game.dir/Obstacle.cpp.o
  /home/federico/Documenti/ClionWorkspace/GameProject/Obstacle.cpp
  /home/federico/Documenti/ClionWorkspace/GameProject/Obstacle.h
 CMakeFiles/Game.dir/Tile.cpp.o
+ /home/federico/Documenti/ClionWorkspace/GameProject/Collision.h
  /home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp
  /home/federico/Documenti/ClionWorkspace/GameProject/Tile.h
 CMakeFiles/Game.dir/main.cpp.o
+ /home/federico/Documenti/ClionWorkspace/GameProject/Collision.h
  /home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.h
  /home/federico/Documenti/ClionWorkspace/GameProject/GameHero.h
  /home/federico/Documenti/ClionWorkspace/GameProject/Item.h
  /home/federico/Documenti/ClionWorkspace/GameProject/Layer.h
  /home/federico/Documenti/ClionWorkspace/GameProject/Map.h
+ /home/federico/Documenti/ClionWorkspace/GameProject/Tile.h
  /home/federico/Documenti/ClionWorkspace/GameProject/main.cpp

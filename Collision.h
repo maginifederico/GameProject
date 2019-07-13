@@ -11,8 +11,10 @@ class Collision {
 public:
 
 
+
 private:
-    Tile *ground_tile;
+
+    sf::FloatRect shape;
 
 };
 
