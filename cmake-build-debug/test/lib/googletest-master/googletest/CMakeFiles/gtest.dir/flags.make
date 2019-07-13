@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTH
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/include -I/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest 
+CXX_INCLUDES = -I/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/include -I/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest 
 

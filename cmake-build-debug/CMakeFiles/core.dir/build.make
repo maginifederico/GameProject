@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/sode/Scaricati/clion-2019.1.3/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/sode/Scaricati/clion-2019.1.3/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sode/Documenti/CLionWorkspace/PatamanAdventure
+CMAKE_SOURCE_DIR = /home/federico/Documenti/ClionWorkspace/GameProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug
+CMAKE_BINARY_DIR = /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/core.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/core.dir/flags.make
 
 CMakeFiles/core.dir/main.cpp.o: CMakeFiles/core.dir/flags.make
 CMakeFiles/core.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/core.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/main.cpp.o -c /home/sode/Documenti/CLionWorkspace/PatamanAdventure/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/core.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/main.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/main.cpp
 
 CMakeFiles/core.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/core.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sode/Documenti/CLionWorkspace/PatamanAdventure/main.cpp > CMakeFiles/core.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/main.cpp > CMakeFiles/core.dir/main.cpp.i
 
 CMakeFiles/core.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sode/Documenti/CLionWorkspace/PatamanAdventure/main.cpp -o CMakeFiles/core.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/main.cpp -o CMakeFiles/core.dir/main.cpp.s
 
 # Object files for target core
 core_OBJECTS = \
@@ -80,7 +80,7 @@ core_EXTERNAL_OBJECTS =
 libcore.a: CMakeFiles/core.dir/main.cpp.o
 libcore.a: CMakeFiles/core.dir/build.make
 libcore.a: CMakeFiles/core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libcore.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libcore.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/core.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/core.dir/link.txt --verbose=$(VERBOSE)
 
@@ -94,6 +94,6 @@ CMakeFiles/core.dir/clean:
 .PHONY : CMakeFiles/core.dir/clean
 
 CMakeFiles/core.dir/depend:
-	cd /home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sode/Documenti/CLionWorkspace/PatamanAdventure /home/sode/Documenti/CLionWorkspace/PatamanAdventure /home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug /home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug /home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles/core.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/federico/Documenti/ClionWorkspace/GameProject /home/federico/Documenti/ClionWorkspace/GameProject /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/core.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/core.dir/depend
 

@@ -27,7 +27,7 @@ int main() {
     const float VIEW_HEIGHT = 525.f;
     const float VIEW_WIDTH = 800.f;
     const std::string GAME_HERO_TEXTURE = "./Textures/singleBird.png";
-
+    int sus = 0;
 
     //init window
     RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "PATAMAN ADVENTURES");

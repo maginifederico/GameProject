@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/sode/Scaricati/clion-2019.1.3/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/sode/Scaricati/clion-2019.1.3/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sode/Documenti/CLionWorkspace/PatamanAdventure
+CMAKE_SOURCE_DIR = /home/federico/Documenti/ClionWorkspace/GameProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug
+CMAKE_BINARY_DIR = /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Game.dir/depend.make
@@ -59,120 +59,120 @@ include CMakeFiles/Game.dir/flags.make
 
 CMakeFiles/Game.dir/main.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Game.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/main.cpp.o -c /home/sode/Documenti/CLionWorkspace/PatamanAdventure/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Game.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/main.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/main.cpp
 
 CMakeFiles/Game.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sode/Documenti/CLionWorkspace/PatamanAdventure/main.cpp > CMakeFiles/Game.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/main.cpp > CMakeFiles/Game.dir/main.cpp.i
 
 CMakeFiles/Game.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sode/Documenti/CLionWorkspace/PatamanAdventure/main.cpp -o CMakeFiles/Game.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/main.cpp -o CMakeFiles/Game.dir/main.cpp.s
 
 CMakeFiles/Game.dir/GameHero.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/GameHero.cpp.o: ../GameHero.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Game.dir/GameHero.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/GameHero.cpp.o -c /home/sode/Documenti/CLionWorkspace/PatamanAdventure/GameHero.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Game.dir/GameHero.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/GameHero.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/GameHero.cpp
 
 CMakeFiles/Game.dir/GameHero.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/GameHero.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sode/Documenti/CLionWorkspace/PatamanAdventure/GameHero.cpp > CMakeFiles/Game.dir/GameHero.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/GameHero.cpp > CMakeFiles/Game.dir/GameHero.cpp.i
 
 CMakeFiles/Game.dir/GameHero.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/GameHero.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sode/Documenti/CLionWorkspace/PatamanAdventure/GameHero.cpp -o CMakeFiles/Game.dir/GameHero.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/GameHero.cpp -o CMakeFiles/Game.dir/GameHero.cpp.s
 
 CMakeFiles/Game.dir/Obstacle.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Obstacle.cpp.o: ../Obstacle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Game.dir/Obstacle.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Obstacle.cpp.o -c /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Obstacle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Game.dir/Obstacle.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Obstacle.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Obstacle.cpp
 
 CMakeFiles/Game.dir/Obstacle.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Obstacle.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Obstacle.cpp > CMakeFiles/Game.dir/Obstacle.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Obstacle.cpp > CMakeFiles/Game.dir/Obstacle.cpp.i
 
 CMakeFiles/Game.dir/Obstacle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Obstacle.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Obstacle.cpp -o CMakeFiles/Game.dir/Obstacle.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Obstacle.cpp -o CMakeFiles/Game.dir/Obstacle.cpp.s
 
 CMakeFiles/Game.dir/Item.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Item.cpp.o: ../Item.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Game.dir/Item.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Item.cpp.o -c /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Item.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Game.dir/Item.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Item.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Item.cpp
 
 CMakeFiles/Game.dir/Item.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Item.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Item.cpp > CMakeFiles/Game.dir/Item.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Item.cpp > CMakeFiles/Game.dir/Item.cpp.i
 
 CMakeFiles/Game.dir/Item.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Item.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Item.cpp -o CMakeFiles/Game.dir/Item.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Item.cpp -o CMakeFiles/Game.dir/Item.cpp.s
 
 CMakeFiles/Game.dir/Tile.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Tile.cpp.o: ../Tile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Game.dir/Tile.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Tile.cpp.o -c /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Tile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Game.dir/Tile.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Tile.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp
 
 CMakeFiles/Game.dir/Tile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Tile.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Tile.cpp > CMakeFiles/Game.dir/Tile.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp > CMakeFiles/Game.dir/Tile.cpp.i
 
 CMakeFiles/Game.dir/Tile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Tile.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Tile.cpp -o CMakeFiles/Game.dir/Tile.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp -o CMakeFiles/Game.dir/Tile.cpp.s
 
 CMakeFiles/Game.dir/Layer.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Layer.cpp.o: ../Layer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Game.dir/Layer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Layer.cpp.o -c /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Layer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Game.dir/Layer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Layer.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Layer.cpp
 
 CMakeFiles/Game.dir/Layer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Layer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Layer.cpp > CMakeFiles/Game.dir/Layer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Layer.cpp > CMakeFiles/Game.dir/Layer.cpp.i
 
 CMakeFiles/Game.dir/Layer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Layer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Layer.cpp -o CMakeFiles/Game.dir/Layer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Layer.cpp -o CMakeFiles/Game.dir/Layer.cpp.s
 
 CMakeFiles/Game.dir/GameCharacter.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/GameCharacter.cpp.o: ../GameCharacter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Game.dir/GameCharacter.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/GameCharacter.cpp.o -c /home/sode/Documenti/CLionWorkspace/PatamanAdventure/GameCharacter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Game.dir/GameCharacter.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/GameCharacter.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.cpp
 
 CMakeFiles/Game.dir/GameCharacter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/GameCharacter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sode/Documenti/CLionWorkspace/PatamanAdventure/GameCharacter.cpp > CMakeFiles/Game.dir/GameCharacter.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.cpp > CMakeFiles/Game.dir/GameCharacter.cpp.i
 
 CMakeFiles/Game.dir/GameCharacter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/GameCharacter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sode/Documenti/CLionWorkspace/PatamanAdventure/GameCharacter.cpp -o CMakeFiles/Game.dir/GameCharacter.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.cpp -o CMakeFiles/Game.dir/GameCharacter.cpp.s
 
 CMakeFiles/Game.dir/Map.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Map.cpp.o: ../Map.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Game.dir/Map.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Map.cpp.o -c /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Map.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Game.dir/Map.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Map.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp
 
 CMakeFiles/Game.dir/Map.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Map.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Map.cpp > CMakeFiles/Game.dir/Map.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp > CMakeFiles/Game.dir/Map.cpp.i
 
 CMakeFiles/Game.dir/Map.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Map.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Map.cpp -o CMakeFiles/Game.dir/Map.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp -o CMakeFiles/Game.dir/Map.cpp.s
 
 CMakeFiles/Game.dir/Collision.cpp.o: CMakeFiles/Game.dir/flags.make
 CMakeFiles/Game.dir/Collision.cpp.o: ../Collision.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Game.dir/Collision.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Collision.cpp.o -c /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Collision.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Game.dir/Collision.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Collision.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Collision.cpp
 
 CMakeFiles/Game.dir/Collision.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Collision.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Collision.cpp > CMakeFiles/Game.dir/Collision.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Collision.cpp > CMakeFiles/Game.dir/Collision.cpp.i
 
 CMakeFiles/Game.dir/Collision.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Collision.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sode/Documenti/CLionWorkspace/PatamanAdventure/Collision.cpp -o CMakeFiles/Game.dir/Collision.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Collision.cpp -o CMakeFiles/Game.dir/Collision.cpp.s
 
 # Object files for target Game
 Game_OBJECTS = \
@@ -205,7 +205,7 @@ Game: /usr/lib/x86_64-linux-gnu/libsfml-window.so
 Game: /usr/lib/x86_64-linux-gnu/libsfml-network.so
 Game: /usr/lib/x86_64-linux-gnu/libsfml-audio.so
 Game: CMakeFiles/Game.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Game"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Game.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -218,6 +218,6 @@ CMakeFiles/Game.dir/clean:
 .PHONY : CMakeFiles/Game.dir/clean
 
 CMakeFiles/Game.dir/depend:
-	cd /home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sode/Documenti/CLionWorkspace/PatamanAdventure /home/sode/Documenti/CLionWorkspace/PatamanAdventure /home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug /home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug /home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/CMakeFiles/Game.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/federico/Documenti/ClionWorkspace/GameProject /home/federico/Documenti/ClionWorkspace/GameProject /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Game.dir/depend
 

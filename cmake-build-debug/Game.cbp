@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;CMake Files\cmake_modules\;CMake Files\test\;CMake Files\test\lib\;CMake Files\test\lib\googletest-master\;CMake Files\test\lib\googletest-master\googlemock\;CMake Files\test\lib\googletest-master\googlemock\cmake\;CMake Files\test\lib\googletest-master\googletest\;CMake Files\test\lib\googletest-master\googletest\cmake\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="install/strip">
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="install/local">
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="patagame_unit_testing">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/patagame_unit_testing" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/patagame_unit_testing" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -54,15 +54,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 patagame_unit_testing"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 patagame_unit_testing"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="patagame_unit_testing/fast">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/patagame_unit_testing" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/patagame_unit_testing" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -77,25 +77,25 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 patagame_unit_testing/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 patagame_unit_testing/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="install">
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Game">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Game" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Game" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -110,15 +110,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 Game"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 Game"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Game/fast">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Game" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Game" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -133,25 +133,25 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 Game/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 Game/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="core">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/libcore.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/libcore.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
@@ -166,15 +166,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 core"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 core"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="core/fast">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/libcore.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/libcore.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
@@ -189,43 +189,43 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 core/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 core/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="list_install_components">
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock_main">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock/include"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/include"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/include"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -236,23 +236,23 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock_main"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock_main"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock_main/fast">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock/include"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/include"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/include"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -263,23 +263,23 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock_main/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock_main/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock/include"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/include"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/include"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -290,23 +290,23 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock/fast">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock/include"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/include"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/include"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -317,21 +317,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest_main">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/include"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -342,21 +342,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest_main/fast">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/include"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -367,21 +367,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/include"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -392,21 +392,21 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest/fast">
-				<Option output="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest"/>
+				<Option output="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/include"/>
-					<Add directory="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/include"/>
+					<Add directory="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -417,118 +417,118 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/Collision.cpp">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Collision.cpp">
 			<Option target="Game"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/Collision.h">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Collision.h">
 			<Option target="Game"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/GameCharacter.cpp">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.cpp">
 			<Option target="Game"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/GameCharacter.h">
-			<Option target="Game"/>
-			<Option target="core"/>
-		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/GameHero.cpp">
-			<Option target="Game"/>
-		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/GameHero.h">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.h">
 			<Option target="Game"/>
 			<Option target="core"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/Item.cpp">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/GameHero.cpp">
 			<Option target="Game"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/Item.h">
-			<Option target="Game"/>
-			<Option target="core"/>
-		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/Layer.cpp">
-			<Option target="Game"/>
-		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/Layer.h">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/GameHero.h">
 			<Option target="Game"/>
 			<Option target="core"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/Map.cpp">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Item.cpp">
 			<Option target="Game"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/Map.h">
-			<Option target="Game"/>
-			<Option target="core"/>
-		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/Obstacle.cpp">
-			<Option target="Game"/>
-		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/Obstacle.h">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Item.h">
 			<Option target="Game"/>
 			<Option target="core"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/Tile.cpp">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Layer.cpp">
 			<Option target="Game"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/Tile.h">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Layer.h">
+			<Option target="Game"/>
+			<Option target="core"/>
+		</Unit>
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp">
 			<Option target="Game"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/main.cpp">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Map.h">
+			<Option target="Game"/>
+			<Option target="core"/>
+		</Unit>
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Obstacle.cpp">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Obstacle.h">
+			<Option target="Game"/>
+			<Option target="core"/>
+		</Unit>
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Tile.h">
+			<Option target="Game"/>
+		</Unit>
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/main.cpp">
 			<Option target="patagame_unit_testing"/>
 			<Option target="Game"/>
 			<Option target="core"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock/src/gmock-all.cc">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/src/gmock-all.cc">
 			<Option target="gmock"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock/src/gmock_main.cc">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/src/gmock_main.cc">
 			<Option target="gmock_main"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/src/gtest-all.cc">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/src/gtest-all.cc">
 			<Option target="gtest"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/src/gtest_main.cc">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/src/gtest_main.cc">
 			<Option target="gtest_main"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/CMakeLists.txt">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/cmake_modules/FindSFML.cmake">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/cmake_modules/FindSFML.cmake">
 			<Option virtualFolder="CMake Files\cmake_modules\"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/CMakeLists.txt">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\test\"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/CMakeLists.txt">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\test\lib\googletest-master\"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock/CMakeLists.txt">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\test\lib\googletest-master\googlemock\"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock/cmake/gmock.pc.in">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/cmake/gmock.pc.in">
 			<Option virtualFolder="CMake Files\test\lib\googletest-master\googlemock\cmake\"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googlemock/cmake/gmock_main.pc.in">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/cmake/gmock_main.pc.in">
 			<Option virtualFolder="CMake Files\test\lib\googletest-master\googlemock\cmake\"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/CMakeLists.txt">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\test\lib\googletest-master\googletest\"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/cmake/Config.cmake.in">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/cmake/Config.cmake.in">
 			<Option virtualFolder="CMake Files\test\lib\googletest-master\googletest\cmake\"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/cmake/gtest.pc.in">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/cmake/gtest.pc.in">
 			<Option virtualFolder="CMake Files\test\lib\googletest-master\googletest\cmake\"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/cmake/gtest_main.pc.in">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/cmake/gtest_main.pc.in">
 			<Option virtualFolder="CMake Files\test\lib\googletest-master\googletest\cmake\"/>
 		</Unit>
-		<Unit filename="/home/sode/Documenti/CLionWorkspace/PatamanAdventure/test/lib/googletest-master/googletest/cmake/internal_utils.cmake">
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googletest/cmake/internal_utils.cmake">
 			<Option virtualFolder="CMake Files\test\lib\googletest-master\googletest\cmake\"/>
 		</Unit>
 	</Project>
