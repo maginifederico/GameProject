@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/patagame_unit_testing.dir/main.cpp.o  -o patagame_unit_testing libcore.a 

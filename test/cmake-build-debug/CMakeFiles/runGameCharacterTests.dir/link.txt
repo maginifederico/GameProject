@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/runGameCharacterTests.dir/runAllTests.o CMakeFiles/runGameCharacterTests.dir/GameCharacterTest.o CMakeFiles/runGameCharacterTests.dir/GameCharacterFixture.o  -o runGameCharacterTests  -L/home/sode/Documenti/CLionWorkspace/unit_testing_diy/test/cmake-build-debug/lib lib/libgtestd.a lib/libgtest_maind.a -lcore lib/libgtestd.a -lpthread 

@@ -1,0 +1,2 @@
+/home/sode/Documenti/CLionWorkspace/unit_testing_diy/test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/sode/Documenti/CLionWorkspace/unit_testing_diy/test/cmake-build-debug/CMakeFiles/edit_cache.dir
