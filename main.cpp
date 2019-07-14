@@ -50,6 +50,16 @@ int main() {
 
     ////INIT MAP
 
+    //Background
+
+    Texture backgroundTexture;
+    Sprite background;
+
+    if (!backgroundTexture.loadFromFile("./Textures/bground.png"))
+        std::cout << "Unable to load the background";
+    background.setTexture(backgroundTexture);
+    background.setOrigin(0.f, 0.f);
+
     Map map(300, 25, "./Map/background.txt", "./Map/ground.txt");
     map.load();
 
@@ -99,10 +109,12 @@ int main() {
         window.clear();
 
         //render game elements
-        window.draw(map.getLayer()[0]);
+//        window.draw(map.getLayer()[0]);
+        window.draw(background);
         window.draw(map.getLayer()[1]);
         window.draw(player.getSprite());
         window.setView(player.playerView);
+
 //        window.draw(rectangleShape);
 
         //render ui
