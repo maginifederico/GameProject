@@ -6,11 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/sode/Documenti/CLionWorkspace/GameProject/Collision.h
-Tile.h
-/home/sode/Documenti/CLionWorkspace/GameProject/Tile.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Collision.cpp
+Collision.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Collision.h
 
-/home/sode/Documenti/CLionWorkspace/GameProject/GameCharacter.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Collision.h
+Tile.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Tile.h
+
+/home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.h
 iostream
 -
 SFML/Graphics.hpp
@@ -20,19 +24,37 @@ SFML/Window.hpp
 SFML/System.hpp
 -
 
-/home/sode/Documenti/CLionWorkspace/GameProject/GameHero.cpp
-GameHero.h
-/home/sode/Documenti/CLionWorkspace/GameProject/GameHero.h
-
-/home/sode/Documenti/CLionWorkspace/GameProject/GameHero.h
+/home/federico/Documenti/ClionWorkspace/GameProject/GameHero.h
 GameCharacter.h
-/home/sode/Documenti/CLionWorkspace/GameProject/GameCharacter.h
-Map.h
-/home/sode/Documenti/CLionWorkspace/GameProject/Map.h
+/home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.h
 
-/home/sode/Documenti/CLionWorkspace/GameProject/Item.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Item.h
 
-/home/sode/Documenti/CLionWorkspace/GameProject/Layer.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Layer.cpp
+string
+-
+SFML/System.hpp
+-
+SFML/Graphics/Drawable.hpp
+-
+SFML/Graphics/Transformable.hpp
+-
+SFML/Graphics/PrimitiveType.hpp
+-
+SFML/Graphics/Texture.hpp
+-
+SFML/Graphics/Vertex.hpp
+-
+SFML/Graphics/VertexArray.hpp
+-
+SFML/Graphics/RenderTarget.hpp
+-
+fstream
+-
+Layer.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Layer.h
+
+/home/federico/Documenti/ClionWorkspace/GameProject/Layer.h
 SFML/Graphics/Drawable.hpp
 -
 SFML/Graphics/Transformable.hpp
@@ -42,19 +64,49 @@ SFML/Graphics/PrimitiveType.hpp
 SFML/Graphics/Texture.hpp
 -
 Tile.h
-/home/sode/Documenti/CLionWorkspace/GameProject/Tile.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Tile.h
 
-/home/sode/Documenti/CLionWorkspace/GameProject/Map.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp
+Map.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Map.h
+SFML/Graphics.hpp
+-
+SFML/Window.hpp
+-
+SFML/System.hpp
+-
+
+/home/federico/Documenti/ClionWorkspace/GameProject/Map.h
 GameCharacter.h
-/home/sode/Documenti/CLionWorkspace/GameProject/GameCharacter.h
+/home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.h
 Item.h
-/home/sode/Documenti/CLionWorkspace/GameProject/Item.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Item.h
 Layer.h
-/home/sode/Documenti/CLionWorkspace/GameProject/Layer.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Layer.h
 
-/home/sode/Documenti/CLionWorkspace/GameProject/Tile.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp
+Tile.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Tile.h
+
+/home/federico/Documenti/ClionWorkspace/GameProject/Tile.h
 SFML/Graphics/Texture.hpp
 -
 Collision.h
-/home/sode/Documenti/CLionWorkspace/GameProject/Collision.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Collision.h
+
+/home/federico/Documenti/ClionWorkspace/GameProject/main.cpp
+iostream
+-
+SFML/Graphics.hpp
+-
+SFML/Window.hpp
+-
+fstream
+-
+Layer.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Layer.h
+GameHero.h
+/home/federico/Documenti/ClionWorkspace/GameProject/GameHero.h
+Map.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Map.h
 
