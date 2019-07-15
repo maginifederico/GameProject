@@ -253,13 +253,13 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.Game" />
       <item itemvalue="CMake Application.core" />
+      <item itemvalue="CMake Application.Game" />
+      <item itemvalue="CMake Application.patagame_unit_testing" />
       <item itemvalue="CMake Application.gmock" />
       <item itemvalue="CMake Application.gmock_main" />
       <item itemvalue="CMake Application.gtest" />
       <item itemvalue="CMake Application.gtest_main" />
-      <item itemvalue="CMake Application.patagame_unit_testing" />
     </list>
   </component>
   <component name="SvnConfiguration">
