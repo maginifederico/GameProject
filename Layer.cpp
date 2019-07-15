@@ -17,8 +17,8 @@
 
 
 Layer::Layer(int width, int height, std::string tileset) : width(width), height(height),
-                                                           tileset(tileset) {//TODO in mappa
-
+                                                           tileset(tileset) {
+    tile = new Tile[width * height];
 }
 
 bool Layer::load(sf::Vector2u tileSize, std::string map_path) {
@@ -29,6 +29,11 @@ bool Layer::load(sf::Vector2u tileSize, std::string map_path) {
 
     for (int i = 0; i < width * height; i++) {
         my_file >> layer[i];
+        tile[i].setId(layer[i]);
+//        if(tile[i].getId() != 0){
+//            tile[i].getCollision().height = tileSize.y;
+//            tile[i].getCollision().width = tileSize.x;
+//        }
     }
 
     // load the tileset texture
@@ -43,26 +48,32 @@ bool Layer::load(sf::Vector2u tileSize, std::string map_path) {
     for (unsigned int i = 0; i < width; ++i)
         for (unsigned int j = 0; j < height; ++j) {
             // get the current tile number
-            int tileNumber = layer[i + j * width];
+            int tileNumber = tile[i + j * width].getId();
 
             // find its position in the tileset texture
-            int tu = tileNumber % (m_tileset.getSize().x / tileSize.x);
-            int tv = tileNumber / (m_tileset.getSize().x / tileSize.x);
+            int tu = tileNumber % (m_tileset.getSize().x / tileSize.x); //colonna
+            int tv = tileNumber / (m_tileset.getSize().x / tileSize.x); //riga
 
             // get a pointer to the current tile's quad
             sf::Vertex *quad = &m_vertices[(i + j * width) * 4];
 
             // define its 4 corners
-            quad[0].position = sf::Vector2f(i * tileSize.x, j * tileSize.y);
-            quad[1].position = sf::Vector2f((i + 1) * tileSize.x, j * tileSize.y);
-            quad[2].position = sf::Vector2f((i + 1) * tileSize.x, (j + 1) * tileSize.y);
-            quad[3].position = sf::Vector2f(i * tileSize.x, (j + 1) * tileSize.y);
+            quad[0].position = sf::Vector2f(i * tileSize.x, j * tileSize.y);                //top left
+            quad[1].position = sf::Vector2f((i + 1) * tileSize.x, j * tileSize.y);          //top right
+            quad[2].position = sf::Vector2f((i + 1) * tileSize.x, (j + 1) * tileSize.y);    //bottom right
+            quad[3].position = sf::Vector2f(i * tileSize.x, (j + 1) * tileSize.y);          //bottom left
 
             // define its 4 texture coordinates
             quad[0].texCoords = sf::Vector2f(tu * tileSize.x, tv * tileSize.y);
             quad[1].texCoords = sf::Vector2f((tu + 1) * tileSize.x, tv * tileSize.y);
             quad[2].texCoords = sf::Vector2f((tu + 1) * tileSize.x, (tv + 1) * tileSize.y);
             quad[3].texCoords = sf::Vector2f(tu * tileSize.x, (tv + 1) * tileSize.y);
+
+            //se non e' una tile di aria, imposta la sua collisione, altrimenti togli collision = FloatRect(0, 0, 0, 0)
+            if (tile[i + j * width].getId() != 0)
+                tile[i + j * width].setCollision(sf::FloatRect(quad[0].position, sf::Vector2f(tileSize.x, tileSize.y)));
+            else
+                tile[i + j * width].setCollision(sf::FloatRect());
         }
     return true;
 }
@@ -76,6 +87,10 @@ void Layer::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 
 // draw the vertex array
     target.draw(m_vertices, states);
+}
+
+Tile *Layer::getTile() const {
+    return tile;
 }
 //
 //const sf::Vector2f &Layer::getSpawnPoint() const {//TODO in mappa

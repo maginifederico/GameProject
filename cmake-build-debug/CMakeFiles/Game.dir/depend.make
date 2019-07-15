@@ -8,32 +8,44 @@ CMakeFiles/Game.dir/Collision.cpp.o: ../Tile.h
 CMakeFiles/Game.dir/GameCharacter.cpp.o: ../GameCharacter.cpp
 CMakeFiles/Game.dir/GameCharacter.cpp.o: ../GameCharacter.h
 
+CMakeFiles/Game.dir/GameHero.cpp.o: ../Collision.h
 CMakeFiles/Game.dir/GameHero.cpp.o: ../GameCharacter.h
 CMakeFiles/Game.dir/GameHero.cpp.o: ../GameHero.cpp
 CMakeFiles/Game.dir/GameHero.cpp.o: ../GameHero.h
+CMakeFiles/Game.dir/GameHero.cpp.o: ../Item.h
+CMakeFiles/Game.dir/GameHero.cpp.o: ../Layer.h
+CMakeFiles/Game.dir/GameHero.cpp.o: ../Map.h
+CMakeFiles/Game.dir/GameHero.cpp.o: ../Tile.h
 
 CMakeFiles/Game.dir/Item.cpp.o: ../Item.cpp
 CMakeFiles/Game.dir/Item.cpp.o: ../Item.h
 
+CMakeFiles/Game.dir/Layer.cpp.o: ../Collision.h
 CMakeFiles/Game.dir/Layer.cpp.o: ../Layer.cpp
 CMakeFiles/Game.dir/Layer.cpp.o: ../Layer.h
+CMakeFiles/Game.dir/Layer.cpp.o: ../Tile.h
 
+CMakeFiles/Game.dir/Map.cpp.o: ../Collision.h
 CMakeFiles/Game.dir/Map.cpp.o: ../GameCharacter.h
 CMakeFiles/Game.dir/Map.cpp.o: ../Item.h
 CMakeFiles/Game.dir/Map.cpp.o: ../Layer.h
 CMakeFiles/Game.dir/Map.cpp.o: ../Map.cpp
 CMakeFiles/Game.dir/Map.cpp.o: ../Map.h
+CMakeFiles/Game.dir/Map.cpp.o: ../Tile.h
 
 CMakeFiles/Game.dir/Obstacle.cpp.o: ../Obstacle.cpp
 CMakeFiles/Game.dir/Obstacle.cpp.o: ../Obstacle.h
 
+CMakeFiles/Game.dir/Tile.cpp.o: ../Collision.h
 CMakeFiles/Game.dir/Tile.cpp.o: ../Tile.cpp
 CMakeFiles/Game.dir/Tile.cpp.o: ../Tile.h
 
+CMakeFiles/Game.dir/main.cpp.o: ../Collision.h
 CMakeFiles/Game.dir/main.cpp.o: ../GameCharacter.h
 CMakeFiles/Game.dir/main.cpp.o: ../GameHero.h
 CMakeFiles/Game.dir/main.cpp.o: ../Item.h
 CMakeFiles/Game.dir/main.cpp.o: ../Layer.h
 CMakeFiles/Game.dir/main.cpp.o: ../Map.h
+CMakeFiles/Game.dir/main.cpp.o: ../Tile.h
 CMakeFiles/Game.dir/main.cpp.o: ../main.cpp
 

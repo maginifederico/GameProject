@@ -15,8 +15,8 @@ Map::Map(unsigned int width, unsigned int height, std::string background, std::s
 }
 
 bool Map::load() {
-    if (!layer[0].load(sf::Vector2u(21, 21), background))
-        return -1;
+//    if (!layer[0].load(sf::Vector2u(21, 21), background))
+//        return -1;
 
     if (!layer[1].load(sf::Vector2u(21, 21), ground))
         return -1;

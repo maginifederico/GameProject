@@ -9,6 +9,7 @@
 #include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/PrimitiveType.hpp>
 #include <SFML/Graphics/Texture.hpp>
+#include "Tile.h"
 
 
 class Layer : public sf::Drawable, public sf::Transformable {
@@ -18,6 +19,10 @@ public:
 
     bool
     load(sf::Vector2u tileSize, std::string map_path);
+
+    Tile *getTile() const;
+
+
 
     //const sf::Vector2f &Layer::getSpawnPoint() const;
 
@@ -29,6 +34,9 @@ private:
     sf::Texture m_tileset;
     unsigned int height;
     unsigned int width;
+
+
+    Tile *tile;
     //const sf::Vector2f spawn_point = sf::Vector2f(100.f, 0.f);
 
 

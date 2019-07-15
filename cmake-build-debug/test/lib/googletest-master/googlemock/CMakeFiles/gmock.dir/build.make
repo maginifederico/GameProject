@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/sode/Scaricati/clion-2019.1.3/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/sode/Scaricati/clion-2019.1.3/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/federico/Documenti/ClionWorkspace/GameProject
+CMAKE_SOURCE_DIR = /home/sode/Documenti/CLionWorkspace/GameProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug
+CMAKE_BINARY_DIR = /home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/depend.make
@@ -59,16 +59,16 @@ include test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/flags.make
 
 test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/flags.make
 test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: ../test/lib/googletest-master/googlemock/src/gmock-all.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
-	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/src/gmock-all.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+	cd /home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/sode/Documenti/CLionWorkspace/GameProject/test/lib/googletest-master/googlemock/src/gmock-all.cc
 
 test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gmock.dir/src/gmock-all.cc.i"
-	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/src/gmock-all.cc > CMakeFiles/gmock.dir/src/gmock-all.cc.i
+	cd /home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sode/Documenti/CLionWorkspace/GameProject/test/lib/googletest-master/googlemock/src/gmock-all.cc > CMakeFiles/gmock.dir/src/gmock-all.cc.i
 
 test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gmock.dir/src/gmock-all.cc.s"
-	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/src/gmock-all.cc -o CMakeFiles/gmock.dir/src/gmock-all.cc.s
+	cd /home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sode/Documenti/CLionWorkspace/GameProject/test/lib/googletest-master/googlemock/src/gmock-all.cc -o CMakeFiles/gmock.dir/src/gmock-all.cc.s
 
 # Object files for target gmock
 gmock_OBJECTS = \
@@ -80,9 +80,9 @@ gmock_EXTERNAL_OBJECTS =
 lib/libgmockd.a: test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
 lib/libgmockd.a: test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build.make
 lib/libgmockd.a: test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ../../../../lib/libgmockd.a"
-	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock.dir/cmake_clean_target.cmake
-	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gmock.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ../../../../lib/libgmockd.a"
+	cd /home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock.dir/cmake_clean_target.cmake
+	cd /home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gmock.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build: lib/libgmockd.a
@@ -90,10 +90,10 @@ test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build: lib/libgmockd.
 .PHONY : test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build
 
 test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/clean:
-	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock.dir/cmake_clean.cmake
+	cd /home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock && $(CMAKE_COMMAND) -P CMakeFiles/gmock.dir/cmake_clean.cmake
 .PHONY : test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/clean
 
 test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/depend:
-	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/federico/Documenti/ClionWorkspace/GameProject /home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sode/Documenti/CLionWorkspace/GameProject /home/sode/Documenti/CLionWorkspace/GameProject/test/lib/googletest-master/googlemock /home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug /home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock /home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/depend
 

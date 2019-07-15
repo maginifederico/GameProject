@@ -1,4 +1,4 @@
-/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make -DCMAKE_C_COMPILER=/usr/bin/cc -DCMAKE_CXX_COMPILER=/usr/bin/c++ -G "CodeBlocks - Unix Makefiles" /home/federico/Documenti/ClionWorkspace/GameProject
+/home/sode/Scaricati/clion-2019.1.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make -DCMAKE_C_COMPILER=/usr/bin/cc -DCMAKE_CXX_COMPILER=/usr/bin/c++ -G "CodeBlocks - Unix Makefiles" /home/sode/Documenti/CLionWorkspace/GameProject
 -- The C compiler identification is GNU 7.4.0
 -- The CXX compiler identification is GNU 7.4.0
 -- Check for working C compiler: /usr/bin/cc
@@ -26,4 +26,4 @@
 -- Found Threads: TRUE  
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug
+-- Build files have been written to: /home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug

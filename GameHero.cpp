@@ -47,17 +47,17 @@ void GameHero::move() {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
         velocity.x += -speed * dt;
-        if (sprite.getPosition().x >= INITIAL_POSITION_X &&
-            sprite.getPosition().x <= 6300.f - 3 * INITIAL_POSITION_X)//FIXME sostituire 6300 con MAP WIDTH
-            playerView.move(-speed * dt, 0.f);
+//        if (sprite.getPosition().x >= INITIAL_POSITION_X &&
+//            sprite.getPosition().x <= 6300.f - 3 * INITIAL_POSITION_X)//FIXME sostituire 6300 con MAP WIDTH
+//            playerView.move(-speed * dt, 0.f);
 
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         velocity.x += speed * dt;
-        if (sprite.getPosition().x >= INITIAL_POSITION_X &&
-            sprite.getPosition().x <= 6300.f - (3 * INITIAL_POSITION_X))//FIXME sostituire 6300 con MAP WIDTH
-            playerView.move(speed * dt, 0.f);
+//        if (sprite.getPosition().x >= INITIAL_POSITION_X &&
+//            sprite.getPosition().x <= 6300.f - (3 * INITIAL_POSITION_X))//FIXME sostituire 6300 con MAP WIDTH
+//            playerView.move(speed * dt, 0.f);
 
     }
 
@@ -69,7 +69,49 @@ void GameHero::move() {
 //    playerBoundingBox = sprite.getGlobalBounds();
 //    if (!playerBoundingBox.intersects(rect))
 
+////  TILE COLLISION
+    if (velocity.x > 0) {
+        if (sprite.getGlobalBounds().intersects(
+                map->getLayer()[1].getTile()[static_cast<int>(sprite.getPosition().x / 21) + 1 +
+                                             static_cast<int>(sprite.getPosition().y / 21) * 300].getCollision())) {
+            velocity.x = 0;
+            //sprite.setPosition(static_cast<int>(sprite.getPosition().x), sprite.getPosition().y);
+        }
+    }
+
+    if (velocity.x < 0) {
+        if (sprite.getGlobalBounds().intersects(
+                map->getLayer()[1].getTile()[static_cast<int>(sprite.getPosition().x / 21) +
+                                             static_cast<int>(sprite.getPosition().y / 21) * 300].getCollision())) {
+            velocity.x = 0;
+            //sprite.setPosition(static_cast<int>(sprite.getPosition().x), sprite.getPosition().y);
+        }
+    }
+
+    if (velocity.y > 0) {
+        if (sprite.getGlobalBounds().intersects(
+                map->getLayer()[1].getTile()[static_cast<int>(sprite.getPosition().x / 21) + 300 +
+                                             static_cast<int>(sprite.getPosition().y / 21) * 300].getCollision())) {
+            velocity.y = 0;
+            //sprite.setPosition(sprite.getPosition().x, static_cast<int>(sprite.getPosition().y));
+        }
+    }
+
+    if (velocity.y < 0) {
+        if (sprite.getGlobalBounds().intersects(
+                map->getLayer()[1].getTile()[static_cast<int>(sprite.getPosition().x / 21) - 300 +
+                                             static_cast<int>(sprite.getPosition().y / 21) * 300].getCollision())) {
+            velocity.y = 0;
+            //sprite.setPosition(sprite.getPosition().x, static_cast<int>(sprite.getPosition().y));
+
+        }
+    }
+
     sprite.move(velocity);
+
+    if (sprite.getPosition().x >= INITIAL_POSITION_X && sprite.getPosition().x <= 6300.f - 3 * INITIAL_POSITION_X)
+        playerView.move(velocity);
+
 
 
     if (sprite.getPosition().y >= INITIAL_POSITION_Y) {//FIXME correggere con collisione
@@ -93,4 +135,8 @@ void GameHero::move() {
     //bottom collision
     if (sprite.getPosition().y + sprite.getGlobalBounds().height > 1010.f)//FIXME WINDOW HEIGHT 1010
         sprite.setPosition(sprite.getPosition().x, 1010.f - sprite.getGlobalBounds().height);//FIXME WINDOW HEIGHT 1010
+
+
+
+
 }

@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.h
+/home/sode/Documenti/CLionWorkspace/GameProject/Collision.h
+Tile.h
+/home/sode/Documenti/CLionWorkspace/GameProject/Tile.h
+
+/home/sode/Documenti/CLionWorkspace/GameProject/GameCharacter.h
 iostream
 -
 SFML/Graphics.hpp
@@ -16,13 +20,19 @@ SFML/Window.hpp
 SFML/System.hpp
 -
 
-/home/federico/Documenti/ClionWorkspace/GameProject/GameHero.h
+/home/sode/Documenti/CLionWorkspace/GameProject/GameHero.cpp
+GameHero.h
+/home/sode/Documenti/CLionWorkspace/GameProject/GameHero.h
+
+/home/sode/Documenti/CLionWorkspace/GameProject/GameHero.h
 GameCharacter.h
-/home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.h
+/home/sode/Documenti/CLionWorkspace/GameProject/GameCharacter.h
+Map.h
+/home/sode/Documenti/CLionWorkspace/GameProject/Map.h
 
-/home/federico/Documenti/ClionWorkspace/GameProject/Item.h
+/home/sode/Documenti/CLionWorkspace/GameProject/Item.h
 
-/home/federico/Documenti/ClionWorkspace/GameProject/Layer.h
+/home/sode/Documenti/CLionWorkspace/GameProject/Layer.h
 SFML/Graphics/Drawable.hpp
 -
 SFML/Graphics/Transformable.hpp
@@ -31,28 +41,20 @@ SFML/Graphics/PrimitiveType.hpp
 -
 SFML/Graphics/Texture.hpp
 -
+Tile.h
+/home/sode/Documenti/CLionWorkspace/GameProject/Tile.h
 
-/home/federico/Documenti/ClionWorkspace/GameProject/Map.h
+/home/sode/Documenti/CLionWorkspace/GameProject/Map.h
 GameCharacter.h
-/home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.h
+/home/sode/Documenti/CLionWorkspace/GameProject/GameCharacter.h
 Item.h
-/home/federico/Documenti/ClionWorkspace/GameProject/Item.h
+/home/sode/Documenti/CLionWorkspace/GameProject/Item.h
 Layer.h
-/home/federico/Documenti/ClionWorkspace/GameProject/Layer.h
+/home/sode/Documenti/CLionWorkspace/GameProject/Layer.h
 
-/home/federico/Documenti/ClionWorkspace/GameProject/main.cpp
-iostream
+/home/sode/Documenti/CLionWorkspace/GameProject/Tile.h
+SFML/Graphics/Texture.hpp
 -
-SFML/Graphics.hpp
--
-SFML/Window.hpp
--
-fstream
--
-Layer.h
-/home/federico/Documenti/ClionWorkspace/GameProject/Layer.h
-GameHero.h
-/home/federico/Documenti/ClionWorkspace/GameProject/GameHero.h
-Map.h
-/home/federico/Documenti/ClionWorkspace/GameProject/Map.h
+Collision.h
+/home/sode/Documenti/CLionWorkspace/GameProject/Collision.h
 
