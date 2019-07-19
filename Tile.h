@@ -10,6 +10,7 @@
 
 class Tile {
 public:
+
     int getId() const;
 
     void setId(int id);

@@ -80,6 +80,8 @@ int main() {
     GameHero player(GAME_HERO_TEXTURE, Vector2f(map.getSpawnPoint().x, map.getSpawnPoint().y),
                     Vector2f(VIEW_WIDTH, VIEW_HEIGHT));
 
+    player.map = &map;
+
 
 
     ////GAME LOOP
@@ -107,6 +109,9 @@ int main() {
 
         //render
         window.clear();
+
+
+//        std::cout << player.sprite.getGlobalBounds().width << std::endl << player.sprite.getGlobalBounds().height;
 
         //render game elements
 //        window.draw(map.getLayer()[0]);

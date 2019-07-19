@@ -7,6 +7,7 @@
 #define _GAMEHERO_H
 
 #include "GameCharacter.h"
+#include "Map.h"
 
 
 class GameHero : public GameCharacter {
@@ -19,6 +20,8 @@ public:
     GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f playerView, float speed = 300.f);
 //    Item *item;
 //    Weapon *weapon;
+    Map *map;        //FIXME
+
 
 private:
     sf::Vector2f velocity;
@@ -27,9 +30,10 @@ private:
 //    const float movementSpeed = 300.f;//FIXME spostare in GameCharacter nel campo speed?
     const float INITIAL_POSITION_X = 200.f;
     const float INITIAL_POSITION_Y = 300.f;//FIXME sposta in spawning point dopo aver fatto collisioni
-    const float acceleration = -1.f;//FIXME sposta in mappa/fisica/CasettiCazzoLungoSpaccaGessetty
+    const float acceleration = -1.f;//FIXME sposta in mappa/fisica
     sf::FloatRect playerBoundingBox;//FIXME
-    bool isColliding;//FIXME
+    sf::FloatRect viewPosition;
+    bool isColliding;
 
 };
 

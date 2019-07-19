@@ -25,6 +25,9 @@ public:
 
     Layer *getLayer() const;
 
+    unsigned int getHeight() const;
+
+    unsigned int getWidth() const;
 
 private:
     unsigned int height;
