@@ -29,9 +29,10 @@ private:
     const float dt = 0.0003;
 //    const float movementSpeed = 300.f;//FIXME spostare in GameCharacter nel campo speed?
     const float INITIAL_POSITION_X = 200.f;
-    const float INITIAL_POSITION_Y = 400.f;//FIXME sposta in spawning point dopo aver fatto collisioni
-    const float acceleration = -1.f;//FIXME sposta in mappa/fisica/CasettiCazzoLungoSpaccaGessetty
+    const float INITIAL_POSITION_Y = 300.f;//FIXME sposta in spawning point dopo aver fatto collisioni
+    const float acceleration = -1.f;//FIXME sposta in mappa/fisica
     sf::FloatRect playerBoundingBox;//FIXME
+    sf::FloatRect viewPosition;
     bool isColliding;
 
 };

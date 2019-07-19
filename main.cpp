@@ -50,8 +50,18 @@ int main() {
 
     ////INIT MAP
 
+    Texture backgroundTexture;
+    Sprite background;
+
+    if (!backgroundTexture.loadFromFile("./Textures/bground.png"))
+        std::cout << "Unable to load the background";
+    background.setTexture((backgroundTexture));
+    background.setOrigin(0.f, 0.f);
+
     Map map(300, 25, "./Map/background.txt", "./Map/ground.txt");
     map.load();
+
+
 
 //    // create the background layer from the level definition
 //    Layer background_map;
@@ -69,6 +79,7 @@ int main() {
 
     GameHero player(GAME_HERO_TEXTURE, Vector2f(map.getSpawnPoint().x, map.getSpawnPoint().y),
                     Vector2f(VIEW_WIDTH, VIEW_HEIGHT));
+
     player.map = &map;
 
 
@@ -99,15 +110,21 @@ int main() {
         //render
         window.clear();
 
+
+//        std::cout << player.sprite.getGlobalBounds().width << std::endl << player.sprite.getGlobalBounds().height;
+
         //render game elements
-        window.draw(map.getLayer()[0]);
+        window.draw(background);
+//
         window.draw(map.getLayer()[1]);
         window.draw(player.getSprite());
         window.setView(player.playerView);
+
 //        window.draw(rectangleShape);
 
         //render ui
         window.display();
+
     }
 
     return 0;

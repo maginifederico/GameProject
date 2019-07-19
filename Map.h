@@ -27,6 +27,12 @@ public:
 
 
 private:
+public:
+    unsigned int getHeight() const;
+
+    unsigned int getWidth() const;
+
+private:
     unsigned int height;
     unsigned int width;
 //    float height;

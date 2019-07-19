@@ -34,6 +34,14 @@ Layer *Map::getLayer() const {
     return layer;
 }
 
+unsigned int Map::getHeight() const {
+    return height;
+}
+
+unsigned int Map::getWidth() const {
+    return width;
+}
+
 //void Map::setLayer(Layer *layer) {
 //    Map::layer = layer;
 //}
