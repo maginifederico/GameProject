@@ -31,6 +31,7 @@ int main() {
 
     //init window
     RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "PATAMAN ADVENTURES");
+    window.setFramerateLimit(1500);
 
     //player bounding box
 //    bool isColliding = false;

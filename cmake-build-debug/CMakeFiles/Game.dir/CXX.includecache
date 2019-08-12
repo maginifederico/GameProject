@@ -20,9 +20,15 @@ SFML/Window.hpp
 SFML/System.hpp
 -
 
+/home/federico/Documenti/ClionWorkspace/GameProject/GameHero.cpp
+GameHero.h
+/home/federico/Documenti/ClionWorkspace/GameProject/GameHero.h
+
 /home/federico/Documenti/ClionWorkspace/GameProject/GameHero.h
 GameCharacter.h
 /home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.h
+Map.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Map.h
 
 /home/federico/Documenti/ClionWorkspace/GameProject/Item.h
 

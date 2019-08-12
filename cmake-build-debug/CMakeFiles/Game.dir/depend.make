@@ -8,9 +8,14 @@ CMakeFiles/Game.dir/Collision.cpp.o: ../Tile.h
 CMakeFiles/Game.dir/GameCharacter.cpp.o: ../GameCharacter.cpp
 CMakeFiles/Game.dir/GameCharacter.cpp.o: ../GameCharacter.h
 
+CMakeFiles/Game.dir/GameHero.cpp.o: ../Collision.h
 CMakeFiles/Game.dir/GameHero.cpp.o: ../GameCharacter.h
 CMakeFiles/Game.dir/GameHero.cpp.o: ../GameHero.cpp
 CMakeFiles/Game.dir/GameHero.cpp.o: ../GameHero.h
+CMakeFiles/Game.dir/GameHero.cpp.o: ../Item.h
+CMakeFiles/Game.dir/GameHero.cpp.o: ../Layer.h
+CMakeFiles/Game.dir/GameHero.cpp.o: ../Map.h
+CMakeFiles/Game.dir/GameHero.cpp.o: ../Tile.h
 
 CMakeFiles/Game.dir/Item.cpp.o: ../Item.cpp
 CMakeFiles/Game.dir/Item.cpp.o: ../Item.h
