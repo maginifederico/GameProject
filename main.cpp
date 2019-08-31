@@ -26,7 +26,7 @@ int main() {
     const unsigned int WINDOW_HEIGHT = 1010;
     const float VIEW_HEIGHT = 525.f;
     const float VIEW_WIDTH = 800.f;
-    const std::string GAME_HERO_TEXTURE = "./Textures/singleBird.png";
+    const std::string GAME_HERO_TEXTURE = "./Textures/patata_196x134.png";
     int i = 0;
 
     //init window

@@ -35,7 +35,12 @@ void GameHero::move() {
     int c = sprite.getPosition().x / 21;
     int r = sprite.getPosition().y / 21;
 
-    //TODO upper right
+    sf::FloatRect upper_left = map->getLayer()[1].getTile()[c + r * 300].getCollision();
+    sf::FloatRect upper_right = map->getLayer()[1].getTile()[c + 1 + r * 300].getCollision();
+    sf::FloatRect down_left = map->getLayer()[1].getTile()[c + 300 + r * 300].getCollision();
+    sf::FloatRect down_right = map->getLayer()[1].getTile()[c + 300 + r * 300 + 1].getCollision();
+
+
 
 //    ricorda playerBoundingBox = sprite.getGlobalBounds();
 
@@ -47,8 +52,7 @@ void GameHero::move() {
 
 //// GESTIONE TASTI WASD
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-        if ((playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + 300 + r * 300].getCollision()) ||
-             playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + 300 + r * 300 + 1].getCollision())) &&
+        if ((playerBoundingBox.intersects(down_left) || playerBoundingBox.intersects(down_right)) &&
             velocity.y == 0.f) {
             velocity.y = jumpSpeed * dt;
 //            playerView.move(0.f,jumpSpeed * dt);//FIXME movimento view verticale
@@ -71,11 +75,19 @@ void GameHero::move() {
 
 
     //Se il giocatore non è a terra, applica gravità
-    if (!(playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + 300 + r * 300].getCollision()) ||
-          playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + 300 + r * 300 + 1].getCollision())) ||
-        (!playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + r * 300 + 1].getCollision()) &&
-         playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + r * 300].getCollision()))) {
-        velocity.y -= acceleration * dt;
+    if (map->getLayer()[1].getTile()[c + r * 300 + 300].getId() == 0 &&
+        map->getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId() == 0
+//            !(playerBoundingBox.intersects(down_left) || playerBoundingBox.intersects(down_right)) || //non è a terra
+//        (map->getLayer()[1].getTile()[c + r * 300].getId() != 0 && //oppure c'è una parete/spigolo a sinistra
+//         map->getLayer()[1].getTile()[c + r * 300 + 1].getId() == 0 &&
+//         map->getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId() == 0) ||
+//        (map->getLayer()[1].getTile()[c + r * 300].getId() == 0 && //oppure c'è una parete/spigolo a destra
+//         map->getLayer()[1].getTile()[c + r * 300 + 1].getId() != 0 &&
+//         map->getLayer()[1].getTile()[c + r * 300 + 300].getId() == 0) //||
+////        (!playerBoundingBox.intersects(upper_right) && playerBoundingBox.intersects(upper_left)) ||
+////            (!playerBoundingBox.intersects(upper_left) && playerBoundingBox.intersects(upper_right))
+            ) {
+        velocity.y -= acceleration * dt; //applica gravità
     }
 
     sprite.move(velocity);
@@ -86,7 +98,10 @@ void GameHero::move() {
 
     //DESTRA
     if (velocity.x > 0) {
-        if (playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + 1 + r * 300].getCollision()) //||
+        if (map->getLayer()[1].getTile()[c + r * 300 + 1].getId() != 0 //a destra c'è un ostacolo
+//            || (map->getLayer()[1].getTile()[c + r * 300 + 1].getId() == 0 && //oppure si trova su un terreno volante
+//                map->getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId() != 0 &&
+//                map->getLayer()[1].getTile()[c + r * 300 + 300].getId() == 0)
             /*playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + 1 + r * 300 + 300].getCollision())*/) {
             sprite.setPosition(startingPosition.x, sprite.getPosition().y);
             horizontalCollision = 1;
@@ -144,6 +159,7 @@ void GameHero::move() {
 
 //    sprite.move(velocity);
 
+    //MOVIMENTO VIEW
     if (sprite.getPosition().x >= INITIAL_POSITION_X && sprite.getPosition().x <= 6300.f - 3 * INITIAL_POSITION_X)
         playerView.move(getSprite().getPosition().x - startingPosition.x, 0.f);
 
