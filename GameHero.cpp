@@ -17,7 +17,6 @@ GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector
     velocity.x = 0;
     velocity.y = 0;
     playerView.reset(sf::FloatRect(0, 0, view.x, view.y));
-    isColliding = false;
     viewPosition.height = playerView.getSize().y;
     viewPosition.width = playerView.getSize().x;
     viewPosition.top = playerView.getCenter().y - playerView.getSize().y / 2;
@@ -28,33 +27,21 @@ void GameHero::move() {
 
     sf::Vector2f startingPosition(getSprite().getPosition());
 
-    playerBoundingBox = getSprite().getGlobalBounds();
-    horizontalCollision = 0;
-    verticalCollision = 0;
-
     int c = sprite.getPosition().x / 21;
     int r = sprite.getPosition().y / 21;
-
-    sf::FloatRect upper_left = map->getLayer()[1].getTile()[c + r * 300].getCollision();
-    sf::FloatRect upper_right = map->getLayer()[1].getTile()[c + 1 + r * 300].getCollision();
-    sf::FloatRect down_left = map->getLayer()[1].getTile()[c + 300 + r * 300].getCollision();
-    sf::FloatRect down_right = map->getLayer()[1].getTile()[c + 300 + r * 300 + 1].getCollision();
 
     int sinistra = map->getLayer()[1].getTile()[c + r * 300].getId();
     int destra = map->getLayer()[1].getTile()[c + r * 300 + 1].getId();
     int sotto_sinistra = map->getLayer()[1].getTile()[c + r * 300 + 300].getId();
     int sotto_destra = map->getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId();
 
+    velocity.x = 0;
 
 
 
 
 //    ricorda playerBoundingBox = sprite.getGlobalBounds();
 
-    velocity.x = 0;
-
-//    dt = dtClock.restart().asSeconds();
-//    dt = 0.0003f;
 
     ////APPLICAZIONE GRAVITA'
     //Se il giocatore non è a terra, applica gravità
@@ -69,23 +56,14 @@ void GameHero::move() {
         || (sotto_sinistra != 0 && sotto_destra == 0 && sinistra != 0 && destra != 0)
         // FIXME il player entra nel muro nel tile più esterno degli spigoli se entra da sx per spigoli a sx o da dx per spigoli a dx, solo venendo dall'alto
 
-//            !(playerBoundingBox.intersects(down_left) || playerBoundingBox.intersects(down_right)) || //non è a terra
-//        (map->getLayer()[1].getTile()[c + r * 300].getId() != 0 && //oppure c'è una parete/spigolo a sinistra
-//         map->getLayer()[1].getTile()[c + r * 300 + 1].getId() == 0 &&
-//         map->getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId() == 0) ||
-//        (map->getLayer()[1].getTile()[c + r * 300].getId() == 0 && //oppure c'è una parete/spigolo a destra
-//         map->getLayer()[1].getTile()[c + r * 300 + 1].getId() != 0 &&
-//         map->getLayer()[1].getTile()[c + r * 300 + 300].getId() == 0) //||
-////        (!playerBoundingBox.intersects(upper_right) && playerBoundingBox.intersects(upper_left)) ||
-////            (!playerBoundingBox.intersects(upper_left) && playerBoundingBox.intersects(upper_right))
             ) {
         velocity.y -= acceleration * dt; //applica gravità
     } else {
-        velocity.y = 0;
+        velocity.y = 0; //ferma il movimento verticale del giocatore
     }
 
 
-//// GESTIONE TASTI WASD
+    //// GESTIONE TASTI WASD
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         if ((sotto_sinistra != 0 || sotto_destra != 0) && velocity.y == 0.f) {
             velocity.y = jumpSpeed * dt;
@@ -106,126 +84,50 @@ void GameHero::move() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
         velocity.x += speed * dt;
     }
-////Se il giocatore non è a terra, applica gravità
-//    if (sotto_sinistra == 0 && !(sotto_destra != 0 && destra == 0 && sotto_sinistra == 0)
-////            !(playerBoundingBox.intersects(down_left) || playerBoundingBox.intersects(down_right)) || //non è a terra
-////        (map->getLayer()[1].getTile()[c + r * 300].getId() != 0 && //oppure c'è una parete/spigolo a sinistra
-////         map->getLayer()[1].getTile()[c + r * 300 + 1].getId() == 0 &&
-////         map->getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId() == 0) ||
-////        (map->getLayer()[1].getTile()[c + r * 300].getId() == 0 && //oppure c'è una parete/spigolo a destra
-////         map->getLayer()[1].getTile()[c + r * 300 + 1].getId() != 0 &&
-////         map->getLayer()[1].getTile()[c + r * 300 + 300].getId() == 0) //||
-//////        (!playerBoundingBox.intersects(upper_right) && playerBoundingBox.intersects(upper_left)) ||
-//////            (!playerBoundingBox.intersects(upper_left) && playerBoundingBox.intersects(upper_right))
-//            ) {
-//        velocity.y -= acceleration * dt; //applica gravità
-//    } else {
-//        velocity.y = 0;
-//    }
+
 
     sprite.move(velocity);
 
 
 
 ////  TILE COLLISION
-//    std::cout << velocity.y << std::endl;
 
-    //DESTRA
+    ////DESTRA
     if (velocity.x > 0) {
         if (destra != 0
             // grazie alla condizione sotto il giocatore non entra più nel muro a dx nella parte più alta dello spigolo (se sta saltando)
             || (destra == 0 && sotto_destra != 0 && sotto_sinistra == 0 && velocity.y != 0)
-//            || (destra == 0 && sotto_destra != 0 && sotto_sinistra == 0)
                 ) {
             sprite.move(-velocity.x, 0);
-            horizontalCollision = 1;
         }
-//        if (map->getLayer()[1].getTile()[c + r * 300 + 1].getId() != 0 //a destra c'è un ostacolo
-////            || (map->getLayer()[1].getTile()[c + r * 300 + 1].getId() == 0 && //oppure si trova su un terreno volante
-////                map->getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId() != 0 &&
-////                map->getLayer()[1].getTile()[c + r * 300 + 300].getId() == 0)
-//            /*playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + 1 + r * 300 + 300].getCollision())*/) {
-//            sprite.setPosition(startingPosition.x, sprite.getPosition().y);
-//            horizontalCollision = 1;
-//            //sprite.setPosition(static_cast<int>(sprite.getPosition().x), sprite.getPosition().y);
-//        }
-
     }
 
-    //SINISTRA
+    ////SINISTRA
     if (velocity.x < 0) {
         if (sinistra != 0
             || (sinistra == 0 && sotto_sinistra != 0 && sotto_destra == 0 && velocity.y != 0)
                 ) {
             sprite.move(-velocity.x, 0);
-            horizontalCollision = -1;
         }
-//        if (playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + r * 300].getCollision()) ||
-//            (playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + r * 300 + 300].getCollision()) &&
-//             !playerBoundingBox.intersects(
-//                     map->getLayer()[1].getTile()[c + r * 300 + 300 + 1].getCollision()))) {//FIXME
-////            velocity.x = 0;
-//            sprite.setPosition(startingPosition.x, sprite.getPosition().y);
-//
-//            horizontalCollision = -1;
-//            //sprite.setPosition(static_cast<int>(sprite.getPosition().x), sprite.getPosition().y);
-//        }
     }
 
-    //SOTTO
+//    SOTTO
 //    if (velocity.y > 0) {
-//        //se non sta collidendo a sx e collide in basso a sx (se c'è uno spigolo a sx) e sta cadendo, allora collidi
-//        if (!playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + r * 300].getCollision()) &&
-//            playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + 300 + r * 300].getCollision()) //||
-//            /*playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + 300 + r * 300 + 1].getCollision())*/) {
-//            velocity.y = 0;
-//            verticalCollision = 1;
-//            //sprite.setPosition(sprite.getPosition().x, static_cast<int>(sprite.getPosition().y));
-//        }
-//        //se non sta collidendo a dx e collide in basso a dx (se c'è uno spigolo a dx) e sta cadendo, allora collidi
-//        if (!playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + 1 + r * 300].getCollision()) &&
-//            playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + 300 + r * 300 + 1].getCollision())) {
-//            velocity.y = 0;
-//            verticalCollision = 1;
-//        }
+//
 //    }
 
 
 
-    //SOPRA
+    ////SOPRA
     if (velocity.y < 0) {
         if ((sinistra != 0 && sotto_sinistra == 0)
             || (destra != 0 && sotto_destra == 0)
 
                 ) {
             velocity.y = 0;
-            verticalCollision = -1;
         }
-
-//    //SOPRA
-//    if (velocity.y < 0) {
-//        if ((sinistra != 0 || destra != 0) && sotto_sinistra == 0 && sotto_destra == 0
-//
-//        ) {
-//            velocity.y = 0;
-//            verticalCollision = -1;
-//        }
-
-//        //se non sta collidendo sopra a dx e collide a sx //oppure sta collidendo a dx e non collide a sx, non collidere, altrimenti
-//        if (!playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + r * 300 + 1].getCollision()) &&
-//            playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + r * 300].getCollision()));
-//        else {
-//            if (playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + r * 300].getCollision()) ||
-//                playerBoundingBox.intersects(map->getLayer()[1].getTile()[c + r * 300 + 1].getCollision())) {
-//                velocity.y = 0;
-//                verticalCollision = -1;
-//                //sprite.setPosition(sprite.getPosition().x, static_cast<int>(sprite.getPosition().y));
-//
-//            }
-//        }
     }
 
-//    sprite.move(velocity);
 
     //MOVIMENTO VIEW
     if (sprite.getPosition().x >= INITIAL_POSITION_X && sprite.getPosition().x <= 6300.f - 3 * INITIAL_POSITION_X)

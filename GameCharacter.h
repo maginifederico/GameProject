@@ -23,7 +23,7 @@ public:
 
 protected:
     int HP;
-    float speed;//FIXME togliere movement speed dal GameHero
+    float speed;
     sf::Texture texture;
     sf::Sprite sprite;
 };

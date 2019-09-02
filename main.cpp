@@ -11,11 +11,11 @@ using namespace sf;
 
 int main() {
 
-
-    //TODO movimento view verticale
     //TODO collisioni con layer ground
     //TODO collisioni con layer oggetti
     //TODO implementare i bonus e monetine
+
+    //TODO movimento view verticale
     //TODO far sparare il giocatore
     //TODO creare nemici
     //TODO implementare salvataggio progressi
@@ -33,21 +33,6 @@ int main() {
     RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "PATAMAN ADVENTURES");
     window.setFramerateLimit(1500);
 
-    //player bounding box
-//    bool isColliding = false;
-//    FloatRect playerBoundingBox;
-//
-//    RectangleShape rectangleShape(Vector2f(50.f, 50.f));
-//    rectangleShape.setFillColor(Color::Blue);
-//    rectangleShape.setPosition(200.f,200.f);
-//
-//    FloatRect rect = rectangleShape.getGlobalBounds();
-//    if (playerBoundingBox.intersects(rect)){
-//        isColliding = true;
-//        rectangleShape.setFillColor(Color::Red);
-//        std::cout << "Collision" << std::endl;
-//    }
-
 
     ////INIT MAP
 
@@ -64,20 +49,9 @@ int main() {
     Map map(300, 25, "./Map/background.txt", "./Map/ground.txt");
     map.load();
 
-//    // create the background layer from the level definition
-//    Layer background_map;
-//    if (!background_map.load(sf::Vector2u(21, 21), "./Map/background.txt"))
-//
-//        return -1;
-//
-//    // create the ground layer from the level definition
-//    Layer ground_map;
-//    if (!ground_map.load(sf::Vector2u(21, 21), "./Map/ground.txt"))
-//        return -1;
-
     //init game elements
-    ////INIT Player
 
+    ////INIT Player
     GameHero player(GAME_HERO_TEXTURE, Vector2f(map.getSpawnPoint().x, map.getSpawnPoint().y),
                     Vector2f(VIEW_WIDTH, VIEW_HEIGHT));
 
@@ -97,31 +71,19 @@ int main() {
         }
 
         //update input
-
-//        playerBoundingBox = player.getSprite().getGlobalBounds();
-//
-//        if (playerBoundingBox.intersects(rect)){
-//            isColliding = true;
-//            rectangleShape.setFillColor(Color::Red);
-//            std::cout << "Collision" << std::endl;
-//        }
-
         player.move();
 
         //render
         window.clear();
 
 
-//        std::cout << player.sprite.getGlobalBounds().width << std::endl << player.sprite.getGlobalBounds().height;
 
         //render game elements
-//        window.draw(map.getLayer()[0]);
         window.draw(background);
         window.draw(map.getLayer()[1]);
         window.draw(player.getSprite());
         window.setView(player.playerView);
 
-//        window.draw(rectangleShape);
 
         //render ui
         window.display();
