@@ -20,6 +20,10 @@ public:
 
     const sf::Sprite &getSprite() const;
 
+    const sf::Texture &getTexture() const;
+
+    void setTexture(const sf::Texture &texture);
+
 
 protected:
     int HP;

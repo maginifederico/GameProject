@@ -16,8 +16,7 @@
 #include "Layer.h"
 
 
-Layer::Layer(int width, int height, std::string tileset) : width(width), height(height),
-                                                           tileset(tileset) {
+Layer::Layer(int width, int height, std::string tileSet) : width(width), height(height), tileset(tileSet) {
     tile = new Tile[width * height];
 }
 

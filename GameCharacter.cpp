@@ -17,3 +17,11 @@ GameCharacter::GameCharacter(std::string texture, sf::Vector2f initialPosition, 
 const sf::Sprite &GameCharacter::getSprite() const {
     return sprite;
 }
+
+const sf::Texture &GameCharacter::getTexture() const {
+    return texture;
+}
+
+void GameCharacter::setTexture(const sf::Texture &texture) {
+    GameCharacter::texture = texture;
+}

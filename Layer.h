@@ -15,10 +15,9 @@
 class Layer : public sf::Drawable, public sf::Transformable {
 public:
 
-    explicit Layer(int width = 300, int height = 25, std::string tileset_path = "./Textures/tileSetC.png");
+    explicit Layer(int width = 300, int height = 25, std::string tile_set_path = "./Textures/tileSetC.png");
 
-    bool
-    load(sf::Vector2u tileSize, std::string map_path);
+    bool load(sf::Vector2u tileSize, std::string map_path);
 
     Tile *getTile() const;
 

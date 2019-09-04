@@ -11,12 +11,12 @@ using namespace sf;
 
 int main() {
 
-    //TODO collisioni con layer ground
+    //TODO rivedere collisioni con layer ground (guardare i FIXME su GameHero)
+
+    //TODO far sparare il giocatore
     //TODO collisioni con layer oggetti
     //TODO implementare i bonus e monetine
-
     //TODO movimento view verticale
-    //TODO far sparare il giocatore
     //TODO creare nemici
     //TODO implementare salvataggio progressi
 
@@ -26,7 +26,7 @@ int main() {
     const unsigned int WINDOW_HEIGHT = 1010;
     const float VIEW_HEIGHT = 525.f;
     const float VIEW_WIDTH = 800.f;
-    const std::string GAME_HERO_TEXTURE = "./Textures/patata_196x134.png";
+    const std::string GAME_HERO_TEXTURE = "./Textures/PotatoDX.png";
     int i = 0;
 
     //init window
