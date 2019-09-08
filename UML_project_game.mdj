@@ -2116,7 +2116,7 @@
 								},
 								{
 									"_type": "UMLQualifierCompartmentView",
-									"_id": "AAAAAAFqo9uhQfOSr+s=",
+									"_id": "AAAAAAFqo9uhQfOSr+sprite=",
 									"_parent": {
 										"$ref": "AAAAAAFqo9uhQfOHgIc="
 									},
@@ -2172,7 +2172,7 @@
 								"$ref": "AAAAAAFqo9uhQfORH10="
 							},
 							"headQualifiersCompartment": {
-								"$ref": "AAAAAAFqo9uhQfOSr+s="
+								"$ref": "AAAAAAFqo9uhQfOSr+sprite="
 							}
 						},
 						{

@@ -14,15 +14,11 @@
 class GameCharacter {
 public:
 
-    GameCharacter(std::string texture, sf::Vector2f initialPosition, float speed);
+    GameCharacter(std::string &texture, sf::Vector2f initialPosition, float speed);
 
     virtual void move() = 0;
 
     const sf::Sprite &getSprite() const;
-
-    const sf::Texture &getTexture() const;
-
-    void setTexture(const sf::Texture &texture);
 
 
 protected:

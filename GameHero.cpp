@@ -10,7 +10,8 @@
  */
 
 
-GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f view, float speed) : GameCharacter(
+GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, float speed)
+        : GameCharacter(
         texture, initialPosition, speed) {
     sprite.setScale(sf::Vector2f(0.7142857f, 1.044776f));
     sprite.scale(0.15f, 0.15f);
@@ -22,14 +23,15 @@ GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector
     viewPosition.top = playerView.getCenter().y - playerView.getSize().y / 2;
     viewPosition.left = playerView.getCenter().x - playerView.getSize().x / 2;
     movementDirection = true;
+//    frenchFries = new Weapon(gun);
 }
 
 void GameHero::move() {
 
     sf::Vector2f startingPosition(getSprite().getPosition());
 
-    int c = sprite.getPosition().x / 21;
-    int r = sprite.getPosition().y / 21;
+    int c = (int) sprite.getPosition().x / 21;
+    int r = (int) sprite.getPosition().y / 21;
 
     int sinistra = map->getLayer()[1].getTile()[c + r * 300].getId();
     int destra = map->getLayer()[1].getTile()[c + r * 300 + 1].getId();
@@ -82,6 +84,8 @@ void GameHero::move() {
         // FIXME problema bloccaggio player in condizione sotto_sinistra = ground/groundSurface, sotto_destra = waterSurface, destra = aria e anche viceversa
         //  (quando si esce dall'acqua attaccati ad una parete si blocca il player)
 
+        // FIXME problema spigolo di terra sotto l'acqua (ci si entra da sinistra)
+
 
             ) {
 
@@ -95,8 +99,8 @@ void GameHero::move() {
 
                 ) {
             //se il player arriva troppo velocemente sull'acqua, fermalo
-            if (velocity.y > 0.1 && sotto_sinistra == waterSurface && sotto_destra == waterSurface) {
-                velocity.y = -waterAcceleration * 10;
+            if (velocity.y > 0.5 && sotto_sinistra == waterSurface && sotto_destra == waterSurface) {
+                velocity.y = -waterAcceleration;
 //                splash = true;
             }
             if (
@@ -122,7 +126,7 @@ void GameHero::move() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         if (((sotto_sinistra != 0 || sotto_destra != 0) && velocity.y == 0.f) || waterJump) {
             if (waterJump)
-                velocity.y = jumpSpeed / 5;
+                velocity.y = jumpSpeed / 4;
             else
                 velocity.y = jumpSpeed;
 
@@ -142,13 +146,11 @@ void GameHero::move() {
             if (!texture.loadFromFile("./Textures/PotatoSX.png"))
                 std::cout << "Unable to load the sprite";
             sprite.setTexture(texture);
-            std::cout << "cambio" << std::endl << std::endl;
-
         }
 
 
         if (sinistra == water || sinistra == waterSurface) {
-            velocity.x = -speed / 2;
+            velocity.x = -speed / 1.5;
         } else {
             velocity.x = -speed;
         }
@@ -164,8 +166,6 @@ void GameHero::move() {
             if (!texture.loadFromFile("./Textures/PotatoDX.png"))
                 std::cout << "Unable to load the sprite";
             sprite.setTexture(texture);
-            std::cout << "cambio" << std::endl << std::endl;
-
         }
 
         if (destra == water || destra == waterSurface) {
@@ -277,4 +277,21 @@ void GameHero::move() {
 
 
 
+}
+
+
+void GameHero::damage() {
+
+}
+
+Weapon *GameHero::getFrenchFries() const {
+    return frenchFries;
+}
+
+void GameHero::setFrenchFries(Weapon *frenchFries) {
+    GameHero::frenchFries = frenchFries;
+}
+
+int GameHero::getMovementDirection() const {
+    return movementDirection;
 }

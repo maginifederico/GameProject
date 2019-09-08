@@ -53,7 +53,7 @@ bool Layer::load(sf::Vector2u tileSize, std::string map_path) {
             int tu = tileNumber % (m_tileset.getSize().x / tileSize.x); //colonna
             int tv = tileNumber / (m_tileset.getSize().x / tileSize.x); //riga
 
-            // get a pointer to the current tile's quad
+            // get a pointer to the current tile'sprite quad
             sf::Vertex *quad = &m_vertices[(i + j * width) * 4];
 
             // define its 4 corners

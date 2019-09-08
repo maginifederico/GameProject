@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 11)
 
 #INSERIRE ALL'ISTRUZIONE SEGUENTE, DOPO "SOURCE_FILES", TUTTI GLI HEADER E SOURCE FILE DI CUI SI VUOLE ESEGUIRE LO UNIT TESTING. I FILE INSERITI NELLA VARIABILE SOURCE_FILE NON DEVONO ESSERE REINSERITI NELL'ISTRUZIONE A RIGO 8 DI ADD EXECUTABLE
 set(SOURCE_FILES GameCharacter.h)
-add_executable(Game ${SOURCE_FILES} main.cpp Layer.h Obstacle.h Item.h GameHero.h Map.h GameHero.cpp Obstacle.cpp Item.cpp GameHero.cpp Tile.cpp Tile.h Layer.cpp GameCharacter.cpp Map.cpp Collision.cpp Collision.h)
+add_executable(Game ${SOURCE_FILES} main.cpp Layer.h Obstacle.h Item.h GameHero.h Map.h GameHero.cpp Obstacle.cpp Item.cpp GameHero.cpp Tile.cpp Tile.h Layer.cpp GameCharacter.cpp Map.cpp Collision.cpp Collision.h Weapon.cpp Weapon.h Projectile.cpp Projectile.h)
 
 #PER GOOGLE TEST SCOMMENTARE TUTTE LE ISTRUZIONI SEGUENTI fino a riga 20. PER UNIT TESTING VEDI LIBRO DA PAGINA 248
 

@@ -6,7 +6,7 @@
 #include "GameCharacter.h"
 
 
-GameCharacter::GameCharacter(std::string texture, sf::Vector2f initialPosition, float mov_speed) {
+GameCharacter::GameCharacter(std::string &texture, sf::Vector2f initialPosition, float mov_speed) {
     if (!this->texture.loadFromFile(texture))
         std::cout << "Unable to load the sprite";
     this->sprite.setTexture(this->texture);
@@ -16,12 +16,4 @@ GameCharacter::GameCharacter(std::string texture, sf::Vector2f initialPosition, 
 
 const sf::Sprite &GameCharacter::getSprite() const {
     return sprite;
-}
-
-const sf::Texture &GameCharacter::getTexture() const {
-    return texture;
-}
-
-void GameCharacter::setTexture(const sf::Texture &texture) {
-    GameCharacter::texture = texture;
 }
