@@ -11,8 +11,7 @@
 
 
 GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, float speed)
-        : GameCharacter(
-        texture, initialPosition, speed) {
+        : GameCharacter(texture, initialPosition, speed) {
     sprite.setScale(sf::Vector2f(0.7142857f, 1.044776f));
     sprite.scale(0.15f, 0.15f);
     velocity.x = 0;
@@ -42,6 +41,7 @@ void GameHero::move() {
     int waterSurface = 48;
     int groundSurface = 31;
     int ground = 33;
+    int aria = 0;
 
     bool waterJump = false;
 
@@ -56,6 +56,8 @@ void GameHero::move() {
 //    std::cout << "sinistra= " << sinistra << std::endl << "destra= " << destra << std::endl << "sotto_sinistra= "
 //              << sotto_sinistra << std::endl << "sotto_destra= " << sotto_destra << std::endl
 //              << "velocity.y= " << velocity.y << std::endl << std::endl;
+
+//    std::cout << getSprite().getPosition().x << std::endl << getSprite().getPosition().y << std::endl << std::endl;
 
     ////APPLICAZIONE GRAVITA'
     //Se il giocatore non è a terra e non c'è uno spigolo a destra venendo dall' alto o da fermo sul terreno (cadendo -> velocity.y > 0), applica gravità
@@ -294,4 +296,12 @@ void GameHero::setFrenchFries(Weapon *frenchFries) {
 
 int GameHero::getMovementDirection() const {
     return movementDirection;
+}
+
+const sf::Vector2f &GameHero::getVelocity() const {
+    return velocity;
+}
+
+void GameHero::setVelocity(const sf::Vector2f &velocity) {
+    GameHero::velocity = velocity;
 }

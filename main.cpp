@@ -11,23 +11,24 @@ using namespace sf;
 
 int main() {
 
-    //FATTO
+    ////FATTO
     //collisioni con layer ground
     //movimento nell'acqua
     //far sparare il giocatore
     //fps ridotto da 1500 a 160
+    //collisione dei proiettili con layer ground
 
-    //DA RIVEDERE
+
+    ////DA RIVEDERE
     //TODO rivedere collisioni con layer ground (guardare i FIXME su GameHero)
 
-    //DA FARE
-    //TODO collisione dei proiettili con layer ground
+    ////DA FARE
+    //TODO Unit Testing
     //TODO collisioni con layer oggetti
     //TODO implementare i bonus e monetine
     //TODO movimento view verticale
     //TODO creare nemici
     //TODO implementare salvataggio progressi
-    //TODO Unit Testing
 
     //init game
 
@@ -108,6 +109,8 @@ int main() {
         player.getFrenchFries()->shoot(player.getFrenchFries(), player.getSprite().getPosition(),
                                        player.getMovementDirection());
 
+        player.getFrenchFries()->projectileCollision(map.getLayer()[1]);
+
 
         //render
         window.clear();
@@ -116,9 +119,11 @@ int main() {
         //render game elements
         window.draw(background);
         window.draw(map.getLayer()[1]);
+
+        //FIXME Texture bianca
         for (Projectile projectile : player.getFrenchFries()->getProjectils()) {
             sprite = projectile.getSprite();
-            sprite.setTexture(texture);
+            sprite.setTexture(texture); //soluzione provvisoria
             window.draw(sprite);
         }
         window.draw(player.getSprite());

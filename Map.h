@@ -29,12 +29,13 @@ public:
 
     unsigned int getWidth() const;
 
+    Layer *layer;
+
 private:
     unsigned int height;
     unsigned int width;
 //    float height;
 //    float width;
-    Layer *layer;
 
 
 //    void setLayer(Layer *layer);

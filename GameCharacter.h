@@ -18,7 +18,7 @@ public:
 
     virtual void move() = 0;
 
-    const sf::Sprite &getSprite() const;
+    sf::Sprite &getSprite();
 
 
 protected:

@@ -11,6 +11,7 @@
 
 Map::Map(unsigned int width, unsigned int height, std::string background, std::string ground/*, std::string objects*/)
         : width(width), height(height), background(background), ground(ground)/*, objects(objects)*/ {
+    //crea 3 layer
     layer = new Layer[3]();
 }
 

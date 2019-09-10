@@ -47,3 +47,7 @@ void Projectile::updatePosition() {
 const sf::Vector2f &Projectile::getInitialPosition() const {
     return initialPosition;
 }
+
+bool Projectile::rightDirection() const {
+    return direction;
+}

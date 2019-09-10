@@ -14,6 +14,6 @@ GameCharacter::GameCharacter(std::string &texture, sf::Vector2f initialPosition,
     speed = mov_speed;
 }
 
-const sf::Sprite &GameCharacter::getSprite() const {
+sf::Sprite &GameCharacter::getSprite() {
     return sprite;
 }

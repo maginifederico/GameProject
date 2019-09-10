@@ -24,6 +24,8 @@ public:
 
     std::vector<Projectile> &getProjectils();
 
+    void projectileCollision(Layer &ground);
+
 private:
 
     sf::Clock clock;

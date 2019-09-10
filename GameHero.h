@@ -15,7 +15,11 @@
 class Weapon;
 
 class GameHero : public GameCharacter {
+
+
 public:
+    GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f playerView, Weapon *gun = nullptr,
+             float speed = 1.f);
 
     sf::View playerView;
 
@@ -25,15 +29,16 @@ public:
 
     Weapon *getFrenchFries() const;
 
-    GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f playerView, Weapon *gun = nullptr,
-             float speed = 1.f);
-
 //    Item *item;
     Map *map;        //FIXME
 
     void setFrenchFries(Weapon *frenchFries);
 
     int getMovementDirection() const;
+
+    const sf::Vector2f &getVelocity() const;
+
+    void setVelocity(const sf::Vector2f &velocity);
 
 private:
 
@@ -43,7 +48,7 @@ private:
     int movementDirection = true;
 
     sf::Vector2f velocity;
-    const float jumpSpeed = -1.8f;
+    const float jumpSpeed = -1.9f;
     const float INITIAL_POSITION_X = 200.f;
     const float INITIAL_POSITION_Y = 300.f;//FIXME sposta in spawning point dopo aver fatto collisioni
     const float acceleration = -0.02f;//FIXME sposta in mappa/fisica

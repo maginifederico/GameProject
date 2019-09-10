@@ -22,6 +22,8 @@ public:
 
     const sf::Vector2f &getInitialPosition() const;
 
+    bool rightDirection() const;
+
 private:
     sf::Sprite sprite;
     sf::Texture texture;
