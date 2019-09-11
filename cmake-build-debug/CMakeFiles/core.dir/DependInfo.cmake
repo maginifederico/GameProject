@@ -4,7 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/federico/Documenti/ClionWorkspace/GameProject/main.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/core.dir/main.cpp.o"
+  "/home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/core.dir/GameCharacter.cpp.o"
+  "/home/federico/Documenti/ClionWorkspace/GameProject/GameHero.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/core.dir/GameHero.cpp.o"
+  "/home/federico/Documenti/ClionWorkspace/GameProject/Layer.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/core.dir/Layer.cpp.o"
+  "/home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/core.dir/Map.cpp.o"
+  "/home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/core.dir/Tile.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

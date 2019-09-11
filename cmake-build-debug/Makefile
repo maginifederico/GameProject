@@ -56,16 +56,41 @@ CMAKE_BINARY_DIR = /home/federico/Documenti/ClionWorkspace/GameProject/cmake-bui
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -77,6 +102,27 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,6 +157,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named patagame_unit_testing
+
+# Build rule for target.
+patagame_unit_testing: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 patagame_unit_testing
+.PHONY : patagame_unit_testing
+
+# fast build rule for target.
+patagame_unit_testing/fast:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/build
+.PHONY : patagame_unit_testing/fast
+
+#=============================================================================
 # Target rules for targets named Game
 
 # Build rule for target.
@@ -123,32 +182,83 @@ Game/fast:
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/build
 .PHONY : Game/fast
 
-Collision.o: Collision.cpp.o
+#=============================================================================
+# Target rules for targets named core
 
-.PHONY : Collision.o
+# Build rule for target.
+core: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 core
+.PHONY : core
 
-# target to build an object file
-Collision.cpp.o:
-	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Collision.cpp.o
-.PHONY : Collision.cpp.o
+# fast build rule for target.
+core/fast:
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/build
+.PHONY : core/fast
 
-Collision.i: Collision.cpp.i
+#=============================================================================
+# Target rules for targets named runAllTests
 
-.PHONY : Collision.i
+# Build rule for target.
+runAllTests: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 runAllTests
+.PHONY : runAllTests
 
-# target to preprocess a source file
-Collision.cpp.i:
-	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Collision.cpp.i
-.PHONY : Collision.cpp.i
+# fast build rule for target.
+runAllTests/fast:
+	$(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/build
+.PHONY : runAllTests/fast
 
-Collision.s: Collision.cpp.s
+#=============================================================================
+# Target rules for targets named gmock_main
 
-.PHONY : Collision.s
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
 
-# target to generate assembly for a file
-Collision.cpp.s:
-	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Collision.cpp.s
-.PHONY : Collision.cpp.s
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) -f test/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build.make test/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) -f test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build.make test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f test/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build.make test/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/build.make test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
 
 GameCharacter.o: GameCharacter.cpp.o
 
@@ -156,7 +266,9 @@ GameCharacter.o: GameCharacter.cpp.o
 
 # target to build an object file
 GameCharacter.cpp.o:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.o
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/GameCharacter.cpp.o
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/GameCharacter.cpp.o
 .PHONY : GameCharacter.cpp.o
 
 GameCharacter.i: GameCharacter.cpp.i
@@ -165,7 +277,9 @@ GameCharacter.i: GameCharacter.cpp.i
 
 # target to preprocess a source file
 GameCharacter.cpp.i:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.i
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/GameCharacter.cpp.i
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/GameCharacter.cpp.i
 .PHONY : GameCharacter.cpp.i
 
 GameCharacter.s: GameCharacter.cpp.s
@@ -174,7 +288,9 @@ GameCharacter.s: GameCharacter.cpp.s
 
 # target to generate assembly for a file
 GameCharacter.cpp.s:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.s
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/GameCharacter.cpp.s
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/GameCharacter.cpp.s
 .PHONY : GameCharacter.cpp.s
 
 GameHero.o: GameHero.cpp.o
@@ -183,7 +299,9 @@ GameHero.o: GameHero.cpp.o
 
 # target to build an object file
 GameHero.cpp.o:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.o
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/GameHero.cpp.o
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/GameHero.cpp.o
 .PHONY : GameHero.cpp.o
 
 GameHero.i: GameHero.cpp.i
@@ -192,7 +310,9 @@ GameHero.i: GameHero.cpp.i
 
 # target to preprocess a source file
 GameHero.cpp.i:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.i
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/GameHero.cpp.i
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/GameHero.cpp.i
 .PHONY : GameHero.cpp.i
 
 GameHero.s: GameHero.cpp.s
@@ -201,7 +321,9 @@ GameHero.s: GameHero.cpp.s
 
 # target to generate assembly for a file
 GameHero.cpp.s:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.s
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/GameHero.cpp.s
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/GameHero.cpp.s
 .PHONY : GameHero.cpp.s
 
 Item.o: Item.cpp.o
@@ -237,7 +359,9 @@ Layer.o: Layer.cpp.o
 
 # target to build an object file
 Layer.cpp.o:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Layer.cpp.o
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Layer.cpp.o
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Layer.cpp.o
 .PHONY : Layer.cpp.o
 
 Layer.i: Layer.cpp.i
@@ -246,7 +370,9 @@ Layer.i: Layer.cpp.i
 
 # target to preprocess a source file
 Layer.cpp.i:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Layer.cpp.i
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Layer.cpp.i
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Layer.cpp.i
 .PHONY : Layer.cpp.i
 
 Layer.s: Layer.cpp.s
@@ -255,7 +381,9 @@ Layer.s: Layer.cpp.s
 
 # target to generate assembly for a file
 Layer.cpp.s:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Layer.cpp.s
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Layer.cpp.s
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Layer.cpp.s
 .PHONY : Layer.cpp.s
 
 Map.o: Map.cpp.o
@@ -264,7 +392,9 @@ Map.o: Map.cpp.o
 
 # target to build an object file
 Map.cpp.o:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Map.cpp.o
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Map.cpp.o
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Map.cpp.o
 .PHONY : Map.cpp.o
 
 Map.i: Map.cpp.i
@@ -273,7 +403,9 @@ Map.i: Map.cpp.i
 
 # target to preprocess a source file
 Map.cpp.i:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Map.cpp.i
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Map.cpp.i
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Map.cpp.i
 .PHONY : Map.cpp.i
 
 Map.s: Map.cpp.s
@@ -282,7 +414,9 @@ Map.s: Map.cpp.s
 
 # target to generate assembly for a file
 Map.cpp.s:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Map.cpp.s
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Map.cpp.s
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Map.cpp.s
 .PHONY : Map.cpp.s
 
 Obstacle.o: Obstacle.cpp.o
@@ -312,13 +446,42 @@ Obstacle.cpp.s:
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Obstacle.cpp.s
 .PHONY : Obstacle.cpp.s
 
+Projectile.o: Projectile.cpp.o
+
+.PHONY : Projectile.o
+
+# target to build an object file
+Projectile.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Projectile.cpp.o
+.PHONY : Projectile.cpp.o
+
+Projectile.i: Projectile.cpp.i
+
+.PHONY : Projectile.i
+
+# target to preprocess a source file
+Projectile.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Projectile.cpp.i
+.PHONY : Projectile.cpp.i
+
+Projectile.s: Projectile.cpp.s
+
+.PHONY : Projectile.s
+
+# target to generate assembly for a file
+Projectile.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Projectile.cpp.s
+.PHONY : Projectile.cpp.s
+
 Tile.o: Tile.cpp.o
 
 .PHONY : Tile.o
 
 # target to build an object file
 Tile.cpp.o:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Tile.cpp.o
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Tile.cpp.o
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Tile.cpp.o
 .PHONY : Tile.cpp.o
 
 Tile.i: Tile.cpp.i
@@ -327,7 +490,9 @@ Tile.i: Tile.cpp.i
 
 # target to preprocess a source file
 Tile.cpp.i:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Tile.cpp.i
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Tile.cpp.i
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Tile.cpp.i
 .PHONY : Tile.cpp.i
 
 Tile.s: Tile.cpp.s
@@ -336,8 +501,37 @@ Tile.s: Tile.cpp.s
 
 # target to generate assembly for a file
 Tile.cpp.s:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Tile.cpp.s
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Tile.cpp.s
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Tile.cpp.s
 .PHONY : Tile.cpp.s
+
+Weapon.o: Weapon.cpp.o
+
+.PHONY : Weapon.o
+
+# target to build an object file
+Weapon.cpp.o:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Weapon.cpp.o
+.PHONY : Weapon.cpp.o
+
+Weapon.i: Weapon.cpp.i
+
+.PHONY : Weapon.i
+
+# target to preprocess a source file
+Weapon.cpp.i:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Weapon.cpp.i
+.PHONY : Weapon.cpp.i
+
+Weapon.s: Weapon.cpp.s
+
+.PHONY : Weapon.s
+
+# target to generate assembly for a file
+Weapon.cpp.s:
+	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Weapon.cpp.s
+.PHONY : Weapon.cpp.s
 
 main.o: main.cpp.o
 
@@ -345,6 +539,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/main.cpp.o
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/main.cpp.o
 .PHONY : main.cpp.o
 
@@ -354,6 +549,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/main.cpp.i
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/main.cpp.i
 .PHONY : main.cpp.i
 
@@ -363,6 +559,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/main.cpp.s
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/main.cpp.s
 .PHONY : main.cpp.s
 
@@ -372,12 +569,20 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
+	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... patagame_unit_testing"
+	@echo "... install"
 	@echo "... Game"
 	@echo "... edit_cache"
-	@echo "... Collision.o"
-	@echo "... Collision.i"
-	@echo "... Collision.s"
+	@echo "... core"
+	@echo "... rebuild_cache"
+	@echo "... list_install_components"
+	@echo "... runAllTests"
+	@echo "... gmock_main"
+	@echo "... gmock"
+	@echo "... gtest_main"
+	@echo "... gtest"
 	@echo "... GameCharacter.o"
 	@echo "... GameCharacter.i"
 	@echo "... GameCharacter.s"
@@ -396,9 +601,15 @@ help:
 	@echo "... Obstacle.o"
 	@echo "... Obstacle.i"
 	@echo "... Obstacle.s"
+	@echo "... Projectile.o"
+	@echo "... Projectile.i"
+	@echo "... Projectile.s"
 	@echo "... Tile.o"
 	@echo "... Tile.i"
 	@echo "... Tile.s"
+	@echo "... Weapon.o"
+	@echo "... Weapon.i"
+	@echo "... Weapon.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

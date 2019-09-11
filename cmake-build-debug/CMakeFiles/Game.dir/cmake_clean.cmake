@@ -7,7 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Game.dir/Layer.cpp.o"
   "CMakeFiles/Game.dir/GameCharacter.cpp.o"
   "CMakeFiles/Game.dir/Map.cpp.o"
-  "CMakeFiles/Game.dir/Collision.cpp.o"
+  "CMakeFiles/Game.dir/Weapon.cpp.o"
+  "CMakeFiles/Game.dir/Projectile.cpp.o"
   "Game.pdb"
   "Game"
 )

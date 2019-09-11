@@ -161,18 +161,31 @@ CMakeFiles/Game.dir/Map.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Map.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp -o CMakeFiles/Game.dir/Map.cpp.s
 
-CMakeFiles/Game.dir/Collision.cpp.o: CMakeFiles/Game.dir/flags.make
-CMakeFiles/Game.dir/Collision.cpp.o: ../Collision.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Game.dir/Collision.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Collision.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Collision.cpp
+CMakeFiles/Game.dir/Weapon.cpp.o: CMakeFiles/Game.dir/flags.make
+CMakeFiles/Game.dir/Weapon.cpp.o: ../Weapon.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Game.dir/Weapon.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Weapon.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Weapon.cpp
 
-CMakeFiles/Game.dir/Collision.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Collision.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Collision.cpp > CMakeFiles/Game.dir/Collision.cpp.i
+CMakeFiles/Game.dir/Weapon.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Weapon.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Weapon.cpp > CMakeFiles/Game.dir/Weapon.cpp.i
 
-CMakeFiles/Game.dir/Collision.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Collision.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Collision.cpp -o CMakeFiles/Game.dir/Collision.cpp.s
+CMakeFiles/Game.dir/Weapon.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Weapon.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Weapon.cpp -o CMakeFiles/Game.dir/Weapon.cpp.s
+
+CMakeFiles/Game.dir/Projectile.cpp.o: CMakeFiles/Game.dir/flags.make
+CMakeFiles/Game.dir/Projectile.cpp.o: ../Projectile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Game.dir/Projectile.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Game.dir/Projectile.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Projectile.cpp
+
+CMakeFiles/Game.dir/Projectile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Game.dir/Projectile.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Projectile.cpp > CMakeFiles/Game.dir/Projectile.cpp.i
+
+CMakeFiles/Game.dir/Projectile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Game.dir/Projectile.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Projectile.cpp -o CMakeFiles/Game.dir/Projectile.cpp.s
 
 # Object files for target Game
 Game_OBJECTS = \
@@ -184,7 +197,8 @@ Game_OBJECTS = \
 "CMakeFiles/Game.dir/Layer.cpp.o" \
 "CMakeFiles/Game.dir/GameCharacter.cpp.o" \
 "CMakeFiles/Game.dir/Map.cpp.o" \
-"CMakeFiles/Game.dir/Collision.cpp.o"
+"CMakeFiles/Game.dir/Weapon.cpp.o" \
+"CMakeFiles/Game.dir/Projectile.cpp.o"
 
 # External object files for target Game
 Game_EXTERNAL_OBJECTS =
@@ -197,7 +211,8 @@ Game: CMakeFiles/Game.dir/Tile.cpp.o
 Game: CMakeFiles/Game.dir/Layer.cpp.o
 Game: CMakeFiles/Game.dir/GameCharacter.cpp.o
 Game: CMakeFiles/Game.dir/Map.cpp.o
-Game: CMakeFiles/Game.dir/Collision.cpp.o
+Game: CMakeFiles/Game.dir/Weapon.cpp.o
+Game: CMakeFiles/Game.dir/Projectile.cpp.o
 Game: CMakeFiles/Game.dir/build.make
 Game: /usr/lib/x86_64-linux-gnu/libsfml-system.so
 Game: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so
@@ -205,7 +220,7 @@ Game: /usr/lib/x86_64-linux-gnu/libsfml-window.so
 Game: /usr/lib/x86_64-linux-gnu/libsfml-network.so
 Game: /usr/lib/x86_64-linux-gnu/libsfml-audio.so
 Game: CMakeFiles/Game.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Game"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Game.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

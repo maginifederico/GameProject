@@ -68,6 +68,17 @@ install/strip/fast: preinstall/fast
 	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -80,17 +91,16 @@ install/fast: preinstall/fast
 	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -102,27 +112,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -156,6 +156,102 @@ depend:
 	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+test/CMakeFiles/runAllTests.dir/rule:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/runAllTests.dir/rule
+.PHONY : test/CMakeFiles/runAllTests.dir/rule
+
+# Convenience name for target.
+runAllTests: test/CMakeFiles/runAllTests.dir/rule
+
+.PHONY : runAllTests
+
+# fast build rule for target.
+runAllTests/fast:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/build
+.PHONY : runAllTests/fast
+
+GameHeroFixture.o: GameHeroFixture.cpp.o
+
+.PHONY : GameHeroFixture.o
+
+# target to build an object file
+GameHeroFixture.cpp.o:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/GameHeroFixture.cpp.o
+.PHONY : GameHeroFixture.cpp.o
+
+GameHeroFixture.i: GameHeroFixture.cpp.i
+
+.PHONY : GameHeroFixture.i
+
+# target to preprocess a source file
+GameHeroFixture.cpp.i:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/GameHeroFixture.cpp.i
+.PHONY : GameHeroFixture.cpp.i
+
+GameHeroFixture.s: GameHeroFixture.cpp.s
+
+.PHONY : GameHeroFixture.s
+
+# target to generate assembly for a file
+GameHeroFixture.cpp.s:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/GameHeroFixture.cpp.s
+.PHONY : GameHeroFixture.cpp.s
+
+GameHeroTest.o: GameHeroTest.cpp.o
+
+.PHONY : GameHeroTest.o
+
+# target to build an object file
+GameHeroTest.cpp.o:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/GameHeroTest.cpp.o
+.PHONY : GameHeroTest.cpp.o
+
+GameHeroTest.i: GameHeroTest.cpp.i
+
+.PHONY : GameHeroTest.i
+
+# target to preprocess a source file
+GameHeroTest.cpp.i:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/GameHeroTest.cpp.i
+.PHONY : GameHeroTest.cpp.i
+
+GameHeroTest.s: GameHeroTest.cpp.s
+
+.PHONY : GameHeroTest.s
+
+# target to generate assembly for a file
+GameHeroTest.cpp.s:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/GameHeroTest.cpp.s
+.PHONY : GameHeroTest.cpp.s
+
+runAllTests.o: runAllTests.cpp.o
+
+.PHONY : runAllTests.o
+
+# target to build an object file
+runAllTests.cpp.o:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/runAllTests.cpp.o
+.PHONY : runAllTests.cpp.o
+
+runAllTests.i: runAllTests.cpp.i
+
+.PHONY : runAllTests.i
+
+# target to preprocess a source file
+runAllTests.cpp.i:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/runAllTests.cpp.i
+.PHONY : runAllTests.cpp.i
+
+runAllTests.s: runAllTests.cpp.s
+
+.PHONY : runAllTests.s
+
+# target to generate assembly for a file
+runAllTests.cpp.s:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/runAllTests.cpp.s
+.PHONY : runAllTests.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -163,11 +259,21 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install"
-	@echo "... install/local"
-	@echo "... list_install_components"
 	@echo "... edit_cache"
+	@echo "... install"
 	@echo "... rebuild_cache"
+	@echo "... runAllTests"
+	@echo "... list_install_components"
+	@echo "... install/local"
+	@echo "... GameHeroFixture.o"
+	@echo "... GameHeroFixture.i"
+	@echo "... GameHeroFixture.s"
+	@echo "... GameHeroTest.o"
+	@echo "... GameHeroTest.i"
+	@echo "... GameHeroTest.s"
+	@echo "... runAllTests.o"
+	@echo "... runAllTests.i"
+	@echo "... runAllTests.s"
 .PHONY : help
 
 

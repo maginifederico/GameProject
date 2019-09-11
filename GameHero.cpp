@@ -277,7 +277,7 @@ void GameHero::move() {
         sprite.setPosition(sprite.getPosition().x, 525.f - sprite.getGlobalBounds().height);//FIXME WINDOW HEIGHT 1010
 
 
-
+//    std::cout << "Velocity.y= " << velocity.y << std::endl;
 
 }
 

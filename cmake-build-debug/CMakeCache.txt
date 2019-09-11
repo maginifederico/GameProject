@@ -278,10 +278,10 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-Game_BINARY_DIR:STATIC=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug
+Game_BINARY_DIR:STATIC=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/test
 
 //Value Computed by CMake
-Game_SOURCE_DIR:STATIC=/home/federico/Documenti/ClionWorkspace/GameProject
+Game_SOURCE_DIR:STATIC=/home/federico/Documenti/ClionWorkspace/GameProject/test
 
 //Enable installation of googletest. (Projects embedding googletest
 // may want to turn this OFF.)
@@ -552,7 +552,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

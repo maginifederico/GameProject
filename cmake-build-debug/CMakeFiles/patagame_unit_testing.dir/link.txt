@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/patagame_unit_testing.dir/main.cpp.o  -o patagame_unit_testing libcore.a 
+/usr/bin/c++  -g   CMakeFiles/patagame_unit_testing.dir/main.cpp.o CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.o CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.o CMakeFiles/patagame_unit_testing.dir/Map.cpp.o CMakeFiles/patagame_unit_testing.dir/Layer.cpp.o CMakeFiles/patagame_unit_testing.dir/Tile.cpp.o  -o patagame_unit_testing libcore.a -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio 

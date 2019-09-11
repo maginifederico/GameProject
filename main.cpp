@@ -4,6 +4,7 @@
 #include <fstream>
 #include "Layer.h"
 #include "GameHero.h"
+#include "GameCharacter.h"
 #include "Map.h"
 
 

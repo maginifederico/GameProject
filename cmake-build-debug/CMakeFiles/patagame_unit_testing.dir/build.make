@@ -70,18 +70,93 @@ CMakeFiles/patagame_unit_testing.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/patagame_unit_testing.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/main.cpp -o CMakeFiles/patagame_unit_testing.dir/main.cpp.s
 
+CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.o: CMakeFiles/patagame_unit_testing.dir/flags.make
+CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.o: ../GameHero.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/GameHero.cpp
+
+CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/GameHero.cpp > CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.i
+
+CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/GameHero.cpp -o CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.s
+
+CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.o: CMakeFiles/patagame_unit_testing.dir/flags.make
+CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.o: ../GameCharacter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.cpp
+
+CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.cpp > CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.i
+
+CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.cpp -o CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.s
+
+CMakeFiles/patagame_unit_testing.dir/Map.cpp.o: CMakeFiles/patagame_unit_testing.dir/flags.make
+CMakeFiles/patagame_unit_testing.dir/Map.cpp.o: ../Map.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/patagame_unit_testing.dir/Map.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/patagame_unit_testing.dir/Map.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp
+
+CMakeFiles/patagame_unit_testing.dir/Map.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/patagame_unit_testing.dir/Map.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp > CMakeFiles/patagame_unit_testing.dir/Map.cpp.i
+
+CMakeFiles/patagame_unit_testing.dir/Map.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/patagame_unit_testing.dir/Map.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp -o CMakeFiles/patagame_unit_testing.dir/Map.cpp.s
+
+CMakeFiles/patagame_unit_testing.dir/Layer.cpp.o: CMakeFiles/patagame_unit_testing.dir/flags.make
+CMakeFiles/patagame_unit_testing.dir/Layer.cpp.o: ../Layer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/patagame_unit_testing.dir/Layer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/patagame_unit_testing.dir/Layer.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Layer.cpp
+
+CMakeFiles/patagame_unit_testing.dir/Layer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/patagame_unit_testing.dir/Layer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Layer.cpp > CMakeFiles/patagame_unit_testing.dir/Layer.cpp.i
+
+CMakeFiles/patagame_unit_testing.dir/Layer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/patagame_unit_testing.dir/Layer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Layer.cpp -o CMakeFiles/patagame_unit_testing.dir/Layer.cpp.s
+
+CMakeFiles/patagame_unit_testing.dir/Tile.cpp.o: CMakeFiles/patagame_unit_testing.dir/flags.make
+CMakeFiles/patagame_unit_testing.dir/Tile.cpp.o: ../Tile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/patagame_unit_testing.dir/Tile.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/patagame_unit_testing.dir/Tile.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp
+
+CMakeFiles/patagame_unit_testing.dir/Tile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/patagame_unit_testing.dir/Tile.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp > CMakeFiles/patagame_unit_testing.dir/Tile.cpp.i
+
+CMakeFiles/patagame_unit_testing.dir/Tile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/patagame_unit_testing.dir/Tile.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp -o CMakeFiles/patagame_unit_testing.dir/Tile.cpp.s
+
 # Object files for target patagame_unit_testing
 patagame_unit_testing_OBJECTS = \
-"CMakeFiles/patagame_unit_testing.dir/main.cpp.o"
+"CMakeFiles/patagame_unit_testing.dir/main.cpp.o" \
+"CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.o" \
+"CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.o" \
+"CMakeFiles/patagame_unit_testing.dir/Map.cpp.o" \
+"CMakeFiles/patagame_unit_testing.dir/Layer.cpp.o" \
+"CMakeFiles/patagame_unit_testing.dir/Tile.cpp.o"
 
 # External object files for target patagame_unit_testing
 patagame_unit_testing_EXTERNAL_OBJECTS =
 
 patagame_unit_testing: CMakeFiles/patagame_unit_testing.dir/main.cpp.o
+patagame_unit_testing: CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.o
+patagame_unit_testing: CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.o
+patagame_unit_testing: CMakeFiles/patagame_unit_testing.dir/Map.cpp.o
+patagame_unit_testing: CMakeFiles/patagame_unit_testing.dir/Layer.cpp.o
+patagame_unit_testing: CMakeFiles/patagame_unit_testing.dir/Tile.cpp.o
 patagame_unit_testing: CMakeFiles/patagame_unit_testing.dir/build.make
 patagame_unit_testing: libcore.a
 patagame_unit_testing: CMakeFiles/patagame_unit_testing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable patagame_unit_testing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable patagame_unit_testing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/patagame_unit_testing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

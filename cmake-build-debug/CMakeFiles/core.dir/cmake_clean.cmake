@@ -1,5 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/core.dir/main.cpp.o"
+  "CMakeFiles/core.dir/GameHero.cpp.o"
+  "CMakeFiles/core.dir/GameCharacter.cpp.o"
+  "CMakeFiles/core.dir/Map.cpp.o"
+  "CMakeFiles/core.dir/Layer.cpp.o"
+  "CMakeFiles/core.dir/Tile.cpp.o"
   "libcore.pdb"
   "libcore.a"
 )

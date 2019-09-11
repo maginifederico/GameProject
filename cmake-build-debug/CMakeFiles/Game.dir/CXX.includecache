@@ -29,6 +29,10 @@ GameCharacter.h
 /home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.h
 Map.h
 /home/federico/Documenti/ClionWorkspace/GameProject/Map.h
+Weapon.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Weapon.h
+list
+-
 
 /home/federico/Documenti/ClionWorkspace/GameProject/Item.h
 
@@ -52,25 +56,27 @@ Item.h
 Layer.h
 /home/federico/Documenti/ClionWorkspace/GameProject/Layer.h
 
+/home/federico/Documenti/ClionWorkspace/GameProject/Projectile.h
+SFML/Graphics/Sprite.hpp
+-
+SFML/Graphics/Texture.hpp
+-
+
 /home/federico/Documenti/ClionWorkspace/GameProject/Tile.h
 SFML/Graphics/Texture.hpp
 -
 Collision.h
 /home/federico/Documenti/ClionWorkspace/GameProject/Collision.h
 
-/home/federico/Documenti/ClionWorkspace/GameProject/main.cpp
-iostream
+/home/federico/Documenti/ClionWorkspace/GameProject/Weapon.h
+string
 -
-SFML/Graphics.hpp
+SFML/Graphics/Texture.hpp
 -
-SFML/Window.hpp
+SFML/Graphics/Sprite.hpp
 -
-fstream
--
-Layer.h
-/home/federico/Documenti/ClionWorkspace/GameProject/Layer.h
 GameHero.h
 /home/federico/Documenti/ClionWorkspace/GameProject/GameHero.h
-Map.h
-/home/federico/Documenti/ClionWorkspace/GameProject/Map.h
+Projectile.h
+/home/federico/Documenti/ClionWorkspace/GameProject/Projectile.h
 

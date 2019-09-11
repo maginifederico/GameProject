@@ -4,6 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/GameCharacter.cpp.o"
+  "/home/federico/Documenti/ClionWorkspace/GameProject/GameHero.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/GameHero.cpp.o"
+  "/home/federico/Documenti/ClionWorkspace/GameProject/Layer.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/Layer.cpp.o"
+  "/home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/Map.cpp.o"
+  "/home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/Tile.cpp.o"
   "/home/federico/Documenti/ClionWorkspace/GameProject/main.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
