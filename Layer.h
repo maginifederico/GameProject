@@ -21,6 +21,9 @@ public:
 
     Tile *getTile() const;
 
+    ~Layer() override {
+        delete[] tile;
+    };
 
 
     //const sf::Vector2f &Layer::getSpawnPoint() const;

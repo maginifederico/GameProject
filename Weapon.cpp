@@ -39,24 +39,6 @@ void Weapon::shoot(Weapon *gun, sf::Vector2f playerPosition, bool movDirection) 
         }
 
     }
-//
-//    //Se ci sono proiettili sulla mappa, aggiorna la posizione, o cancellali
-//    if (!projectils.empty()) {
-//        for (int i = 0; i < projectils.size(); i++) {
-//
-//            if (
-//                    (fabs(projectils[i].getSprite().getPosition().x - projectils[i].getInitialPosition().x) >
-//                     gun->range)
-//                    || projectils[i].getSprite().getPosition().x > 6300.f
-//                    || projectils[i].getSprite().getPosition().x < 0.f
-////                    || layer
-//                // oppure se collide con layer ground
-//                    )
-//                projectils.erase(projectils.begin() + i);
-//            else
-//                projectils[i].updatePosition();
-//        }
-//    }
 
 }
 
@@ -64,7 +46,7 @@ std::vector<Projectile> &Weapon::getProjectils() {
     return projectils;
 }
 
-void Weapon::projectileCollision(Layer &ground) {
+void Weapon::checkProjectileCollision(Layer &ground) {
 
     int c;
     int r;

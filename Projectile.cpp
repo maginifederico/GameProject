@@ -26,8 +26,7 @@ Projectile::Projectile(std::string &texturePath, sf::Vector2f initPosition, floa
     sprite.setTexture(texture);
     sprite.setScale(textureScale, textureScale);
 
-    sprite.setPosition(initPosition.x /*+ player.getSprite().getGlobalBounds().width/2*/,
-                       initPosition.y /*+ player.getSprite().getGlobalBounds().height/4*/);
+    sprite.setPosition(initPosition.x, initPosition.y);
 
 
 }

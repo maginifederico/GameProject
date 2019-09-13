@@ -10,8 +10,9 @@
  */
 
 
-GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, float speed)
-        : GameCharacter(texture, initialPosition, speed) {
+GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, int HP,
+                   float speed, float underWaterSpeed) : GameCharacter(texture, initialPosition, speed, underWaterSpeed,
+                                                                       HP) {
     sprite.setScale(sf::Vector2f(0.7142857f, 1.044776f));
     sprite.scale(0.15f, 0.15f);
     velocity.x = 0;
@@ -22,10 +23,10 @@ GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector
     viewPosition.top = playerView.getCenter().y - playerView.getSize().y / 2;
     viewPosition.left = playerView.getCenter().x - playerView.getSize().x / 2;
     movementDirection = true;
-//    frenchFries = new Weapon(gun);
+//    weapon = new Weapon(gun);
 }
 
-void GameHero::move() {
+void GameHero::updatePosition() {
 
     sf::Vector2f startingPosition(getSprite().getPosition());
 
@@ -73,7 +74,7 @@ void GameHero::move() {
                 ////GESTIONE CONDIZIONE IN ACQUA
                 (sotto_sinistra == waterSurface && sotto_destra == waterSurface)
                 || (sotto_sinistra == water && sotto_destra == water)
-                || (sprite.getPosition().y + sprite.getGlobalBounds().height >= 525.f)
+                || (sprite.getPosition().y + sprite.getGlobalBounds().height >= map->getHeight())
                 || (sotto_destra == water && sinistra != water)
                 || (sotto_sinistra == water && destra != 0 && sotto_destra != 0)
 
@@ -94,7 +95,7 @@ void GameHero::move() {
         if (
                 (sotto_sinistra == waterSurface && sotto_destra == waterSurface)
                 || (sotto_sinistra == water && sotto_destra == water)
-                || (sprite.getPosition().y + sprite.getGlobalBounds().height >= 525.f)
+                || (sprite.getPosition().y + sprite.getGlobalBounds().height >= map->getHeight())
                 || (sotto_destra == water && sinistra != water)
                 || (sotto_sinistra == water && destra != 0 && sotto_destra != 0)
 
@@ -128,11 +129,11 @@ void GameHero::move() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
         if (((sotto_sinistra != 0 || sotto_destra != 0) && velocity.y == 0.f) || waterJump) {
             if (waterJump)
-                velocity.y = jumpSpeed / 4;
+                velocity.y = jumpSpeedUnderWater;
             else
                 velocity.y = jumpSpeed;
 
-//            playerView.move(0.f,jumpSpeed * dt);//FIXME movimento view verticale
+//            playerView.updatePosition(0.f,jumpSpeed * dt);//FIXME movimento view verticale
         }
 
     }
@@ -152,7 +153,7 @@ void GameHero::move() {
 
 
         if (sinistra == water || sinistra == waterSurface) {
-            velocity.x = -speed / 1.5;
+            velocity.x = -underWaterSpeed;
         } else {
             velocity.x = -speed;
         }
@@ -171,7 +172,7 @@ void GameHero::move() {
         }
 
         if (destra == water || destra == waterSurface) {
-            velocity.x = speed / 2;
+            velocity.x = underWaterSpeed;
         } else {
             velocity.x = speed;
         }
@@ -193,6 +194,7 @@ void GameHero::move() {
             || (destra == 0 && sotto_destra != 0 && sotto_sinistra == 0 && velocity.y != 0)
                 ) {
             sprite.move(-velocity.x, 0);
+            velocity.x = 0;
         }
     }
 
@@ -203,6 +205,7 @@ void GameHero::move() {
             || (sinistra == 0 && sotto_sinistra != 0 && sotto_destra == 0 && velocity.y != 0)
                 ) {
             sprite.move(-velocity.x, 0);
+            velocity.x = 0;
         }
     }
 
@@ -227,16 +230,59 @@ void GameHero::move() {
     }
 
 
-    //MOVIMENTO VIEW
-    if (sprite.getPosition().x >= INITIAL_POSITION_X && sprite.getPosition().x <= 6300.f - 3 * INITIAL_POSITION_X)
-        playerView.move(getSprite().getPosition().x - startingPosition.x, 0.f);
 
-//        playerView.move(velocity.x,0.f);
+////  SCREEN COLLISION
+    //left collision
+    if (sprite.getPosition().x < 0.f)
+        sprite.setPosition(0.f, sprite.getPosition().y);
+
+    //top collision
+    if (sprite.getPosition().y < 0.f)
+        sprite.setPosition(sprite.getPosition().x, 0.f);
+
+    //right collision
+    if (sprite.getPosition().x + sprite.getGlobalBounds().width > map->getWidth())
+        sprite.setPosition(map->getWidth() - sprite.getGlobalBounds().width, sprite.getPosition().y);
+
+    //bottom collision
+    if (sprite.getPosition().y + sprite.getGlobalBounds().height > map->getHeight())
+        sprite.setPosition(sprite.getPosition().x, map->getHeight() - sprite.getGlobalBounds().height);
+
+
+//    std::cout << "Velocity.y= " << velocity.y << std::endl;
+
+}
+
+
+void GameHero::updateViewPosition() {
+
+    ////MOVIMENTO VIEW
+
+    //Orizzontale
+    if (sprite.getPosition().x >= map->getViewHorizontalLimitSx() &&
+        sprite.getPosition().x <= map->getViewHorizontalLimitDx())
+        playerView.move(velocity.x, 0.f);
+
+
+
+    //Verticale
+    if (
+            playerView.getCenter().y + velocity.y >= map->getViewVerticalLimitUp()
+            && (playerView.getCenter().y + velocity.y <= map->getViewVerticalLimitDown())
+//            &&
+
+            ) {
+
+        playerView.move(0.f, velocity.y);
+
+    }
+
+//        playerView.updatePosition(velocity.x,0.f);
 
 //    if (viewPosition.left >= 0 && viewPosition.top >= 0 && (viewPosition.top + viewPosition.height) <= 1010.f &&
 //        (viewPosition.left + viewPosition.width) >=
 //        6300.f)  ////&& sprite.getPosition().y >= INITIAL_POSITION_Y && sprite.getPosition().y <= map->getHeight()- INITIAL_POSITION_Y)
-//        playerView.move(velocity);
+//        playerView.updatePosition(velocity);
 //////    if (viewPosition.left > 0 && viewPosition.top > 0 && (viewPosition.top + viewPosition.height) > 1010.f &&
 //////           (viewPosition.left + viewPosition.width) >6300.f)
 //////
@@ -259,39 +305,18 @@ void GameHero::move() {
 
 
 
-////  SCREEN COLLISION
-//    left collision
-    if (sprite.getPosition().x < 0.f)
-        sprite.setPosition(0.f, sprite.getPosition().y);
-
-    //top collision
-    if (sprite.getPosition().y < 0.f)
-        sprite.setPosition(sprite.getPosition().x, 0.f);
-
-    //right collision
-    if (sprite.getPosition().x + sprite.getGlobalBounds().width > 6300.f)//FIXME MAP_WIDTH 6300
-        sprite.setPosition(6300.f - sprite.getGlobalBounds().width, sprite.getPosition().y);//FIXME MAP_WIDTH 6300
-
-    //bottom collision
-    if (sprite.getPosition().y + sprite.getGlobalBounds().height > 525.f)//FIXME WINDOW HEIGHT 1010
-        sprite.setPosition(sprite.getPosition().x, 525.f - sprite.getGlobalBounds().height);//FIXME WINDOW HEIGHT 1010
-
-
-//    std::cout << "Velocity.y= " << velocity.y << std::endl;
-
 }
-
 
 void GameHero::damage() {
 
 }
 
-Weapon *GameHero::getFrenchFries() const {
-    return frenchFries;
+Weapon *GameHero::getWeapon() const {
+    return weapon;
 }
 
-void GameHero::setFrenchFries(Weapon *frenchFries) {
-    GameHero::frenchFries = frenchFries;
+void GameHero::setWeapon(Weapon *frenchFries) {
+    GameHero::weapon = frenchFries;
 }
 
 int GameHero::getMovementDirection() const {

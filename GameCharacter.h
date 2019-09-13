@@ -14,9 +14,9 @@
 class GameCharacter {
 public:
 
-    GameCharacter(std::string &texture, sf::Vector2f initialPosition, float speed);
+    GameCharacter(std::string &texture, sf::Vector2f initialPosition, float speed, float underWaterSpeed, int HP);
 
-    virtual void move() = 0;
+    virtual void updatePosition() = 0;
 
     sf::Sprite &getSprite();
 
@@ -24,6 +24,8 @@ public:
 protected:
     int HP;
     float speed;
+    float underWaterSpeed;
+
     sf::Texture texture;
     sf::Sprite sprite;
 };

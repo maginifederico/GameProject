@@ -35,8 +35,8 @@ int main() {
 
     const unsigned int WINDOW_WIDTH = 1920;
     const unsigned int WINDOW_HEIGHT = 1010;
-    const float VIEW_HEIGHT = 525.f;
-    const float VIEW_WIDTH = 800.f;
+    const float VIEW_HEIGHT = 300.f;
+    const float VIEW_WIDTH = 500.f;
     const std::string GAME_HERO_TEXTURE = "./Textures/PotatoDX.png";
 
     ////FRENCH FRIES WEAPON SETTINGS
@@ -64,8 +64,11 @@ int main() {
     background.setTexture(backgroundTexture);
     background.setOrigin(0.f, 0.f);
 
-    Map map(300, 25, "./Map/background.txt", "./Map/ground.txt");
+    Map map(6300.f, 525.f, sf::Vector2f(100.f, 0.f), "./Map/background.txt", "./Map/ground.txt");
     map.load();
+
+    //SETTA I LIMITI DELLA VIEW
+    map.setViewLimits(VIEW_WIDTH, VIEW_HEIGHT);
 
 
     ////INIT PLAYER WEAPONS
@@ -78,8 +81,8 @@ int main() {
 
     ////INIT Player
     GameHero player(GAME_HERO_TEXTURE, Vector2f(map.getSpawnPoint().x, map.getSpawnPoint().y),
-                    Vector2f(VIEW_WIDTH, VIEW_HEIGHT)/*, frenchFries*/);
-    player.setFrenchFries(&frenchFries);
+                    Vector2f(VIEW_WIDTH, VIEW_HEIGHT)/*, weapon*/);
+    player.setWeapon(&frenchFries);
 
     player.map = &map;
 
@@ -106,11 +109,12 @@ int main() {
         }
 
         //update input
-        player.move();
-        player.getFrenchFries()->shoot(player.getFrenchFries(), player.getSprite().getPosition(),
+        player.updatePosition();
+        player.updateViewPosition();
+        player.getWeapon()->shoot(player.getWeapon(), player.getSprite().getPosition(),
                                        player.getMovementDirection());
 
-        player.getFrenchFries()->projectileCollision(map.getLayer()[1]);
+        player.getWeapon()->checkProjectileCollision(map.getLayer()[1]);
 
 
         //render
@@ -122,7 +126,7 @@ int main() {
         window.draw(map.getLayer()[1]);
 
         //FIXME Texture bianca
-        for (Projectile projectile : player.getFrenchFries()->getProjectils()) {
+        for (Projectile projectile : player.getWeapon()->getProjectils()) {
             sprite = projectile.getSprite();
             sprite.setTexture(texture); //soluzione provvisoria
             window.draw(sprite);

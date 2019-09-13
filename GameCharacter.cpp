@@ -6,12 +6,12 @@
 #include "GameCharacter.h"
 
 
-GameCharacter::GameCharacter(std::string &texture, sf::Vector2f initialPosition, float mov_speed) {
+GameCharacter::GameCharacter(std::string &texture, sf::Vector2f initialPosition, float movSpeed, float movSpeedUW,
+                             int hitPoints) : speed(movSpeed), underWaterSpeed(movSpeedUW), HP(hitPoints) {
     if (!this->texture.loadFromFile(texture))
         std::cout << "Unable to load the sprite";
     this->sprite.setTexture(this->texture);
     this->sprite.setPosition(initialPosition);
-    speed = mov_speed;
 }
 
 sf::Sprite &GameCharacter::getSprite() {

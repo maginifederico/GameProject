@@ -9,8 +9,10 @@
 #include <SFML/System.hpp>
 
 
-Map::Map(unsigned int width, unsigned int height, std::string background, std::string ground/*, std::string objects*/)
-        : width(width), height(height), background(background), ground(ground)/*, objects(objects)*/ {
+Map::Map(float width, float height, sf::Vector2f sPoint, std::string background,
+         std::string ground/*, std::string objects*/)
+        : width(width), height(height), spawn_point(sPoint), background(background),
+          ground(ground)/*, objects(objects)*/ {
     //crea 3 layer
     layer = new Layer[3]();
 }
@@ -35,13 +37,40 @@ Layer *Map::getLayer() const {
     return layer;
 }
 
-unsigned int Map::getHeight() const {
+float Map::getHeight() const {
     return height;
 }
 
-unsigned int Map::getWidth() const {
+float Map::getWidth() const {
     return width;
 }
+
+float Map::getViewHorizontalLimitSx() const {
+    return viewHorizontalLimitSX;
+}
+
+float Map::getViewHorizontalLimitDx() const {
+    return viewHorizontalLimitDX;
+}
+
+float Map::getViewVerticalLimitUp() const {
+    return viewVerticalLimitUP;
+}
+
+float Map::getViewVerticalLimitDown() const {
+    return viewVerticalLimitDOWN;
+}
+
+void Map::setViewLimits(float w, float h) {
+
+    viewHorizontalLimitSX = w / 4;
+    viewHorizontalLimitDX = Map::width - (w * 3 / 4);
+
+    viewVerticalLimitDOWN = Map::height - h / 2;
+    viewVerticalLimitUP = h / 2;
+
+}
+
 
 //void Map::setLayer(Layer *layer) {
 //    Map::layer = layer;

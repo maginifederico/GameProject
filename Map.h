@@ -12,7 +12,7 @@
 
 class Map {
 public:
-    explicit Map(unsigned int width, unsigned int height, std::string background,
+    explicit Map(float width, float height, sf::Vector2f spawnPoint, std::string background,
                  std::string ground/*, std::string objects*/); // 3 path + h e w
 
     ~Map() {
@@ -25,24 +25,37 @@ public:
 
     Layer *getLayer() const;
 
-    unsigned int getHeight() const;
+    float getHeight() const;
 
-    unsigned int getWidth() const;
+    float getWidth() const;
+
+    float getViewHorizontalLimitSx() const;
+
+    float getViewHorizontalLimitDx() const;
+
+    float getViewVerticalLimitUp() const;
+
+    float getViewVerticalLimitDown() const;
+
+    void setViewLimits(float width, float height);
+
+private:
+    std::string background, ground, objects;
+
+    float height;
+    float width;
+
+    const sf::Vector2f spawn_point;
+
+    float viewHorizontalLimitSX = 200.f;
+    float viewHorizontalLimitDX = 5700.f;
+
+    float viewVerticalLimitUP = 0.f;
+    float viewVerticalLimitDOWN = 525.f;
 
     Layer *layer;
 
-private:
-    unsigned int height;
-    unsigned int width;
-//    float height;
-//    float width;
-
-
 //    void setLayer(Layer *layer);
-
-    std::string background, ground, objects;
-
-    const sf::Vector2f spawn_point = sf::Vector2f(100.f, 0.f);
 
 
 
