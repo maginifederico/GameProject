@@ -51,8 +51,6 @@ private:
     sf::Vector2f velocity;
     const float jumpSpeed = -1.9f;
     const float jumpSpeedUnderWater = jumpSpeed / 4;
-    const float acceleration = -0.02f;//FIXME sposta in mappa/fisica
-    const float waterAcceleration = -0.005f;//FIXME sposta in mappa/fisica
     sf::FloatRect viewPosition;
 
     //Creare vettore di weapons, per adesso c'è solo French Fries

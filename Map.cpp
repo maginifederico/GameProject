@@ -71,6 +71,14 @@ void Map::setViewLimits(float w, float h) {
 
 }
 
+const float Map::getAcceleration() const {
+    return acceleration;
+}
+
+const float Map::getWaterAcceleration() const {
+    return waterAcceleration;
+}
+
 
 //void Map::setLayer(Layer *layer) {
 //    Map::layer = layer;

@@ -39,6 +39,10 @@ public:
 
     void setViewLimits(float width, float height);
 
+    const float getAcceleration() const;
+
+    const float getWaterAcceleration() const;
+
 private:
     std::string background, ground, objects;
 
@@ -52,6 +56,9 @@ private:
 
     float viewVerticalLimitUP = 0.f;
     float viewVerticalLimitDOWN = 525.f;
+
+    const float acceleration = -0.02f;
+    const float waterAcceleration = -0.005f;
 
     Layer *layer;
 

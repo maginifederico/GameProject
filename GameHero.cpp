@@ -11,13 +11,14 @@
 
 
 GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, int HP,
-                   float speed, float underWaterSpeed) : GameCharacter(texture, initialPosition, speed, underWaterSpeed,
+                   float speed, float underWaterSpeed) : weapon(gun), map(nullptr),
+                                                         GameCharacter(texture, initialPosition, speed, underWaterSpeed,
                                                                        HP) {
     sprite.setScale(sf::Vector2f(0.7142857f, 1.044776f));
     sprite.scale(0.15f, 0.15f);
     velocity.x = 0;
     velocity.y = 0;
-    playerView.reset(sf::FloatRect(0, 0, view.x, view.y));
+    playerView.reset(sf::FloatRect(0.f, 100.f, view.x, view.y));
     viewPosition.height = playerView.getSize().y;
     viewPosition.width = playerView.getSize().x;
     viewPosition.top = playerView.getCenter().y - playerView.getSize().y / 2;
@@ -103,7 +104,7 @@ void GameHero::updatePosition() {
                 ) {
             //se il player arriva troppo velocemente sull'acqua, fermalo
             if (velocity.y > 0.5 && sotto_sinistra == waterSurface && sotto_destra == waterSurface) {
-                velocity.y = -waterAcceleration;
+                velocity.y = -map->getWaterAcceleration();
 //                splash = true;
             }
             if (
@@ -114,9 +115,9 @@ void GameHero::updatePosition() {
             } else {
                 waterJump = true;
             }
-            velocity.y -= waterAcceleration; //applica gravità dell'acqua
+            velocity.y -= map->getWaterAcceleration(); //applica gravità dell'acqua
         } else {
-            velocity.y -= acceleration; //applica gravità
+            velocity.y -= map->getAcceleration(); //applica gravità
             waterJump = false;
         }
 
@@ -133,7 +134,6 @@ void GameHero::updatePosition() {
             else
                 velocity.y = jumpSpeed;
 
-//            playerView.updatePosition(0.f,jumpSpeed * dt);//FIXME movimento view verticale
         }
 
     }
@@ -267,9 +267,12 @@ void GameHero::updateViewPosition() {
 
     //Verticale
     if (
+        //Queste due condizioni impediscono il movimento della view oltre i limiti della mappa. Il centro della
+        //view è sempre compreso tra il limite superiore e inferiore
             playerView.getCenter().y + velocity.y >= map->getViewVerticalLimitUp()
             && (playerView.getCenter().y + velocity.y <= map->getViewVerticalLimitDown())
-//            &&
+            && (sprite.getPosition().y - playerView.getCenter().y >
+                50.f /*|| sprite.getPosition().y - playerView.getCenter().y < - 100.f*/)
 
             ) {
 
