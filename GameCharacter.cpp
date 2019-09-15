@@ -17,3 +17,5 @@ GameCharacter::GameCharacter(std::string &texture, sf::Vector2f initialPosition,
 sf::Sprite &GameCharacter::getSprite() {
     return sprite;
 }
+
+GameCharacter::~GameCharacter() = default;

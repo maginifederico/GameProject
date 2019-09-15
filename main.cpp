@@ -67,17 +67,10 @@ int main() {
 
     ////INIT MAP
 
-    //Background
 
-    Texture backgroundTexture;
-    Sprite background;
-
-    if (!backgroundTexture.loadFromFile("./Textures/bground.png"))
-        std::cout << "Unable to load the background";
-    background.setTexture(backgroundTexture);
-    background.setOrigin(0.f, 0.f);
-
-    Map map(mapWidth, mapHeight, spawnPoint, "./Map/background.txt", "./Map/ground.txt");
+    //LOAD LEVEL 1
+    Map map(mapWidth, mapHeight, spawnPoint, "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt",
+            "./Map/objectsLevel1");
     map.load();
 
     //SETTA I LIMITI DELLA VIEW
@@ -134,9 +127,9 @@ int main() {
 
 
         //render game elements
-        window.draw(background);
+        window.draw(map.getLayer()[0]);
         window.draw(map.getLayer()[1]);
-
+        window.draw(map.getLayer()[2]);
         //FIXME Texture bianca
         for (Projectile projectile : player.getWeapon()->getProjectils()) {
             sprite = projectile.getSprite();

@@ -39,10 +39,13 @@ void GameHero::updatePosition() {
     int sotto_sinistra = map->getLayer()[1].getTile()[c + r * 300 + 300].getId();
     int sotto_destra = map->getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId();
 
-    int water = 47;
-    int waterSurface = 48;
-    int groundSurface = 31;
-    int ground = 33;
+
+    int water = 48;
+    int waterSurface = 49;
+//    int groundSurface = 31;
+    int groundSurface = 34;
+//    int ground = 33;
+    int ground = 36;
     int aria = 0;
 
     bool waterJump = false;

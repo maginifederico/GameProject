@@ -29,10 +29,6 @@ bool Layer::load(sf::Vector2u tileSize, std::string map_path) {
     for (int i = 0; i < width * height; i++) {
         my_file >> layer[i];
         tile[i].setId(layer[i]);
-//        if(tile[i].getId() != 0){
-//            tile[i].getCollision().height = tileSize.y;
-//            tile[i].getCollision().width = tileSize.x;
-//        }
     }
 
     // load the tileset texture
@@ -91,7 +87,3 @@ void Layer::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 Tile *Layer::getTile() const {
     return tile;
 }
-//
-//const sf::Vector2f &Layer::getSpawnPoint() const {//TODO in mappa
-//    return spawn_point;
-//}

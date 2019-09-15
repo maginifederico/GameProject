@@ -19,7 +19,7 @@ class GameHero : public GameCharacter {
 
 public:
     GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f playerView, Weapon *gun = nullptr,
-             int HP = 100, float speed = 1.f, float underWaterSpeed = 0.2f);
+             int HP = 100, float speed = 1.f, float underWaterSpeed = 0.5f);
 
     sf::View playerView;
 

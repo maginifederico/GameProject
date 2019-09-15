@@ -12,8 +12,8 @@
 
 class Map {
 public:
-    explicit Map(float width, float height, sf::Vector2f spawnPoint, std::string background,
-                 std::string ground/*, std::string objects*/); // 3 path + h e w
+    explicit Map(float width, float height, sf::Vector2f spawnPoint, std::string background, std::string ground,
+                 std::string objects);
 
     ~Map() {
         delete[] layer;

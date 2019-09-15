@@ -9,23 +9,22 @@
 #include <SFML/System.hpp>
 
 
-Map::Map(float width, float height, sf::Vector2f sPoint, std::string background,
-         std::string ground/*, std::string objects*/)
-        : width(width), height(height), spawn_point(sPoint), background(background),
-          ground(ground)/*, objects(objects)*/ {
+Map::Map(float width, float height, sf::Vector2f sPoint, std::string bg, std::string grnd,
+         std::string obj) : width(width), height(height), spawn_point(sPoint), background(bg),
+                            ground(grnd), objects(obj) {
     //crea 3 layer
     layer = new Layer[3]();
 }
 
 bool Map::load() {
-//    if (!layer[0].load(sf::Vector2u(21, 21), background))
-//        return -1;
+    if (!layer[0].load(sf::Vector2u(21, 21), background))
+        return -1;
 
     if (!layer[1].load(sf::Vector2u(21, 21), ground))
         return -1;
 
-//    if (!layer[3].load(sf::Vector2u(21, 21), objects))
-//        return -1;
+    if (!layer[2].load(sf::Vector2u(21, 21), objects))
+        return -1;
 }
 
 

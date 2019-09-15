@@ -18,6 +18,8 @@ public:
 
     virtual void updatePosition() = 0;
 
+    virtual ~GameCharacter();
+
     sf::Sprite &getSprite();
 
 
