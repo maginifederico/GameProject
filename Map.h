@@ -21,6 +21,8 @@ public:
 
     bool load();
 
+    void setViewLimits(float width, float height);
+
     const sf::Vector2f &getSpawnPoint() const;
 
     Layer *getLayer() const;
@@ -37,8 +39,6 @@ public:
 
     float getViewVerticalLimitDown() const;
 
-    void setViewLimits(float width, float height);
-
     const float getAcceleration() const;
 
     const float getWaterAcceleration() const;
@@ -51,11 +51,11 @@ private:
 
     const sf::Vector2f spawn_point;
 
-    float viewHorizontalLimitSX = 200.f;
-    float viewHorizontalLimitDX = 5700.f;
+    float viewHorizontalLimitSX;
+    float viewHorizontalLimitDX;
 
-    float viewVerticalLimitUP = 0.f;
-    float viewVerticalLimitDOWN = 525.f;
+    float viewVerticalLimitUP;
+    float viewVerticalLimitDOWN;
 
     const float acceleration = -0.02f;
     const float waterAcceleration = -0.005f;

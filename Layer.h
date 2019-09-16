@@ -26,8 +26,6 @@ public:
     };
 
 
-    //const sf::Vector2f &Layer::getSpawnPoint() const;
-
 private:
 
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;

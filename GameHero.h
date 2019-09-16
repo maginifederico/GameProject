@@ -23,7 +23,7 @@ public:
 
     sf::View playerView;
 
-    void updatePosition() override;
+    virtual void updatePosition() override;
 
     void damage();
 

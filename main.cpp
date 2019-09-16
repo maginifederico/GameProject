@@ -29,6 +29,7 @@ int main() {
     //TODO Factory per Map
     //TODO Caverna e Stanza Speciale in Liv.1
     //TODO movimento view verticale
+    //TODO smart pointer invece di row pointer
     //TODO gestione vita player e nemici con rettangolini rossi e verdi
     //TODO Observer per Achievements
     //TODO Menù principale
@@ -48,7 +49,7 @@ int main() {
     const std::string GAME_HERO_TEXTURE = "./Textures/PotatoDX.png";
 
     ////FRENCH FRIES WEAPON SETTINGS
-    std::string FRENCH_FRIES_TEXTURE = "./Textures/FrenchFriesWeapon.png";
+    std::string FRENCH_FRIES_TEXTURE = "./Textures/justOne.png";
     float french_fries_texture_scale = 0.08f;
     int french_fries_damage = 20;
     float french_fries_range = 400.f;
@@ -129,7 +130,7 @@ int main() {
         //render game elements
         window.draw(map.getLayer()[0]);
         window.draw(map.getLayer()[1]);
-        window.draw(map.getLayer()[2]);
+//        window.draw(map.getLayer()[2]);
         //FIXME Texture bianca
         for (Projectile projectile : player.getWeapon()->getProjectils()) {
             sprite = projectile.getSprite();

@@ -56,6 +56,10 @@ void Weapon::checkProjectileCollision(Layer &ground) {
 
     bool collision;
 
+    int water = 48;
+    int waterSurface = 49;
+
+
     float projectileWidth;
 
     //Se ci sono proiettili sulla mappa, aggiorna la posizione, o cancellali
@@ -72,7 +76,7 @@ void Weapon::checkProjectileCollision(Layer &ground) {
             if (projectils[i].rightDirection())
                 if (
                         projectils[i].getSprite().getPosition().x + projectileWidth > 6300.f
-                        || (destra != 0 && destra != 47 && destra != 48)
+                        || (destra != 0 && destra != water && destra != waterSurface)
 
                         )
                     collision = true;
@@ -81,7 +85,7 @@ void Weapon::checkProjectileCollision(Layer &ground) {
             else {
                 if (
                         projectils[i].getSprite().getPosition().x < 0.f
-                        || (sinistra != 0 && sinistra != 47 && sinistra != 48)
+                        || (sinistra != 0 && sinistra != water && sinistra != waterSurface)
                         )
                     collision = true;
                 else
