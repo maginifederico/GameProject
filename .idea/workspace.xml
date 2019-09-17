@@ -18,58 +18,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f73f9327-3f83-4272-840b-9f632e6cd37e" name="Default Changelist" comment="Risolti alcuni problemi">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameHero.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/GameHero.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameHero.h" beforeDir="false" afterPath="$PROJECT_DIR$/GameHero.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WeaponFactory.h" beforeDir="false" afterPath="$PROJECT_DIR$/WeaponFactory.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/GameCharacter.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/GameCharacter.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/GameHero.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/Layer.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/Layer.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/Map.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/Map.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Game.dir/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/core.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/core.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/core.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/core.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/core.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/core.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/core.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/core.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/core.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/core.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/core.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/core.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/patagame_unit_testing.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Game.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Game.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/lib/googletest-master/googlemock/CMakeFiles/gmock.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/lib/googletest-master/googlemock/CMakeFiles/gmock_main.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/lib/googletest-master/googletest/CMakeFiles/gtest.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/test/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/test/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/WeaponTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/WeaponTest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/docs/CookBook.md" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/docs/CookBook.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/docs/ForDummies.md" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/docs/ForDummies.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/docs/FrequentlyAskedQuestions.md" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/docs/FrequentlyAskedQuestions.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/include/gmock/gmock-actions.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/include/gmock/gmock-actions.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/include/gmock/gmock-generated-actions.h.pump" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/include/gmock/gmock-generated-actions.h.pump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/include/gmock/gmock-generated-matchers.h.pump" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/include/gmock/gmock-generated-matchers.h.pump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/include/gmock/gmock-spec-builders.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googlemock/include/gmock/gmock-spec-builders.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googletest/docs/advanced.md" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googletest/docs/advanced.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googletest/docs/faq.md" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googletest/docs/faq.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googletest/include/gtest/gtest.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googletest/include/gtest/gtest.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h.pump" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h.pump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googletest/src/gtest.cc" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googletest/src/gtest.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/lib/googletest-master/googletest/test/googletest-output-test-golden-lin.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/lib/googletest-master/googletest/test/googletest-output-test-golden-lin.txt" afterDir="false" />
-    </list>
+    <list default="true" id="f73f9327-3f83-4272-840b-9f632e6cd37e" name="Default Changelist" comment="Risolti alcuni problemi" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,8 +52,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="120" column="14" lean-forward="true" selection-start-line="120" selection-start-column="14" selection-end-line="120" selection-end-column="14" />
+            <state relative-caret-position="209">
+              <caret line="123" column="47" lean-forward="true" selection-start-line="123" selection-start-column="47" selection-end-line="123" selection-end-column="47" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -271,29 +220,6 @@
             <path>
               <item name="Game" type="b2602c69:ProjectViewProjectNode" />
               <item name="GameProject" type="462c0819:PsiDirectoryNode" />
-              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameProject" type="462c0819:PsiDirectoryNode" />
-              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
-              <item name="CMakeFiles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameProject" type="462c0819:PsiDirectoryNode" />
-              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameProject" type="462c0819:PsiDirectoryNode" />
-              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Game" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GameProject" type="462c0819:PsiDirectoryNode" />
               <item name="Map" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -437,7 +363,7 @@
       <workItem from="1568705650588" duration="13896000" />
       <workItem from="1568725438562" duration="351000" />
       <workItem from="1568727627326" duration="3083000" />
-      <workItem from="1568730786056" duration="2685000" />
+      <workItem from="1568730786056" duration="3013000" />
     </task>
     <task id="LOCAL-00001" summary="Test push">
       <created>1563012604569</created>
@@ -520,7 +446,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130084000" />
+    <option name="totallyTimeSpent" value="130412000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -533,9 +459,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1040" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4991708" visible="true" weight="0.20010673" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4991708" visible="true" weight="0.20010673" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.50082916" side_tool="true" weight="0.26627535" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -549,7 +474,7 @@
       <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4994664" weight="0.27292576" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32969433" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053364" side_tool="true" weight="0.27292576" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4994664" visible="true" weight="0.34388646" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.4994664" visible="true" weight="0.16048035" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.32969433" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -932,8 +857,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="120" column="14" lean-forward="true" selection-start-line="120" selection-start-column="14" selection-end-line="120" selection-end-column="14" />
+        <state relative-caret-position="209">
+          <caret line="123" column="47" lean-forward="true" selection-start-line="123" selection-start-column="47" selection-end-line="123" selection-end-column="47" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
