@@ -272,8 +272,6 @@ void GameHero::updateViewPosition() {
     if (
         //Queste due condizioni impediscono il movimento della view oltre i limiti della mappa. Il centro della
         //view è sempre compreso tra il limite superiore e inferiore
-//            playerView.getCenter().y + velocity.y >= map->getViewVerticalLimitUp()
-//            && (playerView.getCenter().y + velocity.y <= map->getViewVerticalLimitDown())
             sprite.getPosition().y - defaultDistanceY >= map->getViewVerticalLimitUp()
             && sprite.getPosition().y - defaultDistanceY <= map->getViewVerticalLimitDown()
             && playerView.getCenter().y - sprite.getPosition().y != -defaultDistanceY
@@ -292,16 +290,19 @@ void GameHero::damage() {
 
 }
 
-//std::unique_ptr<Weapon>GameHero::getWeapon() const {
-//    return weapon;
-//}
-Weapon *GameHero::getWeapon() const {
+std::unique_ptr<Weapon>GameHero::getWeapon() const {
     return weapon;
 }
+//Weapon *GameHero::getWeapon() const {
+//    return weapon;
+//}
 
-void GameHero::setWeapon(Weapon *weapon) {
+void GameHero::setWeapon(std::unique_ptr<Weapon> weapon) {
     GameHero::weapon = weapon;
 }
+//void GameHero::setWeapon(Weapon *weapon) {
+//    GameHero::weapon = weapon;
+//}
 
 int GameHero::getMovementDirection() const {
     return movementDirection;

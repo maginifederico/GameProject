@@ -225,6 +225,33 @@ GameHeroTest.cpp.s:
 	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/GameHeroTest.cpp.s
 .PHONY : GameHeroTest.cpp.s
 
+WeaponTest.o: WeaponTest.cpp.o
+
+.PHONY : WeaponTest.o
+
+# target to build an object file
+WeaponTest.cpp.o:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/WeaponTest.cpp.o
+.PHONY : WeaponTest.cpp.o
+
+WeaponTest.i: WeaponTest.cpp.i
+
+.PHONY : WeaponTest.i
+
+# target to preprocess a source file
+WeaponTest.cpp.i:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/WeaponTest.cpp.i
+.PHONY : WeaponTest.cpp.i
+
+WeaponTest.s: WeaponTest.cpp.s
+
+.PHONY : WeaponTest.s
+
+# target to generate assembly for a file
+WeaponTest.cpp.s:
+	cd /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug && $(MAKE) -f test/CMakeFiles/runAllTests.dir/build.make test/CMakeFiles/runAllTests.dir/WeaponTest.cpp.s
+.PHONY : WeaponTest.cpp.s
+
 runAllTests.o: runAllTests.cpp.o
 
 .PHONY : runAllTests.o
@@ -271,6 +298,9 @@ help:
 	@echo "... GameHeroTest.o"
 	@echo "... GameHeroTest.i"
 	@echo "... GameHeroTest.s"
+	@echo "... WeaponTest.o"
+	@echo "... WeaponTest.i"
+	@echo "... WeaponTest.s"
 	@echo "... runAllTests.o"
 	@echo "... runAllTests.i"
 	@echo "... runAllTests.s"

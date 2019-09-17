@@ -122,13 +122,41 @@ CMakeFiles/core.dir/Tile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/Tile.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp -o CMakeFiles/core.dir/Tile.cpp.s
 
+CMakeFiles/core.dir/Weapon.cpp.o: CMakeFiles/core.dir/flags.make
+CMakeFiles/core.dir/Weapon.cpp.o: ../Weapon.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/core.dir/Weapon.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/Weapon.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Weapon.cpp
+
+CMakeFiles/core.dir/Weapon.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/core.dir/Weapon.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Weapon.cpp > CMakeFiles/core.dir/Weapon.cpp.i
+
+CMakeFiles/core.dir/Weapon.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/Weapon.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Weapon.cpp -o CMakeFiles/core.dir/Weapon.cpp.s
+
+CMakeFiles/core.dir/Projectile.cpp.o: CMakeFiles/core.dir/flags.make
+CMakeFiles/core.dir/Projectile.cpp.o: ../Projectile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/core.dir/Projectile.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/core.dir/Projectile.cpp.o -c /home/federico/Documenti/ClionWorkspace/GameProject/Projectile.cpp
+
+CMakeFiles/core.dir/Projectile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/core.dir/Projectile.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/federico/Documenti/ClionWorkspace/GameProject/Projectile.cpp > CMakeFiles/core.dir/Projectile.cpp.i
+
+CMakeFiles/core.dir/Projectile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/core.dir/Projectile.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/federico/Documenti/ClionWorkspace/GameProject/Projectile.cpp -o CMakeFiles/core.dir/Projectile.cpp.s
+
 # Object files for target core
 core_OBJECTS = \
 "CMakeFiles/core.dir/GameHero.cpp.o" \
 "CMakeFiles/core.dir/GameCharacter.cpp.o" \
 "CMakeFiles/core.dir/Map.cpp.o" \
 "CMakeFiles/core.dir/Layer.cpp.o" \
-"CMakeFiles/core.dir/Tile.cpp.o"
+"CMakeFiles/core.dir/Tile.cpp.o" \
+"CMakeFiles/core.dir/Weapon.cpp.o" \
+"CMakeFiles/core.dir/Projectile.cpp.o"
 
 # External object files for target core
 core_EXTERNAL_OBJECTS =
@@ -138,9 +166,11 @@ libcore.a: CMakeFiles/core.dir/GameCharacter.cpp.o
 libcore.a: CMakeFiles/core.dir/Map.cpp.o
 libcore.a: CMakeFiles/core.dir/Layer.cpp.o
 libcore.a: CMakeFiles/core.dir/Tile.cpp.o
+libcore.a: CMakeFiles/core.dir/Weapon.cpp.o
+libcore.a: CMakeFiles/core.dir/Projectile.cpp.o
 libcore.a: CMakeFiles/core.dir/build.make
 libcore.a: CMakeFiles/core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libcore.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libcore.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/core.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/core.dir/link.txt --verbose=$(VERBOSE)
 

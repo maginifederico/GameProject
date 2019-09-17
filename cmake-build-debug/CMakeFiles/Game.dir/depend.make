@@ -61,5 +61,6 @@ CMakeFiles/Game.dir/main.cpp.o: ../Map.h
 CMakeFiles/Game.dir/main.cpp.o: ../Projectile.h
 CMakeFiles/Game.dir/main.cpp.o: ../Tile.h
 CMakeFiles/Game.dir/main.cpp.o: ../Weapon.h
+CMakeFiles/Game.dir/main.cpp.o: ../WeaponFactory.h
 CMakeFiles/Game.dir/main.cpp.o: ../main.cpp
 

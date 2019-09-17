@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/runAllTests.dir/runAllTests.cpp.o CMakeFiles/runAllTests.dir/GameHeroTest.cpp.o CMakeFiles/runAllTests.dir/GameHeroFixture.cpp.o CMakeFiles/runAllTests.dir/WeaponTest.cpp.o  -o runAllTests ../lib/libgtestd.a ../lib/libgtest_maind.a ../libcore.a -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio ../lib/libgtestd.a -lpthread 

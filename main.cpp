@@ -20,6 +20,7 @@ int main() {
     //fps ridotto da 1500 a 160
     //collisione dei proiettili con layer ground
     //movimento view verticale
+    //Factory per armi
 
 
     ////DA RIVEDERE
@@ -27,7 +28,6 @@ int main() {
 
     ////DA FARE
     //TODO Unit Testing
-    //TODO Factory per armi
     //TODO Factory per Map
     //TODO Caverna e Stanza Speciale in Liv.1
     //TODO smart pointer invece di row pointer
@@ -51,7 +51,7 @@ int main() {
     const std::string GAME_HERO_TEXTURE = "./Textures/PotatoDX.png";
 
     ////FRENCH FRIES WEAPON SETTINGS
-    std::string FRENCH_FRIES_TEXTURE = "./Textures/justOne.png";
+//    std::string FRENCH_FRIES_TEXTURE = "./Textures/justOne.png";
 //    float french_fries_texture_scale = 0.08f;
 //    int french_fries_damage = 20;
 //    float french_fries_range = 400.f;
@@ -84,13 +84,13 @@ int main() {
 
     WeaponFactory weaponFactory;
 
-//    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
+    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
 
-//    std::unique_ptr<Weapon> frenchFries = weaponFactory.createWeapon(1);
+    std::unique_ptr<Weapon> frenchFries = weaponFactory.createWeapon(1);
 
-    Weapon *justOne = weaponFactory.createWeapon(0);
+//    Weapon *justOne = weaponFactory.createWeapon(0);
 
-    Weapon *frenchFries = weaponFactory.createWeapon(1);
+//    Weapon *frenchFries = weaponFactory.createWeapon(1);
 
 
 //    Weapon frenchFries(FRENCH_FRIES_TEXTURE, french_fries_texture_scale, french_fries_damage, french_fries_range,
@@ -105,16 +105,6 @@ int main() {
     player.setWeapon(justOne);
 
     player.map = &map;
-
-
-    //ERROR FIX
-    Sprite sprite;
-    Texture texture;
-
-    if (!texture.loadFromFile(FRENCH_FRIES_TEXTURE))
-        std::cout << "error" << std::endl;
-
-    sprite.setTexture(texture);
 
 
     ////GAME LOOP
@@ -146,8 +136,6 @@ int main() {
         window.draw(map.getLayer()[2]);
         //FIXME Texture bianca
         for (Projectile projectile : player.getWeapon()->getProjectils()) {
-            sprite = projectile.getSprite();
-            sprite.setTexture(texture); //soluzione provvisoria
             window.draw(projectile.getSprite());
         }
         window.draw(player.getSprite());

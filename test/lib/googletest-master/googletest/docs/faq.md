@@ -463,7 +463,7 @@ messages to an `ASSERT_*`, e.g.
 ```
 
 we had to give up using `ASSERT*` and `FAIL*` (but not `EXPECT*` and
-`ADD_FAILURE*`) in constructors and destructors. The workaround is to move the
+`ADD_FAILURE*`) in constructors and destructors. The workaround is to updatePosition the
 content of your constructor/destructor to a private void member function, or
 switch to `EXPECT_*()` if that works. This
 [section](advanced.md#assertion-placement) in the user's guide explains it.

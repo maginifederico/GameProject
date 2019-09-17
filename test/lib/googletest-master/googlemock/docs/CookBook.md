@@ -2800,7 +2800,7 @@ To make it even easier, you can add the following lines to your
 (global-set-key [M-up]   '(lambda () (interactive) (next-error -1)))
 ```
 
-Then you can type `M-m` to start a build, or `M-up`/`M-down` to move
+Then you can type `M-m` to start a build, or `M-up`/`M-down` to updatePosition
 back and forth between errors.
 
 ## Fusing Google Mock Source Files ##

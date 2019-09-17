@@ -527,10 +527,14 @@
 			<Option target="Game"/>
 		</Unit>
 		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Projectile.cpp">
+			<Option target="patagame_unit_testing"/>
 			<Option target="Game"/>
+			<Option target="core"/>
 		</Unit>
 		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Projectile.h">
+			<Option target="patagame_unit_testing"/>
 			<Option target="Game"/>
+			<Option target="core"/>
 		</Unit>
 		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp">
 			<Option target="patagame_unit_testing"/>
@@ -543,9 +547,16 @@
 			<Option target="core"/>
 		</Unit>
 		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Weapon.cpp">
+			<Option target="patagame_unit_testing"/>
 			<Option target="Game"/>
+			<Option target="core"/>
 		</Unit>
 		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/Weapon.h">
+			<Option target="patagame_unit_testing"/>
+			<Option target="Game"/>
+			<Option target="core"/>
+		</Unit>
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/WeaponFactory.h">
 			<Option target="Game"/>
 		</Unit>
 		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/main.cpp">
@@ -556,6 +567,9 @@
 			<Option target="runAllTests"/>
 		</Unit>
 		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/GameHeroTest.cpp">
+			<Option target="runAllTests"/>
+		</Unit>
+		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/WeaponTest.cpp">
 			<Option target="runAllTests"/>
 		</Unit>
 		<Unit filename="/home/federico/Documenti/ClionWorkspace/GameProject/test/lib/googletest-master/googlemock/src/gmock-all.cc">

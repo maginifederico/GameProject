@@ -452,7 +452,9 @@ Projectile.o: Projectile.cpp.o
 
 # target to build an object file
 Projectile.cpp.o:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Projectile.cpp.o
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Projectile.cpp.o
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Projectile.cpp.o
 .PHONY : Projectile.cpp.o
 
 Projectile.i: Projectile.cpp.i
@@ -461,7 +463,9 @@ Projectile.i: Projectile.cpp.i
 
 # target to preprocess a source file
 Projectile.cpp.i:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Projectile.cpp.i
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Projectile.cpp.i
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Projectile.cpp.i
 .PHONY : Projectile.cpp.i
 
 Projectile.s: Projectile.cpp.s
@@ -470,7 +474,9 @@ Projectile.s: Projectile.cpp.s
 
 # target to generate assembly for a file
 Projectile.cpp.s:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Projectile.cpp.s
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Projectile.cpp.s
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Projectile.cpp.s
 .PHONY : Projectile.cpp.s
 
 Tile.o: Tile.cpp.o
@@ -512,7 +518,9 @@ Weapon.o: Weapon.cpp.o
 
 # target to build an object file
 Weapon.cpp.o:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Weapon.cpp.o
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Weapon.cpp.o
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Weapon.cpp.o
 .PHONY : Weapon.cpp.o
 
 Weapon.i: Weapon.cpp.i
@@ -521,7 +529,9 @@ Weapon.i: Weapon.cpp.i
 
 # target to preprocess a source file
 Weapon.cpp.i:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Weapon.cpp.i
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Weapon.cpp.i
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Weapon.cpp.i
 .PHONY : Weapon.cpp.i
 
 Weapon.s: Weapon.cpp.s
@@ -530,7 +540,9 @@ Weapon.s: Weapon.cpp.s
 
 # target to generate assembly for a file
 Weapon.cpp.s:
+	$(MAKE) -f CMakeFiles/patagame_unit_testing.dir/build.make CMakeFiles/patagame_unit_testing.dir/Weapon.cpp.s
 	$(MAKE) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Weapon.cpp.s
+	$(MAKE) -f CMakeFiles/core.dir/build.make CMakeFiles/core.dir/Weapon.cpp.s
 .PHONY : Weapon.cpp.s
 
 main.o: main.cpp.o

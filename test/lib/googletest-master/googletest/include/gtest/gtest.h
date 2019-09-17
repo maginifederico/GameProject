@@ -2515,7 +2515,7 @@ GTEST_API_ AssertionResult CmpHelper##op_name(\
 // insufficient. The macros should be preferred when possible, as they avoid
 // most of the complexity of calling this function.
 //
-// The `factory` argument is a factory callable (move-constructible) object or
+// The `factory` argument is a factory callable (updatePosition-constructible) object or
 // function pointer that creates a new instance of the Test object. It
 // handles ownership to the caller. The signature of the callable is
 // `Fixture*()`, where `Fixture` is the test fixture class for the test. All

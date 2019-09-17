@@ -308,7 +308,7 @@ namespace testing {
                       matchers_(matchers),
                     // By default, extra_matcher_ should match anything.  However,
                     // we cannot initialize it with _ as that causes ambiguity between
-                    // Matcher's copy and move constructor for some argument types.
+                    // Matcher's copy and updatePosition constructor for some argument types.
                       extra_matcher_(A<const ArgumentTuple &>()) {}
 
             // Implements the .With() clause.
@@ -924,7 +924,7 @@ namespace testing {
                       matchers_(m),
                     // By default, extra_matcher_ should match anything.  However,
                     // we cannot initialize it with _ as that causes ambiguity between
-                    // Matcher's copy and move constructor for some argument types.
+                    // Matcher's copy and updatePosition constructor for some argument types.
                       extra_matcher_(A<const ArgumentTuple &>()),
                       repeated_action_(DoDefault()) {}
 
@@ -1341,8 +1341,8 @@ namespace testing {
 // Wrapper type for generically holding an ordinary value or lvalue reference.
 // If T is not a reference type, it must be copyable or movable.
 // ReferenceOrValueWrapper<T> is movable, and will also be copyable unless
-// T is a move-only value type (which means that it will always be copyable
-// if the current platform does not support move semantics).
+// T is a updatePosition-only value type (which means that it will always be copyable
+// if the current platform does not support updatePosition semantics).
 //
 // The primary template defines handling for values, but function header
 // comments describe the contract for the whole template (including

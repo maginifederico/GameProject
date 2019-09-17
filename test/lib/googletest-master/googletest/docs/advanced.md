@@ -1833,7 +1833,7 @@ TestInfo* RegisterTest(const char* test_case_name, const char* test_name,
                        const char* type_param, const char* value_param,	
                        const char* file, int line, Factory factory);	
 ```	
- The `factory` argument is a factory callable (move-constructible) object or	
+ The `factory` argument is a factory callable (updatePosition-constructible) object or
 function pointer that creates a new instance of the Test object. It handles	
 ownership to the caller. The signature of the callable is `Fixture*()`, where	
 `Fixture` is the test fixture class for the test. All tests registered with the	

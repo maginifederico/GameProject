@@ -209,7 +209,7 @@ namespace testing {
         }
 
         // Provides a factory function to be called to generate the default value.
-        // This method can be used even if T is only move-constructible, but it is not
+        // This method can be used even if T is only updatePosition-constructible, but it is not
         // limited to that case.
         typedef T (*FactoryFunction)();
 
@@ -498,8 +498,8 @@ namespace testing {
 
     namespace internal {
 
-// Helper struct to specialize ReturnAction to execute a move instead of a copy
-// on return. Useful for move-only types, but could be used on any type.
+// Helper struct to specialize ReturnAction to execute a updatePosition instead of a copy
+// on return. Useful for updatePosition-only types, but could be used on any type.
         template<typename T>
         struct ByMoveWrapper {
             explicit ByMoveWrapper(T value) : payload(std::move(value)) {}
@@ -596,7 +596,7 @@ namespace testing {
             };
 
             // Partially specialize for ByMoveWrapper. This version of ReturnAction will
-            // move its contents instead.
+            // updatePosition its contents instead.
             template<typename R_, typename F>
             class Impl<ByMoveWrapper<R_>, F> : public ActionInterface<F> {
             public:
@@ -1055,7 +1055,7 @@ namespace testing {
         return internal::ReturnRefOfCopyAction<R>(x);
     }
 
-// Modifies the parent action (a Return() action) to perform a move of the
+// Modifies the parent action (a Return() action) to perform a updatePosition of the
 // argument instead of a copy.
 // Return(ByMove()) actions can only be executed once and will assert this
 // invariant.

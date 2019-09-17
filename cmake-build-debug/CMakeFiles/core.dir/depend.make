@@ -28,7 +28,21 @@ CMakeFiles/core.dir/Map.cpp.o: ../Map.cpp
 CMakeFiles/core.dir/Map.cpp.o: ../Map.h
 CMakeFiles/core.dir/Map.cpp.o: ../Tile.h
 
+CMakeFiles/core.dir/Projectile.cpp.o: ../Projectile.cpp
+CMakeFiles/core.dir/Projectile.cpp.o: ../Projectile.h
+
 CMakeFiles/core.dir/Tile.cpp.o: ../Collision.h
 CMakeFiles/core.dir/Tile.cpp.o: ../Tile.cpp
 CMakeFiles/core.dir/Tile.cpp.o: ../Tile.h
+
+CMakeFiles/core.dir/Weapon.cpp.o: ../Collision.h
+CMakeFiles/core.dir/Weapon.cpp.o: ../GameCharacter.h
+CMakeFiles/core.dir/Weapon.cpp.o: ../GameHero.h
+CMakeFiles/core.dir/Weapon.cpp.o: ../Item.h
+CMakeFiles/core.dir/Weapon.cpp.o: ../Layer.h
+CMakeFiles/core.dir/Weapon.cpp.o: ../Map.h
+CMakeFiles/core.dir/Weapon.cpp.o: ../Projectile.h
+CMakeFiles/core.dir/Weapon.cpp.o: ../Tile.h
+CMakeFiles/core.dir/Weapon.cpp.o: ../Weapon.cpp
+CMakeFiles/core.dir/Weapon.cpp.o: ../Weapon.h
 

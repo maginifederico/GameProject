@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/patagame_unit_testing.dir/Map.cpp.o"
   "CMakeFiles/patagame_unit_testing.dir/Layer.cpp.o"
   "CMakeFiles/patagame_unit_testing.dir/Tile.cpp.o"
+  "CMakeFiles/patagame_unit_testing.dir/Weapon.cpp.o"
+  "CMakeFiles/patagame_unit_testing.dir/Projectile.cpp.o"
   "patagame_unit_testing.pdb"
   "patagame_unit_testing"
 )
