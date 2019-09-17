@@ -1,5 +1,0 @@
-/home/federico/Documenti/clion-2019.1.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make -DCMAKE_C_COMPILER=/usr/bin/cc -DCMAKE_CXX_COMPILER=/usr/bin/c++ -G "CodeBlocks - Unix Makefiles" /home/federico/Documenti/ClionWorkspace/GameProject
--- Found SFML 2.4.2 in /usr/include
--- Configuring done
--- Generating done
--- Build files have been written to: /home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug

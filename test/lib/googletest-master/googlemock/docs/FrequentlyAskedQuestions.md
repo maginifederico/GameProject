@@ -174,7 +174,7 @@ void ExplainMatchResultTo(const MyGreatMatcher& matcher,
 ... MakePolymorphicMatcher(MyGreatMatcher()) ...
 ```
 
-you'll need to move the logic inside `ExplainMatchResultTo()` to
+you'll need to updatePosition the logic inside `ExplainMatchResultTo()` to
 `MatchAndExplain()`:
 ```cpp
 // New matcher definition that works with the latest Google Mock.

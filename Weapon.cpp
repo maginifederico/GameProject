@@ -65,6 +65,9 @@ void Weapon::checkProjectileCollision(Layer &ground) {
     int water = 48;
     int waterSurface = 49;
 
+    sf::FloatRect rightCollision;
+    sf::FloatRect leftCollision;
+
 
     float projectileWidth;
 
@@ -76,13 +79,15 @@ void Weapon::checkProjectileCollision(Layer &ground) {
             c = (int) projectils[i].getSprite().getPosition().x / 21;
             r = (int) projectils[i].getSprite().getPosition().y / 21;
 
-            sinistra = ground.getTile()[c + r * 300].getId();
-            destra = ground.getTile()[c + r * 300 + 1].getId();
+            leftCollision = ground.getTile()[c + r * 300].getCollision();
+            leftCollision = ground.getTile()[c + r * 300 + 1].getCollision();
 
             if (projectils[i].rightDirection())
                 if (
-                        projectils[i].getSprite().getPosition().x + projectileWidth > 6300.f
-                        || (destra != 0 && destra != water && destra != waterSurface)
+//                        projectils[i].getSprite().getPosition().x + projectileWidth > 6300.f
+//                        || (destra != 0 && destra != water && destra != waterSurface)
+
+                        projectils[i].getSprite().getGlobalBounds().intersects(rightCollision)
 
                         )
                     collision = true;
@@ -90,8 +95,11 @@ void Weapon::checkProjectileCollision(Layer &ground) {
                     collision = false;
             else {
                 if (
-                        projectils[i].getSprite().getPosition().x < 0.f
-                        || (sinistra != 0 && sinistra != water && sinistra != waterSurface)
+//                        projectils[i].getSprite().getPosition().x < 0.f
+//                        || (sinistra != 0 && sinistra != water && sinistra != waterSurface)
+
+                        projectils[i].getSprite().getGlobalBounds().intersects(leftCollision)
+
                         )
                     collision = true;
                 else

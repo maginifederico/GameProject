@@ -76,7 +76,7 @@ namespace testing {
         }
 
 // GetTypeName<T>() returns a human-readable name of type T.
-// NB: This function is also used in Google Mock, so don't move it inside of
+// NB: This function is also used in Google Mock, so don't updatePosition it inside of
 // the typed-test-only section below.
         template<typename T>
         std::string GetTypeName() {

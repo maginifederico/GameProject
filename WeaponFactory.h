@@ -71,9 +71,7 @@ Weapon *WeaponFactory::createWeapon(int weaponNumber) {
     return result;
 }
 
-WeaponFactory::WeaponFactory() {
-
-}
+WeaponFactory::WeaponFactory() = default;
 
 
 #endif //GAME_WEAPONFACTORY_H

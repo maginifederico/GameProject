@@ -444,4 +444,4 @@ In Google Mock, if you are not interested in a method, just don't say anything a
 # What Now? #
 Congratulations! You've learned enough about Google Mock to start using it. Now, you might want to join the [googlemock](http://groups.google.com/group/googlemock) discussion group and actually write some tests using Google Mock - it will be fun. Hey, it may even be addictive - you've been warned.
 
-Then, if you feel like increasing your mock quotient, you should move on to the [CookBook](CookBook.md). You can learn many advanced features of Google Mock there -- and advance your level of enjoyment and testing bliss.
+Then, if you feel like increasing your mock quotient, you should updatePosition on to the [CookBook](CookBook.md). You can learn many advanced features of Google Mock there -- and advance your level of enjoyment and testing bliss.

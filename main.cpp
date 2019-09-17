@@ -102,19 +102,12 @@ int main() {
     ////INIT Player
     GameHero player(GAME_HERO_TEXTURE, Vector2f(map.getSpawnPoint().x, map.getSpawnPoint().y),
                     Vector2f(VIEW_WIDTH, VIEW_HEIGHT)/*, weapon*/);
-    player.setWeapon(justOne);
+    player.setWeapon(frenchFries);
 
     player.map = &map;
 
 
-    //ERROR FIX
-    Sprite sprite;
-    Texture texture;
 
-    if (!texture.loadFromFile(FRENCH_FRIES_TEXTURE))
-        std::cout << "error" << std::endl;
-
-    sprite.setTexture(texture);
 
 
     ////GAME LOOP
@@ -146,8 +139,6 @@ int main() {
         window.draw(map.getLayer()[2]);
         //FIXME Texture bianca
         for (Projectile projectile : player.getWeapon()->getProjectils()) {
-            sprite = projectile.getSprite();
-            sprite.setTexture(texture); //soluzione provvisoria
             window.draw(projectile.getSprite());
         }
         window.draw(player.getSprite());

@@ -925,7 +925,7 @@ class, so mixing TEST_F and TEST in the same test suite is
 illegal.  In test suite BadDynamicFixture1,
 test FixtureBase is defined using TEST_F but
 test TestBase is defined using TEST.  You probably
-want to change the TEST to TEST_F or move it to another test
+want to change the TEST to TEST_F or updatePosition it to another test
 case.
 Stack trace: (omitted)
 
