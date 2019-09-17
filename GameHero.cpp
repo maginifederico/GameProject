@@ -290,15 +290,15 @@ void GameHero::damage() {
 
 }
 
-std::unique_ptr<Weapon>GameHero::getWeapon() const {
-    return weapon;
+Weapon*GameHero::getWeapon() const {
+    return weapon.get();
 }
 //Weapon *GameHero::getWeapon() const {
 //    return weapon;
 //}
 
 void GameHero::setWeapon(std::unique_ptr<Weapon> weapon) {
-    GameHero::weapon = weapon;
+    GameHero::weapon = std::move(weapon);
 }
 //void GameHero::setWeapon(Weapon *weapon) {
 //    GameHero::weapon = weapon;

@@ -30,7 +30,7 @@ Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float
 //}
 
 
-void Weapon::shoot(Weapon *gun, sf::Vector2f playerPosition, bool movDirection) {
+void Weapon::shoot(sf::Vector2f playerPosition, bool movDirection) {
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 
@@ -38,9 +38,9 @@ void Weapon::shoot(Weapon *gun, sf::Vector2f playerPosition, bool movDirection) 
         //Gestione cooldown
         sf::Time elapsedTime = clock.getElapsedTime();
         if (elapsedTime.asSeconds() > cooldown) {
-            Projectile newProjectile(Projectile(gun->texturePath, playerPosition, gun->textureScale, movDirection));
+            Projectile newProjectile(Projectile(texturePath, playerPosition, textureScale, movDirection));
             newProjectile.getSprite().setTexture(texture);
-            gun->projectils.emplace_back(newProjectile);
+            projectils.emplace_back(newProjectile);
             clock.restart();
         }
 

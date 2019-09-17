@@ -10,9 +10,9 @@ TEST(Weapon, shoot){
 
     WeaponFactory factory;
 
-    Weapon* weapon = factory.createWeapon(0);
+    std::unique_ptr<Weapon> weapon = factory.createWeapon(0);
 
-    weapon->shoot( weapon, sf::Vector2f(0,0), true);
+    weapon->shoot(sf::Vector2f(0,0), true);
 
 
 

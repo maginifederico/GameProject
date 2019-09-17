@@ -31,7 +31,7 @@ TEST(GameHero, Collision) {
     int down_right = map.getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId();
 
     //si posiziona il giocatore in terra in uno spigolo e si invoca il metodo move
-    hero.getSprite().setPosition(336.f, 336.72f);
+    hero.getSprite().setPosition(336.f, 336.6f);
     hero.updatePosition();
 
     //velocity.y dev'essere zero, cioè il giocatore non deve essersi mosso verticalmente

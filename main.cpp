@@ -121,7 +121,7 @@ int main() {
         //update input
         player.updatePosition();
         player.updateViewPosition();
-        player.getWeapon()->shoot(player.getWeapon(), player.getSprite().getPosition(), player.getMovementDirection());
+        player.getWeapon()->shoot(player.getSprite().getPosition(), player.getMovementDirection());
 
         player.getWeapon()->checkProjectileCollision(map.getLayer()[1]);
 

@@ -27,7 +27,7 @@ public:
 
     void damage();
 
-    std::unique_ptr<Weapon> getWeapon() const;
+    Weapon *getWeapon() const;
 //    Weapon *getWeapon() const;
 
     void setWeapon(std::unique_ptr<Weapon> weapon);
