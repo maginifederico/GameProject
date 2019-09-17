@@ -16,7 +16,11 @@
 
 Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float cDown, float explRange, int lvl)
         : texturePath(textPath), textureScale(textScale), damage(dmg), range(rng), cooldown(cDown),
-          explosionRange(explRange), level(lvl) {}
+          explosionRange(explRange), level(lvl) {
+
+    if (!texture.loadFromFile(textPath))
+        std::cout << "Unable to load the sprite";
+}
 
 //
 //Weapon::Weapon(Weapon &gun) : texturePath(gun.texturePath), textureScale(gun.textureScale), damage(gun.damage),
@@ -34,7 +38,9 @@ void Weapon::shoot(Weapon *gun, sf::Vector2f playerPosition, bool movDirection) 
         //Gestione cooldown
         sf::Time elapsedTime = clock.getElapsedTime();
         if (elapsedTime.asSeconds() > cooldown) {
-            gun->projectils.emplace_back(Projectile(gun->texturePath, playerPosition, gun->textureScale, movDirection));
+            Projectile newProjectile(Projectile(gun->texturePath, playerPosition, gun->textureScale, movDirection));
+            newProjectile.getSprite().setTexture(texture);
+            gun->projectils.emplace_back(newProjectile);
             clock.restart();
         }
 

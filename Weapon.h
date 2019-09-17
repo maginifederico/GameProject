@@ -39,6 +39,8 @@ private:
     int level;
     float explosionRange;
 
+    sf::Texture texture;
+
 };
 
 #endif //_WEAPON_H

@@ -6,6 +6,7 @@
 #include "GameHero.h"
 #include "GameCharacter.h"
 #include "Map.h"
+#include "WeaponFactory.h"
 
 
 using namespace sf;
@@ -18,6 +19,7 @@ int main() {
     //far sparare il giocatore
     //fps ridotto da 1500 a 160
     //collisione dei proiettili con layer ground
+    //movimento view verticale
 
 
     ////DA RIVEDERE
@@ -28,7 +30,6 @@ int main() {
     //TODO Factory per armi
     //TODO Factory per Map
     //TODO Caverna e Stanza Speciale in Liv.1
-    //TODO movimento view verticale
     //TODO smart pointer invece di row pointer
     //TODO gestione vita player e nemici con rettangolini rossi e verdi
     //TODO Observer per Achievements
@@ -38,6 +39,7 @@ int main() {
     //TODO Strategy per movimento nemici
     //TODO collisioni con layer oggetti
     //TODO implementare i bonus e monetine
+    //TODO implementare potenziamenti
     //TODO implementare salvataggio progressi
 
     //init game
@@ -50,10 +52,10 @@ int main() {
 
     ////FRENCH FRIES WEAPON SETTINGS
     std::string FRENCH_FRIES_TEXTURE = "./Textures/justOne.png";
-    float french_fries_texture_scale = 0.08f;
-    int french_fries_damage = 20;
-    float french_fries_range = 400.f;
-    float french_fries_cooldown = 0.2f;
+//    float french_fries_texture_scale = 0.08f;
+//    int french_fries_damage = 20;
+//    float french_fries_range = 400.f;
+//    float french_fries_cooldown = 0.2f;
 
     ////LEVEL 1 SETTINGS
     float mapWidth = 6300.f;
@@ -80,8 +82,19 @@ int main() {
 
     ////INIT PLAYER WEAPONS
 
-    Weapon frenchFries(FRENCH_FRIES_TEXTURE, french_fries_texture_scale, french_fries_damage, french_fries_range,
-                       french_fries_cooldown);
+    WeaponFactory weaponFactory;
+
+//    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
+
+//    std::unique_ptr<Weapon> frenchFries = weaponFactory.createWeapon(1);
+
+    Weapon *justOne = weaponFactory.createWeapon(0);
+
+    Weapon *frenchFries = weaponFactory.createWeapon(1);
+
+
+//    Weapon frenchFries(FRENCH_FRIES_TEXTURE, french_fries_texture_scale, french_fries_damage, french_fries_range,
+//                       french_fries_cooldown);
 
 
     //init game elements
@@ -89,7 +102,7 @@ int main() {
     ////INIT Player
     GameHero player(GAME_HERO_TEXTURE, Vector2f(map.getSpawnPoint().x, map.getSpawnPoint().y),
                     Vector2f(VIEW_WIDTH, VIEW_HEIGHT)/*, weapon*/);
-    player.setWeapon(&frenchFries);
+    player.setWeapon(justOne);
 
     player.map = &map;
 
@@ -130,12 +143,12 @@ int main() {
         //render game elements
         window.draw(map.getLayer()[0]);
         window.draw(map.getLayer()[1]);
-//        window.draw(map.getLayer()[2]);
+        window.draw(map.getLayer()[2]);
         //FIXME Texture bianca
         for (Projectile projectile : player.getWeapon()->getProjectils()) {
             sprite = projectile.getSprite();
             sprite.setTexture(texture); //soluzione provvisoria
-            window.draw(sprite);
+            window.draw(projectile.getSprite());
         }
         window.draw(player.getSprite());
         window.setView(player.playerView);

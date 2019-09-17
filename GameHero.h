@@ -23,16 +23,18 @@ public:
 
     sf::View playerView;
 
-    virtual void updatePosition() override;
+    void updatePosition() override;
 
     void damage();
 
+//    std::unique_ptr<Weapon> getWeapon() const;
     Weapon *getWeapon() const;
+
+//    void setWeapon(std::unique_ptr<Weapon> weapon);
+    void setWeapon(Weapon *weapon);
 
 //    Item *item;
     Map *map;        //FIXME
-
-    void setWeapon(Weapon *frenchFries);
 
     int getMovementDirection() const;
 
@@ -53,9 +55,8 @@ private:
     const float jumpSpeedUnderWater = jumpSpeed / 4;
     sf::FloatRect viewPosition;
 
-    //Creare vettore di weapons, per adesso c'è solo French Fries
+//    std::unique_ptr<Weapon> weapon;
     Weapon *weapon;
-
 };
 
 
