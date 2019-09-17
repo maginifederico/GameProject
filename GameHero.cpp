@@ -10,37 +10,40 @@
  */
 
 
-GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, float speed)
-        : GameCharacter(texture, initialPosition, speed) {
+GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, int HP,
+                   float speed, float underWaterSpeed) : weapon(gun), map(nullptr),
+                                                         GameCharacter(texture, initialPosition, speed, underWaterSpeed,
+                                                                       HP) {
     sprite.setScale(sf::Vector2f(0.7142857f, 1.044776f));
     sprite.scale(0.15f, 0.15f);
     velocity.x = 0;
     velocity.y = 0;
-    playerView.reset(sf::FloatRect(0, 0, view.x, view.y));
+    playerView.reset(sf::FloatRect(0.f, 100.f, view.x, view.y));
     viewPosition.height = playerView.getSize().y;
     viewPosition.width = playerView.getSize().x;
     viewPosition.top = playerView.getCenter().y - playerView.getSize().y / 2;
     viewPosition.left = playerView.getCenter().x - playerView.getSize().x / 2;
     movementDirection = true;
-//    frenchFries = new Weapon(gun);
+//    weapon = new Weapon(gun);
 }
 
-void GameHero::move() {
-
-    sf::Vector2f startingPosition(getSprite().getPosition());
+void GameHero::updatePosition() {
 
     int c = (int) sprite.getPosition().x / 21;
     int r = (int) sprite.getPosition().y / 21;
 
-    int sinistra = map->getLayer()[1].getTile()[c + r * 300].getId();
-    int destra = map->getLayer()[1].getTile()[c + r * 300 + 1].getId();
-    int sotto_sinistra = map->getLayer()[1].getTile()[c + r * 300 + 300].getId();
-    int sotto_destra = map->getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId();
+    int left = map->getLayer()[1].getTile()[c + r * 300].getId();
+    int right = map->getLayer()[1].getTile()[c + r * 300 + 1].getId();
+    int down_left = map->getLayer()[1].getTile()[c + r * 300 + 300].getId();
+    int down_right = map->getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId();
 
-    int water = 47;
-    int waterSurface = 48;
-    int groundSurface = 31;
-    int ground = 33;
+
+    int water = 48;
+    int waterSurface = 49;
+//    int groundSurface = 31;
+    int groundSurface = 34;
+//    int ground = 33;
+    int ground = 36;
     int aria = 0;
 
     bool waterJump = false;
@@ -53,29 +56,29 @@ void GameHero::move() {
 
 //    ricorda playerBoundingBox = sprite.getGlobalBounds();
 
-//    std::cout << "sinistra= " << sinistra << std::endl << "destra= " << destra << std::endl << "sotto_sinistra= "
-//              << sotto_sinistra << std::endl << "sotto_destra= " << sotto_destra << std::endl
+//    std::cout << "left= " << left << std::endl << "right= " << right << std::endl << "down_left= "
+//              << down_left << std::endl << "down_right= " << down_right << std::endl
 //              << "velocity.y= " << velocity.y << std::endl << std::endl;
 
 //    std::cout << getSprite().getPosition().x << std::endl << getSprite().getPosition().y << std::endl << std::endl;
 
     ////APPLICAZIONE GRAVITA'
-    //Se il giocatore non è a terra e non c'è uno spigolo a destra venendo dall' alto o da fermo sul terreno (cadendo -> velocity.y > 0), applica gravità
-    if ((sotto_sinistra == 0 && !(sotto_destra != 0 && destra == 0 && velocity.y >= 0))
+    //Se il giocatore non è a terra e non c'è uno spigolo a right venendo dall' alto o da fermo sul terreno (cadendo -> velocity.y > 0), applica gravità
+    if ((down_left == 0 && !(down_right != 0 && right == 0 && velocity.y >= 0))
         //oppure anche se, venendo dall'alto o dal basso, si ha una parete a sx, altrimenti il giocatore si bloccava sul muro
-        || (sotto_sinistra != 0 && sotto_destra == 0 && sinistra != 0 && destra == 0 && velocity.y != 0)
+        || (down_left != 0 && down_right == 0 && left != 0 && right == 0 && velocity.y != 0)
         //oppure anche se, saltando, si ha uno spigolo a sx, sennò il giocatore si bloccava nel tile a dx dello spigolo a sx
-        || (sotto_sinistra != 0 && sotto_destra == 0 && sinistra == 0 && destra == 0 && velocity.y < 0)
+        || (down_left != 0 && down_right == 0 && left == 0 && right == 0 && velocity.y < 0)
         //oppure ci si trova in una situazione in cui si ha un muro a sx e un blocco sopra, altrimenti il giocatore si bloccava nell'angolino tra muro e blocco
-        || (sotto_sinistra != 0 && sotto_destra == 0 && sinistra != 0 && destra != 0)
+        || (down_left != 0 && down_right == 0 && left != 0 && right != 0)
         //oppure se si trova nell'acqua
         || (
                 ////GESTIONE CONDIZIONE IN ACQUA
-                (sotto_sinistra == waterSurface && sotto_destra == waterSurface)
-                || (sotto_sinistra == water && sotto_destra == water)
-                || (sprite.getPosition().y + sprite.getGlobalBounds().height >= 525.f)
-                || (sotto_destra == water && sinistra != water)
-                || (sotto_sinistra == water && destra != 0 && sotto_destra != 0)
+                (down_left == waterSurface && down_right == waterSurface)
+                || (down_left == water && down_right == water)
+                || (sprite.getPosition().y + sprite.getGlobalBounds().height >= map->getHeight())
+                || (down_right == water && left != water)
+                || (down_left == water && right != 0 && down_right != 0)
 
 
         )
@@ -83,39 +86,39 @@ void GameHero::move() {
 
         // FIXME problema uscita player dall'acqua
 
-        // FIXME problema bloccaggio player in condizione sotto_sinistra = ground/groundSurface, sotto_destra = waterSurface, destra = aria e anche viceversa
+        // FIXME problema bloccaggio player in condizione down_left = ground/groundSurface, down_right = waterSurface, right = aria e anche viceversa
         //  (quando si esce dall'acqua attaccati ad una parete si blocca il player)
 
-        // FIXME problema spigolo di terra sotto l'acqua (ci si entra da sinistra)
+        // FIXME problema spigolo di terra sotto l'acqua (ci si entra da left)
 
 
             ) {
 
         if (
-                (sotto_sinistra == waterSurface && sotto_destra == waterSurface)
-                || (sotto_sinistra == water && sotto_destra == water)
-                || (sprite.getPosition().y + sprite.getGlobalBounds().height >= 525.f)
-                || (sotto_destra == water && sinistra != water)
-                || (sotto_sinistra == water && destra != 0 && sotto_destra != 0)
+            //Se il giocatore è nell'acqua
+                (down_left == waterSurface && down_right == waterSurface)
+                || (down_left == water && down_right == water)
+                || (sprite.getPosition().y + sprite.getGlobalBounds().height >= map->getHeight())
+                || (down_right == water && left != water)
+                || (down_left == water && right != 0 && down_right != 0)
 
 
                 ) {
             //se il player arriva troppo velocemente sull'acqua, fermalo
-            if (velocity.y > 0.5 && sotto_sinistra == waterSurface && sotto_destra == waterSurface) {
-                velocity.y = -waterAcceleration;
-//                splash = true;
+            if (velocity.y > 0.5 && down_left == waterSurface && down_right == waterSurface) {
+                velocity.y = -map->getWaterAcceleration();
             }
             if (
-                    ((sinistra == ground || sinistra == groundSurface) && sotto_sinistra == water)
-                    || ((destra == ground || destra == groundSurface) && sotto_destra == water)
+                    ((left == ground || left == groundSurface) && down_left == water)
+                    || ((right == ground || right == groundSurface) && down_right == water)
                     ) {
                 waterJump = false;
             } else {
                 waterJump = true;
             }
-            velocity.y -= waterAcceleration; //applica gravità dell'acqua
+            velocity.y -= map->getWaterAcceleration(); //applica gravità dell'acqua
         } else {
-            velocity.y -= acceleration; //applica gravità
+            velocity.y -= map->getAcceleration(); //applica gravità
             waterJump = false;
         }
 
@@ -126,13 +129,12 @@ void GameHero::move() {
 
     //// GESTIONE TASTI WASD
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-        if (((sotto_sinistra != 0 || sotto_destra != 0) && velocity.y == 0.f) || waterJump) {
+        if (((down_left != 0 || down_right != 0) && velocity.y == 0.f) || waterJump) {
             if (waterJump)
-                velocity.y = jumpSpeed / 4;
+                velocity.y = jumpSpeedUnderWater;
             else
                 velocity.y = jumpSpeed;
 
-//            playerView.move(0.f,jumpSpeed * dt);//FIXME movimento view verticale
         }
 
     }
@@ -151,8 +153,8 @@ void GameHero::move() {
         }
 
 
-        if (sinistra == water || sinistra == waterSurface) {
-            velocity.x = -speed / 1.5;
+        if (left == water || left == waterSurface) {
+            velocity.x = -underWaterSpeed;
         } else {
             velocity.x = -speed;
         }
@@ -170,8 +172,8 @@ void GameHero::move() {
             sprite.setTexture(texture);
         }
 
-        if (destra == water || destra == waterSurface) {
-            velocity.x = speed / 2;
+        if (right == water || right == waterSurface) {
+            velocity.x = underWaterSpeed;
         } else {
             velocity.x = speed;
         }
@@ -188,21 +190,23 @@ void GameHero::move() {
 
     ////DESTRA
     if (velocity.x > 0) {
-        if ((destra != 0 && destra != water && destra != waterSurface)
+        if ((right != 0 && right != water && right != waterSurface)
             // grazie alla condizione sotto il giocatore non entra più nel muro a dx nella parte più alta dello spigolo (se sta saltando)
-            || (destra == 0 && sotto_destra != 0 && sotto_sinistra == 0 && velocity.y != 0)
+            || (right == 0 && down_right != 0 && down_left == 0 && velocity.y != 0)
                 ) {
             sprite.move(-velocity.x, 0);
+            velocity.x = 0;
         }
     }
 
     ////SINISTRA
     if (velocity.x < 0) {
-        if ((sinistra != 0 && sinistra != water && sinistra != waterSurface)
+        if ((left != 0 && left != water && left != waterSurface)
             // grazie alla condizione sotto il giocatore non entra più nel muro a sx nella parte più alta dello spigolo (se sta saltando)
-            || (sinistra == 0 && sotto_sinistra != 0 && sotto_destra == 0 && velocity.y != 0)
+            || (left == 0 && down_left != 0 && down_right == 0 && velocity.y != 0)
                 ) {
             sprite.move(-velocity.x, 0);
+            velocity.x = 0;
         }
     }
 
@@ -216,51 +220,20 @@ void GameHero::move() {
     ////SOPRA
     if (velocity.y < 0) {
         //se sopra c'è un ostacolo, smetti di saltare e inizia a scendere
-        if ((sinistra != 0 && sotto_sinistra == 0)
-            || (destra != 0 && sotto_destra == 0)
+        if ((left != 0 && down_left == 0)
+            || (right != 0 && down_right == 0)
             //oppure se ci si trova in acqua e c'è un ostacolo sopra
-            || ((sinistra == ground || sinistra == groundSurface) && sotto_sinistra == water)
-            || ((destra == ground || destra == groundSurface) && sotto_destra == water)
+            || ((left == ground || left == groundSurface) && down_left == water)
+            || ((right == ground || right == groundSurface) && down_right == water)
                 ) {
             velocity.y = 0;
         }
     }
 
 
-    //MOVIMENTO VIEW
-    if (sprite.getPosition().x >= INITIAL_POSITION_X && sprite.getPosition().x <= 6300.f - 3 * INITIAL_POSITION_X)
-        playerView.move(getSprite().getPosition().x - startingPosition.x, 0.f);
-
-//        playerView.move(velocity.x,0.f);
-
-//    if (viewPosition.left >= 0 && viewPosition.top >= 0 && (viewPosition.top + viewPosition.height) <= 1010.f &&
-//        (viewPosition.left + viewPosition.width) >=
-//        6300.f)  ////&& sprite.getPosition().y >= INITIAL_POSITION_Y && sprite.getPosition().y <= map->getHeight()- INITIAL_POSITION_Y)
-//        playerView.move(velocity);
-//////    if (viewPosition.left > 0 && viewPosition.top > 0 && (viewPosition.top + viewPosition.height) > 1010.f &&
-//////           (viewPosition.left + viewPosition.width) >6300.f)
-//////
-//    viewPosition.height = playerView.getSize().y;
-//    viewPosition.width = playerView.getSize().x;
-//    viewPosition.top = playerView.getCenter().y - playerView.getSize().y / 2;
-//    viewPosition.left = playerView.getCenter().x - playerView.getSize().x / 2;
-
-//    if (viewPosition.left > 0)
-//        playerView.setCenter(0.f, playerView.getCenter().y);
-//
-//    if (viewPosition.top > 0)
-//        playerView.setCenter(playerView.getCenter().x, 0.f);
-//
-//    if ((viewPosition.top + viewPosition.height) > 1010.f)
-//        playerView.setCenter(playerView.getCenter().x, 1010.f - playerView.getSize().y / 2);
-//
-//    if ((viewPosition.left + viewPosition.width) > 6300.f)
-//        playerView.setCenter((6300.f - playerView.getSize().x / 2), playerView.getCenter().y);
-
-
 
 ////  SCREEN COLLISION
-//    left collision
+    //left collision
     if (sprite.getPosition().x < 0.f)
         sprite.setPosition(0.f, sprite.getPosition().y);
 
@@ -269,29 +242,65 @@ void GameHero::move() {
         sprite.setPosition(sprite.getPosition().x, 0.f);
 
     //right collision
-    if (sprite.getPosition().x + sprite.getGlobalBounds().width > 6300.f)//FIXME MAP_WIDTH 6300
-        sprite.setPosition(6300.f - sprite.getGlobalBounds().width, sprite.getPosition().y);//FIXME MAP_WIDTH 6300
+    if (sprite.getPosition().x + sprite.getGlobalBounds().width > map->getWidth())
+        sprite.setPosition(map->getWidth() - sprite.getGlobalBounds().width, sprite.getPosition().y);
 
     //bottom collision
-    if (sprite.getPosition().y + sprite.getGlobalBounds().height > 525.f)//FIXME WINDOW HEIGHT 1010
-        sprite.setPosition(sprite.getPosition().x, 525.f - sprite.getGlobalBounds().height);//FIXME WINDOW HEIGHT 1010
+    if (sprite.getPosition().y + sprite.getGlobalBounds().height > map->getHeight())
+        sprite.setPosition(sprite.getPosition().x, map->getHeight() - sprite.getGlobalBounds().height);
 
-
+//    std::cout << "Velocity.y= " << velocity.y << std::endl;
+//    std::cout << "Center= " << playerView.getCenter().x << std::endl << playerView.getCenter().y << std::endl;
+//    std::cout << getSprite().getPosition().x << std::endl << getSprite().getPosition().y << std::endl << std::endl;
 
 
 }
 
+
+void GameHero::updateViewPosition() {
+
+    ////MOVIMENTO VIEW
+
+    //Orizzontale
+    if (sprite.getPosition().x >= map->getViewHorizontalLimitSx() &&
+        sprite.getPosition().x <= map->getViewHorizontalLimitDx())
+        playerView.move(velocity.x, 0.f);
+
+
+    float defaultDistanceY = 40.f;
+    //Verticale
+    if (
+        //Queste due condizioni impediscono il movimento della view oltre i limiti della mappa. Il centro della
+        //view è sempre compreso tra il limite superiore e inferiore
+//            playerView.getCenter().y + velocity.y >= map->getViewVerticalLimitUp()
+//            && (playerView.getCenter().y + velocity.y <= map->getViewVerticalLimitDown())
+            sprite.getPosition().y - defaultDistanceY >= map->getViewVerticalLimitUp()
+            && sprite.getPosition().y - defaultDistanceY <= map->getViewVerticalLimitDown()
+            && playerView.getCenter().y - sprite.getPosition().y != -defaultDistanceY
+
+            ) {
+
+        playerView.setCenter(playerView.getCenter().x, sprite.getPosition().y - defaultDistanceY);
+//        playerView.move(0.f, velocity.y);
+
+    }
+
+
+}
 
 void GameHero::damage() {
 
 }
 
-Weapon *GameHero::getFrenchFries() const {
-    return frenchFries;
+//std::unique_ptr<Weapon>GameHero::getWeapon() const {
+//    return weapon;
+//}
+Weapon *GameHero::getWeapon() const {
+    return weapon;
 }
 
-void GameHero::setFrenchFries(Weapon *frenchFries) {
-    GameHero::frenchFries = frenchFries;
+void GameHero::setWeapon(Weapon *weapon) {
+    GameHero::weapon = weapon;
 }
 
 int GameHero::getMovementDirection() const {

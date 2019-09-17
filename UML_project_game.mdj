@@ -7595,7 +7595,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFq2hsy49DZ0Mc="
 							},
-							"name": "move"
+							"name": "updatePosition"
 						},
 						{
 							"_type": "UMLOperation",

@@ -15,15 +15,16 @@
 class Layer : public sf::Drawable, public sf::Transformable {
 public:
 
-    explicit Layer(int width = 300, int height = 25, std::string tile_set_path = "./Textures/tileSetC.png");
+    explicit Layer(int width = 300, int height = 25, std::string tile_set_path = "./Textures/tilesetC1.png");
 
     bool load(sf::Vector2u tileSize, std::string map_path);
 
     Tile *getTile() const;
 
+    ~Layer() override {
+        delete[] tile;
+    };
 
-
-    //const sf::Vector2f &Layer::getSpawnPoint() const;
 
 private:
 
@@ -34,10 +35,7 @@ private:
     unsigned int height;
     unsigned int width;
 
-
     Tile *tile;
-    //const sf::Vector2f spawn_point = sf::Vector2f(100.f, 0.f);
-
 
     std::string tileset;
 

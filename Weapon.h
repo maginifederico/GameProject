@@ -24,7 +24,7 @@ public:
 
     std::vector<Projectile> &getProjectils();
 
-    void projectileCollision(Layer &ground);
+    void checkProjectileCollision(Layer &ground);
 
 private:
 
@@ -38,6 +38,8 @@ private:
     float cooldown;
     int level;
     float explosionRange;
+
+    sf::Texture texture;
 
 };
 

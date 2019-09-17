@@ -16,7 +16,11 @@
 
 Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float cDown, float explRange, int lvl)
         : texturePath(textPath), textureScale(textScale), damage(dmg), range(rng), cooldown(cDown),
-          explosionRange(explRange), level(lvl) {}
+          explosionRange(explRange), level(lvl) {
+
+    if (!texture.loadFromFile(textPath))
+        std::cout << "Unable to load the sprite";
+}
 
 //
 //Weapon::Weapon(Weapon &gun) : texturePath(gun.texturePath), textureScale(gun.textureScale), damage(gun.damage),
@@ -34,29 +38,13 @@ void Weapon::shoot(Weapon *gun, sf::Vector2f playerPosition, bool movDirection) 
         //Gestione cooldown
         sf::Time elapsedTime = clock.getElapsedTime();
         if (elapsedTime.asSeconds() > cooldown) {
-            gun->projectils.emplace_back(Projectile(gun->texturePath, playerPosition, gun->textureScale, movDirection));
+            Projectile newProjectile(Projectile(gun->texturePath, playerPosition, gun->textureScale, movDirection));
+            newProjectile.getSprite().setTexture(texture);
+            gun->projectils.emplace_back(newProjectile);
             clock.restart();
         }
 
     }
-//
-//    //Se ci sono proiettili sulla mappa, aggiorna la posizione, o cancellali
-//    if (!projectils.empty()) {
-//        for (int i = 0; i < projectils.size(); i++) {
-//
-//            if (
-//                    (fabs(projectils[i].getSprite().getPosition().x - projectils[i].getInitialPosition().x) >
-//                     gun->range)
-//                    || projectils[i].getSprite().getPosition().x > 6300.f
-//                    || projectils[i].getSprite().getPosition().x < 0.f
-////                    || layer
-//                // oppure se collide con layer ground
-//                    )
-//                projectils.erase(projectils.begin() + i);
-//            else
-//                projectils[i].updatePosition();
-//        }
-//    }
 
 }
 
@@ -64,7 +52,7 @@ std::vector<Projectile> &Weapon::getProjectils() {
     return projectils;
 }
 
-void Weapon::projectileCollision(Layer &ground) {
+void Weapon::checkProjectileCollision(Layer &ground) {
 
     int c;
     int r;
@@ -73,6 +61,10 @@ void Weapon::projectileCollision(Layer &ground) {
     int destra;
 
     bool collision;
+
+    int water = 48;
+    int waterSurface = 49;
+
 
     float projectileWidth;
 
@@ -90,7 +82,7 @@ void Weapon::projectileCollision(Layer &ground) {
             if (projectils[i].rightDirection())
                 if (
                         projectils[i].getSprite().getPosition().x + projectileWidth > 6300.f
-                        || (destra != 0 && destra != 47 && destra != 48)
+                        || (destra != 0 && destra != water && destra != waterSurface)
 
                         )
                     collision = true;
@@ -99,7 +91,7 @@ void Weapon::projectileCollision(Layer &ground) {
             else {
                 if (
                         projectils[i].getSprite().getPosition().x < 0.f
-                        || (sinistra != 0 && sinistra != 47 && sinistra != 48)
+                        || (sinistra != 0 && sinistra != water && sinistra != waterSurface)
                         )
                     collision = true;
                 else

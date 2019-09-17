@@ -12,8 +12,8 @@
 
 class Map {
 public:
-    explicit Map(unsigned int width, unsigned int height, std::string background,
-                 std::string ground/*, std::string objects*/); // 3 path + h e w
+    explicit Map(float width, float height, sf::Vector2f spawnPoint, std::string background, std::string ground,
+                 std::string objects);
 
     ~Map() {
         delete[] layer;
@@ -21,28 +21,48 @@ public:
 
     bool load();
 
+    void setViewLimits(float width, float height);
+
     const sf::Vector2f &getSpawnPoint() const;
 
     Layer *getLayer() const;
 
-    unsigned int getHeight() const;
+    float getHeight() const;
 
-    unsigned int getWidth() const;
+    float getWidth() const;
+
+    float getViewHorizontalLimitSx() const;
+
+    float getViewHorizontalLimitDx() const;
+
+    float getViewVerticalLimitUp() const;
+
+    float getViewVerticalLimitDown() const;
+
+    const float getAcceleration() const;
+
+    const float getWaterAcceleration() const;
+
+private:
+    std::string background, ground, objects;
+
+    float height;
+    float width;
+
+    const sf::Vector2f spawn_point;
+
+    float viewHorizontalLimitSX;
+    float viewHorizontalLimitDX;
+
+    float viewVerticalLimitUP;
+    float viewVerticalLimitDOWN;
+
+    const float acceleration = -0.02f;
+    const float waterAcceleration = -0.005f;
 
     Layer *layer;
 
-private:
-    unsigned int height;
-    unsigned int width;
-//    float height;
-//    float width;
-
-
 //    void setLayer(Layer *layer);
-
-    std::string background, ground, objects;
-
-    const sf::Vector2f spawn_point = sf::Vector2f(100.f, 0.f);
 
 
 

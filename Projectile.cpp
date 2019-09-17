@@ -20,14 +20,13 @@ void Projectile::damage() {
 Projectile::Projectile(std::string &texturePath, sf::Vector2f initPosition, float textureScale, bool movDirection)
         : initialPosition(initPosition), direction(movDirection) {
 
-    if (!texture.loadFromFile(texturePath))
-        std::cout << "Unable to load the sprite";
-
-    sprite.setTexture(texture);
+//    if (!texture.loadFromFile("./Textures/justOne.png"))
+//        std::cout << "Unable to load the sprite";
+//
+//    sprite.setTexture(texture);
     sprite.setScale(textureScale, textureScale);
 
-    sprite.setPosition(initPosition.x /*+ player.getSprite().getGlobalBounds().width/2*/,
-                       initPosition.y /*+ player.getSprite().getGlobalBounds().height/4*/);
+    sprite.setPosition(initPosition.x, initPosition.y);
 
 
 }
