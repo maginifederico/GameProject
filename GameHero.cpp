@@ -251,8 +251,10 @@ void GameHero::updatePosition() {
     if (sprite.getPosition().y + sprite.getGlobalBounds().height > map->getHeight())
         sprite.setPosition(sprite.getPosition().x, map->getHeight() - sprite.getGlobalBounds().height);
 
-
 //    std::cout << "Velocity.y= " << velocity.y << std::endl;
+//    std::cout << "Center= " << playerView.getCenter().x << std::endl << playerView.getCenter().y << std::endl;
+//    std::cout << getSprite().getPosition().x << std::endl << getSprite().getPosition().y << std::endl << std::endl;
+
 
 }
 
@@ -267,48 +269,23 @@ void GameHero::updateViewPosition() {
         playerView.move(velocity.x, 0.f);
 
 
-
+    float defaultDistanceY = 40.f;
     //Verticale
     if (
         //Queste due condizioni impediscono il movimento della view oltre i limiti della mappa. Il centro della
         //view è sempre compreso tra il limite superiore e inferiore
-            playerView.getCenter().y + velocity.y >= map->getViewVerticalLimitUp()
-            && (playerView.getCenter().y + velocity.y <= map->getViewVerticalLimitDown())
-            && (sprite.getPosition().y - playerView.getCenter().y >
-                50.f /*|| sprite.getPosition().y - playerView.getCenter().y < - 100.f*/)
+//            playerView.getCenter().y + velocity.y >= map->getViewVerticalLimitUp()
+//            && (playerView.getCenter().y + velocity.y <= map->getViewVerticalLimitDown())
+            sprite.getPosition().y - defaultDistanceY >= map->getViewVerticalLimitUp()
+            && sprite.getPosition().y - defaultDistanceY <= map->getViewVerticalLimitDown()
+            && playerView.getCenter().y - sprite.getPosition().y != -defaultDistanceY
 
             ) {
 
-        playerView.move(0.f, velocity.y);
+        playerView.setCenter(playerView.getCenter().x, sprite.getPosition().y - defaultDistanceY);
+//        playerView.move(0.f, velocity.y);
 
     }
-
-//        playerView.updatePosition(velocity.x,0.f);
-
-//    if (viewPosition.left >= 0 && viewPosition.top >= 0 && (viewPosition.top + viewPosition.height) <= 1010.f &&
-//        (viewPosition.left + viewPosition.width) >=
-//        6300.f)  ////&& sprite.getPosition().y >= INITIAL_POSITION_Y && sprite.getPosition().y <= map->getHeight()- INITIAL_POSITION_Y)
-//        playerView.updatePosition(velocity);
-//////    if (viewPosition.left > 0 && viewPosition.top > 0 && (viewPosition.top + viewPosition.height) > 1010.f &&
-//////           (viewPosition.left + viewPosition.width) >6300.f)
-//////
-//    viewPosition.height = playerView.getSize().y;
-//    viewPosition.width = playerView.getSize().x;
-//    viewPosition.top = playerView.getCenter().y - playerView.getSize().y / 2;
-//    viewPosition.left = playerView.getCenter().x - playerView.getSize().x / 2;
-
-//    if (viewPosition.left > 0)
-//        playerView.setCenter(0.f, playerView.getCenter().y);
-//
-//    if (viewPosition.top > 0)
-//        playerView.setCenter(playerView.getCenter().x, 0.f);
-//
-//    if ((viewPosition.top + viewPosition.height) > 1010.f)
-//        playerView.setCenter(playerView.getCenter().x, 1010.f - playerView.getSize().y / 2);
-//
-//    if ((viewPosition.left + viewPosition.width) > 6300.f)
-//        playerView.setCenter((6300.f - playerView.getSize().x / 2), playerView.getCenter().y);
-
 
 
 }
