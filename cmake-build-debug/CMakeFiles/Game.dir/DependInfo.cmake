@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/federico/Documenti/ClionWorkspace/GameProject/Collision.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/Collision.cpp.o"
-  "/home/federico/Documenti/ClionWorkspace/GameProject/GameCharacter.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/GameCharacter.cpp.o"
-  "/home/federico/Documenti/ClionWorkspace/GameProject/GameHero.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/GameHero.cpp.o"
-  "/home/federico/Documenti/ClionWorkspace/GameProject/Item.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/Item.cpp.o"
-  "/home/federico/Documenti/ClionWorkspace/GameProject/Layer.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/Layer.cpp.o"
-  "/home/federico/Documenti/ClionWorkspace/GameProject/Map.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/Map.cpp.o"
-  "/home/federico/Documenti/ClionWorkspace/GameProject/Obstacle.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/Obstacle.cpp.o"
-  "/home/federico/Documenti/ClionWorkspace/GameProject/Tile.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/Tile.cpp.o"
-  "/home/federico/Documenti/ClionWorkspace/GameProject/main.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/main.cpp.o"
+  "/home/sode/Documenti/CLionWorkspace/GameProject/Collision.cpp" "/home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/Collision.cpp.o"
+  "/home/sode/Documenti/CLionWorkspace/GameProject/GameCharacter.cpp" "/home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/GameCharacter.cpp.o"
+  "/home/sode/Documenti/CLionWorkspace/GameProject/GameHero.cpp" "/home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/GameHero.cpp.o"
+  "/home/sode/Documenti/CLionWorkspace/GameProject/Item.cpp" "/home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/Item.cpp.o"
+  "/home/sode/Documenti/CLionWorkspace/GameProject/Layer.cpp" "/home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/Layer.cpp.o"
+  "/home/sode/Documenti/CLionWorkspace/GameProject/Map.cpp" "/home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/Map.cpp.o"
+  "/home/sode/Documenti/CLionWorkspace/GameProject/Obstacle.cpp" "/home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/Obstacle.cpp.o"
+  "/home/sode/Documenti/CLionWorkspace/GameProject/Tile.cpp" "/home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/Tile.cpp.o"
+  "/home/sode/Documenti/CLionWorkspace/GameProject/main.cpp" "/home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/CMakeFiles/Game.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

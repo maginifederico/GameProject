@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/federico/Documenti/ClionWorkspace/GameProject/main.cpp" "/home/federico/Documenti/ClionWorkspace/GameProject/cmake-build-debug/CMakeFiles/core.dir/main.cpp.o"
+  "/home/sode/Documenti/CLionWorkspace/GameProject/main.cpp" "/home/sode/Documenti/CLionWorkspace/GameProject/cmake-build-debug/CMakeFiles/core.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
