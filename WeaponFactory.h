@@ -14,19 +14,19 @@ public:
     WeaponFactory();
 //    virtual ~WeaponFactory();
 
-//    virtual std::unique_ptr<Weapon> createWeapon(int weaponNumber);
+    virtual std::unique_ptr<Weapon> createWeapon(int weaponNumber);
 
-    virtual Weapon *createWeapon(int weaponNumber);
+//    virtual Weapon *createWeapon(int weaponNumber);
 
 
 };
 
-//std::unique_ptr<Weapon> WeaponFactory::createWeapon(int weaponNumber) {
-Weapon *WeaponFactory::createWeapon(int weaponNumber) {
+std::unique_ptr<Weapon> WeaponFactory::createWeapon(int weaponNumber) {
+//Weapon *WeaponFactory::createWeapon(int weaponNumber) {
 
-//    std::unique_ptr<Weapon> result;
+    std::unique_ptr<Weapon> result;
 
-    Weapon *result;
+//    Weapon *result;
 
 
     switch (weaponNumber) {
@@ -38,11 +38,11 @@ Weapon *WeaponFactory::createWeapon(int weaponNumber) {
             float just_one_range = 400.f;
             float just_one_cooldown = 0.2f;
 
-//            result = std::unique_ptr<Weapon>(new Weapon(JUST_ONE_TEXTURE, just_one_texture_scale, just_one_damage,
-//                                                        just_one_range, just_one_cooldown));
+            result = std::unique_ptr<Weapon>(new Weapon(JUST_ONE_TEXTURE, just_one_texture_scale, just_one_damage,
+                                                        just_one_range, just_one_cooldown));
 
-            result = new Weapon(JUST_ONE_TEXTURE, just_one_texture_scale, just_one_damage, just_one_range,
-                                just_one_cooldown);
+//            result = new Weapon(JUST_ONE_TEXTURE, just_one_texture_scale, just_one_damage, just_one_range,
+//                                just_one_cooldown);
             break;
         }
 
@@ -55,11 +55,11 @@ Weapon *WeaponFactory::createWeapon(int weaponNumber) {
             float french_fries_range = 200.f;
             float french_fries_cooldown = 0.5f;
 
-//            result = std::unique_ptr<Weapon>(new Weapon(FRENCH_FRIES_TEXTURE, french_fries_texture_scale,
-//                                                        french_fries_damage, french_fries_range,
-//                                                        french_fries_cooldown));
-            result = new Weapon(FRENCH_FRIES_TEXTURE, french_fries_texture_scale, french_fries_damage,
-                                french_fries_range, french_fries_cooldown);
+            result = std::unique_ptr<Weapon>(new Weapon(FRENCH_FRIES_TEXTURE, french_fries_texture_scale,
+                                                        french_fries_damage, french_fries_range,
+                                                        french_fries_cooldown));
+//            result = new Weapon(FRENCH_FRIES_TEXTURE, french_fries_texture_scale, french_fries_damage,
+//                                french_fries_range, french_fries_cooldown);
 
             break;
         }

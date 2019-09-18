@@ -27,11 +27,11 @@ public:
 
     void damage();
 
-//    std::unique_ptr<Weapon> getWeapon() const;
     Weapon *getWeapon() const;
+//    Weapon *getWeapon() const;
 
-//    void setWeapon(std::unique_ptr<Weapon> weapon);
-    void setWeapon(Weapon *weapon);
+    void setWeapon(std::unique_ptr<Weapon> weapon);
+//    void setWeapon(Weapon *weapon);
 
 //    Item *item;
     Map *map;        //FIXME
@@ -55,8 +55,8 @@ private:
     const float jumpSpeedUnderWater = jumpSpeed / 4;
     sf::FloatRect viewPosition;
 
-//    std::unique_ptr<Weapon> weapon;
-    Weapon *weapon;
+    std::unique_ptr<Weapon> weapon;
+//    Weapon *weapon;
 };
 
 
