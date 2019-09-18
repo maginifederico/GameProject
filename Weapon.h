@@ -20,7 +20,7 @@ public:
 
 //    Weapon(Weapon &gun);
 
-    void shoot(sf::Vector2f playerPosition, bool movementDirection);
+    void createProjectile(sf::Vector2f playerPosition, bool movementDirection);
 
     std::vector<Projectile> &getProjectils();
 

@@ -11,12 +11,14 @@
 #ifndef _GAMECHARACTER_H
 #define _GAMECHARACTER_H
 
+class Map;
+
 class GameCharacter {
 public:
 
     GameCharacter(std::string &texture, sf::Vector2f initialPosition, float speed, float underWaterSpeed, int HP);
 
-    virtual void updatePosition() = 0;
+    virtual void updatePosition(Map &map) = 0;
 
     virtual ~GameCharacter();
 

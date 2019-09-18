@@ -23,7 +23,7 @@ public:
 
     sf::View playerView;
 
-    void updatePosition() override;
+    void updatePosition(Map &ground) override;
 
     void damage();
 
@@ -34,7 +34,6 @@ public:
 //    void setWeapon(Weapon *weapon);
 
 //    Item *item;
-    Map *map;        //FIXME
 
     int getMovementDirection() const;
 
@@ -42,13 +41,32 @@ public:
 
     void setVelocity(const sf::Vector2f &velocity);
 
-    void updateViewPosition();
+    void updateViewPosition(Map &map);
+
+    void setWPressed(bool wPressed);
+
+    void setAPressed(bool sPressed);
+
+    void setSPressed(bool sPressed);
+
+    void setDPressed(bool dPressed);
+
+    void shoot();
 
 private:
+
+
+    //KEYBOARD WASD INPUTS
+    bool W_Pressed;
+    bool A_Pressed;
+    bool S_Pressed;
+    bool D_Pressed;
+
 
     //serve per vedere qual era l'ultima direzione posseduta dal giocatore. In questo modo si evita di ricaricare la
     //texture della patata quando la direzione non è cambiata. Vale true se era destra, false altrimenti.
     int movementDirection = true;
+
 
     sf::Vector2f velocity;
     const float jumpSpeed = -1.9f;
@@ -56,7 +74,6 @@ private:
     sf::FloatRect viewPosition;
 
     std::unique_ptr<Weapon> weapon;
-//    Weapon *weapon;
 };
 
 

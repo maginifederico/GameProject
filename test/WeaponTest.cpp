@@ -12,7 +12,7 @@ TEST(Weapon, shoot){
 
     std::unique_ptr<Weapon> weapon = factory.createWeapon(0);
 
-    weapon->shoot(sf::Vector2f(0,0), true);
+    weapon->createProjectile(sf::Vector2f(0, 0), true);
 
 
 

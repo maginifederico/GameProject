@@ -11,7 +11,7 @@
 
 
 GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, int HP,
-                   float speed, float underWaterSpeed) : weapon(gun), map(nullptr),
+                   float speed, float underWaterSpeed) : weapon(gun),
                                                          GameCharacter(texture, initialPosition, speed, underWaterSpeed,
                                                                        HP) {
     sprite.setScale(sf::Vector2f(0.7142857f, 1.044776f));
@@ -24,25 +24,27 @@ GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector
     viewPosition.top = playerView.getCenter().y - playerView.getSize().y / 2;
     viewPosition.left = playerView.getCenter().x - playerView.getSize().x / 2;
     movementDirection = true;
+    W_Pressed = false;
+    A_Pressed = false;
+    S_Pressed = false;
+    D_Pressed = false;
 //    weapon = new Weapon(gun);
 }
 
-void GameHero::updatePosition() {
+void GameHero::updatePosition(Map &map) {
 
     int c = (int) sprite.getPosition().x / 21;
     int r = (int) sprite.getPosition().y / 21;
 
-    int left = map->getLayer()[1].getTile()[c + r * 300].getId();
-    int right = map->getLayer()[1].getTile()[c + r * 300 + 1].getId();
-    int down_left = map->getLayer()[1].getTile()[c + r * 300 + 300].getId();
-    int down_right = map->getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId();
+    int left = map.getLayer()[1].getTile()[c + r * 300].getId();
+    int right = map.getLayer()[1].getTile()[c + r * 300 + 1].getId();
+    int down_left = map.getLayer()[1].getTile()[c + r * 300 + 300].getId();
+    int down_right = map.getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId();
 
 
     int water = 48;
     int waterSurface = 49;
-//    int groundSurface = 31;
     int groundSurface = 34;
-//    int ground = 33;
     int ground = 36;
     int aria = 0;
 
@@ -76,7 +78,7 @@ void GameHero::updatePosition() {
                 ////GESTIONE CONDIZIONE IN ACQUA
                 (down_left == waterSurface && down_right == waterSurface)
                 || (down_left == water && down_right == water)
-                || (sprite.getPosition().y + sprite.getGlobalBounds().height >= map->getHeight())
+                || (sprite.getPosition().y + sprite.getGlobalBounds().height >= map.getHeight())
                 || (down_right == water && left != water)
                 || (down_left == water && right != 0 && down_right != 0)
 
@@ -98,7 +100,7 @@ void GameHero::updatePosition() {
             //Se il giocatore è nell'acqua
                 (down_left == waterSurface && down_right == waterSurface)
                 || (down_left == water && down_right == water)
-                || (sprite.getPosition().y + sprite.getGlobalBounds().height >= map->getHeight())
+                || (sprite.getPosition().y + sprite.getGlobalBounds().height >= map.getHeight())
                 || (down_right == water && left != water)
                 || (down_left == water && right != 0 && down_right != 0)
 
@@ -106,7 +108,7 @@ void GameHero::updatePosition() {
                 ) {
             //se il player arriva troppo velocemente sull'acqua, fermalo
             if (velocity.y > 0.5 && down_left == waterSurface && down_right == waterSurface) {
-                velocity.y = -map->getWaterAcceleration();
+                velocity.y = -map.getWaterAcceleration();
             }
             if (
                     ((left == ground || left == groundSurface) && down_left == water)
@@ -116,9 +118,9 @@ void GameHero::updatePosition() {
             } else {
                 waterJump = true;
             }
-            velocity.y -= map->getWaterAcceleration(); //applica gravità dell'acqua
+            velocity.y -= map.getWaterAcceleration(); //applica gravità dell'acqua
         } else {
-            velocity.y -= map->getAcceleration(); //applica gravità
+            velocity.y -= map.getAcceleration(); //applica gravità
             waterJump = false;
         }
 
@@ -128,7 +130,7 @@ void GameHero::updatePosition() {
 
 
     //// GESTIONE TASTI WASD
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+    if (W_Pressed) {
         if (((down_left != 0 || down_right != 0) && velocity.y == 0.f) || waterJump) {
             if (waterJump)
                 velocity.y = jumpSpeedUnderWater;
@@ -139,12 +141,12 @@ void GameHero::updatePosition() {
 
     }
 
-//        if (Keyboard::isKeyPressed(Keyboard::S)) {
+//        if (S_Pressed)) {
 //            velocity.y += speed * dt;
 //
 //        }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+    if (A_Pressed) {
 
         if (movementDirection) {
             if (!texture.loadFromFile("./Textures/PotatoSX.png"))
@@ -164,7 +166,7 @@ void GameHero::updatePosition() {
 
     }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+    if (D_Pressed) {
 
         if (!movementDirection) {
             if (!texture.loadFromFile("./Textures/PotatoDX.png"))
@@ -242,12 +244,18 @@ void GameHero::updatePosition() {
         sprite.setPosition(sprite.getPosition().x, 0.f);
 
     //right collision
-    if (sprite.getPosition().x + sprite.getGlobalBounds().width > map->getWidth())
-        sprite.setPosition(map->getWidth() - sprite.getGlobalBounds().width, sprite.getPosition().y);
+    if (sprite.getPosition().x + sprite.getGlobalBounds().width > map.getWidth())
+        sprite.setPosition(map.getWidth() - sprite.getGlobalBounds().width, sprite.getPosition().y);
 
     //bottom collision
-    if (sprite.getPosition().y + sprite.getGlobalBounds().height > map->getHeight())
-        sprite.setPosition(sprite.getPosition().x, map->getHeight() - sprite.getGlobalBounds().height);
+    if (sprite.getPosition().y + sprite.getGlobalBounds().height > map.getHeight())
+        sprite.setPosition(sprite.getPosition().x, map.getHeight() - sprite.getGlobalBounds().height);
+
+
+    W_Pressed = false;
+    A_Pressed = false;
+    S_Pressed = false;
+    D_Pressed = false;
 
 //    std::cout << "Velocity.y= " << velocity.y << std::endl;
 //    std::cout << "Center= " << playerView.getCenter().x << std::endl << playerView.getCenter().y << std::endl;
@@ -257,13 +265,13 @@ void GameHero::updatePosition() {
 }
 
 
-void GameHero::updateViewPosition() {
+void GameHero::updateViewPosition(Map &map) {
 
     ////MOVIMENTO VIEW
 
     //Orizzontale
-    if (sprite.getPosition().x >= map->getViewHorizontalLimitSx() &&
-        sprite.getPosition().x <= map->getViewHorizontalLimitDx())
+    if (sprite.getPosition().x >= map.getViewHorizontalLimitSx() &&
+        sprite.getPosition().x <= map.getViewHorizontalLimitDx())
         playerView.move(velocity.x, 0.f);
 
 
@@ -272,8 +280,8 @@ void GameHero::updateViewPosition() {
     if (
         //Queste due condizioni impediscono il movimento della view oltre i limiti della mappa. Il centro della
         //view è sempre compreso tra il limite superiore e inferiore
-            sprite.getPosition().y - defaultDistanceY >= map->getViewVerticalLimitUp()
-            && sprite.getPosition().y - defaultDistanceY <= map->getViewVerticalLimitDown()
+            sprite.getPosition().y - defaultDistanceY >= map.getViewVerticalLimitUp()
+            && sprite.getPosition().y - defaultDistanceY <= map.getViewVerticalLimitDown()
             && playerView.getCenter().y - sprite.getPosition().y != -defaultDistanceY
 
             ) {
@@ -290,15 +298,15 @@ void GameHero::damage() {
 
 }
 
-Weapon*GameHero::getWeapon() const {
+Weapon *GameHero::getWeapon() const {
     return weapon.get();
 }
 //Weapon *GameHero::getWeapon() const {
 //    return weapon;
 //}
 
-void GameHero::setWeapon(std::unique_ptr<Weapon> weapon) {
-    GameHero::weapon = std::move(weapon);
+void GameHero::setWeapon(std::unique_ptr<Weapon> w) {
+    GameHero::weapon = std::move(w);
 }
 //void GameHero::setWeapon(Weapon *weapon) {
 //    GameHero::weapon = weapon;
@@ -312,6 +320,26 @@ const sf::Vector2f &GameHero::getVelocity() const {
     return velocity;
 }
 
-void GameHero::setVelocity(const sf::Vector2f &velocity) {
-    GameHero::velocity = velocity;
+void GameHero::setVelocity(const sf::Vector2f &vel) {
+    GameHero::velocity = vel;
+}
+
+void GameHero::setWPressed(bool wPressed) {
+    W_Pressed = wPressed;
+}
+
+void GameHero::setAPressed(bool aPressed) {
+    A_Pressed = aPressed;
+}
+
+void GameHero::setSPressed(bool sPressed) {
+    S_Pressed = sPressed;
+}
+
+void GameHero::setDPressed(bool dPressed) {
+    D_Pressed = dPressed;
+}
+
+void GameHero::shoot() {
+    weapon->createProjectile(getSprite().getPosition(), movementDirection);
 }
