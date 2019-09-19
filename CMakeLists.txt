@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.7)
 project(Game)
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Game main.cpp Layer.h Obstacle.h Item.h GameHero.h Map.h GameHero.cpp Obstacle.cpp Item.cpp GameHero.cpp Tile.cpp Tile.h Layer.cpp GameCharacter.cpp GameCharacter.h Map.cpp Weapon.cpp Weapon.h Projectile.cpp Projectile.h WeaponFactory.h)
+add_executable(Game main.cpp Layer.h Obstacle.h Item.h GameHero.h Map.h GameHero.cpp Obstacle.cpp Item.cpp GameHero.cpp Tile.cpp Tile.h Layer.cpp GameCharacter.cpp GameCharacter.h Map.cpp Weapon.cpp Weapon.h Projectile.cpp Projectile.h WeaponFactory.h ObjectsFactory.h Coin.cpp Coin.h)
 
 
 # Detect and add SFML

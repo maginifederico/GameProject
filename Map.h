@@ -17,6 +17,7 @@ public:
 
     ~Map() {
         delete[] layer;
+        objectsCollector.erase(objectsCollector.begin(), objectsCollector.end());
     };
 
     bool load();
@@ -43,6 +44,9 @@ public:
 
     const float getWaterAcceleration() const;
 
+//    std::vector<std::unique_ptr<Item>> &getObjectsCollector();
+    std::vector<Item *> &getObjectsCollector();
+
 private:
     std::string background, ground, objects;
 
@@ -57,16 +61,19 @@ private:
     float viewVerticalLimitUP;
     float viewVerticalLimitDOWN;
 
-    const float acceleration = -0.02f;
-    const float waterAcceleration = -0.005f;
+    const float gravity = -0.02f;
+    const float waterGravity = -0.005f;
 
     Layer *layer;
 
-//    void setLayer(Layer *layer);
-
+//    std::vector<std::unique_ptr<Item>> objectsCollector;
+    std::vector<Item *> objectsCollector;
 
 
 //    Item *item[];
+
+
+
 //    Obstacle *obstacle[];
 //    GameCharacter *GameCharacter[];
 };

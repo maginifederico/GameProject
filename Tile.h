@@ -6,6 +6,7 @@
 #define GAME_TILE_H
 
 #include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 #include "Collision.h"
 
 class Tile {

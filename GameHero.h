@@ -28,10 +28,8 @@ public:
     void damage();
 
     Weapon *getWeapon() const;
-//    Weapon *getWeapon() const;
 
     void setWeapon(std::unique_ptr<Weapon> weapon);
-//    void setWeapon(Weapon *weapon);
 
 //    Item *item;
 

@@ -149,9 +149,17 @@ int main() {
         //render game elements
         window.draw(map.getLayer()[0]);
         window.draw(map.getLayer()[1]);
-        window.draw(map.getLayer()[2]);
 
-        for (Projectile projectile : player.getWeapon()->getProjectils()) {
+//        for(Item * item : map.getObjectsCollector()){
+//
+//            window.draw(item->getSprite());
+//
+//        }
+        for (int i = 0; i < map.getObjectsCollector().size(); i++)
+            window.draw(map.getObjectsCollector()[i]->getSprite());
+//        window.draw(map.getLayer()[2]);
+
+        for (Projectile projectile : player.getWeapon()->getProjectiles()) {
             window.draw(projectile.getSprite());
         }
 

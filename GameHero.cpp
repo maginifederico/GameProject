@@ -56,8 +56,6 @@ void GameHero::updatePosition(Map &map) {
 
 
 
-//    ricorda playerBoundingBox = sprite.getGlobalBounds();
-
 //    std::cout << "left= " << left << std::endl << "right= " << right << std::endl << "down_left= "
 //              << down_left << std::endl << "down_right= " << down_right << std::endl
 //              << "velocity.y= " << velocity.y << std::endl << std::endl;
@@ -287,8 +285,6 @@ void GameHero::updateViewPosition(Map &map) {
             ) {
 
         playerView.setCenter(playerView.getCenter().x, sprite.getPosition().y - defaultDistanceY);
-//        playerView.move(0.f, velocity.y);
-
     }
 
 
@@ -301,16 +297,12 @@ void GameHero::damage() {
 Weapon *GameHero::getWeapon() const {
     return weapon.get();
 }
-//Weapon *GameHero::getWeapon() const {
-//    return weapon;
-//}
+
 
 void GameHero::setWeapon(std::unique_ptr<Weapon> w) {
     GameHero::weapon = std::move(w);
 }
-//void GameHero::setWeapon(Weapon *weapon) {
-//    GameHero::weapon = weapon;
-//}
+
 
 int GameHero::getMovementDirection() const {
     return movementDirection;
