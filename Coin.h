@@ -13,7 +13,7 @@ class Coin : public Item {
 public:
     Coin(int coinValue, std::string &texturePath, int id);
 
-//    void interact() override;
+    void interact() override;
 
 
 private:

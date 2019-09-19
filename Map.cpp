@@ -18,13 +18,13 @@ Map::Map(float width, float height, sf::Vector2f sPoint, std::string bg, std::st
 }
 
 bool Map::load() {
-    if (!layer[0].load(sf::Vector2u(21, 21), background, objectsCollector))
+    if (!layer[0].load(sf::Vector2u(21, 21), background))
         return -1;
 
-    if (!layer[1].load(sf::Vector2u(21, 21), ground, objectsCollector))
+    if (!layer[1].load(sf::Vector2u(21, 21), ground))
         return -1;
 
-    if (!layer[2].load(sf::Vector2u(21, 21), objects, objectsCollector))
+    if (!layer[2].loadObject(/*sf::Vector2u(21, 21),*/ objects, objectsCollector))
         return -1;
 }
 

@@ -20,23 +20,18 @@ Layer::Layer(int width, int height, std::string tileSet) : width(width), height(
     tile = new Tile[width * height];
 }
 
-bool
-Layer::load(sf::Vector2u tileSize, std::string &map_path, std::vector<Item *> objectsCollector, bool isObjectLayer) {
+bool Layer::load(sf::Vector2u tileSize, std::string &map_path) {
 
     std::ifstream my_file(map_path);
 
     int layer[width * height];
-    Item *item = nullptr;
 
 //Crea factory
-    ObjectFactory objectFactory;
 
     for (int i = 0; i < width * height; i++) {
         my_file >> layer[i];
-        if (isObjectLayer)
-            if (layer[i] != 0) {
-                item = objectFactory.createObject(layer[i]);
-            }
+//           if(layer[i] != 0)
+
 //               Item
 //               objectsCollector->push_back(Item());
         tile[i].setId(layer[i]);
@@ -81,14 +76,6 @@ Layer::load(sf::Vector2u tileSize, std::string &map_path, std::vector<Item *> ob
             //se non e' una tile di aria, imposta la sua collisione, altrimenti togli collision = FloatRect(0, 0, 0, 0)
             if (tile[i + j * width].getId() != 0) {
                 tile[i + j * width].setCollision(sf::FloatRect(quad[0].position, sf::Vector2f(tileSize.x, tileSize.y)));
-                if (isObjectLayer) {
-
-                    if (tile[i + j * width].getId() == 59) {
-                        item->getSprite().setPosition(quad[0].position);
-                        objectsCollector.emplace_back(item);
-                    }
-
-                }
 //                objectsCollector[k].
 //                k++;
             } else
@@ -113,36 +100,39 @@ Tile *Layer::getTile() const {
 }
 
 //bool Layer::loadObject(sf::Vector2u tS, std::string &map_path, std::vector<std::unique_ptr<Item>> objectsCollector) {
-//bool Layer::loadObject(sf::Vector2u tS, std::string &map_path, std::vector<Item *> &objectsCollector) {
-//
-//
-//    std::ifstream my_file(map_path);
-//
-//    int layer[width * height];
-//
-//    //Crea factory
-//    ObjectFactory objectsFactory;
-//
-//    float posX;
-//    float posY;
-//
-//    for (int i = 0; i < width * height; i++) {
-//        my_file >> layer[i];
-//        if (layer[i] != 0) {
-//
-////            std::unique_ptr<Item> object = objectsFactory.createObject(layer[i]);
-//            Item *object = objectsFactory.createObject(layer[i]).get();
-//
-//            if (object != nullptr) {
-//
-//                posX = (i % 300) * 21.f;
-//                posY = (i / 300.f) * 21.f;
-//
-//                object->getSprite().setPosition(posX, posY);
-//                objectsCollector.push_back(object);
-//            }
-//        }
-//
-//    }
-//
-//}
+bool Layer::loadObject(/*sf::Vector2u tS,*/ std::string &map_path, std::vector<Item *> &objectsCollector) {
+
+
+    std::ifstream my_file(map_path);
+
+    int layer[width * height];
+
+    //Crea factory
+    ObjectFactory objectsFactory;
+
+    float posX;
+    float posY;
+
+    for (int i = 0; i < width * height; i++) {
+        my_file >> layer[i];
+        if (layer[i] != 0) {
+
+//            std::unique_ptr<Item> object = objectsFactory.createObject(layer[i]);
+            Item *object = objectsFactory.createObject(layer[i]);
+
+            if (object != nullptr) {
+
+                posX = (i % 300) * 21.f;
+                posY = (i / 300) * 21.f;
+
+                sf::FloatRect collision(posX, posY, 21.f, 21.f);
+                object->setCollision(collision);
+
+                object->getSprite().setPosition(posX, posY);
+                objectsCollector.push_back(object);
+            }
+        }
+
+    }
+
+}

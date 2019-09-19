@@ -17,10 +17,9 @@ TEST(GameHero, Constructor) {
 
 TEST(GameHero, Collision) {
 
-    Map map(300, 25, sf::Vector2f(0, 0), "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt", "objectsLevel1");
+    Map map(6300.f, 525.f, sf::Vector2f(0, 0), "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt", "objectsLevel1");
     map.load();
     GameHero hero("./Textures/PotatoDX.png", map.getSpawnPoint(), sf::Vector2f(800.f, 525.f));
-    hero.map = &map;
 
     int c = (int) hero.getSprite().getPosition().x / 21;
     int r = (int) hero.getSprite().getPosition().y / 21;
@@ -32,14 +31,28 @@ TEST(GameHero, Collision) {
 
     //si posiziona il giocatore in terra in uno spigolo e si invoca il metodo move
     hero.getSprite().setPosition(336.f, 336.6f);
-    hero.updatePosition();
+    hero.updatePosition(map);
 
     //velocity.y dev'essere zero, cioè il giocatore non deve essersi mosso verticalmente
-    ASSERT_EQ(0, hero.getVelocity().y);
+    ASSERT_FLOAT_EQ(0, hero.getVelocity().y);
 
     //essendoci un ostacolo a destra, il movimento a destra dev'essere impedito, quindi il giocatore non deve cambiare posizione
     hero.setVelocity(sf::Vector2f(1.f, 0.f));
-    hero.updatePosition();
-    ASSERT_EQ(336.f, hero.getSprite().getPosition().x);
+    hero.updatePosition(map);
+    ASSERT_FLOAT_EQ(336.f, hero.getSprite().getPosition().x);
+
+    hero.getSprite().setPosition(3.f, 0.f);
+    do {
+        hero.updatePosition(map);
+    } while (hero.getVelocity().y != 0.f);
+
+    c = (int) hero.getSprite().getPosition().x / 21;
+    r = (int) hero.getSprite().getPosition().y / 21;
+
+    down_left = map.getLayer()[1].getTile()[c + r * 300 + 300].getId();
+    down_right = map.getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId();
+
+    ASSERT_EQ(34, down_left);
+    ASSERT_EQ(34, down_right);
 
 }

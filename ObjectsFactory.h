@@ -20,6 +20,7 @@ public:
 
 Item *ObjectFactory::createObject(int id) {
 
+//    std::unique_ptr<Item> result;
     Item *result;
 
     const int spikeID = 50;
@@ -37,10 +38,12 @@ Item *ObjectFactory::createObject(int id) {
         case coinID: {
 
             int coinValue = 1;
-            std::string coinTexturePath = "./Textures/justOne.png";
+            std::string coinTexturePath = "./Textures/Coin.png";
 
 
+//            result = std::unique_ptr<Coin>(new Coin(coinValue, coinTexturePath, id));
             result = new Coin(coinValue, coinTexturePath, id);
+
 
             break;
         }

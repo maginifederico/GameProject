@@ -51,6 +51,8 @@ public:
 
     void shoot();
 
+    void checkCollection(Map &map);
+
 private:
 
 

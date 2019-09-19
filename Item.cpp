@@ -29,3 +29,11 @@ sf::Sprite &Item::getSprite() {
 sf::Texture &Item::getTexture() {
     return texture;
 }
+
+const sf::FloatRect &Item::getCollision() const {
+    return collision;
+}
+
+void Item::setCollision(sf::FloatRect &collision) {
+    Item::collision = collision;
+}

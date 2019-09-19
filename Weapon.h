@@ -24,7 +24,7 @@ public:
 
     std::vector<Projectile> &getProjectiles();
 
-    void checkProjectileCollision(Layer &ground);
+    void checkProjectileCollision(Map &map);
 
 private:
 
