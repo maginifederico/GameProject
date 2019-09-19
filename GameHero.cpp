@@ -335,3 +335,13 @@ void GameHero::setDPressed(bool dPressed) {
 void GameHero::shoot() {
     weapon->createProjectile(getSprite().getPosition(), movementDirection);
 }
+
+void GameHero::checkCollection(Map &map) {
+    for (int i = 0; i < map.getObjectsCollector().size(); i++) {
+        if (sprite.getGlobalBounds().intersects(map.getObjectsCollector()[i]->getCollision())) {
+
+            map.getObjectsCollector()[i]->interact();
+
+        }
+    }
+}

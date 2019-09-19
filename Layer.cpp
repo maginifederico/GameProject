@@ -2,7 +2,7 @@
 // Created by federico on 07/07/19.
 //
 
-#include<string>
+#include <string>
 #include <SFML/System.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Transformable.hpp>
@@ -12,7 +12,7 @@
 #include <SFML/Graphics/VertexArray.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <fstream>
-
+#include "ObjectsFactory.h"
 #include "Layer.h"
 
 
@@ -20,19 +20,20 @@ Layer::Layer(int width, int height, std::string tileSet) : width(width), height(
     tile = new Tile[width * height];
 }
 
-bool
-Layer::load(sf::Vector2u tileSize, std::string &map_path, bool isObjectLayer, std::vector<Item> *objectsCollector) {
+bool Layer::load(sf::Vector2u tileSize, std::string &map_path) {
 
     std::ifstream my_file(map_path);
 
     int layer[width * height];
 
+//Crea factory
+
     for (int i = 0; i < width * height; i++) {
         my_file >> layer[i];
-//        if (isObjectLayer)
-//            Item
-//            objectsCollector->push_back(Item());
-//        else
+//           if(layer[i] != 0)
+
+//               Item
+//               objectsCollector->push_back(Item());
         tile[i].setId(layer[i]);
     }
 
@@ -43,6 +44,9 @@ Layer::load(sf::Vector2u tileSize, std::string &map_path, bool isObjectLayer, st
     // resize the vertex array to fit the level size
     m_vertices.setPrimitiveType(sf::Quads);
     m_vertices.resize(width * height * 4);
+
+    //Gestisce lo scorrimento di objectsCollector
+    int k = 0;
 
     // populate the vertex array, with one quad per tile
     for (unsigned int i = 0; i < width; ++i)
@@ -70,9 +74,11 @@ Layer::load(sf::Vector2u tileSize, std::string &map_path, bool isObjectLayer, st
             quad[3].texCoords = sf::Vector2f(tu * tileSize.x, (tv + 1) * tileSize.y);
 
             //se non e' una tile di aria, imposta la sua collisione, altrimenti togli collision = FloatRect(0, 0, 0, 0)
-            if (tile[i + j * width].getId() != 0)
+            if (tile[i + j * width].getId() != 0) {
                 tile[i + j * width].setCollision(sf::FloatRect(quad[0].position, sf::Vector2f(tileSize.x, tileSize.y)));
-            else
+//                objectsCollector[k].
+//                k++;
+            } else
                 tile[i + j * width].setCollision(sf::FloatRect());
         }
     return true;
@@ -91,4 +97,42 @@ void Layer::draw(sf::RenderTarget &target, sf::RenderStates states) const {
 
 Tile *Layer::getTile() const {
     return tile;
+}
+
+//bool Layer::loadObject(sf::Vector2u tS, std::string &map_path, std::vector<std::unique_ptr<Item>> objectsCollector) {
+bool Layer::loadObject(/*sf::Vector2u tS,*/ std::string &map_path, std::vector<Item *> &objectsCollector) {
+
+
+    std::ifstream my_file(map_path);
+
+    int layer[width * height];
+
+    //Crea factory
+    ObjectFactory objectsFactory;
+
+    float posX;
+    float posY;
+
+    for (int i = 0; i < width * height; i++) {
+        my_file >> layer[i];
+        if (layer[i] != 0) {
+
+//            std::unique_ptr<Item> object = objectsFactory.createObject(layer[i]);
+            Item *object = objectsFactory.createObject(layer[i]);
+
+            if (object != nullptr) {
+
+                posX = (i % 300) * 21.f;
+                posY = (i / 300) * 21.f;
+
+                sf::FloatRect collision(posX, posY, 21.f, 21.f);
+                object->setCollision(collision);
+
+                object->getSprite().setPosition(posX, posY);
+                objectsCollector.push_back(object);
+            }
+        }
+
+    }
+
 }

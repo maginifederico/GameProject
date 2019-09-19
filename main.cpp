@@ -141,6 +141,7 @@ int main() {
         player.updateViewPosition(map);
         player.getWeapon()->checkProjectileCollision(map);
 
+        player.checkCollection(map);
 
         //render
         window.clear();
@@ -149,7 +150,15 @@ int main() {
         //render game elements
         window.draw(map.getLayer()[0]);
         window.draw(map.getLayer()[1]);
-        window.draw(map.getLayer()[2]);
+
+//        for(Item * item : map.getObjectsCollector()){
+//
+//            window.draw(item->getSprite());
+//
+//        }
+        for (Item *item : map.getObjectsCollector())
+            window.draw(item->getSprite());
+//        window.draw(map.getLayer()[2]);
 
         for (Projectile projectile : player.getWeapon()->getProjectiles()) {
             window.draw(projectile.getSprite());

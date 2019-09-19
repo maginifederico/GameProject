@@ -14,6 +14,7 @@ Map::Map(float width, float height, sf::Vector2f sPoint, std::string bg, std::st
                             ground(grnd), objects(obj) {
     //crea 3 layer
     layer = new Layer[3]();
+
 }
 
 bool Map::load() {
@@ -23,9 +24,8 @@ bool Map::load() {
     if (!layer[1].load(sf::Vector2u(21, 21), ground))
         return -1;
 
-    if (!layer[2].load(sf::Vector2u(21, 21), objects, true, &objectsCollector))
+    if (!layer[2].loadObject(/*sf::Vector2u(21, 21),*/ objects, objectsCollector))
         return -1;
-    objectsCollector.clear();
 }
 
 
@@ -78,6 +78,13 @@ const float Map::getAcceleration() const {
 const float Map::getWaterAcceleration() const {
     return waterGravity;
 }
+
+std::vector<Item *> &Map::getObjectsCollector() {
+    return objectsCollector;
+}
+//std::vector<std::unique_ptr<Item>> &Map::getObjectsCollector() {
+//    return objectsCollector;
+//}
 
 
 //void Map::setLayer(Layer *layer) {

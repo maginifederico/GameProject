@@ -16,18 +16,13 @@ public:
 
     virtual std::unique_ptr<Weapon> createWeapon(int weaponNumber);
 
-//    virtual Weapon *createWeapon(int weaponNumber);
 
 
 };
 
 std::unique_ptr<Weapon> WeaponFactory::createWeapon(int weaponNumber) {
-//Weapon *WeaponFactory::createWeapon(int weaponNumber) {
 
     std::unique_ptr<Weapon> result;
-
-//    Weapon *result;
-
 
     switch (weaponNumber) {
 
@@ -41,8 +36,6 @@ std::unique_ptr<Weapon> WeaponFactory::createWeapon(int weaponNumber) {
             result = std::unique_ptr<Weapon>(new Weapon(JUST_ONE_TEXTURE, just_one_texture_scale, just_one_damage,
                                                         just_one_range, just_one_cooldown));
 
-//            result = new Weapon(JUST_ONE_TEXTURE, just_one_texture_scale, just_one_damage, just_one_range,
-//                                just_one_cooldown);
             break;
         }
 
@@ -58,8 +51,6 @@ std::unique_ptr<Weapon> WeaponFactory::createWeapon(int weaponNumber) {
             result = std::unique_ptr<Weapon>(new Weapon(FRENCH_FRIES_TEXTURE, french_fries_texture_scale,
                                                         french_fries_damage, french_fries_range,
                                                         french_fries_cooldown));
-//            result = new Weapon(FRENCH_FRIES_TEXTURE, french_fries_texture_scale, french_fries_damage,
-//                                french_fries_range, french_fries_cooldown);
 
             break;
         }

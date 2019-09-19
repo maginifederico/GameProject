@@ -32,14 +32,14 @@ Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float
 
 void Weapon::createProjectile(sf::Vector2f playerPosition, bool movementDirection) {
 
-        //Gestione cooldown
-        sf::Time elapsedTime = clock.getElapsedTime();
-        if (elapsedTime.asSeconds() > cooldown) {
-            Projectile newProjectile(Projectile(texturePath, playerPosition, textureScale, movementDirection));
-            newProjectile.getSprite().setTexture(texture);
-            projectiles.emplace_back(newProjectile);
-            clock.restart();
-        }
+    //Gestione cooldown
+    sf::Time elapsedTime = clock.getElapsedTime();
+    if (elapsedTime.asSeconds() > cooldown) {
+        Projectile newProjectile(Projectile(texturePath, playerPosition, textureScale, movementDirection));
+        newProjectile.getSprite().setTexture(texture);
+        projectiles.emplace_back(newProjectile);
+        clock.restart();
+    }
 
 }
 

@@ -18,8 +18,11 @@ public:
 
     explicit Layer(int width = 300, int height = 25, std::string tile_set_path = "./Textures/tilesetC1.png");
 
-    bool load(sf::Vector2u tileSize, std::string &map_path, bool isObjectLayer = false,
-              std::vector<Item> *objectsCollector = nullptr);
+    bool load(sf::Vector2u tileSize, std::string &map_path);
+
+
+//    bool loadObject(sf::Vector2u tileSize, std::string &map_path, std::vector<std::unique_ptr<Item>> objectsCollector);
+    bool loadObject(/*sf::Vector2u tileSize,*/ std::string &map_path, std::vector<Item *> &objectsCollector);
 
     Tile *getTile() const;
 

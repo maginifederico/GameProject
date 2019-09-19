@@ -17,6 +17,7 @@ public:
 
     ~Map() {
         delete[] layer;
+        objectsCollector.erase(objectsCollector.begin(), objectsCollector.end());
     };
 
     bool load();
@@ -43,6 +44,9 @@ public:
 
     const float getWaterAcceleration() const;
 
+//    std::vector<std::unique_ptr<Item>> &getObjectsCollector();
+    std::vector<Item *> &getObjectsCollector();
+
 private:
     std::string background, ground, objects;
 
@@ -62,7 +66,10 @@ private:
 
     Layer *layer;
 
-    std::vector<Item> objectsCollector;
+//    std::vector<std::unique_ptr<Item>> objectsCollector;
+    std::vector<Item *> objectsCollector;
+
+
 //    Item *item[];
 
 
