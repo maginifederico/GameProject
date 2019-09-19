@@ -20,17 +20,17 @@ public:
 
 //    Weapon(Weapon &gun);
 
-    void shoot(sf::Vector2f playerPosition, bool movementDirection);
+    void createProjectile(sf::Vector2f playerPosition, bool movementDirection);
 
-    std::vector<Projectile> &getProjectils();
+    std::vector<Projectile> &getProjectiles();
 
-    void checkProjectileCollision(Layer &ground);
+    void checkProjectileCollision(Map &map);
 
 private:
 
     sf::Clock clock;
     std::string texturePath;
-    std::vector<Projectile> projectils;
+    std::vector<Projectile> projectiles;
 
     float textureScale;
     int damage;

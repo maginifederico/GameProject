@@ -30,64 +30,81 @@ Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float
 //}
 
 
-void Weapon::shoot(sf::Vector2f playerPosition, bool movDirection) {
-
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-
+void Weapon::createProjectile(sf::Vector2f playerPosition, bool movementDirection) {
 
         //Gestione cooldown
         sf::Time elapsedTime = clock.getElapsedTime();
         if (elapsedTime.asSeconds() > cooldown) {
-            Projectile newProjectile(Projectile(texturePath, playerPosition, textureScale, movDirection));
+            Projectile newProjectile(Projectile(texturePath, playerPosition, textureScale, movementDirection));
             newProjectile.getSprite().setTexture(texture);
-            projectils.emplace_back(newProjectile);
+            projectiles.emplace_back(newProjectile);
             clock.restart();
         }
 
-    }
-
 }
 
-std::vector<Projectile> &Weapon::getProjectils() {
-    return projectils;
+std::vector<Projectile> &Weapon::getProjectiles() {
+    return projectiles;
 }
 
-void Weapon::checkProjectileCollision(Layer &ground) {
+void Weapon::checkProjectileCollision(Map &map) {
+
+
 
     int c;
     int r;
 
-    int sinistra;
-    int destra;
+    int leftID;
+    int rightID;
+    int downLeftID;
+    int downRightID;
 
     bool collision;
 
     int water = 48;
     int waterSurface = 49;
 
-    sf::FloatRect rightCollision;
-    sf::FloatRect leftCollision;
-
 
     float projectileWidth;
 
+    sf::FloatRect leftCollision;
+    sf::FloatRect leftDownCollision;
+    sf::FloatRect rightCollision;
+    sf::FloatRect rightDownCollision;
+
     //Se ci sono proiettili sulla mappa, aggiorna la posizione, o cancellali
-    if (!projectils.empty()) {
-        projectileWidth = projectils[0].getSprite().getGlobalBounds().width;
-        for (int i = 0; i < projectils.size(); i++) {
+    if (!projectiles.empty()) {
+        projectileWidth = projectiles[0].getSprite().getGlobalBounds().width;
+        for (int i = 0; i < projectiles.size(); i++) {
+            //per ogni proiettile nel vettore projectiles
 
-            c = (int) projectils[i].getSprite().getPosition().x / 21;
-            r = (int) projectils[i].getSprite().getPosition().y / 21;
+            c = (int) projectiles[i].getSprite().getPosition().x /
+                21;                              //posizione del proiettile nella matrice del layer ground
+            r = (int) projectiles[i].getSprite().getPosition().y / 21;
 
-            leftCollision = ground.getTile()[c + r * 300].getCollision();
-            leftCollision = ground.getTile()[c + r * 300 + 1].getCollision();
+            leftID = map.getLayer()[1].getTile()[c + r *
+                                                     300].getId();                              //ID dei tile adiacenti al proiettile
+            rightID = map.getLayer()[1].getTile()[c + r * 300 + 1].getId();
+            downLeftID = map.getLayer()[1].getTile()[c + r * 300 + 300].getId();
+            downRightID = map.getLayer()[1].getTile()[c + r * 300 + 1 + 300].getId();
 
-            if (projectils[i].rightDirection())
+
+            leftCollision = map.getLayer()[1].getTile()[c + r * 300].getCollision();
+            rightCollision = map.getLayer()[1].getTile()[c + r * 300 +
+                                                         1].getCollision();           //Rettangoli di collisione dei 4 tile che contengono il proiettile
+            leftDownCollision = map.getLayer()[1].getTile()[c + r * 300 +
+                                                            300].getCollision();      //(i tile di aria non hanno collisione)
+            rightDownCollision = map.getLayer()[1].getTile()[c + r * 300 + 1 + 300].getCollision();
+
+
+            if (projectiles[i].rightDirection())
                 if (
-//                        projectils[i].getSprite().getPosition().x + projectileWidth > 6300.f
-//                        || (destra != 0 && destra != water && destra != waterSurface)
-
-                        projectils[i].getSprite().getGlobalBounds().intersects(rightCollision)
+                        (projectiles[i].getSprite().getPosition().x + projectileWidth >= map.getWidth()
+                         //                        || (rightID != 0 && rightID != water && rightID != waterSurface)
+                         || projectiles[i].getSprite().getGlobalBounds().intersects(rightCollision)
+                         || projectiles[i].getSprite().getGlobalBounds().intersects(rightDownCollision))
+                        && (rightID != water && rightID != waterSurface) &&
+                        (downRightID != water && downRightID != waterSurface)
 
                         )
                     collision = true;
@@ -95,10 +112,12 @@ void Weapon::checkProjectileCollision(Layer &ground) {
                     collision = false;
             else {
                 if (
-//                        projectils[i].getSprite().getPosition().x < 0.f
-//                        || (sinistra != 0 && sinistra != water && sinistra != waterSurface)
-
-                        projectils[i].getSprite().getGlobalBounds().intersects(leftCollision)
+                        (projectiles[i].getSprite().getPosition().x <= 0.f
+                         //                        || (leftID != 0 && leftID != water && leftID != waterSurface)
+                         || projectiles[i].getSprite().getGlobalBounds().intersects(leftCollision)
+                         || projectiles[i].getSprite().getGlobalBounds().intersects(leftDownCollision))
+                        && (leftID != water && leftID != waterSurface) &&
+                        (downLeftID != water && downLeftID != waterSurface)
 
                         )
                     collision = true;
@@ -107,12 +126,12 @@ void Weapon::checkProjectileCollision(Layer &ground) {
             }
 
 
-            if ((fabs(projectils[i].getSprite().getPosition().x - projectils[i].getInitialPosition().x) > range)
+            if ((fabs(projectiles[i].getSprite().getPosition().x - projectiles[i].getInitialPosition().x) > range)
                 || collision
                     )
-                projectils.erase(projectils.begin() + i);
+                projectiles.erase(projectiles.begin() + i);
             else
-                projectils[i].updatePosition();
+                projectiles[i].updatePosition();
         }
     }
 

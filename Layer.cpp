@@ -2,7 +2,7 @@
 // Created by federico on 07/07/19.
 //
 
-#include <string>
+#include<string>
 #include <SFML/System.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Transformable.hpp>
@@ -20,7 +20,8 @@ Layer::Layer(int width, int height, std::string tileSet) : width(width), height(
     tile = new Tile[width * height];
 }
 
-bool Layer::load(sf::Vector2u tileSize, std::string map_path) {
+bool
+Layer::load(sf::Vector2u tileSize, std::string &map_path, bool isObjectLayer, std::vector<Item> *objectsCollector) {
 
     std::ifstream my_file(map_path);
 
@@ -28,6 +29,10 @@ bool Layer::load(sf::Vector2u tileSize, std::string map_path) {
 
     for (int i = 0; i < width * height; i++) {
         my_file >> layer[i];
+//        if (isObjectLayer)
+//            Item
+//            objectsCollector->push_back(Item());
+//        else
         tile[i].setId(layer[i]);
     }
 

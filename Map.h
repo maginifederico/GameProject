@@ -57,16 +57,16 @@ private:
     float viewVerticalLimitUP;
     float viewVerticalLimitDOWN;
 
-    const float acceleration = -0.02f;
-    const float waterAcceleration = -0.005f;
+    const float gravity = -0.02f;
+    const float waterGravity = -0.005f;
 
     Layer *layer;
 
-//    void setLayer(Layer *layer);
-
-
-
+    std::vector<Item> objectsCollector;
 //    Item *item[];
+
+
+
 //    Obstacle *obstacle[];
 //    GameCharacter *GameCharacter[];
 };

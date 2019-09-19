@@ -12,6 +12,6 @@
 
 //void Item::
 
-void Item::collect() {
+void Item::interact() {
 
 }

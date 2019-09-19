@@ -7110,7 +7110,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFqkzY2L6eV6l8="
 							},
-							"name": "shoot"
+							"name": "createProjectile"
 						}
 					]
 				},

@@ -6,18 +6,30 @@
 #ifndef _ITEM_H
 #define _ITEM_H
 
-class Item {
-public:
-    float posX;
-    float posY;
-    int coinValue;
-    int pillValue;
-    int shieldValue;
-    int attackValue;
-    float shieldTimer;
-    float attackTimer;
+#include "Tile.h"
 
-    void virtual collect();
+class Item {
+
+public:
+    void virtual interact() = 0;
+
+
+private:
+
+    int id;
+    sf::FloatRect collision;
+    sf::Sprite sprite;
+    sf::Texture texture;
+
+//    float posX;
+//    float posY;
+//    int coinValue;
+//    int pillValue;
+//    int shieldValue;
+//    int attackValue;
+//    float shieldTimer;
+//    float attackTimer;
+
 };
 
 #endif //_ITEM_H

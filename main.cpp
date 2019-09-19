@@ -21,12 +21,16 @@ int main() {
     //collisione dei proiettili con layer ground
     //movimento view verticale
     //Factory per armi
-
+    //Gestione input nel main
+    //Metodo shoot del player
+    //Tolta mappa in player, passata map ad updatePosition
+    //Proiettili con intersect
 
     ////DA RIVEDERE
     //TODO rivedere collisioni con layer ground (guardare i FIXME su GameHero)
 
     ////DA FARE
+    //TODO collisioni con layer oggetti
     //TODO Unit Testing
     //TODO Factory per Map
     //TODO Caverna e Stanza Speciale in Liv.1
@@ -37,10 +41,11 @@ int main() {
     //TODO State Pattern per stato gioco
     //TODO creare nemici
     //TODO Strategy per movimento nemici
-    //TODO collisioni con layer oggetti
     //TODO implementare i bonus e monetine
     //TODO implementare potenziamenti
     //TODO implementare salvataggio progressi
+
+
 
     //init game
 
@@ -50,12 +55,6 @@ int main() {
     const float VIEW_WIDTH = 500.f;
     const std::string GAME_HERO_TEXTURE = "./Textures/PotatoDX.png";
 
-    ////FRENCH FRIES WEAPON SETTINGS
-//    std::string FRENCH_FRIES_TEXTURE = "./Textures/justOne.png";
-//    float french_fries_texture_scale = 0.08f;
-//    int french_fries_damage = 20;
-//    float french_fries_range = 400.f;
-//    float french_fries_cooldown = 0.2f;
 
     ////LEVEL 1 SETTINGS
     float mapWidth = 6300.f;
@@ -83,10 +82,11 @@ int main() {
     ////INIT PLAYER WEAPONS
 
     WeaponFactory weaponFactory;
+    int weaponNumber = 0;
 
-    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
+//    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
 
-    std::unique_ptr<Weapon> frenchFries = weaponFactory.createWeapon(1);
+//    std::unique_ptr<Weapon> frenchFries = weaponFactory.createWeapon(1);
 
 //    Weapon *justOne = weaponFactory.createWeapon(0);
 
@@ -102,12 +102,7 @@ int main() {
     ////INIT Player
     GameHero player(GAME_HERO_TEXTURE, Vector2f(map.getSpawnPoint().x, map.getSpawnPoint().y),
                     Vector2f(VIEW_WIDTH, VIEW_HEIGHT)/*, weapon*/);
-    player.setWeapon(justOne);
-
-    player.map = &map;
-
-
-
+    player.setWeapon(weaponFactory.createWeapon(weaponNumber));
 
 
     ////GAME LOOP
@@ -121,12 +116,30 @@ int main() {
             }
         }
 
-        //update input
-        player.updatePosition();
-        player.updateViewPosition();
-        player.getWeapon()->shoot(player.getSprite().getPosition(), player.getMovementDirection());
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+            player.setWPressed(true);
+        }
 
-        player.getWeapon()->checkProjectileCollision(map.getLayer()[1]);
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+            player.setAPressed(true);
+        }
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+            player.setSPressed(true);
+        }
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+            player.setDPressed(true);
+        }
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+            player.shoot();
+        }
+
+        //update input
+        player.updatePosition(map);
+        player.updateViewPosition(map);
+        player.getWeapon()->checkProjectileCollision(map);
 
 
         //render
@@ -137,10 +150,11 @@ int main() {
         window.draw(map.getLayer()[0]);
         window.draw(map.getLayer()[1]);
         window.draw(map.getLayer()[2]);
-        //FIXME Texture bianca
-        for (Projectile projectile : player.getWeapon()->getProjectils()) {
+
+        for (Projectile projectile : player.getWeapon()->getProjectiles()) {
             window.draw(projectile.getSprite());
         }
+
         window.draw(player.getSprite());
         window.setView(player.playerView);
 

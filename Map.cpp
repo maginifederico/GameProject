@@ -23,8 +23,9 @@ bool Map::load() {
     if (!layer[1].load(sf::Vector2u(21, 21), ground))
         return -1;
 
-    if (!layer[2].load(sf::Vector2u(21, 21), objects))
+    if (!layer[2].load(sf::Vector2u(21, 21), objects, true, &objectsCollector))
         return -1;
+    objectsCollector.clear();
 }
 
 
@@ -71,11 +72,11 @@ void Map::setViewLimits(float w, float h) {
 }
 
 const float Map::getAcceleration() const {
-    return acceleration;
+    return gravity;
 }
 
 const float Map::getWaterAcceleration() const {
-    return waterAcceleration;
+    return waterGravity;
 }
 
 
