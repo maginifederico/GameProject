@@ -36,16 +36,19 @@ void GameHero::updatePosition(Map &map) {
     int c = (int) sprite.getPosition().x / 21;
     int r = (int) sprite.getPosition().y / 21;
 
-    int left = map.getLayer()[1].getTile()[c + r * 300].getId();
-    int right = map.getLayer()[1].getTile()[c + r * 300 + 1].getId();
-    int down_left = map.getLayer()[1].getTile()[c + r * 300 + 300].getId();
-    int down_right = map.getLayer()[1].getTile()[c + r * 300 + 300 + 1].getId();
+    int left = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21)].getId();
+    int right = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + 1].getId();
+    int down_left = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + int(map.getWidth() / 21)].getId();
+    int down_right = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + int(map.getWidth() / 21) +
+                                                 1].getId();
 
 
     int water = 48;
     int waterSurface = 49;
     int groundSurface = 34;
-    int ground = 36;
+    int ground1 = 36;
+    int ground2 = 40;
+    int ground3 = 139;
     int aria = 0;
 
     bool waterJump = false;
@@ -109,8 +112,10 @@ void GameHero::updatePosition(Map &map) {
                 velocity.y = -map.getWaterAcceleration();
             }
             if (
-                    ((left == ground || left == groundSurface) && down_left == water)
-                    || ((right == ground || right == groundSurface) && down_right == water)
+                    (((left == ground1 || left == ground2 || left == ground3) || left == groundSurface) &&
+                     down_left == water)
+                    || (((right == ground1 || right == ground2 || right == ground3) || right == groundSurface) &&
+                        down_right == water)
                     ) {
                 waterJump = false;
             } else {
@@ -223,8 +228,10 @@ void GameHero::updatePosition(Map &map) {
         if ((left != 0 && down_left == 0)
             || (right != 0 && down_right == 0)
             //oppure se ci si trova in acqua e c'è un ostacolo sopra
-            || ((left == ground || left == groundSurface) && down_left == water)
-            || ((right == ground || right == groundSurface) && down_right == water)
+            ||
+            (((left == ground1 || left == ground2 || left == ground3) || left == groundSurface) && down_left == water)
+            || (((right == ground1 || right == ground2 || right == ground3) || right == groundSurface) &&
+                down_right == water)
                 ) {
             velocity.y = 0;
         }
@@ -341,6 +348,7 @@ void GameHero::checkCollection(Map &map) {
         if (sprite.getGlobalBounds().intersects(map.getObjectsCollector()[i]->getCollision())) {
 
             map.getObjectsCollector()[i]->interact();
+            map.getObjectsCollector().erase(map.getObjectsCollector().begin() + i);
 
         }
     }

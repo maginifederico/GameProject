@@ -14,7 +14,6 @@ Coin::Coin(int cV, std::string &texturePath, int id) : Item(texturePath, id), co
 
 void Coin::interact() {
 
-    getSprite().move(10.f, 10.f);
-
+//    map.getObjectsCollector()
 
 }

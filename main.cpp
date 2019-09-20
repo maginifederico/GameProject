@@ -7,6 +7,7 @@
 #include "GameCharacter.h"
 #include "Map.h"
 #include "WeaponFactory.h"
+#include "MapFactory.h"
 
 
 using namespace sf;
@@ -56,10 +57,10 @@ int main() {
     const std::string GAME_HERO_TEXTURE = "./Textures/PotatoDX.png";
 
 
-    ////LEVEL 1 SETTINGS
-    float mapWidth = 6300.f;
-    float mapHeight = 525.f;
-    Vector2f spawnPoint(100.f, 300.f);
+//    ////LEVEL 1 SETTINGS
+//    float mapWidth = 6300.f;
+//    float mapHeight = 525.f;
+//    Vector2f spawnPoint(100.f, 300.f);
 
 
     //init window
@@ -71,12 +72,21 @@ int main() {
 
 
     //LOAD LEVEL 1
-    Map map(mapWidth, mapHeight, spawnPoint, "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt",
-            "./Map/objectsLevel1");
-    map.load();
+//    Map map(mapWidth, mapHeight, spawnPoint, "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt",
+//            "./Map/objectsLevel1");
+//    map.load();
 
     //SETTA I LIMITI DELLA VIEW
-    map.setViewLimits(VIEW_WIDTH, VIEW_HEIGHT);
+//    map.setViewLimits(VIEW_WIDTH, VIEW_HEIGHT);
+
+    MapFactory mapFactory;
+
+    Map *map;
+    int id = 2;
+    map = mapFactory.createMap(id);
+    map->setViewLimits(VIEW_WIDTH, VIEW_HEIGHT);
+
+
 
 
     ////INIT PLAYER WEAPONS
@@ -100,9 +110,28 @@ int main() {
     //init game elements
 
     ////INIT Player
-    GameHero player(GAME_HERO_TEXTURE, Vector2f(map.getSpawnPoint().x, map.getSpawnPoint().y),
+    GameHero player(GAME_HERO_TEXTURE, Vector2f(map->getSpawnPoint().x, map->getSpawnPoint().y),
                     Vector2f(VIEW_WIDTH, VIEW_HEIGHT)/*, weapon*/);
     player.setWeapon(weaponFactory.createWeapon(weaponNumber));
+
+
+
+
+
+    ////INIT TEXT
+
+    sf::Text text;
+    sf::Font font;
+
+    int coins = 0;
+//    if (!font.loadFromMemory("arial.ttf"))
+//        std::cout << "Error loading the font" << std::endl;
+
+//    text.setFont(font);
+    text.setPosition(player.getSprite().getPosition());
+    text.setString("COINS: " + coins);
+    text.setCharacterSize(30);
+    text.setFillColor(sf::Color::Red);
 
 
     ////GAME LOOP
@@ -137,26 +166,26 @@ int main() {
         }
 
         //update input
-        player.updatePosition(map);
-        player.updateViewPosition(map);
-        player.getWeapon()->checkProjectileCollision(map);
+        player.updatePosition(*map);
+        player.updateViewPosition(*map);
+        player.getWeapon()->checkProjectileCollision(*map);
 
-        player.checkCollection(map);
+        player.checkCollection(*map);
 
         //render
         window.clear();
 
 
         //render game elements
-        window.draw(map.getLayer()[0]);
-        window.draw(map.getLayer()[1]);
+        window.draw(map->getLayer()[0]);
+        window.draw(map->getLayer()[1]);
 
 //        for(Item * item : map.getObjectsCollector()){
 //
 //            window.draw(item->getSprite());
 //
 //        }
-        for (Item *item : map.getObjectsCollector())
+        for (Item *item : map->getObjectsCollector())
             window.draw(item->getSprite());
 //        window.draw(map.getLayer()[2]);
 
@@ -165,6 +194,8 @@ int main() {
         }
 
         window.draw(player.getSprite());
+
+//        window.draw(text);
         window.setView(player.playerView);
 
 

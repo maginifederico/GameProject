@@ -50,7 +50,6 @@ std::vector<Projectile> &Weapon::getProjectiles() {
 void Weapon::checkProjectileCollision(Map &map) {
 
 
-
     int c;
     int r;
 
@@ -82,19 +81,23 @@ void Weapon::checkProjectileCollision(Map &map) {
                 21;                              //posizione del proiettile nella matrice del layer ground
             r = (int) projectiles[i].getSprite().getPosition().y / 21;
 
-            leftID = map.getLayer()[1].getTile()[c + r *
-                                                     300].getId();                              //ID dei tile adiacenti al proiettile
-            rightID = map.getLayer()[1].getTile()[c + r * 300 + 1].getId();
-            downLeftID = map.getLayer()[1].getTile()[c + r * 300 + 300].getId();
-            downRightID = map.getLayer()[1].getTile()[c + r * 300 + 1 + 300].getId();
+            //ID dei tile adiacenti al proiettile
+            leftID = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21)].getId();
+            rightID = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + 1].getId();
+            downLeftID = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) +
+                                                     int(map.getWidth() / 21)].getId();
+            downRightID = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + 1 +
+                                                      int(map.getWidth() / 21)].getId();
 
 
-            leftCollision = map.getLayer()[1].getTile()[c + r * 300].getCollision();
-            rightCollision = map.getLayer()[1].getTile()[c + r * 300 +
-                                                         1].getCollision();           //Rettangoli di collisione dei 4 tile che contengono il proiettile
-            leftDownCollision = map.getLayer()[1].getTile()[c + r * 300 +
-                                                            300].getCollision();      //(i tile di aria non hanno collisione)
-            rightDownCollision = map.getLayer()[1].getTile()[c + r * 300 + 1 + 300].getCollision();
+            //Rettangoli di collisione dei 4 tile che contengono il proiettile
+            //(i tile di aria non hanno collisione)
+            leftCollision = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21)].getCollision();
+            rightCollision = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + 1].getCollision();
+            leftDownCollision = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) +
+                                                            int(map.getWidth() / 21)].getCollision();
+            rightDownCollision = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + 1 +
+                                                             int(map.getWidth() / 21)].getCollision();
 
 
             if (projectiles[i].rightDirection())

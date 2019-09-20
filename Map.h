@@ -47,6 +47,12 @@ public:
 //    std::vector<std::unique_ptr<Item>> &getObjectsCollector();
     std::vector<Item *> &getObjectsCollector();
 
+    const std::string &getBackground() const;
+
+    const float getViewHeight() const;
+
+    const float getViewWidth() const;
+
 private:
     std::string background, ground, objects;
 
@@ -68,6 +74,9 @@ private:
 
 //    std::vector<std::unique_ptr<Item>> objectsCollector;
     std::vector<Item *> objectsCollector;
+
+    const float VIEW_HEIGHT = 300.f;
+    const float VIEW_WIDTH = 500.f;
 
 
 //    Item *item[];
