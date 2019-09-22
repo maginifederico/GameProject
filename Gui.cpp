@@ -44,24 +44,25 @@ Gui::Gui(sf::View &playerView) {
     coinIndicator->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + 7.f,
                                playerView.getCenter().y - playerView.getSize().y / 2 + 40.f);
 
-//    sf::Text txt;
-//    sf::Font font;
-//
-//    if (!font.loadFromFile("filename.ttf")) //FIXME
-//        std::cout << "Error loading the font" << std::endl;
-//
-//    txt.setFont(font);
-//    txt.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + 40.f, playerView.getCenter().y - playerView.getSize().y / 2 + 40.f);
-//    txt.setString("COINS: " + coins);
-//    txt.setCharacterSize(30);
-//    txt.setFillColor(sf::Color::Red);
+    sf::Text *txt = new sf::Text;
+    sf::Font *font = new sf::Font;
+
+    if (!font->loadFromFile("./Fonts/arial.ttf"))
+        std::cout << "Error loading the font" << std::endl;
+
+    txt->setFont(*font);
+    txt->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + 40.f,
+                     playerView.getCenter().y - playerView.getSize().y / 2 + 36.f);
+    txt->setString("x00");
+    txt->setCharacterSize(30);
+    txt->setFillColor(sf::Color::Black);
 
     shapes.emplace_back(healthIndicator);
     shapes.emplace_back(bar);
     shapes.emplace_back(health);
     shapes.emplace_back(coinIndicator);
 
-//    text.emplace_back(txt);
+    text.emplace_back(txt);
 //    sf::Texture test;
 //    test.loadFromFile("./Textures/FrenchFriesWeapon.png");
 //
