@@ -270,15 +270,17 @@ void GameHero::updatePosition(Map &map) {
 }
 
 
-void GameHero::updateViewPosition(Map &map) {
+sf::Vector2f GameHero::updateViewPosition(Map &map) {
 
+    sf::Vector2f offset(0.f, 0.f);
     ////MOVIMENTO VIEW
 
     //Orizzontale
     if (sprite.getPosition().x >= map.getViewHorizontalLimitSx() &&
-        sprite.getPosition().x <= map.getViewHorizontalLimitDx())
+        sprite.getPosition().x <= map.getViewHorizontalLimitDx()) {
         playerView.move(velocity.x, 0.f);
-
+        offset.x = velocity.x;
+    }
 
     float defaultDistanceY = 40.f;
     //Verticale
@@ -290,10 +292,12 @@ void GameHero::updateViewPosition(Map &map) {
             && playerView.getCenter().y - sprite.getPosition().y != -defaultDistanceY
 
             ) {
-
+        offset.y -= playerView.getCenter().y;
         playerView.setCenter(playerView.getCenter().x, sprite.getPosition().y - defaultDistanceY);
+        offset.y += playerView.getCenter().y;
     }
 
+    return offset;
 
 }
 
@@ -353,3 +357,4 @@ void GameHero::checkCollection(Map &map) {
         }
     }
 }
+

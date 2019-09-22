@@ -39,7 +39,7 @@ public:
 
     void setVelocity(const sf::Vector2f &velocity);
 
-    void updateViewPosition(Map &map);
+    sf::Vector2f updateViewPosition(Map &map);
 
     void setWPressed(bool wPressed);
 
@@ -52,6 +52,7 @@ public:
     void shoot();
 
     void checkCollection(Map &map);
+
 
 private:
 
@@ -72,6 +73,7 @@ private:
     const float jumpSpeed = -1.9f;
     const float jumpSpeedUnderWater = jumpSpeed / 4;
     sf::FloatRect viewPosition;
+    int maxHP = 100;
 
     std::unique_ptr<Weapon> weapon;
 };

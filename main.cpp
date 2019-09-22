@@ -8,9 +8,11 @@
 #include "Map.h"
 #include "WeaponFactory.h"
 #include "MapFactory.h"
+#include "Gui.h"
 
 
 using namespace sf;
+
 
 int main() {
 
@@ -35,7 +37,7 @@ int main() {
     //TODO Unit Testing
     //TODO Factory per Map
     //TODO Caverna e Stanza Speciale in Liv.1
-    //TODO smart pointer invece di row pointer
+    //TODO smart pointer invece di raw pointer
     //TODO gestione vita player e nemici con rettangolini rossi e verdi
     //TODO Observer per Achievements
     //TODO Menù principale
@@ -46,6 +48,10 @@ int main() {
     //TODO implementare potenziamenti
     //TODO implementare salvataggio progressi
 
+    //today: health bar
+    //TODO today: coin counter
+    //TODO today: die() method
+    //TODO today: more unit testing
 
 
     //init game
@@ -82,7 +88,7 @@ int main() {
     MapFactory mapFactory;
 
     Map *map;
-    int id = 2;
+    int id = 1;
     map = mapFactory.createMap(id);
     map->setViewLimits(VIEW_WIDTH, VIEW_HEIGHT);
 
@@ -118,21 +124,55 @@ int main() {
 
 
 
-    ////INIT TEXT
+    ////INIT GUI
 
-    sf::Text text;
-    sf::Font font;
+    Gui gui(player.playerView);
 
-    int coins = 0;
-//    if (!font.loadFromMemory("arial.ttf"))
+//    Texture heart;
+//    Texture coin;
+//    if(!heart.loadFromFile("./Textures/HealthPill.png"))
+//        std::cout << "Unable to load heart shape";
+//
+//    if(!coin.loadFromFile("./Textures/Coin.png"))
+//        std::cout << "Unable to load coin shape";
+//
+//    RectangleShape bar(Vector2f(VIEW_WIDTH / 8.f, VIEW_HEIGHT / 15.f));
+//    bar.setOutlineThickness(2.f);
+//    bar.setOutlineColor(sf::Color::Black);
+//    bar.setFillColor(sf::Color::Black);
+//
+//    bar.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + 40.f,
+//                    playerView.getCenter().y - playerView.getSize().y / 2 + 12.f);
+//
+//    RectangleShape health(Vector2f(VIEW_WIDTH / 8.f, VIEW_HEIGHT / 15.f));
+//    health.setFillColor(sf::Color::Green);
+//    health.setOutlineColor(sf::Color::Transparent);
+//
+//    health.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + 40.f,
+//                       playerView.getCenter().y - playerView.getSize().y / 2 + 12.f);
+//
+//    RectangleShape healthIndicator (Vector2f(30.f, 30.f));
+//    healthIndicator.setTexture(&heart);
+//
+//    healthIndicator.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + 7.f, playerView.getCenter().y - playerView.getSize().y / 2 + 8.f);
+//
+//    RectangleShape coinIndicator (Vector2f(30.f, 30.f));
+//    coinIndicator.setTexture(&coin);
+//
+//    coinIndicator.setPosition(player.playerView.getCenter().x - player.playerView.getSize().x / 2 + 7.f, player.playerView.getCenter().y - player.playerView.getSize().y / 2 + 38.f);
+//
+//    sf::Text text;
+//    sf::Font font;
+//
+//    int coins = 0;
+//    if (!font.loadFromFile("filename.ttf"))
 //        std::cout << "Error loading the font" << std::endl;
-
+//
 //    text.setFont(font);
-    text.setPosition(player.getSprite().getPosition());
-    text.setString("COINS: " + coins);
-    text.setCharacterSize(30);
-    text.setFillColor(sf::Color::Red);
-
+//    text.setPosition(player.getSprite().getPosition());
+//    text.setString("COINS: " + coins);
+//    text.setCharacterSize(30);
+//    text.setFillColor(sf::Color::Red);
 
     ////GAME LOOP
     while (window.isOpen()) {
@@ -167,7 +207,9 @@ int main() {
 
         //update input
         player.updatePosition(*map);
-        player.updateViewPosition(*map);
+
+        gui.updatePosition(player.updateViewPosition(*map));
+
         player.getWeapon()->checkProjectileCollision(*map);
 
         player.checkCollection(*map);
@@ -197,6 +239,20 @@ int main() {
 
 //        window.draw(text);
         window.setView(player.playerView);
+
+//        player.updateGUIPosition(bar, health, healthIndicator, coinIndicator);
+//        window.draw(bar);
+//        window.draw(health);
+//        window.draw(healthIndicator);
+
+//        gui.updatePosition(player.updateViewPosition(*map));
+        gui.draw(window);
+//        for (RectangleShape* shape : gui.getShapes())
+//            window.draw(*shape);
+//
+//        for (Text* txt : gui.getText())
+//            window.draw(*txt);
+
 
 
         //render ui
