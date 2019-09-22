@@ -8,9 +8,11 @@
 #include "Map.h"
 #include "WeaponFactory.h"
 #include "MapFactory.h"
+#include "Gui.h"
 
 
 using namespace sf;
+
 
 int main() {
 
@@ -39,7 +41,7 @@ int main() {
 
     ////DA FARE
     //TODO Unit Testing
-    //TODO smart pointer invece di row pointer
+    //TODO smart pointer invece di raw pointer
     //TODO gestione vita nemici con rettangolini rossi e verdi
     //TODO Observer per Achievements
     //TODO Menù principale
@@ -50,6 +52,10 @@ int main() {
     //TODO implementare potenziamenti
     //TODO implementare salvataggio progressi
 
+    //today: health bar
+    //TODO today: coin counter
+    //TODO today: die() method
+    //TODO today: more unit testing
 
 
     ////INIT WINDOW
@@ -68,7 +74,7 @@ int main() {
     MapFactory mapFactory;
 
     Map *map;
-    int id = 1;
+    int id = 3;
     map = mapFactory.createMap(id);
 
 
@@ -101,18 +107,11 @@ int main() {
 
     ////INIT TEXT
 
-    sf::Text text;
-    sf::Font font;
 
-    int coins = 0;
-//    if (!font.loadFromMemory("arial.ttf"))
-//        std::cout << "Error loading the font" << std::endl;
+    ////INIT GUI
 
-//    text.setFont(font);
-    text.setPosition(player.getSprite().getPosition());
-    text.setString("COINS: " + coins);
-    text.setCharacterSize(30);
-    text.setFillColor(sf::Color::Red);
+    Gui gui(player.getPlayerView());
+
 
 
     ////GAME LOOP
@@ -150,7 +149,9 @@ int main() {
 
         //update input
         player.updatePosition(*map);
-        player.updateViewPosition(*map);
+
+        gui.updatePosition(player.updateViewPosition(*map));
+
         player.getWeapon()->checkProjectileCollision(*map);
         player.checkCollection(*map);
         map->updateAnimatedObjects();
@@ -179,6 +180,20 @@ int main() {
 
 //        window.draw(text);
         window.setView(player.getPlayerView());
+
+//        player.updateGUIPosition(bar, health, healthIndicator, coinIndicator);
+//        window.draw(bar);
+//        window.draw(health);
+//        window.draw(healthIndicator);
+
+//        gui.updatePosition(player.updateViewPosition(*map));
+        gui.draw(window);
+//        for (RectangleShape* shape : gui.getShapes())
+//            window.draw(*shape);
+//
+//        for (Text* txt : gui.getText())
+//            window.draw(*txt);
+
 
 
         //render ui
