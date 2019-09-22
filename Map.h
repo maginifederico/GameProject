@@ -51,6 +51,10 @@ public:
 
     const float getViewWidth() const;
 
+    std::vector<Item *> &getAnimatedObjects();
+
+    void updateAnimatedObjects();
+
 private:
     std::string background, ground, objects;
 
@@ -72,6 +76,9 @@ private:
 
 //    std::vector<std::unique_ptr<Item>> objectsCollector;
     std::vector<Item *> objectsCollector;
+
+    std::vector<Item *> animatedObjects;
+
 
     const float viewHeight = 300.f;
     const float viewWidth = 500.f;

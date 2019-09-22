@@ -23,6 +23,8 @@ public:
 
     void setCollision(sf::FloatRect &collision);
 
+    virtual void updateAnimation();
+
 private:
 
     int id;

@@ -12,13 +12,11 @@
 
 
 
-Item::Item(std::string &texturePath, int identifier) {
+Item::Item(std::string &texturePath, int identifier) : id(identifier) {
 
     if (!texture.loadFromFile(texturePath))
         std::cout << "Unable to load the sprite";
     sprite.setTexture(texture);
-
-    id = identifier;
 
 }
 
@@ -36,4 +34,10 @@ const sf::FloatRect &Item::getCollision() const {
 
 void Item::setCollision(sf::FloatRect &c) {
     Item::collision = c;
+}
+
+void Item::updateAnimation() {
+
+    std::cout << "bnvbhvhbv" << std::endl;
+
 }

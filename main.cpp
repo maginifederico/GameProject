@@ -22,6 +22,7 @@ int main() {
     //collisione dei proiettili con layer ground
     //movimento view verticale
     //Factory per armi
+
     //Gestione input nel main
     //Metodo shoot del player
     //Tolta mappa in player, passata map ad updatePosition
@@ -30,14 +31,13 @@ int main() {
     //Factory per oggetti
     //Caverna e Stanza Speciale in Liv.1
     //gestione vita player
+    //collisioni con layer oggetti
 
     ////DA RIVEDERE
     //TODO rivedere collisioni con layer ground (guardare i FIXME su GameHero)
-    //TODO aggiungere tutti gli oggetti nella ObjectsFactory
-    //TODO corregggere errori su UndergroundMap
+    //TODO aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, blueFlag, porte nere e marroni)
 
     ////DA FARE
-    //TODO collisioni con layer oggetti
     //TODO Unit Testing
     //TODO smart pointer invece di row pointer
     //TODO gestione vita nemici con rettangolini rossi e verdi
@@ -68,7 +68,7 @@ int main() {
     MapFactory mapFactory;
 
     Map *map;
-    int id = 3;
+    int id = 1;
     map = mapFactory.createMap(id);
 
 
@@ -153,6 +153,7 @@ int main() {
         player.updateViewPosition(*map);
         player.getWeapon()->checkProjectileCollision(*map);
         player.checkCollection(*map);
+        map->updateAnimatedObjects();
 
         //render
         window.clear();
@@ -165,6 +166,10 @@ int main() {
         for (Item *item : map->getObjectsCollector())
             window.draw(item->getSprite());
 //        window.draw(map.getLayer()[2]);
+
+        for (Item *item :map->getAnimatedObjects()) {
+            window.draw(item->getSprite());
+        }
 
         for (Projectile projectile : player.getWeapon()->getProjectiles()) {
             window.draw(projectile.getSprite());

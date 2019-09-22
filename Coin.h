@@ -7,7 +7,6 @@
 
 
 #include "Item.h"
-#include "GameHero.h"
 
 class Coin : public Item {
 

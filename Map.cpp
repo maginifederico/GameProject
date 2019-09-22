@@ -28,7 +28,7 @@ bool Map::load() {
 //    if (!layer[2].load(sf::Vector2u(21, 21), objects))
 //        return -1;
 
-    if (!layer[2].loadObject(width, objects, objectsCollector))
+    if (!layer[2].loadObject(width, height, objects, objectsCollector))
         return -1;
 }
 
@@ -93,6 +93,17 @@ const float Map::getViewHeight() const {
 
 const float Map::getViewWidth() const {
     return viewWidth;
+}
+
+std::vector<Item *> &Map::getAnimatedObjects() {
+    return animatedObjects;
+}
+
+void Map::updateAnimatedObjects() {
+
+    for (int i = 0; i < animatedObjects.size(); i++)
+        animatedObjects[i]->updateAnimation();
+
 }
 //std::vector<std::unique_ptr<Item>> &Map::getObjectsCollector() {
 //    return objectsCollector;

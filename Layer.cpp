@@ -100,7 +100,7 @@ Tile *Layer::getTile() const {
 }
 
 //bool Layer::loadObject(sf::Vector2u tS, std::string &map_path, std::vector<std::unique_ptr<Item>> objectsCollector) {
-bool Layer::loadObject(float mapWidth, std::string &map_path, std::vector<Item *> &objectsCollector) {
+bool Layer::loadObject(float mapWidth, float mapHeight, std::string &map_path, std::vector<Item *> &objectsCollector) {
 
 
     std::ifstream my_file(map_path);
@@ -112,6 +112,8 @@ bool Layer::loadObject(float mapWidth, std::string &map_path, std::vector<Item *
 
     float posX;
     float posY;
+
+    int redFlagLow = 134;   //CHECKPOINT
 
     for (int i = 0; i < width * height; i++) {
         my_file >> layer[i];
@@ -126,7 +128,12 @@ bool Layer::loadObject(float mapWidth, std::string &map_path, std::vector<Item *
                 posY = (i / int(mapWidth / 21)) * 21.f;
 
                 sf::FloatRect collision(posX, posY, 21.f, 21.f);
-                object->setCollision(collision);
+                sf::FloatRect checkpointCollision(posX, 0, 5.f, mapHeight);
+
+                if (layer[i] == redFlagLow)
+                    object->setCollision(checkpointCollision);
+                else
+                    object->setCollision(collision);
 
                 object->getSprite().setPosition(posX, posY);
                 objectsCollector.push_back(object);

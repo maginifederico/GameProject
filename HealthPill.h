@@ -6,7 +6,6 @@
 #define GAME_HEALTHPILL_H
 
 #include "Item.h"
-#include "GameCharacter.h"
 
 class HealthPill : public Item {
 

@@ -11,6 +11,7 @@
 #include "Coin.h"
 #include "HealthPill.h"
 #include "Spike.h"
+#include "Checkpoint.h"
 
 class ObjectFactory {
 
@@ -28,14 +29,18 @@ Item *ObjectFactory::createObject(int id) {
     const int spikeUpID = 50;
     const int spikeDxID = 51;
     const int spikeSxID = 60;
-    const int redFlag = 52;
     const int brownDoorUpID = 54;
     const int brownDoorDownID = 55;
     const int blackDoorUpID = 56;
     const int blackDoorDownID = 57;
     const int healthPillID = 58;
     const int coinID = 59;
-    const int blueFlag = 133;
+    const int blueFlag1 = 53;
+    const int blueFlag2 = 133;
+    const int redFlagLow = 134;
+//    const int redFlag1 = 52;
+//    const int redFlag2 = 132;
+
 
     switch (id) {
 
@@ -88,6 +93,15 @@ Item *ObjectFactory::createObject(int id) {
             break;
         }
 
+        case redFlagLow: {
+
+            std::string checkpointTexturePath = "./Textures/RedFlagLow.png";
+
+            result = new Checkpoint(checkpointTexturePath, id);
+
+            break;
+
+        }
 
         default:
             result = nullptr;
