@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.7)
 project(Game)
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Game main.cpp Layer.h Layer.cpp Obstacle.h Item.h GameHero.h Map.h GameHero.cpp Obstacle.cpp Item.cpp GameHero.cpp Tile.cpp Tile.h GameCharacter.cpp GameCharacter.h Map.cpp Weapon.cpp Weapon.h Projectile.cpp Projectile.h WeaponFactory.h ObjectsFactory.h Coin.cpp Coin.h MapFactory.h)
+add_executable(Game main.cpp Layer.h Layer.cpp Obstacle.h Item.h GameHero.h Map.h GameHero.cpp Obstacle.cpp Item.cpp GameHero.cpp Tile.cpp Tile.h GameCharacter.cpp GameCharacter.h Map.cpp Weapon.cpp Weapon.h Projectile.cpp Projectile.h WeaponFactory.h ObjectFactory.h Coin.cpp Coin.h MapFactory.h HealthPill.h HealthPill.cpp Spike.cpp Spike.h)
 
 
 # Detect and add SFML
@@ -19,7 +19,7 @@ endif ()
 add_subdirectory(test)
 
 #aggiungere all'istruzione seguente i file da sottoporre a test
-set(SOURCE_FILES GameHero.h GameHero.cpp GameCharacter.h GameCharacter.cpp Map.h Map.cpp Layer.h Layer.cpp Tile.h Tile.cpp Weapon.h Weapon.cpp Projectile.h Projectile.cpp Item.cpp Item.h Coin.cpp Coin.h ObjectsFactory.h)
+set(SOURCE_FILES GameHero.h GameHero.cpp GameCharacter.h GameCharacter.cpp Map.h Map.cpp Layer.h Layer.cpp Tile.h Tile.cpp Weapon.h Weapon.cpp Projectile.h Projectile.cpp Item.cpp Item.h Coin.cpp Coin.h ObjectFactory.h)
 add_executable(patagame_unit_testing main.cpp ${SOURCE_FILES})
 add_library(core ${SOURCE_FILES})
 target_link_libraries(patagame_unit_testing core sfml-graphics sfml-window sfml-system sfml-audio)

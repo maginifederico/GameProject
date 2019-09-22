@@ -15,8 +15,8 @@
 class Weapon {
 public:
 
-    Weapon(std::string &texturePath, float textureScale, int damage, float range, float cooldown,
-           float explosionRange = 0, int level = 1);
+    explicit Weapon(std::string &texturePath, float textureScale, int damage, float range, float cooldown,
+                    float explosionRange = 0, int level = 1);
 
 //    Weapon(Weapon &gun);
 

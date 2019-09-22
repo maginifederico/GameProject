@@ -6,14 +6,14 @@
 #ifndef _ITEM_H
 #define _ITEM_H
 
-#include "Tile.h"
+#include "GameHero.h"
 
 class Item {
 
 public:
     explicit Item(std::string &texturePath, int id);
 
-    virtual void interact() = 0;
+    virtual void interact(/*GUI gui,*/ GameHero *player, Map &map, int objectNumber) = 0;
 
     sf::Sprite &getSprite();
 

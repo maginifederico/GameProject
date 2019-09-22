@@ -7,13 +7,14 @@
 
 
 #include "Item.h"
+#include "GameHero.h"
 
 class Coin : public Item {
 
 public:
     Coin(int coinValue, std::string &texturePath, int id);
 
-    void interact() override;
+    void interact(GameHero *player, Map &map, int objectNumber) override;
 
 
 private:

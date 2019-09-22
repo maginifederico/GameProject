@@ -65,13 +65,13 @@ float Map::getViewVerticalLimitDown() const {
     return viewVerticalLimitDOWN;
 }
 
-void Map::setViewLimits(float w, float h) {
+void Map::setViewLimits() {
 
-    viewHorizontalLimitSX = w / 4;
-    viewHorizontalLimitDX = Map::width - (w * 3 / 4);
+    viewHorizontalLimitSX = viewWidth / 4;
+    viewHorizontalLimitDX = width - (viewWidth * 3 / 4);
 
-    viewVerticalLimitDOWN = Map::height - h / 2;
-    viewVerticalLimitUP = h / 2;
+    viewVerticalLimitDOWN = height - viewHeight / 2;
+    viewVerticalLimitUP = viewHeight / 2;
 
 }
 
@@ -87,16 +87,12 @@ std::vector<Item *> &Map::getObjectsCollector() {
     return objectsCollector;
 }
 
-const std::string &Map::getBackground() const {
-    return background;
-}
-
 const float Map::getViewHeight() const {
-    return VIEW_HEIGHT;
+    return viewHeight;
 }
 
 const float Map::getViewWidth() const {
-    return VIEW_WIDTH;
+    return viewWidth;
 }
 //std::vector<std::unique_ptr<Item>> &Map::getObjectsCollector() {
 //    return objectsCollector;

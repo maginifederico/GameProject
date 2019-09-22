@@ -8,6 +8,7 @@
 #include <math.h>
 #include "Weapon.h"
 #include "GameHero.h"
+#include "Map.h"
 
 /**
  * Weapon implementation

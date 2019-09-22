@@ -26,17 +26,21 @@ int main() {
     //Metodo shoot del player
     //Tolta mappa in player, passata map ad updatePosition
     //Proiettili con intersect
+    //Factory per Map
+    //Factory per oggetti
+    //Caverna e Stanza Speciale in Liv.1
+    //gestione vita player
 
     ////DA RIVEDERE
     //TODO rivedere collisioni con layer ground (guardare i FIXME su GameHero)
+    //TODO aggiungere tutti gli oggetti nella ObjectsFactory
+    //TODO corregggere errori su UndergroundMap
 
     ////DA FARE
     //TODO collisioni con layer oggetti
     //TODO Unit Testing
-    //TODO Factory per Map
-    //TODO Caverna e Stanza Speciale in Liv.1
     //TODO smart pointer invece di row pointer
-    //TODO gestione vita player e nemici con rettangolini rossi e verdi
+    //TODO gestione vita nemici con rettangolini rossi e verdi
     //TODO Observer per Achievements
     //TODO Menù principale
     //TODO State Pattern per stato gioco
@@ -48,48 +52,28 @@ int main() {
 
 
 
-    //init game
+    ////INIT WINDOW
 
     const unsigned int WINDOW_WIDTH = 1920;
     const unsigned int WINDOW_HEIGHT = 1010;
-    const float VIEW_HEIGHT = 300.f;
-    const float VIEW_WIDTH = 500.f;
-    const std::string GAME_HERO_TEXTURE = "./Textures/PotatoDX.png";
-
-
-//    ////LEVEL 1 SETTINGS
-//    float mapWidth = 6300.f;
-//    float mapHeight = 525.f;
-//    Vector2f spawnPoint(100.f, 300.f);
-
+    int frameRate = 160;
 
     //init window
     RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "PATAMAN ADVENTURES");
-    window.setFramerateLimit(160);
+    window.setFramerateLimit(frameRate);
 
 
     ////INIT MAP
 
-
-    //LOAD LEVEL 1
-//    Map map(mapWidth, mapHeight, spawnPoint, "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt",
-//            "./Map/objectsLevel1");
-//    map.load();
-
-    //SETTA I LIMITI DELLA VIEW
-//    map.setViewLimits(VIEW_WIDTH, VIEW_HEIGHT);
-
     MapFactory mapFactory;
 
     Map *map;
-    int id = 2;
+    int id = 3;
     map = mapFactory.createMap(id);
-    map->setViewLimits(VIEW_WIDTH, VIEW_HEIGHT);
 
 
 
-
-    ////INIT PLAYER WEAPONS
+    ////INIT PLAYER WEAPON
 
     WeaponFactory weaponFactory;
     int weaponNumber = 0;
@@ -107,14 +91,11 @@ int main() {
 //                       french_fries_cooldown);
 
 
-    //init game elements
+    ////INIT PLAYER
 
-    ////INIT Player
-    GameHero player(GAME_HERO_TEXTURE, Vector2f(map->getSpawnPoint().x, map->getSpawnPoint().y),
-                    Vector2f(VIEW_WIDTH, VIEW_HEIGHT)/*, weapon*/);
+    GameHero player(Vector2f(map->getSpawnPoint().x, map->getSpawnPoint().y),
+                    Vector2f(map->getViewWidth(), map->getViewHeight())/*, weapon*/);
     player.setWeapon(weaponFactory.createWeapon(weaponNumber));
-
-
 
 
 
@@ -145,6 +126,8 @@ int main() {
             }
         }
 
+
+        //user input
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
             player.setWPressed(true);
         }
@@ -169,7 +152,6 @@ int main() {
         player.updatePosition(*map);
         player.updateViewPosition(*map);
         player.getWeapon()->checkProjectileCollision(*map);
-
         player.checkCollection(*map);
 
         //render
@@ -180,11 +162,6 @@ int main() {
         window.draw(map->getLayer()[0]);
         window.draw(map->getLayer()[1]);
 
-//        for(Item * item : map.getObjectsCollector()){
-//
-//            window.draw(item->getSprite());
-//
-//        }
         for (Item *item : map->getObjectsCollector())
             window.draw(item->getSprite());
 //        window.draw(map.getLayer()[2]);
@@ -196,7 +173,7 @@ int main() {
         window.draw(player.getSprite());
 
 //        window.draw(text);
-        window.setView(player.playerView);
+        window.setView(player.getPlayerView());
 
 
         //render ui

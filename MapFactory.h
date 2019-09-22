@@ -35,6 +35,8 @@ Map *MapFactory::createMap(int id) {
                              "./Map/objectsLevel1");
 
             result->load();
+            result->setViewLimits();
+
 
             break;
 
@@ -50,6 +52,25 @@ Map *MapFactory::createMap(int id) {
                              "./Map/caveObjectsL1.txt");
 
             result->load();
+            result->setViewLimits();
+
+
+            break;
+
+        }
+
+        case 3: {
+
+            float mapWidth = 1050.f;
+            float mapHeight = 1155.f;
+            sf::Vector2f spawnPoint(84.f, 945.f);
+
+            result = new Map(mapWidth, mapHeight, spawnPoint, "./Map/undergroundBackgroundL1.txt",
+                             "./Map/undergroundGroundL1.txt", "./Map/undergroundObjectsL1.txt");
+
+            result->load();
+            result->setViewLimits();
+
 
             break;
 

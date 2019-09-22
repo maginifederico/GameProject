@@ -22,7 +22,7 @@ public:
 
     bool load();
 
-    void setViewLimits(float width, float height);
+    void setViewLimits();
 
     const sf::Vector2f &getSpawnPoint() const;
 
@@ -46,8 +46,6 @@ public:
 
 //    std::vector<std::unique_ptr<Item>> &getObjectsCollector();
     std::vector<Item *> &getObjectsCollector();
-
-    const std::string &getBackground() const;
 
     const float getViewHeight() const;
 
@@ -75,8 +73,8 @@ private:
 //    std::vector<std::unique_ptr<Item>> objectsCollector;
     std::vector<Item *> objectsCollector;
 
-    const float VIEW_HEIGHT = 300.f;
-    const float VIEW_WIDTH = 500.f;
+    const float viewHeight = 300.f;
+    const float viewWidth = 500.f;
 
 
 //    Item *item[];

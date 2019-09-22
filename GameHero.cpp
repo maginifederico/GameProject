@@ -4,14 +4,15 @@
 
 
 #include "GameHero.h"
+#include "Map.h"
 
 /**
  * GameHero implementation
  */
 
 
-GameHero::GameHero(std::string texture, sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, int HP,
-                   float speed, float underWaterSpeed) : weapon(gun),
+GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, int HP,
+                   float speed, float underWaterSpeed, std::string texture) : weapon(gun),
                                                          GameCharacter(texture, initialPosition, speed, underWaterSpeed,
                                                                        HP) {
     sprite.setScale(sf::Vector2f(0.7142857f, 1.044776f));
@@ -347,9 +348,12 @@ void GameHero::checkCollection(Map &map) {
     for (int i = 0; i < map.getObjectsCollector().size(); i++) {
         if (sprite.getGlobalBounds().intersects(map.getObjectsCollector()[i]->getCollision())) {
 
-            map.getObjectsCollector()[i]->interact();
-            map.getObjectsCollector().erase(map.getObjectsCollector().begin() + i);
+            map.getObjectsCollector()[i]->interact(this, map, i);
 
         }
     }
+}
+
+sf::View &GameHero::getPlayerView() {
+    return playerView;
 }

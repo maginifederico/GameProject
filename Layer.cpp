@@ -12,7 +12,7 @@
 #include <SFML/Graphics/VertexArray.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <fstream>
-#include "ObjectsFactory.h"
+#include "ObjectFactory.h"
 #include "Layer.h"
 
 

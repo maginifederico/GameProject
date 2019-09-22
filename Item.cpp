@@ -34,6 +34,6 @@ const sf::FloatRect &Item::getCollision() const {
     return collision;
 }
 
-void Item::setCollision(sf::FloatRect &collision) {
-    Item::collision = collision;
+void Item::setCollision(sf::FloatRect &c) {
+    Item::collision = c;
 }
