@@ -128,51 +128,7 @@ int main() {
 
     Gui gui(player.playerView);
 
-//    Texture heart;
-//    Texture coin;
-//    if(!heart.loadFromFile("./Textures/HealthPill.png"))
-//        std::cout << "Unable to load heart shape";
-//
-//    if(!coin.loadFromFile("./Textures/Coin.png"))
-//        std::cout << "Unable to load coin shape";
-//
-//    RectangleShape bar(Vector2f(VIEW_WIDTH / 8.f, VIEW_HEIGHT / 15.f));
-//    bar.setOutlineThickness(2.f);
-//    bar.setOutlineColor(sf::Color::Black);
-//    bar.setFillColor(sf::Color::Black);
-//
-//    bar.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + 40.f,
-//                    playerView.getCenter().y - playerView.getSize().y / 2 + 12.f);
-//
-//    RectangleShape health(Vector2f(VIEW_WIDTH / 8.f, VIEW_HEIGHT / 15.f));
-//    health.setFillColor(sf::Color::Green);
-//    health.setOutlineColor(sf::Color::Transparent);
-//
-//    health.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + 40.f,
-//                       playerView.getCenter().y - playerView.getSize().y / 2 + 12.f);
-//
-//    RectangleShape healthIndicator (Vector2f(30.f, 30.f));
-//    healthIndicator.setTexture(&heart);
-//
-//    healthIndicator.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + 7.f, playerView.getCenter().y - playerView.getSize().y / 2 + 8.f);
-//
-//    RectangleShape coinIndicator (Vector2f(30.f, 30.f));
-//    coinIndicator.setTexture(&coin);
-//
-//    coinIndicator.setPosition(player.playerView.getCenter().x - player.playerView.getSize().x / 2 + 7.f, player.playerView.getCenter().y - player.playerView.getSize().y / 2 + 38.f);
-//
-//    sf::Text text;
-//    sf::Font font;
-//
-//    int coins = 0;
-//    if (!font.loadFromFile("filename.ttf"))
-//        std::cout << "Error loading the font" << std::endl;
-//
-//    text.setFont(font);
-//    text.setPosition(player.getSprite().getPosition());
-//    text.setString("COINS: " + coins);
-//    text.setCharacterSize(30);
-//    text.setFillColor(sf::Color::Red);
+
 
     ////GAME LOOP
     while (window.isOpen()) {

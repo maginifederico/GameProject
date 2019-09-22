@@ -23,15 +23,24 @@ public:
 
     void add(sf::RectangleShape *shape);
 
-
     const std::vector<sf::RectangleShape *> &getShapes() const;
 
     const std::vector<sf::Text *> &getText() const;
+
+    void updateHealth(int HP);
+
+    void updateCoinCount(int value);
+
+
 
 private:
 
     std::vector<sf::RectangleShape *> shapes;
     std::vector<sf::Text *> text;
+
+    int healthIndex = 2;
+    int coinCountIndex = 0;
+
 
 //    sf::RectangleShape bar;
 //    sf::RectangleShape health;
