@@ -33,6 +33,9 @@ int main() {
     //Caverna e Stanza Speciale in Liv.1
     //gestione vita player
     //collisioni con layer oggetti
+    //coin counter
+    //die() method
+    //checkpoint
 
     ////DA RIVEDERE
     //TODO rivedere collisioni con layer ground (guardare i FIXME su GameHero)
@@ -50,9 +53,6 @@ int main() {
     //TODO implementare i bonus e monetine
     //TODO implementare potenziamenti
     //TODO implementare salvataggio progressi
-    //TODO today: coin counter
-    //TODO today: die() method
-    //TODO today: more unit testing
 
 
 
