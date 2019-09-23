@@ -51,6 +51,8 @@ public:
 
     const float getViewWidth() const;
 
+    void setSpawnPoint(const sf::Vector2f &spawnPoint);
+
     std::vector<Item *> &getAnimatedObjects();
 
     void updateAnimatedObjects();
@@ -61,7 +63,7 @@ private:
     float height;
     float width;
 
-    const sf::Vector2f spawn_point;
+    sf::Vector2f spawn_point;
 
     float viewHorizontalLimitSX;
     float viewHorizontalLimitDX;

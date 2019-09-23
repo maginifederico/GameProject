@@ -13,9 +13,11 @@
 class Gui {
 public:
 
-    explicit Gui(sf::View &playerView);
+    explicit Gui();
 
-    void draw(/*sf::Vector2f viewPosition, int HP*/sf::RenderWindow &window);
+    void load(sf::View &playerView);
+
+//    void draw(/*sf::Vector2f viewPosition, int HP*/sf::RenderWindow &window);
 
     void updatePosition(sf::Vector2f offset);
 
@@ -23,9 +25,9 @@ public:
 
     void add(sf::RectangleShape *shape);
 
-    const std::vector<sf::RectangleShape *> &getShapes() const;
+    std::vector<sf::RectangleShape *> &getShapes();
 
-    const std::vector<sf::Text *> &getText() const;
+    std::vector<sf::Text *> &getText();
 
     void updateHealth(int HP);
 

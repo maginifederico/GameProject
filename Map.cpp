@@ -105,6 +105,10 @@ void Map::updateAnimatedObjects() {
         animatedObjects[i]->updateAnimation();
 
 }
+
+void Map::setSpawnPoint(const sf::Vector2f &spawnPoint) {
+    spawn_point = spawnPoint;
+}
 //std::vector<std::unique_ptr<Item>> &Map::getObjectsCollector() {
 //    return objectsCollector;
 //}

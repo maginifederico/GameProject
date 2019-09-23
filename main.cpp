@@ -24,7 +24,6 @@ int main() {
     //collisione dei proiettili con layer ground
     //movimento view verticale
     //Factory per armi
-
     //Gestione input nel main
     //Metodo shoot del player
     //Tolta mappa in player, passata map ad updatePosition
@@ -51,11 +50,11 @@ int main() {
     //TODO implementare i bonus e monetine
     //TODO implementare potenziamenti
     //TODO implementare salvataggio progressi
-
-    //today: health bar
     //TODO today: coin counter
     //TODO today: die() method
     //TODO today: more unit testing
+
+
 
 
     ////INIT WINDOW
@@ -64,7 +63,7 @@ int main() {
     const unsigned int WINDOW_HEIGHT = 1010;
     int frameRate = 160;
 
-    //init window
+    //init window)
     RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "PATAMAN ADVENTURES");
     window.setFramerateLimit(frameRate);
 
@@ -74,7 +73,7 @@ int main() {
     MapFactory mapFactory;
 
     Map *map;
-    int id = 3;
+    int id = 1;
     map = mapFactory.createMap(id);
 
 
@@ -84,17 +83,17 @@ int main() {
     WeaponFactory weaponFactory;
     int weaponNumber = 0;
 
-//    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
+//    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);)
 
-//    std::unique_ptr<Weapon> frenchFries = weaponFactory.createWeapon(1);
+//    std::unique_ptr<Weapon> frenchFries = weaponFactory.createWeapon(1);)
 
-//    Weapon *justOne = weaponFactory.createWeapon(0);
+//    Weapon *justOne = weaponFactory.createWeapon(0);)
 
-//    Weapon *frenchFries = weaponFactory.createWeapon(1);
+//    Weapon *frenchFries = weaponFactory.createWeapon(1);)
 
 
-//    Weapon frenchFries(FRENCH_FRIES_TEXTURE, french_fries_texture_scale, french_fries_damage, french_fries_range,
-//                       french_fries_cooldown);
+//    Weapon frenchFries(FRENCH_FRIES_TEXTURE, french_fries_texture_scale, french_fries_damage, french_fries_range,)
+//                       french_fries_cooldown);)
 
 
     ////INIT PLAYER
@@ -103,14 +102,14 @@ int main() {
                     Vector2f(map->getViewWidth(), map->getViewHeight())/*, weapon*/);
     player.setWeapon(weaponFactory.createWeapon(weaponNumber));
 
+    ////INIT GUI
+
+    player.loadGui();
 
 
     ////INIT TEXT
 
 
-    ////INIT GUI
-
-    Gui gui(player.getPlayerView());
 
 
 
@@ -126,7 +125,7 @@ int main() {
         }
 
 
-        //user input
+        //user input)
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
             player.setWPressed(true);
         }
@@ -150,7 +149,7 @@ int main() {
         //update input
         player.updatePosition(*map);
 
-        gui.updatePosition(player.updateViewPosition(*map));
+        player.updateViewPosition(*map);
 
         player.getWeapon()->checkProjectileCollision(*map);
         player.checkCollection(*map);
@@ -187,10 +186,14 @@ int main() {
 //        window.draw(healthIndicator);
 
 //        gui.updatePosition(player.updateViewPosition(*map));
-        gui.draw(window);
+        for (sf::RectangleShape *current : player.getGuiShapes())
+            window.draw(*current);
+
+        for (sf::Text *current : player.getGuiText())
+            window.draw(*current);
 //        for (RectangleShape* shape : gui.getShapes())
 //            window.draw(*shape);
-//
+//)
 //        for (Text* txt : gui.getText())
 //            window.draw(*txt);
 

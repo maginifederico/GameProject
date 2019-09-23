@@ -18,6 +18,8 @@ public:
 
     GameCharacter(std::string &texture, sf::Vector2f initialPosition, float speed, float underWaterSpeed, int HP);
 
+    virtual void die(Map *map) {};
+
     virtual void updatePosition(Map &map) = 0;
 
     virtual ~GameCharacter();

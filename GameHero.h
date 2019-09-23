@@ -8,6 +8,7 @@
 
 #include "GameCharacter.h"
 #include "Weapon.h"
+#include "Gui.h"
 #include <list>
 
 
@@ -31,6 +32,8 @@ public:
 
 //    Item *item;
 
+    void die(Map *map) override;
+
     int getMovementDirection() const;
 
     const sf::Vector2f &getVelocity() const;
@@ -52,6 +55,12 @@ public:
     void checkCollection(Map &map);
 
     sf::View &getPlayerView();
+
+    void loadGui();
+
+    std::vector<sf::Text *> &getGuiText();
+
+    std::vector<sf::RectangleShape *> &getGuiShapes();
 
 private:
 
@@ -76,6 +85,8 @@ private:
     int maxHP = 100;
 
     std::unique_ptr<Weapon> weapon;
+
+    Gui *gui;
 };
 
 

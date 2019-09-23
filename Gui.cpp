@@ -5,18 +5,97 @@
 #include <iostream>
 #include "Gui.h"
 
-Gui::Gui(sf::View &playerView) {
+Gui::Gui() {
 
-    float barX = 40.f;
-    float barY = 12.f;
-    float healthX = 40.f;
-    float healthY = 12.f;
-    float healthIndicatorX = 7.f;
-    float healthIndicatorY = 8.f;
-    float coinIndicatorX = 7.f;
-    float coinIndicatorY = 40.f;
-    float coinNumberX = 40.f;
-    float coinNumberY = 36.f;
+//    float barX = 40.f;
+//    float barY = 12.f;
+//    float healthX = 40.f;
+//    float healthY = 12.f;
+//    float healthIndicatorX = 7.f;
+//    float healthIndicatorY = 8.f;
+//    float coinIndicatorX = 7.f;
+//    float coinIndicatorY = 40.f;
+//    float coinNumberX = 40.f;
+//    float coinNumberY = 36.f;
+//
+//
+//    sf::Texture *heart = new sf::Texture;
+//    sf::Texture *coin = new sf::Texture;
+//
+//    if (!heart->loadFromFile("./Textures/HealthPill.png"))
+//        std::cout << "Unable to load heart shape";
+//
+//    if (!coin->loadFromFile("./Textures/Coin.png"))
+//        std::cout << "Unable to load coin shape";
+//
+//    sf::RectangleShape *bar = new sf::RectangleShape(
+//            sf::Vector2f(playerView.getSize().x / 8.f, playerView.getSize().y / 15.f));
+//    bar->setOutlineThickness(1.f);
+//    bar->setOutlineColor(sf::Color::Black);
+//    bar->setFillColor(sf::Color::Black);
+//
+//    bar->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + barX,
+//                     playerView.getCenter().y - playerView.getSize().y / 2 + barY);
+//
+//    sf::RectangleShape *health = new sf::RectangleShape(
+//            sf::Vector2f(playerView.getSize().x / 8.f, playerView.getSize().y / 15.f));
+//    health->setFillColor(sf::Color::Green);
+//    health->setOutlineColor(sf::Color::Transparent);
+//
+//    health->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + healthX,
+//                        playerView.getCenter().y - playerView.getSize().y / 2 + healthY);
+//
+//    sf::RectangleShape *healthIndicator = new sf::RectangleShape(sf::Vector2f(30.f, 30.f));
+//    healthIndicator->setTexture(heart);
+//
+//    healthIndicator->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + healthIndicatorX,
+//                                 playerView.getCenter().y - playerView.getSize().y / 2 + healthIndicatorY);
+//
+//    sf::RectangleShape *coinIndicator = new sf::RectangleShape(sf::Vector2f(30.f, 30.f));
+//    coinIndicator->setTexture(coin);
+//
+//    coinIndicator->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + coinIndicatorX,
+//                               playerView.getCenter().y - playerView.getSize().y / 2 + coinIndicatorY);
+//
+//    sf::Text *coinNumber = new sf::Text;
+//    sf::Font *font = new sf::Font;
+//
+//    if (!font->loadFromFile("./Fonts/arial.ttf"))
+//        std::cout << "Error loading the font" << std::endl;
+//
+//    coinNumber->setFont(*font);
+//    coinNumber->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + coinNumberX,
+//                            playerView.getCenter().y - playerView.getSize().y / 2 + coinNumberY);
+//    coinNumber->setString("x00");
+//    coinNumber->setCharacterSize(30);
+//    coinNumber->setFillColor(sf::Color::Black);
+//
+//    shapes.emplace_back(healthIndicator);
+//    shapes.emplace_back(bar);
+//    shapes.emplace_back(health);
+//    shapes.emplace_back(coinIndicator);
+//
+//    text.emplace_back(coinNumber);
+
+//    sf::Texture test;
+//    test.loadFromFile("./Textures/FrenchFriesWeapon.png");
+//
+
+
+}
+
+void Gui::load(sf::View &playerView) {
+
+    float barX = 30.f;
+    float barY = 9.f;
+    float healthX = 30.f;
+    float healthY = 9.f;
+    float healthIndicatorX = 5.f;
+    float healthIndicatorY = 4.f;
+    float coinIndicatorX = 5.f;
+    float coinIndicatorY = 28.f;
+    float coinNumberX = 31.f;
+    float coinNumberY = 26.f;
 
 
     sf::Texture *heart = new sf::Texture;
@@ -29,7 +108,7 @@ Gui::Gui(sf::View &playerView) {
         std::cout << "Unable to load coin shape";
 
     sf::RectangleShape *bar = new sf::RectangleShape(
-            sf::Vector2f(playerView.getSize().x / 8.f, playerView.getSize().y / 15.f));
+            sf::Vector2f(playerView.getSize().x / 10.f, playerView.getSize().y / 22.5f));
     bar->setOutlineThickness(1.f);
     bar->setOutlineColor(sf::Color::Black);
     bar->setFillColor(sf::Color::Black);
@@ -38,20 +117,20 @@ Gui::Gui(sf::View &playerView) {
                      playerView.getCenter().y - playerView.getSize().y / 2 + barY);
 
     sf::RectangleShape *health = new sf::RectangleShape(
-            sf::Vector2f(playerView.getSize().x / 8.f, playerView.getSize().y / 15.f));
+            sf::Vector2f(playerView.getSize().x / 10.f, playerView.getSize().y / 22.5f));
     health->setFillColor(sf::Color::Green);
     health->setOutlineColor(sf::Color::Transparent);
 
     health->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + healthX,
                         playerView.getCenter().y - playerView.getSize().y / 2 + healthY);
 
-    sf::RectangleShape *healthIndicator = new sf::RectangleShape(sf::Vector2f(30.f, 30.f));
+    sf::RectangleShape *healthIndicator = new sf::RectangleShape(sf::Vector2f(22.f, 22.f));
     healthIndicator->setTexture(heart);
 
     healthIndicator->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + healthIndicatorX,
                                  playerView.getCenter().y - playerView.getSize().y / 2 + healthIndicatorY);
 
-    sf::RectangleShape *coinIndicator = new sf::RectangleShape(sf::Vector2f(30.f, 30.f));
+    sf::RectangleShape *coinIndicator = new sf::RectangleShape(sf::Vector2f(22.f, 22.f));
     coinIndicator->setTexture(coin);
 
     coinIndicator->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + coinIndicatorX,
@@ -67,7 +146,7 @@ Gui::Gui(sf::View &playerView) {
     coinNumber->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + coinNumberX,
                             playerView.getCenter().y - playerView.getSize().y / 2 + coinNumberY);
     coinNumber->setString("x00");
-    coinNumber->setCharacterSize(30);
+    coinNumber->setCharacterSize(21);
     coinNumber->setFillColor(sf::Color::Black);
 
     shapes.emplace_back(healthIndicator);
@@ -77,23 +156,17 @@ Gui::Gui(sf::View &playerView) {
 
     text.emplace_back(coinNumber);
 
-//    sf::Texture test;
-//    test.loadFromFile("./Textures/FrenchFriesWeapon.png");
-//
-//    sf::RectangleShape io (sf::Vector2f(30.f, 30.f));
-//    io.setPosition(playerView.getCenter());
-//    shapes.emplace_back(io);
 
 }
 
-void Gui::draw(sf::RenderWindow &window/*sf::Vector2f viewTopLeft, int HP*/) {
-
-    for (sf::RectangleShape *current : shapes)
-        window.draw(*current);
-
-
-    for (sf::Text *current : text)
-        window.draw(*current);
+//void Gui::draw(sf::RenderWindow &window/*sf::Vector2f viewTopLeft, int HP*/) {
+//
+//    for (sf::RectangleShape *current : shapes)
+//        window.draw(*current);
+//
+//
+//    for (sf::Text *current : text)
+//        window.draw(*current);
 
 
 //    bar.setPosition(viewTopLeft.x - viewTopLeft.x / 2 + barX,
@@ -123,7 +196,7 @@ void Gui::draw(sf::RenderWindow &window/*sf::Vector2f viewTopLeft, int HP*/) {
 //
 //    healthIndicator.setPosition(viewTopLeft.x - viewTopLeft.x / 2 + healthIndicatorX, viewTopLeft.y - viewTopLeft.y / 2 + healthIndicatorY);
 //
-}
+//}
 
 void Gui::updatePosition(sf::Vector2f offset) {
 
@@ -147,11 +220,11 @@ void Gui::add(sf::Text *txt) {
 
 }
 
-const std::vector<sf::RectangleShape *> &Gui::getShapes() const {
+std::vector<sf::RectangleShape *> &Gui::getShapes() {
     return shapes;
 }
 
-const std::vector<sf::Text *> &Gui::getText() const {
+std::vector<sf::Text *> &Gui::getText() {
     return text;
 }
 
