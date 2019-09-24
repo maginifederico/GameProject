@@ -34,6 +34,7 @@ private:
     sf::Sprite sprite;
     sf::Texture texture;
 
+
 //    float posX;
 //    float posY;
 //    int coinValue;

@@ -51,6 +51,8 @@ public:
 
     const float getViewWidth() const;
 
+    void setSpawnPoint(const sf::Vector2f &spawnPoint);
+
     std::vector<Item *> &getAnimatedObjects();
 
     void updateObjects();

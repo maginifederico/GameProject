@@ -33,6 +33,11 @@ int main() {
     //Factory per oggetti
     //Caverna e Stanza Speciale in Liv.1
     //Collisioni con layer oggetti
+    //gestione vita player
+    //collisioni con layer oggetti
+    //coin counter
+    //die() method
+    //checkpoint
 
     ////DA RIVEDERE
     //TODO rivedere collisioni con layer ground (guardare i FIXME su GameHero)
@@ -52,10 +57,6 @@ int main() {
     //TODO implementare potenziamenti
     //TODO implementare salvataggio progressi
 
-    //today: health bar
-    //TODO today: coin counter
-    //TODO today: die() method
-    //TODO today: more unit testing
 
     //TODO ::TODAY::
     //TODO fallingStones
@@ -82,7 +83,7 @@ int main() {
     MapFactory mapFactory;
 
     Map *map;
-    int id = 1;
+    int id = 3;
     map = mapFactory.createMap(id);
 
 
@@ -111,14 +112,14 @@ int main() {
                     Vector2f(map->getViewWidth(), map->getViewHeight())/*, weapon*/);
     player.setWeapon(weaponFactory.createWeapon(weaponNumber));
 
+    ////INIT GUI
+
+    player.loadGui();
 
 
     ////INIT TEXT
 
 
-    ////INIT GUI
-
-    Gui gui(player.getPlayerView());
 
 
 
@@ -158,7 +159,7 @@ int main() {
         //update input
         player.updatePosition(*map);
 
-        gui.updatePosition(player.updateViewPosition(*map));
+        player.updateViewPosition(*map);
 
         player.getWeapon()->checkProjectileCollision(*map);
         player.checkCollection(*map);
@@ -195,7 +196,11 @@ int main() {
 //        window.draw(healthIndicator);
 
 //        gui.updatePosition(player.updateViewPosition(*map));
-        gui.draw(window);
+        for (sf::RectangleShape *current : player.getGuiShapes())
+            window.draw(*current);
+
+        for (sf::Text *current : player.getGuiText())
+            window.draw(*current);
 //        for (RectangleShape* shape : gui.getShapes())
 //            window.draw(*shape);
 //

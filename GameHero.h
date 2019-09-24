@@ -8,6 +8,7 @@
 
 #include "GameCharacter.h"
 #include "Weapon.h"
+#include "Gui.h"
 #include <list>
 
 
@@ -22,8 +23,6 @@ public:
                       std::string texture = "./Textures/PotatoDX.png");
 
     void updatePosition(Map &ground) override;
-
-    void damage();
 
     Weapon *getWeapon() const;
 
@@ -53,7 +52,20 @@ public:
 
     sf::View &getPlayerView();
 
+    void loadGui();
+
+    std::vector<sf::Text *> &getGuiText();
+
+    std::vector<sf::RectangleShape *> &getGuiShapes();
+
+    Gui *getGui();
+
+    void takeDamage(int damage, Map &map) override;
+
+
 private:
+
+    void die(Map &map) override;
 
 
     //KEYBOARD WASD INPUTS
@@ -76,6 +88,8 @@ private:
     int maxHP = 100;
 
     std::unique_ptr<Weapon> weapon;
+
+    Gui *gui;
 };
 
 

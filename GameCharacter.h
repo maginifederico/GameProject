@@ -18,6 +18,8 @@ public:
 
     GameCharacter(std::string &texture, sf::Vector2f initialPosition, float speed, float underWaterSpeed, int HP);
 
+    virtual void takeDamage(int damage, Map &map) = 0;
+
     virtual void updatePosition(Map &map) = 0;
 
     virtual ~GameCharacter();
@@ -32,6 +34,8 @@ protected:
 
     sf::Texture texture;
     sf::Sprite sprite;
+
+    virtual void die(Map &map) {};
 };
 
 #endif //_GAMECHARACTER_H

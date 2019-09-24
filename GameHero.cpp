@@ -13,8 +13,9 @@
 
 GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, int HP,
                    float speed, float underWaterSpeed, std::string texture) : weapon(gun),
-                                                         GameCharacter(texture, initialPosition, speed, underWaterSpeed,
-                                                                       HP) {
+                                                                              GameCharacter(texture, initialPosition,
+                                                                                            speed, underWaterSpeed,
+                                                                                            HP) {
     sprite.setScale(sf::Vector2f(0.7142857f, 1.044776f));
     sprite.scale(0.15f, 0.15f);
     velocity.x = 0;
@@ -29,6 +30,7 @@ GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun,
     A_Pressed = false;
     S_Pressed = false;
     D_Pressed = false;
+    gui = new Gui();
 //    weapon = new Weapon(gun);
 }
 
@@ -298,13 +300,12 @@ sf::Vector2f GameHero::updateViewPosition(Map &map) {
         offset.y += playerView.getCenter().y;
     }
 
+    gui->updatePosition(offset);
+
     return offset;
 
 }
 
-void GameHero::damage() {
-
-}
 
 Weapon *GameHero::getWeapon() const {
     return weapon.get();
@@ -360,4 +361,60 @@ void GameHero::checkCollection(Map &map) {
 
 sf::View &GameHero::getPlayerView() {
     return playerView;
+}
+
+void GameHero::die(Map &map) {
+
+    sf::Vector2f offset(-sprite.getPosition().x, -sprite.getPosition().y);
+    sprite.setPosition(map.getSpawnPoint());
+    offset += sprite.getPosition();
+    HP = maxHP;
+    playerView.move(offset);
+
+    if (playerView.getCenter().x - playerView.getSize().x / 4 < map.getViewHorizontalLimitSx())
+        playerView.setCenter(playerView.getSize().x / 2, playerView.getCenter().y);
+
+    if (playerView.getCenter().x - playerView.getSize().x / 4 > map.getViewHorizontalLimitDx())
+        playerView.setCenter(map.getWidth() - playerView.getSize().x / 2, playerView.getCenter().y);
+
+    if (playerView.getCenter().y + 40.f > map.getViewVerticalLimitDown())
+        playerView.setCenter(playerView.getCenter().x, map.getHeight() - playerView.getSize().y / 2);
+
+    if (playerView.getCenter().y + 40.f < map.getViewVerticalLimitUp())
+        playerView.setCenter(playerView.getCenter().x, playerView.getSize().y / 2);
+
+    gui->getText().clear();
+    gui->getShapes().clear();
+    gui->load(playerView);
+
+}
+
+void GameHero::loadGui() {
+
+    gui->load(playerView);
+}
+
+std::vector<sf::Text *> &GameHero::getGuiText() {
+
+    return gui->getText();
+
+}
+
+std::vector<sf::RectangleShape *> &GameHero::getGuiShapes() {
+
+    return gui->getShapes();
+
+}
+
+Gui *GameHero::getGui() {
+    return gui;
+}
+
+void GameHero::takeDamage(int damage, Map &map) {
+
+    if (HP > damage) {
+        HP -= damage;
+        gui->updateHealth(HP);
+    } else
+        die(map);
 }

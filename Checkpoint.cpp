@@ -21,6 +21,10 @@ void Checkpoint::interact(GameHero *player, Map &map) {
     //SCRITTA CHECKPOINT SULLO SCHERMO
     //SETTARE IL RESPAWN QUI
 
+    map.setSpawnPoint(getSprite().getPosition());
+
+
+
     getSprite().setTexture(animation1);
     animationNumber = 1;
 

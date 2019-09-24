@@ -109,6 +109,10 @@ void Map::updateObjects() {
 const std::string &Map::getObjects() const {
     return objects;
 }
+
+void Map::setSpawnPoint(const sf::Vector2f &spawnPoint) {
+    spawn_point = spawnPoint;
+}
 //std::vector<std::unique_ptr<Item>> &Map::getObjectsCollector() {
 //    return objectsCollector;
 //}
