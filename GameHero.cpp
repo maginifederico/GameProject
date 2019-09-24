@@ -386,6 +386,8 @@ void GameHero::die(Map &map) {
     gui->getText().clear();
     gui->getShapes().clear();
     gui->load(playerView);
+    velocity.x = 0;
+    velocity.y = 0;
 
 }
 
@@ -410,11 +412,15 @@ Gui *GameHero::getGui() {
     return gui;
 }
 
-void GameHero::takeDamage(int damage, Map &map) {
+void GameHero::setHP(int hp, Map &map) {
 
-    if (HP > damage) {
-        HP -= damage;
-        gui->updateHealth(HP);
-    } else
+    HP = hp;
+
+    if (HP <= 0)
         die(map);
+    else if (HP > 100)
+        HP = 100;
+
+    gui->updateHealth(HP);
+
 }

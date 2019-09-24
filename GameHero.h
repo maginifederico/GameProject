@@ -60,7 +60,9 @@ public:
 
     Gui *getGui();
 
-    void takeDamage(int damage, Map &map) override;
+    void setHP(int hp, Map &map) override;
+
+
 
 
 private:

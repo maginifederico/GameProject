@@ -117,10 +117,6 @@ int main() {
     player.loadGui();
 
 
-    ////INIT TEXT
-
-
-
 
 
     ////GAME LOOP
@@ -206,8 +202,6 @@ int main() {
 //
 //        for (Text* txt : gui.getText())
 //            window.draw(*txt);
-
-
 
         //render ui
         window.display();

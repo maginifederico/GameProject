@@ -21,7 +21,7 @@ private:
 
     sf::Clock clock;
     const float spawnTime = 0.8f;
-    std::string stoneTexturePath;
+    std::string stoneTexturePath = "./Textures/Stone.png";
 
     sf::Vector2f spawnPoint;
 

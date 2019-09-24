@@ -18,4 +18,8 @@ sf::Sprite &GameCharacter::getSprite() {
     return sprite;
 }
 
+int GameCharacter::getHp() const {
+    return HP;
+}
+
 GameCharacter::~GameCharacter() = default;
