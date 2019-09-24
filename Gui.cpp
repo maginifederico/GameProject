@@ -5,8 +5,7 @@
 #include <iostream>
 #include "Gui.h"
 
-Gui::Gui() : coins(0) {
-
+Gui::Gui() : coins(400000000) {
 
 
 }
@@ -66,14 +65,14 @@ void Gui::load(sf::View &playerView) {
     sf::Text *coinNumber = new sf::Text;
     sf::Font *font = new sf::Font;
 
-    if (!font->loadFromFile("./Fonts/arial.ttf"))
+    if (!font->loadFromFile("./Textures/irr.ttf"))
         std::cout << "Error loading the font" << std::endl;
 
     coinNumber->setFont(*font);
     coinNumber->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + coinNumberX,
                             playerView.getCenter().y - playerView.getSize().y / 2 + coinNumberY);
-    coinNumber->setString(coins);
-    coinNumber->setCharacterSize(21);
+    coinNumber->setString(std::to_string(coins));
+    coinNumber->setCharacterSize(15);
     coinNumber->setFillColor(sf::Color::Black);
 
     shapes.emplace_back(healthIndicator);
@@ -157,7 +156,7 @@ std::vector<sf::Text *> &Gui::getText() {
 
 void Gui::updateHealth(int HP) {
 
-    shapes[2]->setSize(sf::Vector2f(shapes[2]->getSize().x * HP / 100, shapes[2]->getSize().y));
+    shapes[2]->setSize(sf::Vector2f(shapes[1]->getSize().x * HP / 100, shapes[2]->getSize().y));
 
     switch (HP / 33) {
 
@@ -181,6 +180,6 @@ void Gui::updateHealth(int HP) {
 void Gui::updateCoinCount(int value) {
 
     coins += value;
-    text[0]->setString(coins);
+    text[0]->setString(std::to_string(coins));
 
 }

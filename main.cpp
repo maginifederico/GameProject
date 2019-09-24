@@ -24,6 +24,7 @@ int main() {
     //collisione dei proiettili con layer ground
     //movimento view verticale
     //Factory per armi
+
     //Gestione input nel main
     //Metodo shoot del player
     //Tolta mappa in player, passata map ad updatePosition
@@ -31,6 +32,7 @@ int main() {
     //Factory per Map
     //Factory per oggetti
     //Caverna e Stanza Speciale in Liv.1
+    //Collisioni con layer oggetti
     //gestione vita player
     //collisioni con layer oggetti
     //coin counter
@@ -42,6 +44,7 @@ int main() {
     //TODO aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, blueFlag, porte nere e marroni)
 
     ////DA FARE
+    //TODO Gestione vita player
     //TODO Unit Testing
     //TODO smart pointer invece di raw pointer
     //TODO gestione vita nemici con rettangolini rossi e verdi
@@ -55,6 +58,13 @@ int main() {
     //TODO implementare salvataggio progressi
 
 
+    //TODO ::TODAY::
+    //TODO fallingStones
+    //TODO doors
+    //TODO spawnPoint
+    //TODO reset GUI
+    //TODO blueFlag
+    //TODO gameBonus (attack and shield)
 
 
     ////INIT WINDOW
@@ -63,7 +73,7 @@ int main() {
     const unsigned int WINDOW_HEIGHT = 1010;
     int frameRate = 160;
 
-    //init window)
+    //init window
     RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "PATAMAN ADVENTURES");
     window.setFramerateLimit(frameRate);
 
@@ -73,7 +83,7 @@ int main() {
     MapFactory mapFactory;
 
     Map *map;
-    int id = 1;
+    int id = 2;
     map = mapFactory.createMap(id);
 
 
@@ -83,17 +93,17 @@ int main() {
     WeaponFactory weaponFactory;
     int weaponNumber = 0;
 
-//    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);)
+//    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
 
-//    std::unique_ptr<Weapon> frenchFries = weaponFactory.createWeapon(1);)
+//    std::unique_ptr<Weapon> frenchFries = weaponFactory.createWeapon(1);
 
-//    Weapon *justOne = weaponFactory.createWeapon(0);)
+//    Weapon *justOne = weaponFactory.createWeapon(0);
 
-//    Weapon *frenchFries = weaponFactory.createWeapon(1);)
+//    Weapon *frenchFries = weaponFactory.createWeapon(1);
 
 
-//    Weapon frenchFries(FRENCH_FRIES_TEXTURE, french_fries_texture_scale, french_fries_damage, french_fries_range,)
-//                       french_fries_cooldown);)
+//    Weapon frenchFries(FRENCH_FRIES_TEXTURE, french_fries_texture_scale, french_fries_damage, french_fries_range,
+//                       french_fries_cooldown);
 
 
     ////INIT PLAYER
@@ -125,7 +135,7 @@ int main() {
         }
 
 
-        //user input)
+        //user input
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
             player.setWPressed(true);
         }
@@ -153,7 +163,7 @@ int main() {
 
         player.getWeapon()->checkProjectileCollision(*map);
         player.checkCollection(*map);
-        map->updateAnimatedObjects();
+        map->updateObjects();
 
         //render
         window.clear();
@@ -193,7 +203,7 @@ int main() {
             window.draw(*current);
 //        for (RectangleShape* shape : gui.getShapes())
 //            window.draw(*shape);
-//)
+//
 //        for (Text* txt : gui.getText())
 //            window.draw(*txt);
 

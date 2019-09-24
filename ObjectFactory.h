@@ -12,16 +12,17 @@
 #include "HealthPill.h"
 #include "Spike.h"
 #include "Checkpoint.h"
+#include "StoneGenerator.h"
 
 class ObjectFactory {
 
 public:
-    Item *createObject(int id);
+    Item *createObject(int id, float posX, float posY);
 
 
 };
 
-Item *ObjectFactory::createObject(int id) {
+Item *ObjectFactory::createObject(int id, float posX, float posY) {
 
 //    std::unique_ptr<Item> result;
     Item *result;
@@ -37,6 +38,7 @@ Item *ObjectFactory::createObject(int id) {
     const int coinID = 59;
     const int blueFlag1 = 53;
     const int blueFlag2 = 133;
+    const int stoneID = 135; //Sarebbe blueFlagLow
     const int redFlagLow = 134;
 //    const int redFlag1 = 52;
 //    const int redFlag2 = 132;
@@ -47,7 +49,7 @@ Item *ObjectFactory::createObject(int id) {
         case coinID: {
 
             int coinValue = 1;
-            std::string coinTexturePath = "./Textures/Coin.png";
+            std::string coinTexturePath = "Textures/Coin.png";
 
 
 //            result = std::unique_ptr<Coin>(new Coin(coinValue, coinTexturePath, id));
@@ -98,6 +100,16 @@ Item *ObjectFactory::createObject(int id) {
             std::string checkpointTexturePath = "./Textures/RedFlagLow.png";
 
             result = new Checkpoint(checkpointTexturePath, id);
+
+            break;
+
+        }
+
+        case stoneID: {
+
+            std::string checkpointTexturePath = "./Textures/Stone.png";
+
+            result = new StoneGenerator(posX, posY, checkpointTexturePath, id);
 
             break;
 

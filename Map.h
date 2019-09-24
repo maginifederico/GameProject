@@ -55,7 +55,9 @@ public:
 
     std::vector<Item *> &getAnimatedObjects();
 
-    void updateAnimatedObjects();
+    void updateObjects();
+
+    const std::string &getObjects() const;
 
 private:
     std::string background, ground, objects;
@@ -79,7 +81,7 @@ private:
 //    std::vector<std::unique_ptr<Item>> objectsCollector;
     std::vector<Item *> objectsCollector;
 
-    std::vector<Item *> animatedObjects;
+    std::vector<Item *> movingObjects;
 
 
     const float viewHeight = 300.f;

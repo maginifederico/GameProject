@@ -28,7 +28,7 @@ bool Map::load() {
 //    if (!layer[2].load(sf::Vector2u(21, 21), objects))
 //        return -1;
 
-    if (!layer[2].loadObject(width, height, objects, objectsCollector))
+    if (!layer[2].loadObject(this))
         return -1;
 }
 
@@ -96,14 +96,18 @@ const float Map::getViewWidth() const {
 }
 
 std::vector<Item *> &Map::getAnimatedObjects() {
-    return animatedObjects;
+    return movingObjects;
 }
 
-void Map::updateAnimatedObjects() {
+void Map::updateObjects() {
 
-    for (int i = 0; i < animatedObjects.size(); i++)
-        animatedObjects[i]->updateAnimation();
+    for (int i = 0; i < movingObjects.size(); i++)
+        movingObjects[i]->update(this);
 
+}
+
+const std::string &Map::getObjects() const {
+    return objects;
 }
 
 void Map::setSpawnPoint(const sf::Vector2f &spawnPoint) {

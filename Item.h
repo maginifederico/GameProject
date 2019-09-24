@@ -13,7 +13,7 @@ class Item {
 public:
     explicit Item(std::string &texturePath, int id);
 
-    virtual void interact(/*GUI gui,*/ GameHero *player, Map &map, int objectNumber) = 0;
+    virtual void interact(GameHero *player, Map &map) = 0;
 
     sf::Sprite &getSprite();
 
@@ -23,7 +23,9 @@ public:
 
     void setCollision(sf::FloatRect &collision);
 
-    virtual void updateAnimation();
+    virtual void update(Map *map) {};
+
+    int getId() const;
 
 private:
 

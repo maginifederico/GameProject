@@ -353,7 +353,7 @@ void GameHero::checkCollection(Map &map) {
     for (int i = 0; i < map.getObjectsCollector().size(); i++) {
         if (sprite.getGlobalBounds().intersects(map.getObjectsCollector()[i]->getCollision())) {
 
-            map.getObjectsCollector()[i]->interact(this, map, i);
+            map.getObjectsCollector()[i]->interact(this, map);
 
         }
     }
@@ -363,24 +363,24 @@ sf::View &GameHero::getPlayerView() {
     return playerView;
 }
 
-void GameHero::die(Map *map) {
+void GameHero::die(Map &map) {
 
     sf::Vector2f offset(-sprite.getPosition().x, -sprite.getPosition().y);
-    sprite.setPosition(map->getSpawnPoint());
+    sprite.setPosition(map.getSpawnPoint());
     offset += sprite.getPosition();
     HP = maxHP;
     playerView.move(offset);
 
-    if (playerView.getCenter().x - playerView.getSize().x / 4 < map->getViewHorizontalLimitSx())
+    if (playerView.getCenter().x - playerView.getSize().x / 4 < map.getViewHorizontalLimitSx())
         playerView.setCenter(playerView.getSize().x / 2, playerView.getCenter().y);
 
-    if (playerView.getCenter().x - playerView.getSize().x / 4 > map->getViewHorizontalLimitDx())
-        playerView.setCenter(map->getWidth() - playerView.getSize().x / 2, playerView.getCenter().y);
+    if (playerView.getCenter().x - playerView.getSize().x / 4 > map.getViewHorizontalLimitDx())
+        playerView.setCenter(map.getWidth() - playerView.getSize().x / 2, playerView.getCenter().y);
 
-    if (playerView.getCenter().y + 40.f > map->getViewVerticalLimitDown())
-        playerView.setCenter(playerView.getCenter().x, map->getHeight() - playerView.getSize().y / 2);
+    if (playerView.getCenter().y + 40.f > map.getViewVerticalLimitDown())
+        playerView.setCenter(playerView.getCenter().x, map.getHeight() - playerView.getSize().y / 2);
 
-    if (playerView.getCenter().y + 40.f < map->getViewVerticalLimitUp())
+    if (playerView.getCenter().y + 40.f < map.getViewVerticalLimitUp())
         playerView.setCenter(playerView.getCenter().x, playerView.getSize().y / 2);
 
     gui->getText().clear();
@@ -408,4 +408,13 @@ void GameHero::die(Map *map) {
 
 Gui *GameHero::getGui() {
     return gui;
+}
+
+void GameHero::takeDamage(int damage, Map &map) {
+
+    if (HP > damage) {
+        HP -= damage;
+        gui->updateHealth(HP);
+    } else
+        die(map);
 }

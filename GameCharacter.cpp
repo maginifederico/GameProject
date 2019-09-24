@@ -19,12 +19,3 @@ sf::Sprite &GameCharacter::getSprite() {
 }
 
 GameCharacter::~GameCharacter() = default;
-
-void GameCharacter::takeDamage(int damage, Map *map) {
-
-    if (HP > damage)
-        HP -= damage;
-
-    else
-        die(map);
-}

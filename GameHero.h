@@ -60,9 +60,12 @@ public:
 
     Gui *getGui();
 
+    void takeDamage(int damage, Map &map) override;
+
+
 private:
 
-    void die(Map *map) override;
+    void die(Map &map) override;
 
 
     //KEYBOARD WASD INPUTS
