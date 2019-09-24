@@ -15,7 +15,7 @@ Checkpoint::Checkpoint(std::string &checkpointTexturePath, int id) : Item(checkp
 
 }
 
-void Checkpoint::interact(GameHero *player, Map &map, int i) {
+void Checkpoint::interact(GameHero *player, Map &map) {
 
 
     //SCRITTA CHECKPOINT SULLO SCHERMO
@@ -23,7 +23,12 @@ void Checkpoint::interact(GameHero *player, Map &map, int i) {
 
     getSprite().setTexture(animation1);
     animationNumber = 1;
-    map.getObjectsCollector().erase(map.getObjectsCollector().begin() + i);
+
+    for (int y = 0; y < map.getObjectsCollector().size(); y++)
+        if (map.getObjectsCollector()[y] == this) {
+            map.getObjectsCollector().erase(map.getObjectsCollector().begin() + y);
+            break;
+        }
 
     //Aggiungi la bandierina agli oggetti animati
     map.getAnimatedObjects().push_back(this);

@@ -16,7 +16,7 @@ public:
 
     Checkpoint(std::string &checkpointTexturePath, int id);
 
-    void interact(GameHero *player, Map &map, int objectNumber) override;
+    void interact(GameHero *player, Map &map) override;
 
     void update(Map *map) override;
 

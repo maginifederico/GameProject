@@ -11,7 +11,7 @@ Stone::Stone(sf::FloatRect collision, std::string &texturePath, int id) : Item(t
 
 }
 
-void Stone::interact(GameHero *player, Map &map, int objectNumber) {
+void Stone::interact(GameHero *player, Map &map) {
 
 //    player.takedamage(damage, map);
     autoDestroy(map.getAnimatedObjects(), map.getObjectsCollector());

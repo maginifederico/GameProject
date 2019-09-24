@@ -9,8 +9,10 @@ Coin::Coin(int cV, std::string &texturePath, int id) : Item(texturePath, id), co
 
 }
 
-void Coin::interact(GameHero *player, Map &map, int i) {
+void Coin::interact(GameHero *player, Map &map) {
 
-    map.getObjectsCollector().erase(map.getObjectsCollector().begin() + i);
-
+    for (int y = 0; y < map.getObjectsCollector().size(); y++)
+        if (map.getObjectsCollector()[y] == this) {
+            map.getObjectsCollector().erase(map.getObjectsCollector().begin() + y);
+        }
 }

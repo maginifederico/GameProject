@@ -14,7 +14,7 @@ class Coin : public Item {
 public:
     Coin(int coinValue, std::string &texturePath, int id);
 
-    void interact(GameHero *player, Map &map, int objectNumber) override;
+    void interact(GameHero *player, Map &map) override;
 
 
 private:
