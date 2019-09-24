@@ -24,7 +24,7 @@ Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float
 }
 
 //
-//Weapon::Weapon(Weapon &gun) : texturePath(gun.texturePath), textureScale(gun.textureScale), damage(gun.damage),
+//Weapon::Weapon(Weapon &gun) : texturePath(gun.texturePath), textureScale(gun.textureScale), damage(gun.takeDamage),
 //                              range(gun.range), cooldown(gun.cooldown), level(gun.level),
 //                              explosionRange(gun.explosionRange) {
 //

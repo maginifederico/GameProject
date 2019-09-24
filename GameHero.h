@@ -24,15 +24,11 @@ public:
 
     void updatePosition(Map &ground) override;
 
-    void damage();
-
     Weapon *getWeapon() const;
 
     void setWeapon(std::unique_ptr<Weapon> weapon);
 
 //    Item *item;
-
-    void die(Map *map) override;
 
     int getMovementDirection() const;
 
@@ -63,6 +59,8 @@ public:
     std::vector<sf::RectangleShape *> &getGuiShapes();
 
 private:
+
+    void die(Map *map) override;
 
 
     //KEYBOARD WASD INPUTS

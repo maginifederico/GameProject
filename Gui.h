@@ -42,6 +42,8 @@ private:
     int healthIndex = 2;
     int coinCountIndex = 0;
 
+    unsigned int coins;
+
 
 //    sf::RectangleShape bar;
 //    sf::RectangleShape health;

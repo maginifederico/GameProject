@@ -7481,7 +7481,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFqtYUFnUZMAoU="
 							},
-							"name": "damage",
+							"name": "takeDamage",
 							"type": "int"
 						},
 						{

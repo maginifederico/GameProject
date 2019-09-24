@@ -306,9 +306,6 @@ sf::Vector2f GameHero::updateViewPosition(Map &map) {
 
 }
 
-void GameHero::damage() {
-
-}
 
 Weapon *GameHero::getWeapon() const {
     return weapon.get();
@@ -373,12 +370,16 @@ void GameHero::die(Map *map) {
     offset += sprite.getPosition();
     HP = maxHP;
     playerView.move(offset);
+
     if (playerView.getCenter().x - playerView.getSize().x / 4 < map->getViewHorizontalLimitSx())
         playerView.setCenter(playerView.getSize().x / 2, playerView.getCenter().y);
+
     if (playerView.getCenter().x - playerView.getSize().x / 4 > map->getViewHorizontalLimitDx())
         playerView.setCenter(map->getWidth() - playerView.getSize().x / 2, playerView.getCenter().y);
+
     if (playerView.getCenter().y + 40.f > map->getViewVerticalLimitDown())
         playerView.setCenter(playerView.getCenter().x, map->getHeight() - playerView.getSize().y / 2);
+
     if (playerView.getCenter().y + 40.f < map->getViewVerticalLimitUp())
         playerView.setCenter(playerView.getCenter().x, playerView.getSize().y / 2);
 
