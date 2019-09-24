@@ -78,8 +78,8 @@ void Weapon::checkProjectileCollision(Map &map) {
         for (int i = 0; i < projectiles.size(); i++) {
             //per ogni proiettile nel vettore projectiles
 
-            c = (int) projectiles[i].getSprite().getPosition().x /
-                21;                              //posizione del proiettile nella matrice del layer ground
+            //posizione del proiettile nella matrice del layer ground
+            c = (int) projectiles[i].getSprite().getPosition().x / 21;
             r = (int) projectiles[i].getSprite().getPosition().y / 21;
 
             //ID dei tile adiacenti al proiettile
@@ -104,11 +104,9 @@ void Weapon::checkProjectileCollision(Map &map) {
             if (projectiles[i].rightDirection())
                 if (
                         (projectiles[i].getSprite().getPosition().x + projectileWidth >= map.getWidth()
-                         //                        || (rightID != 0 && rightID != water && rightID != waterSurface)
                          || projectiles[i].getSprite().getGlobalBounds().intersects(rightCollision)
                          || projectiles[i].getSprite().getGlobalBounds().intersects(rightDownCollision))
-                        && (rightID != water && rightID != waterSurface) &&
-                        (downRightID != water && downRightID != waterSurface)
+                        && (rightID != water && rightID != waterSurface && downRightID != waterSurface)
 
                         )
                     collision = true;
@@ -117,11 +115,9 @@ void Weapon::checkProjectileCollision(Map &map) {
             else {
                 if (
                         (projectiles[i].getSprite().getPosition().x <= 0.f
-                         //                        || (leftID != 0 && leftID != water && leftID != waterSurface)
                          || projectiles[i].getSprite().getGlobalBounds().intersects(leftCollision)
                          || projectiles[i].getSprite().getGlobalBounds().intersects(leftDownCollision))
-                        && (leftID != water && leftID != waterSurface) &&
-                        (downLeftID != water && downLeftID != waterSurface)
+                        && (leftID != water && leftID != waterSurface && downLeftID != waterSurface)
 
                         )
                     collision = true;

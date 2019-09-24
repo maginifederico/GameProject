@@ -31,7 +31,7 @@ void Checkpoint::interact(GameHero *player, Map &map, int i) {
 
 }
 
-void Checkpoint::updateAnimation() {
+void Checkpoint::update(Map *map) {
 
 
     if (clock.getElapsedTime().asSeconds() > animationSpeed) {

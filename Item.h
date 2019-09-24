@@ -23,7 +23,9 @@ public:
 
     void setCollision(sf::FloatRect &collision);
 
-    virtual void updateAnimation();
+    virtual void update(Map *map) {};
+
+    int getId() const;
 
 private:
 

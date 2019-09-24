@@ -36,8 +36,6 @@ void Item::setCollision(sf::FloatRect &c) {
     Item::collision = c;
 }
 
-void Item::updateAnimation() {
-
-    std::cout << "bnvbhvhbv" << std::endl;
-
+int Item::getId() const {
+    return id;
 }

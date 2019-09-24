@@ -100,10 +100,10 @@ Tile *Layer::getTile() const {
 }
 
 //bool Layer::loadObject(sf::Vector2u tS, std::string &map_path, std::vector<std::unique_ptr<Item>> objectsCollector) {
-bool Layer::loadObject(float mapWidth, float mapHeight, std::string &map_path, std::vector<Item *> &objectsCollector) {
+bool Layer::loadObject(Map *map) {
 
 
-    std::ifstream my_file(map_path);
+    std::ifstream my_file(map->getObjects());
 
     int layer[width * height];
 
@@ -114,29 +114,39 @@ bool Layer::loadObject(float mapWidth, float mapHeight, std::string &map_path, s
     float posY;
 
     int redFlagLow = 134;   //CHECKPOINT
+    int stoneGenerator = 135; //blueFlagLow
 
     for (int i = 0; i < width * height; i++) {
         my_file >> layer[i];
         if (layer[i] != 0) {
 
+
+            posX = (i % int(map->getWidth() / 21)) * 21.f;
+            posY = (i / int(map->getWidth() / 21)) * 21.f;
 //            std::unique_ptr<Item> object = objectsFactory.createObject(layer[i]);
-            Item *object = objectsFactory.createObject(layer[i]);
+            Item *object = objectsFactory.createObject(layer[i], posX, posY);
 
             if (object != nullptr) {
 
-                posX = (i % int(mapWidth / 21)) * 21.f;
-                posY = (i / int(mapWidth / 21)) * 21.f;
-
                 sf::FloatRect collision(posX, posY, 21.f, 21.f);
-                sf::FloatRect checkpointCollision(posX, 0, 5.f, mapHeight);
+                sf::FloatRect checkpointCollision(posX, 0, 5.f, map->getHeight());
 
                 if (layer[i] == redFlagLow)
                     object->setCollision(checkpointCollision);
                 else
                     object->setCollision(collision);
 
-                object->getSprite().setPosition(posX, posY);
-                objectsCollector.push_back(object);
+                if (layer[i] == stoneGenerator) {
+
+                    map->getAnimatedObjects().push_back(object);
+
+                } else {
+
+                    object->getSprite().setPosition(posX, posY);
+                }
+
+                map->getObjectsCollector().push_back(object);
+
             }
         }
 

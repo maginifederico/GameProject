@@ -18,7 +18,7 @@ public:
 
     void interact(GameHero *player, Map &map, int objectNumber) override;
 
-    void updateAnimation() override;
+    void update(Map *map) override;
 
 private:
 

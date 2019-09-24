@@ -32,14 +32,14 @@ int main() {
     //Factory per Map
     //Factory per oggetti
     //Caverna e Stanza Speciale in Liv.1
-    //gestione vita player
-    //collisioni con layer oggetti
+    //Collisioni con layer oggetti
 
     ////DA RIVEDERE
     //TODO rivedere collisioni con layer ground (guardare i FIXME su GameHero)
     //TODO aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, blueFlag, porte nere e marroni)
 
     ////DA FARE
+    //TODO Gestione vita player
     //TODO Unit Testing
     //TODO smart pointer invece di raw pointer
     //TODO gestione vita nemici con rettangolini rossi e verdi
@@ -56,6 +56,14 @@ int main() {
     //TODO today: coin counter
     //TODO today: die() method
     //TODO today: more unit testing
+
+    //TODO ::TODAY::
+    //TODO fallingStones
+    //TODO doors
+    //TODO spawnPoint
+    //TODO reset GUI
+    //TODO blueFlag
+    //TODO gameBonus (attack and shield)
 
 
     ////INIT WINDOW
@@ -154,7 +162,7 @@ int main() {
 
         player.getWeapon()->checkProjectileCollision(*map);
         player.checkCollection(*map);
-        map->updateAnimatedObjects();
+        map->updateObjects();
 
         //render
         window.clear();
