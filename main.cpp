@@ -104,7 +104,7 @@ int main() {
 
     ////INIT GUI
 
-    player.loadGui();
+    player.getGui()->load(player.getPlayerView());
 
 
     ////INIT TEXT
@@ -186,10 +186,10 @@ int main() {
 //        window.draw(healthIndicator);
 
 //        gui.updatePosition(player.updateViewPosition(*map));
-        for (sf::RectangleShape *current : player.getGuiShapes())
+        for (sf::RectangleShape *current : player.getGui()->getShapes())
             window.draw(*current);
 
-        for (sf::Text *current : player.getGuiText())
+        for (sf::Text *current : player.getGui()->getText())
             window.draw(*current);
 //        for (RectangleShape* shape : gui.getShapes())
 //            window.draw(*shape);

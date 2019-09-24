@@ -52,11 +52,13 @@ public:
 
     sf::View &getPlayerView();
 
-    void loadGui();
+//    void loadGui();
+//
+//    std::vector<sf::Text *> &getGuiText();
+//
+//    std::vector<sf::RectangleShape *> &getGuiShapes();
 
-    std::vector<sf::Text *> &getGuiText();
-
-    std::vector<sf::RectangleShape *> &getGuiShapes();
+    Gui *getGui();
 
 private:
 

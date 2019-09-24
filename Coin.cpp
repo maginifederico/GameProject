@@ -12,6 +12,7 @@ Coin::Coin(int cV, std::string &texturePath, int id) : Item(texturePath, id), co
 void Coin::interact(GameHero *player, Map &map, int i) {
 
     map.getObjectsCollector().erase(map.getObjectsCollector().begin() + i);
-    
+    player->getGui()->updateCoinCount(1);
+
 
 }

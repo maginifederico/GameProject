@@ -389,19 +389,23 @@ void GameHero::die(Map *map) {
 
 }
 
-void GameHero::loadGui() {
+//void GameHero::loadGui() {
+//
+//    gui->load(playerView);
+//}
+//
+//std::vector<sf::Text *> &GameHero::getGuiText() {
+//
+//    return gui->getText();
+//
+//}
+//
+//std::vector<sf::RectangleShape *> &GameHero::getGuiShapes() {
+//
+//    return gui->getShapes();
 
-    gui->load(playerView);
-}
 
-std::vector<sf::Text *> &GameHero::getGuiText() {
 
-    return gui->getText();
-
-}
-
-std::vector<sf::RectangleShape *> &GameHero::getGuiShapes() {
-
-    return gui->getShapes();
-
+Gui *GameHero::getGui() {
+    return gui;
 }
