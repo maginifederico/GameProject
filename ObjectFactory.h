@@ -13,12 +13,16 @@
 #include "Spike.h"
 #include "Checkpoint.h"
 #include "StoneGenerator.h"
+#include "BlueFlag.h"
 
 class ObjectFactory {
 
 public:
     Item *createObject(int id, float posX, float posY);
 
+//    virtual ~ObjectFactory() {
+//        delete this;
+//    };
 
 };
 
@@ -38,7 +42,7 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
     const int coinID = 59;
     const int blueFlag1 = 53;
     const int blueFlag2 = 133;
-    const int stoneID = 135; //Sarebbe blueFlagLow
+    const int stoneID = 135; //Sarebbe lo sprite blueFlagLow
     const int redFlagLow = 134;
 //    const int redFlag1 = 52;
 //    const int redFlag2 = 132;
@@ -114,6 +118,18 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
             break;
 
         }
+
+        case blueFlag1:
+        case blueFlag2: {
+
+            std::string blueFlagTexturePath = "./Textures/BlueFlag1.png";
+
+            result = new BlueFlag(blueFlagTexturePath, id);
+
+            break;
+
+        }
+
 
         default:
             result = nullptr;

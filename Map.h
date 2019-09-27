@@ -18,6 +18,7 @@ public:
     ~Map() {
         delete[] layer;
         objectsCollector.erase(objectsCollector.begin(), objectsCollector.end());
+        delete this;
     };
 
     bool load();
@@ -59,8 +60,14 @@ public:
 
     const std::string &getObjects() const;
 
+    bool isEndLevel() const;
+
+    void setEndLevel(bool endLevel);
+
 private:
     std::string background, ground, objects;
+
+    bool endLevel;
 
     float height;
     float width;

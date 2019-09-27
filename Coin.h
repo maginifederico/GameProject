@@ -16,6 +16,9 @@ public:
 
     void interact(GameHero *player, Map &map) override;
 
+    virtual ~Coin() {
+        delete this;
+    };
 
 private:
 

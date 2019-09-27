@@ -113,8 +113,10 @@ bool Layer::loadObject(Map *map) {
     float posX;
     float posY;
 
-    int redFlagLow = 134;   //CHECKPOINT
-    int stoneGenerator = 135; //blueFlagLow
+    const int redFlagLow = 134;   //CHECKPOINT
+    const int stoneGenerator = 135; //blueFlagLow
+    const int blueFlag = 133;
+
 
     for (int i = 0; i < width * height; i++) {
         my_file >> layer[i];
@@ -131,21 +133,20 @@ bool Layer::loadObject(Map *map) {
                 sf::FloatRect collision(posX, posY, 21.f, 21.f);
                 sf::FloatRect checkpointCollision(posX, 0, 5.f, map->getHeight());
 
-                if (layer[i] == redFlagLow)
+                if (layer[i] == redFlagLow || layer[i] == blueFlag)
                     object->setCollision(checkpointCollision);
                 else
                     object->setCollision(collision);
 
-                if (layer[i] == stoneGenerator) {
+                if (layer[i] == stoneGenerator || layer[i] == blueFlag) {
 
                     map->getAnimatedObjects().push_back(object);
 
-                } else {
-
-                    object->getSprite().setPosition(posX, posY);
                 }
 
+
                 map->getObjectsCollector().push_back(object);
+                object->getSprite().setPosition(posX, posY);
 
             }
         }

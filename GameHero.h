@@ -62,6 +62,9 @@ public:
 
     void setHP(int hp, Map &map) override;
 
+    virtual ~GameHero() {
+        delete gui;
+    };
 
 
 

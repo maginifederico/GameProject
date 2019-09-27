@@ -33,6 +33,12 @@ public:
 
     void updateCoinCount(int value);
 
+//    ~Gui() {
+//        text.clear();
+//        shapes.clear();
+//    };
+
+
 
 private:
 

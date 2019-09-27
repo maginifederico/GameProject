@@ -28,7 +28,7 @@ public:
 
     int getHp() const;
 
-
+    float getSpeed() const;
 
 protected:
     int HP;

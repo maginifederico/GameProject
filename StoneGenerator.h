@@ -17,6 +17,8 @@ public:
 
     void update(Map *map) override;
 
+//    virtual ~StoneGenerator();
+
 private:
 
     sf::Clock clock;
