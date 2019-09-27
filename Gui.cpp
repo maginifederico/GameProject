@@ -5,7 +5,7 @@
 #include <iostream>
 #include "Gui.h"
 
-Gui::Gui() : coins(400000000) {
+Gui::Gui() : coins(0) {
 
 
 }
@@ -25,13 +25,13 @@ void Gui::load(sf::View &playerView) {
 
 
     sf::Texture *heart = new sf::Texture;
-    sf::Texture *coin = new sf::Texture;
+    sf::Texture *coinTexture = new sf::Texture;
 
     if (!heart->loadFromFile("./Textures/HealthPill.png"))
         std::cout << "Unable to load heart shape";
 
-    if (!coin->loadFromFile("./Textures/Coin.png"))
-        std::cout << "Unable to load coin shape";
+    if (!coinTexture->loadFromFile("./Textures/Coin.png"))
+        std::cout << "Unable to load coinTexture shape";
 
     sf::RectangleShape *bar = new sf::RectangleShape(
             sf::Vector2f(playerView.getSize().x / 10.f, playerView.getSize().y / 22.5f));
@@ -57,7 +57,7 @@ void Gui::load(sf::View &playerView) {
                                  playerView.getCenter().y - playerView.getSize().y / 2 + healthIndicatorY);
 
     sf::RectangleShape *coinIndicator = new sf::RectangleShape(sf::Vector2f(22.f, 22.f));
-    coinIndicator->setTexture(coin);
+    coinIndicator->setTexture(coinTexture);
 
     coinIndicator->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + coinIndicatorX,
                                playerView.getCenter().y - playerView.getSize().y / 2 + coinIndicatorY);
@@ -65,14 +65,14 @@ void Gui::load(sf::View &playerView) {
     sf::Text *coinNumber = new sf::Text;
     sf::Font *font = new sf::Font;
 
-    if (!font->loadFromFile("./Textures/irr.ttf"))
+    if (!font->loadFromFile("./Fonts/ImperfectaRegular.ttf"))
         std::cout << "Error loading the font" << std::endl;
 
     coinNumber->setFont(*font);
     coinNumber->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + coinNumberX,
                             playerView.getCenter().y - playerView.getSize().y / 2 + coinNumberY);
     coinNumber->setString(std::to_string(coins));
-    coinNumber->setCharacterSize(15);
+    coinNumber->setCharacterSize(21);
     coinNumber->setFillColor(sf::Color::Black);
 
     shapes.emplace_back(healthIndicator);
@@ -98,7 +98,7 @@ void Gui::load(sf::View &playerView) {
 //    bar.setPosition(viewTopLeft.x - viewTopLeft.x / 2 + barX,
 //                    viewTopLeft.y - viewTopLeft.y / 2 + barY);
 //
-//    health.setSize(sf::Vector2f(bar.getSize().x * (HP / 100.f), health.getSize().y)); //FIXME move to GameHero::takeDamage(); or Enemy::takeDamage();
+//    health.setSize(sf::Vector2f(bar.getSize().x * (HP / 100.f), health.getSize().y)); //FIXME move to GameHero::takeDamage(); or Enemy::setHP();
 //
 //    health.setPosition(viewTopLeft.x - viewTopLeft.x / 2 + healthX,
 //                       viewTopLeft.y - viewTopLeft.y / 2 + healthY);

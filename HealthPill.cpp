@@ -17,5 +17,7 @@ void HealthPill::interact(GameHero *player, Map &map) {
             map.getObjectsCollector().erase(map.getObjectsCollector().begin() + y);
         }
 
+    player->setHP(player->getHp() + value, map);
+
 }
 

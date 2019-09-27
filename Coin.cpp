@@ -15,6 +15,7 @@ void Coin::interact(GameHero *player, Map &map) {
         if (map.getObjectsCollector()[y] == this) {
             map.getObjectsCollector().erase(map.getObjectsCollector().begin() + y);
         }
-    player->getGui()->updateCoinCount(1);
+
+    player->getGui()->updateCoinCount(coinValue);
 
 }

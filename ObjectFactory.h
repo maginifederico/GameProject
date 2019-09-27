@@ -107,9 +107,9 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
 
         case stoneID: {
 
-            std::string checkpointTexturePath = "./Textures/Stone.png";
+            std::string stoneTexturePath = "./Textures/Transparent.png";
 
-            result = new StoneGenerator(posX, posY, checkpointTexturePath, id);
+            result = new StoneGenerator(posX, posY, stoneTexturePath, id);
 
             break;
 

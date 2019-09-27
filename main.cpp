@@ -83,7 +83,7 @@ int main() {
     MapFactory mapFactory;
 
     Map *map;
-    int id = 2;
+    int id = 1;
     map = mapFactory.createMap(id);
 
 
@@ -115,10 +115,6 @@ int main() {
     ////INIT GUI
 
     player.getGui()->load(player.getPlayerView());
-
-
-    ////INIT TEXT
-
 
 
 
@@ -206,8 +202,6 @@ int main() {
 //
 //        for (Text* txt : gui.getText())
 //            window.draw(*txt);
-
-
 
         //render ui
         window.display();

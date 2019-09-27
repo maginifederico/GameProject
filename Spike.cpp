@@ -12,7 +12,7 @@ Spike::Spike(std::string &texturePath, int id) : Item(texturePath, id) {
 
 void Spike::interact(GameHero *player, Map &map) {
 
-    player->takeDamage(100, map);
+    player->setHP(player->getHp() - damage, map);
 
 //    sf::Vector2f initialPlayerPosition(player->getSprite().getPosition());
 //    player->getSprite().setPosition(map.getSpawnPoint());
