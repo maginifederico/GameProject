@@ -38,7 +38,7 @@ Map *MapFactory::createMap(int id) {
 //            result = std::unique_ptr<Map> (new Map(mapWidth, mapHeight, spawnPoint, "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt",
 //                                                   "./Map/objectsLevel1"));
             result = new Map(mapWidth, mapHeight, spawnPoint, "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt",
-                             "./Map/objectsLevel1");
+                             "./Map/objectsLevel1", id);
 
             result->load();
             result->setViewLimits();
@@ -57,7 +57,7 @@ Map *MapFactory::createMap(int id) {
 //            result = std::unique_ptr<Map> (new Map(mapWidth, mapHeight, spawnPoint, "./Map/caveBackgroundL1.txt", "./Map/caveGroundL1.txt",
 //                                          "./Map/caveObjectsL1.txt"));
             result = new Map(mapWidth, mapHeight, spawnPoint, "./Map/caveBackgroundL1.txt", "./Map/caveGroundL1.txt",
-                             "./Map/caveObjectsL1.txt");
+                             "./Map/caveObjectsL1.txt", id);
 
             result->load();
             result->setViewLimits();
@@ -76,7 +76,7 @@ Map *MapFactory::createMap(int id) {
 //            result =std::unique_ptr<Map> (new Map(mapWidth, mapHeight, spawnPoint, "./Map/undergroundBackgroundL1.txt",
 //                                                  "./Map/undergroundGroundL1.txt", "./Map/undergroundObjectsL1.txt"));
             result = new Map(mapWidth, mapHeight, spawnPoint, "./Map/undergroundBackgroundL1.txt",
-                             "./Map/undergroundGroundL1.txt", "./Map/undergroundObjectsL1.txt");
+                             "./Map/undergroundGroundL1.txt", "./Map/undergroundObjectsL1.txt", id);
 
             result->load();
             result->setViewLimits();

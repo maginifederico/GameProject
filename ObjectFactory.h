@@ -14,11 +14,14 @@
 #include "Checkpoint.h"
 #include "StoneGenerator.h"
 #include "BlueFlag.h"
+#include "AttackBonus.h"
 
 class ObjectFactory {
 
 public:
     Item *createObject(int id, float posX, float posY);
+
+    virtual ~ObjectFactory();
 
 //    virtual ~ObjectFactory() {
 //        delete this;
@@ -34,18 +37,21 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
     const int spikeUpID = 50;
     const int spikeDxID = 51;
     const int spikeSxID = 60;
-    const int brownDoorUpID = 54;
-    const int brownDoorDownID = 55;
-    const int blackDoorUpID = 56;
-    const int blackDoorDownID = 57;
+    const int brownDoorID = 54;
+//    const int brownDoorDownID = 55;
+    const int blackDoorID = 56;
+//    const int blackDoorDownID = 57;
     const int healthPillID = 58;
     const int coinID = 59;
     const int blueFlag1 = 53;
     const int blueFlag2 = 133;
     const int stoneID = 135; //Sarebbe lo sprite blueFlagLow
     const int redFlagLow = 134;
+    const int attackBonus = 43;
+    const int shieldBonus = 45;
 //    const int redFlag1 = 52;
 //    const int redFlag2 = 132;
+//    BONUS
 
 
     switch (id) {
@@ -130,6 +136,35 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
 
         }
 
+        case attackBonus: {
+
+            std::string attackBonusTexturePath = "./Textures/AttackBonus.png";
+            int bonus = 50;
+            float duration = 5.f;
+
+            result = new AttackBonus(attackBonusTexturePath, bonus, duration, id);
+
+            break;
+
+        }
+//        case blackDoorID:
+//        case brownDoorID: {
+//
+//            std::string doorTexturePath;
+//
+//            if (id == blackDoorID)
+//                doorTexturePath = "./Textures/BlackDoor.png";
+//
+//            if (id == brownDoorID)
+//                doorTexturePath = "./Textures/BrownDoor.png";
+//
+//
+//            result = new Door(doorTexturePath, id);
+//
+//            break;
+//
+//        }
+
 
         default:
             result = nullptr;
@@ -138,6 +173,10 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
     }
 
     return result;
+
+}
+
+ObjectFactory::~ObjectFactory() {
 
 }
 

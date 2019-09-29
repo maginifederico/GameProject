@@ -13,12 +13,13 @@
 
 
 
-void Projectile::damage() {
+void Projectile::inflictDamage() {
 
 }
 
-Projectile::Projectile(std::string &texturePath, sf::Vector2f initPosition, float textureScale, bool movDirection)
-        : initialPosition(initPosition), direction(movDirection) {
+Projectile::Projectile(std::string &texturePath, sf::Vector2f initPosition, float textureScale, bool movDirection,
+                       int damage)
+        : initialPosition(initPosition), direction(movDirection), damage(damage) {
 
     sprite.setScale(textureScale, textureScale);
 
@@ -37,6 +38,8 @@ void Projectile::updatePosition() {
         sprite.move(speed, 0);
     else
         sprite.move(-speed, 0);
+
+    std::cout << "Damage: " << damage << std::endl;
 }
 
 const sf::Vector2f &Projectile::getInitialPosition() const {

@@ -11,6 +11,13 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include "GameHero.h"
 #include "Projectile.h"
+#include "Item.h"
+#include "AttackBonus.h"
+
+
+class Item;
+
+class AttackBonus;
 
 class Weapon {
 public:
@@ -26,6 +33,16 @@ public:
 
     void checkProjectileCollision(Map &map);
 
+//    virtual ~Weapon() {
+//
+//        delete attackBonus;
+//
+//    }
+
+    AttackBonus *getAttackBonus();
+
+    void setAttackBonus(AttackBonus *attackBonus);
+
 private:
 
     sf::Clock clock;
@@ -40,6 +57,8 @@ private:
     float explosionRange;
 
     sf::Texture texture;
+
+    AttackBonus *attackBonus;
 
 };
 

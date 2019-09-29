@@ -5,6 +5,7 @@
 
 #include "GameHero.h"
 #include "Map.h"
+#include "Weapon.h"
 
 /**
  * GameHero implementation
@@ -422,5 +423,20 @@ void GameHero::setHP(int hp, Map &map) {
         HP = 100;
 
     gui->updateHealth(HP);
+
+}
+
+const sf::Clock &GameHero::getClock() const {
+    return clock;
+}
+
+void GameHero::manageBonuses() {
+
+    if (weapon->getAttackBonus() != nullptr)
+        if (clock.getElapsedTime().asSeconds() - weapon->getAttackBonus()->getCollectionTime() >
+            weapon->getAttackBonus()->getDuration()) {
+            delete weapon->getAttackBonus();
+            weapon->setAttackBonus(nullptr);
+        }
 
 }

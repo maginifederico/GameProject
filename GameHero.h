@@ -62,16 +62,17 @@ public:
 
     void setHP(int hp, Map &map) override;
 
-    virtual ~GameHero() {
+    ~GameHero() override {
         delete gui;
     };
 
+    const sf::Clock &getClock() const;
 
+    void manageBonuses();
 
 private:
 
     void die(Map &map) override;
-
 
     //KEYBOARD WASD INPUTS
     bool W_Pressed;
@@ -95,6 +96,9 @@ private:
     std::unique_ptr<Weapon> weapon;
 
     Gui *gui;
+
+    sf::Clock clock;
+
 };
 
 

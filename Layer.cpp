@@ -14,6 +14,7 @@
 #include <fstream>
 #include "ObjectFactory.h"
 #include "Layer.h"
+#include "DoorFactory.h"
 
 
 Layer::Layer(int width, int height, std::string tileSet) : width(width), height(height), tileset(tileSet) {
@@ -109,6 +110,8 @@ bool Layer::loadObject(Map *map) {
 
     //Crea factory
     ObjectFactory objectsFactory;
+    DoorFactory doorFactory;
+
 
     float posX;
     float posY;
@@ -116,6 +119,8 @@ bool Layer::loadObject(Map *map) {
     const int redFlagLow = 134;   //CHECKPOINT
     const int stoneGenerator = 135; //blueFlagLow
     const int blueFlag = 133;
+    const int blackDoorID = 56;
+    const int brownDoorID = 54;
 
 
     for (int i = 0; i < width * height; i++) {
@@ -132,12 +137,17 @@ bool Layer::loadObject(Map *map) {
 
                 sf::FloatRect collision(posX, posY, 21.f, 21.f);
                 sf::FloatRect checkpointCollision(posX, 0, 5.f, map->getHeight());
+                sf::FloatRect doorCollision(posX, posY, 21.f, 42.f);
 
                 if (layer[i] == redFlagLow || layer[i] == blueFlag)
                     object->setCollision(checkpointCollision);
-                else
-                    object->setCollision(collision);
+                else {
 
+                    if (layer[i] == blackDoorID || layer[i] == brownDoorID)
+                        object->setCollision(doorCollision);
+                    else
+                        object->setCollision(collision);
+                }
                 if (layer[i] == stoneGenerator || layer[i] == blueFlag) {
 
                     map->getAnimatedObjects().push_back(object);

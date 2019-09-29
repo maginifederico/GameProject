@@ -6,7 +6,9 @@
 #ifndef _ITEM_H
 #define _ITEM_H
 
-#include "GameHero.h"
+#include "GameCharacter.h"
+
+class GameHero;
 
 class Item {
 

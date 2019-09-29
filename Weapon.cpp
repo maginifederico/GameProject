@@ -9,6 +9,7 @@
 #include "Weapon.h"
 #include "GameHero.h"
 #include "Map.h"
+#include "AttackBonus.h"
 
 /**
  * Weapon implementation
@@ -19,12 +20,15 @@ Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float
         : texturePath(textPath), textureScale(textScale), damage(dmg), range(rng), cooldown(cDown),
           explosionRange(explRange), level(lvl) {
 
+//    std::string pippo = "./Textures/Transparent.png";
+//    attackBonus = new AttackBonus(pippo, 0, 0.f, 0);
+    attackBonus = nullptr;
     if (!texture.loadFromFile(textPath))
         std::cout << "Unable to load the sprite";
 }
 
 //
-//Weapon::Weapon(Weapon &gun) : texturePath(gun.texturePath), textureScale(gun.textureScale), damage(gun.setHP),
+//Weapon::Weapon(Weapon &gun) : texturePath(gun.texturePath), textureScale(gun.textureScale), inflictDamage(gun.setHP),
 //                              range(gun.range), cooldown(gun.cooldown), level(gun.level),
 //                              explosionRange(gun.explosionRange) {
 //
@@ -36,7 +40,14 @@ void Weapon::createProjectile(sf::Vector2f playerPosition, bool movementDirectio
     //Gestione cooldown
     sf::Time elapsedTime = clock.getElapsedTime();
     if (elapsedTime.asSeconds() > cooldown) {
-        Projectile newProjectile(Projectile(texturePath, playerPosition, textureScale, movementDirection));
+        int bonus;
+        if (attackBonus == nullptr) {
+            bonus = 0;
+        } else {
+            bonus = damage * attackBonus->getBonusValue() / 100;
+        }
+        Projectile newProjectile(
+                Projectile(texturePath, playerPosition, textureScale, movementDirection, damage + bonus));
         newProjectile.getSprite().setTexture(texture);
         projectiles.emplace_back(newProjectile);
         clock.restart();
@@ -135,4 +146,12 @@ void Weapon::checkProjectileCollision(Map &map) {
         }
     }
 
+}
+
+AttackBonus *Weapon::getAttackBonus() {
+    return attackBonus;
+}
+
+void Weapon::setAttackBonus(AttackBonus *aB) {
+    Weapon::attackBonus = aB;
 }
