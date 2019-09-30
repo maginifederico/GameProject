@@ -12,12 +12,12 @@
 #include "GameHero.h"
 #include "Projectile.h"
 #include "Item.h"
-#include "AttackBonus.h"
+#include "Bonus.h"
 
 
 class Item;
 
-class AttackBonus;
+class Bonus;
 
 class Weapon {
 public:
@@ -39,9 +39,9 @@ public:
 //
 //    }
 
-    AttackBonus *getAttackBonus();
+    Bonus *getAttackBonus();
 
-    void setAttackBonus(AttackBonus *attackBonus);
+    void setAttackBonus(Bonus *attackBonus);
 
 private:
 
@@ -58,7 +58,7 @@ private:
 
     sf::Texture texture;
 
-    AttackBonus *attackBonus;
+    Bonus *attackBonus;
 
 };
 

@@ -32,6 +32,8 @@ GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun,
     S_Pressed = false;
     D_Pressed = false;
     gui = new Gui();
+    defenceBonus = nullptr;
+
 //    weapon = new Weapon(gun);
 }
 
@@ -415,7 +417,17 @@ Gui *GameHero::getGui() {
 
 void GameHero::setHP(int hp, Map &map) {
 
-    HP = hp;
+    
+    //Se il player possiede un bonus
+    if (defenceBonus != nullptr) {
+        //Se sta subendo danno
+        if (HP > hp)
+            //Si calcola il danno che sta venendo inflitto (HP - hp), se ne calcola la percentuale e si riaggiunge
+            //al totale di hp da impostare
+            HP = hp + ((HP - hp) * defenceBonus->getBonusValue()) / 100;
+    } else {
+        HP = hp;
+    }
 
     if (HP <= 0)
         die(map);
@@ -432,11 +444,25 @@ const sf::Clock &GameHero::getClock() const {
 
 void GameHero::manageBonuses() {
 
-    if (weapon->getAttackBonus() != nullptr)
+    if (weapon->getAttackBonus() != nullptr) {
         if (clock.getElapsedTime().asSeconds() - weapon->getAttackBonus()->getCollectionTime() >
             weapon->getAttackBonus()->getDuration()) {
             delete weapon->getAttackBonus();
             weapon->setAttackBonus(nullptr);
         }
+    }
 
+
+    if (defenceBonus != nullptr) {
+        if (clock.getElapsedTime().asSeconds() - defenceBonus->getCollectionTime() >
+            defenceBonus->getDuration()) {
+            delete defenceBonus;
+            defenceBonus = nullptr;
+        }
+    }
+
+}
+
+void GameHero::setDefenceBonus(Bonus *dB) {
+    GameHero::defenceBonus = dB;
 }

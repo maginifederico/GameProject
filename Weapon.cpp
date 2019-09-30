@@ -9,7 +9,7 @@
 #include "Weapon.h"
 #include "GameHero.h"
 #include "Map.h"
-#include "AttackBonus.h"
+#include "Bonus.h"
 
 /**
  * Weapon implementation
@@ -21,7 +21,7 @@ Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float
           explosionRange(explRange), level(lvl) {
 
 //    std::string pippo = "./Textures/Transparent.png";
-//    attackBonus = new AttackBonus(pippo, 0, 0.f, 0);
+//    attackBonus = new Bonus(pippo, 0, 0.f, 0);
     attackBonus = nullptr;
     if (!texture.loadFromFile(textPath))
         std::cout << "Unable to load the sprite";
@@ -148,10 +148,10 @@ void Weapon::checkProjectileCollision(Map &map) {
 
 }
 
-AttackBonus *Weapon::getAttackBonus() {
+Bonus *Weapon::getAttackBonus() {
     return attackBonus;
 }
 
-void Weapon::setAttackBonus(AttackBonus *aB) {
+void Weapon::setAttackBonus(Bonus *aB) {
     Weapon::attackBonus = aB;
 }

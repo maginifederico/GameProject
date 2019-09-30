@@ -14,7 +14,7 @@
 #include "Checkpoint.h"
 #include "StoneGenerator.h"
 #include "BlueFlag.h"
-#include "AttackBonus.h"
+#include "Bonus.h"
 
 class ObjectFactory {
 
@@ -48,7 +48,7 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
     const int stoneID = 135; //Sarebbe lo sprite blueFlagLow
     const int redFlagLow = 134;
     const int attackBonus = 43;
-    const int shieldBonus = 45;
+    const int defenceBonus = 45;
 //    const int redFlag1 = 52;
 //    const int redFlag2 = 132;
 //    BONUS
@@ -136,17 +136,40 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
 
         }
 
+        case defenceBonus:
         case attackBonus: {
 
-            std::string attackBonusTexturePath = "./Textures/AttackBonus.png";
-            int bonus = 50;
-            float duration = 5.f;
+            int bonus;
+            float duration;
+            std::string bonusTexturePath;
 
-            result = new AttackBonus(attackBonusTexturePath, bonus, duration, id);
+            if (id == attackBonus) {
+                bonusTexturePath = "./Textures/AttackBonus.png";
+                bonus = 50;
+                duration = 5.f;
+            } else {
+                bonusTexturePath = "./Textures/ShieldBonus.png";
+                bonus = 50;
+                duration = 5.f;
+            }
+
+            result = new Bonus(bonusTexturePath, bonus, duration, id);
 
             break;
 
         }
+
+//        case shieldBonus: {
+//
+//            std::string shieldBonusTexturePath = "./Textures/ShieldBonus.png";
+//            int bonus = 50;
+//            float duration = 5.f;
+//
+//            result = new DefenceBonus(shieldBonusTexturePath, bonus, duration, id);
+//
+//            break;
+//
+//        }
 //        case blackDoorID:
 //        case brownDoorID: {
 //

@@ -2,8 +2,8 @@
 // Created by federico on 29/09/19.
 //
 
-#ifndef GAME_ATTACKBONUS_H
-#define GAME_ATTACKBONUS_H
+#ifndef GAME_BONUS_H
+#define GAME_BONUS_H
 
 
 #include "Map.h"
@@ -11,11 +11,11 @@
 
 //class Item;
 
-class AttackBonus : public Item {
+class Bonus : public Item {
 
 public:
 
-    explicit AttackBonus(std::string &texturePath, int bonusValue, float duration, int id);
+    explicit Bonus(std::string &texturePath, int bonusValue, float duration, int id);
 
     void interact(GameHero *player, Map &map) override;
 
@@ -39,10 +39,11 @@ public:
 //
 //    int getBonus() const;
 //
-//    virtual ~AttackBonus();
+//    virtual ~Bonus();
 
 private:
 
+    bool attackType;
     int bonusValue;
     float duration;
     float collectionTime;
@@ -50,4 +51,4 @@ private:
 };
 
 
-#endif //GAME_ATTACKBONUS_H
+#endif //GAME_BONUS_H

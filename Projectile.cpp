@@ -39,7 +39,6 @@ void Projectile::updatePosition() {
     else
         sprite.move(-speed, 0);
 
-    std::cout << "Damage: " << damage << std::endl;
 }
 
 const sf::Vector2f &Projectile::getInitialPosition() const {

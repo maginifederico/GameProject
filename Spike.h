@@ -23,7 +23,7 @@ public:
 
 private:
 
-    int damage = 100;
+    int damage = 10000;
 
 };
 

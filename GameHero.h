@@ -14,6 +14,8 @@
 
 class Weapon;
 
+class Bonus;
+
 class GameHero : public GameCharacter {
 
 
@@ -70,6 +72,8 @@ public:
 
     void manageBonuses();
 
+    void setDefenceBonus(Bonus *defenceBonus);
+
 private:
 
     void die(Map &map) override;
@@ -98,6 +102,9 @@ private:
     Gui *gui;
 
     sf::Clock clock;
+
+    Bonus *defenceBonus;
+
 
 };
 
