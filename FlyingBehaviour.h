@@ -6,7 +6,7 @@
 #ifndef _FLYINGBEHAVIOUR_H
 #define _FLYINGBEHAVIOUR_H
 
-#include "MovmentBehaviour.h"
+#include "MovementBehaviour.h"
 
 
 class FlyingBehaviour : public MovmentBehaviour {

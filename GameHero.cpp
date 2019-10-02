@@ -17,6 +17,7 @@ GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun,
                                                                               GameCharacter(texture, initialPosition,
                                                                                             speed, underWaterSpeed,
                                                                                             HP) {
+
     sprite.setScale(sf::Vector2f(0.7142857f, 1.044776f));
     sprite.scale(0.15f, 0.15f);
     velocity.x = 0;

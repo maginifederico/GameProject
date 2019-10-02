@@ -6,7 +6,7 @@
 #ifndef _WOLKINGBEHAVIOUR_H
 #define _WOLKINGBEHAVIOUR_H
 
-#include "MovmentBehaviour.h"
+#include "MovementBehaviour.h"
 
 
 class WolkingBehaviour : public MovmentBehaviour {

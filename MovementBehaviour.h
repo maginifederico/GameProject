@@ -6,10 +6,17 @@
 #ifndef _MOVMENTBEHAVIOUR_H
 #define _MOVMENTBEHAVIOUR_H
 
-class MovmentBehaviour {
+class MovementBehaviour {
 public:
 
-    virtual void move() = 0;
+    virtual void updatePosition() = 0;
+
+    virtual void attack() = 0;
+
+
+private:
+
+
 };
 
 #endif //_MOVMENTBEHAVIOUR_H

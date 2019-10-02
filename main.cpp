@@ -44,6 +44,7 @@ int main() {
     //Gestione vita player
 
     //BlueFlag
+    //gameBonus (attack and shield)
 
 
     ////DA RIVEDERE
@@ -53,20 +54,18 @@ int main() {
     ////DA FARE
     //TODO Unit Testing
     //TODO creare nemici
-    //TODO Strategy per movimento nemici (classe base= MovementBehaviour, derivate= flying e wolking behaviour)
+    //TODO Strategy per movimento nemici (classe base= MovementBehaviour, derivate= flying e walking behaviour)
     //TODO gestione vita nemici con rettangolini rossi e verdi
-    //TODO implementare i bonus
-    //TODO implementare potenziamenti
-    //TODO smart pointer invece di raw pointer
+    //TODO implementare potenziamenti armi
+    //TODO smart pointer invece di raw pointer (oppure eliminare i leak con valgrind)
     //TODO Observer per Achievements
     //TODO Menù principale (con MVC, Prima creare astratte Observer e Subject. Poi Model(Subject), Controller, View(obs)
     //TODO State Pattern per stato gioco
-    //TODO implementare salvataggio progressi (letturea e scrittura da file)
+    //TODO implementare salvataggio progressi (lettura e scrittura da file)
 
 
     //TODO ::TODAY::
     //TODO doors
-    //TODO gameBonus (attack and shield)
     //TODO conto vite
 
 
@@ -187,6 +186,10 @@ int main() {
 
         for (Projectile projectile : player.getWeapon()->getProjectiles()) {
             window.draw(projectile.getSprite());
+        }
+
+        for (Enemy *enemy:map->getEnemies()) {
+            window.draw(enemy->getSprite());
         }
 
         window.draw(player.getSprite());

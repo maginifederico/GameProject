@@ -3,13 +3,9 @@
  */
 
 
-#include "MovmentBehaviour.h"
+#include "MovementBehaviour.h"
 
 /**
  * MovmentBehaviour implementation
  */
 
-
-void MovmentBehaviour::move() {
-
-}

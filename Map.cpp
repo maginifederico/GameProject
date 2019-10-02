@@ -125,6 +125,10 @@ void Map::setEndLevel(bool endLvl) {
 int Map::getMapId() const {
     return mapID;
 }
+
+std::vector<Enemy *> &Map::getEnemies() {
+    return enemies;
+}
 //std::vector<std::unique_ptr<Item>> &Map::getObjectsCollector() {
 //    return objectsCollector;
 //}

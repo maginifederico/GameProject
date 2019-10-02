@@ -8,9 +8,9 @@
 
 #include "GameCharacter.h"
 #include "Layer.h"
+#include "Enemy.h"
 
 class Item;
-
 class Layer;
 
 class Map {
@@ -69,6 +69,8 @@ public:
 
     int getMapId() const;
 
+    std::vector<Enemy *> &getEnemies();
+
 private:
     std::string background, ground, objects;
 
@@ -94,6 +96,8 @@ private:
     std::vector<Item *> objectsCollector;
 
     std::vector<Item *> movingObjects;
+
+    std::vector<Enemy *> enemies;
 
 
     const float viewHeight = 300.f;

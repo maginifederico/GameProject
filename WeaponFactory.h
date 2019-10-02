@@ -44,7 +44,7 @@ std::unique_ptr<Weapon> WeaponFactory::createWeapon(int weaponNumber) {
 
             std::string FRENCH_FRIES_TEXTURE = "./Textures/FrenchFriesWeapon.png";
             float french_fries_texture_scale = 0.08f;
-            int french_fries_damage = 20;
+            int french_fries_damage = 30;
             float french_fries_range = 200.f;
             float french_fries_cooldown = 0.5f;
 

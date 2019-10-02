@@ -15,6 +15,7 @@
 #include "StoneGenerator.h"
 #include "BlueFlag.h"
 #include "Bonus.h"
+#include "Door.h"
 
 class ObjectFactory {
 
@@ -159,17 +160,7 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
 
         }
 
-//        case shieldBonus: {
-//
-//            std::string shieldBonusTexturePath = "./Textures/ShieldBonus.png";
-//            int bonus = 50;
-//            float duration = 5.f;
-//
-//            result = new DefenceBonus(shieldBonusTexturePath, bonus, duration, id);
-//
-//            break;
-//
-//        }
+
 //        case blackDoorID:
 //        case brownDoorID: {
 //
