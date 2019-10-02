@@ -38,6 +38,7 @@ void Projectile::updatePosition() {
         sprite.move(speed, 0);
     else
         sprite.move(-speed, 0);
+
 }
 
 const sf::Vector2f &Projectile::getInitialPosition() const {

@@ -9,6 +9,7 @@
 #include "Weapon.h"
 #include "GameHero.h"
 #include "Map.h"
+#include "Bonus.h"
 
 /**
  * Weapon implementation
@@ -17,8 +18,11 @@
 
 Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float cDown, float explRange, int lvl)
         : texturePath(textPath), textureScale(textScale), damage(dmg), range(rng), cooldown(cDown),
-          explosionRange(explRange), level(lvl), attackBonus(nullptr) {
+          explosionRange(explRange), level(lvl) {
 
+//    std::string pippo = "./Textures/Transparent.png";
+//    attackBonus = new Bonus(pippo, 0, 0.f, 0);
+    attackBonus = nullptr;
     if (!texture.loadFromFile(textPath))
         std::cout << "Unable to load the sprite";
 }
@@ -40,7 +44,7 @@ void Weapon::createProjectile(sf::Vector2f playerPosition, bool movementDirectio
         if (attackBonus == nullptr) {
             bonus = 0;
         } else {
-            bonus = damage * attackBonus->getBonus() / 100;
+            bonus = damage * attackBonus->getBonusValue() / 100;
         }
         Projectile newProjectile(
                 Projectile(texturePath, playerPosition, textureScale, movementDirection, damage + bonus));
@@ -144,10 +148,10 @@ void Weapon::checkProjectileCollision(Map &map) {
 
 }
 
-void Weapon::setAttackBonus(AttackBonus *aB) {
-    Weapon::attackBonus = aB;
+Bonus *Weapon::getAttackBonus() {
+    return attackBonus;
 }
 
-AttackBonus *Weapon::getAttackBonus() {
-    return attackBonus;
+void Weapon::setAttackBonus(Bonus *aB) {
+    Weapon::attackBonus = aB;
 }

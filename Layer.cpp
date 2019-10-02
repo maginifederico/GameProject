@@ -14,6 +14,7 @@
 #include <fstream>
 #include "ObjectFactory.h"
 #include "Layer.h"
+#include "DoorFactory.h"
 
 
 Layer::Layer(int width, int height, std::string tileSet) : width(width), height(height), tileset(tileSet) {
@@ -109,14 +110,18 @@ bool Layer::loadObject(Map *map) {
 
     //Crea factory
     ObjectFactory objectsFactory;
+    DoorFactory doorFactory;
+
 
     float posX;
     float posY;
 
-    int redFlagLow = 134;   //CHECKPOINT
-    int stoneGenerator = 135;//blueFlagLow
-    int attackBonus = 43;
-    int shieldBonus = 45;
+    const int redFlagLow = 134;   //CHECKPOINT
+    const int stoneGenerator = 135; //blueFlagLow
+    const int blueFlag = 133;
+    const int blackDoorID = 56;
+    const int brownDoorID = 54;
+
 
     for (int i = 0; i < width * height; i++) {
         my_file >> layer[i];
@@ -132,29 +137,26 @@ bool Layer::loadObject(Map *map) {
 
                 sf::FloatRect collision(posX, posY, 21.f, 21.f);
                 sf::FloatRect checkpointCollision(posX, 0, 5.f, map->getHeight());
+                sf::FloatRect doorCollision(posX, posY, 21.f, 42.f);
 
-                if (layer[i] == redFlagLow)
+                if (layer[i] == redFlagLow || layer[i] == blueFlag)
                     object->setCollision(checkpointCollision);
-                else
-                    object->setCollision(collision);
+                else {
 
-                if (layer[i] == stoneGenerator) {
+                    if (layer[i] == blackDoorID || layer[i] == brownDoorID)
+                        object->setCollision(doorCollision);
+                    else
+                        object->setCollision(collision);
+                }
+                if (layer[i] == stoneGenerator || layer[i] == blueFlag) {
 
                     map->getAnimatedObjects().push_back(object);
 
-                } else {
-
-                    object->getSprite().setPosition(posX, posY);
                 }
 
-//                if(layer[i] == attackBonus || layer[i] == shieldBonus){
-//
-//                    map->getAnimatedObjects().push_back(object);
-//                    object->getSprite().setPosition(posX, posY);
-//
-//                }
 
                 map->getObjectsCollector().push_back(object);
+                object->getSprite().setPosition(posX, posY);
 
             }
         }

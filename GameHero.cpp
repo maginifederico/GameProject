@@ -5,6 +5,7 @@
 
 #include "GameHero.h"
 #include "Map.h"
+#include "Weapon.h"
 
 /**
  * GameHero implementation
@@ -12,7 +13,7 @@
 
 
 GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, int HP,
-                   float speed, float underWaterSpeed, std::string texture) : weapon(gun), shieldBonus(0),
+                   float speed, float underWaterSpeed, std::string texture) : weapon(gun),
                                                                               GameCharacter(texture, initialPosition,
                                                                                             speed, underWaterSpeed,
                                                                                             HP) {
@@ -31,6 +32,8 @@ GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun,
     S_Pressed = false;
     D_Pressed = false;
     gui = new Gui();
+    defenceBonus = nullptr;
+
 //    weapon = new Weapon(gun);
 }
 
@@ -391,22 +394,22 @@ void GameHero::die(Map &map) {
 
 }
 
-//void GameHero::loadGui() {
-//
-//    gui->load(playerView);
-//}
-//
-//std::vector<sf::Text *> &GameHero::getGuiText() {
-//
-//    return gui->getText();
-//
-//}
-//
-//std::vector<sf::RectangleShape *> &GameHero::getGuiShapes() {
-//
-//    return gui->getShapes();
+void GameHero::loadGui() {
 
+    gui->load(playerView);
+}
 
+std::vector<sf::Text *> &GameHero::getGuiText() {
+
+    return gui->getText();
+
+}
+
+std::vector<sf::RectangleShape *> &GameHero::getGuiShapes() {
+
+    return gui->getShapes();
+
+}
 
 Gui *GameHero::getGui() {
     return gui;
@@ -414,9 +417,17 @@ Gui *GameHero::getGui() {
 
 void GameHero::setHP(int hp, Map &map) {
 
-//    if (hp < HP && shieldBonus != 0)
 
-    HP = hp;
+    //Se il player possiede un bonus
+    if (defenceBonus != nullptr) {
+        //Se sta subendo danno
+        if (HP > hp)
+            //Si calcola il danno che sta venendo inflitto (HP - hp), se ne calcola la percentuale e si riaggiunge
+            //al totale di hp da impostare
+            HP = hp + ((HP - hp) * defenceBonus->getBonusValue()) / 100;
+    } else {
+        HP = hp;
+    }
 
     if (HP <= 0)
         die(map);
@@ -427,29 +438,31 @@ void GameHero::setHP(int hp, Map &map) {
 
 }
 
-
-void GameHero::setShieldBonus(int shieldBonus) {
-    GameHero::shieldBonus = shieldBonus;
-}
-
-bool GameHero::isWPressed() const {
-    return W_Pressed;
-}
-
-int GameHero::getShieldBonus() const {
-    return shieldBonus;
-}
-
-
 const sf::Clock &GameHero::getClock() const {
     return clock;
 }
 
 void GameHero::manageBonuses() {
 
-    if (clock.getElapsedTime().asSeconds() - weapon->getAttackBonus()->getCollectionTime() >
-        weapon->getAttackBonus()->getDuration()) {
-        delete (weapon->getAttackBonus());
+    if (weapon->getAttackBonus() != nullptr) {
+        if (clock.getElapsedTime().asSeconds() - weapon->getAttackBonus()->getCollectionTime() >
+            weapon->getAttackBonus()->getDuration()) {
+            delete weapon->getAttackBonus();
+            weapon->setAttackBonus(nullptr);
+        }
     }
 
+
+    if (defenceBonus != nullptr) {
+        if (clock.getElapsedTime().asSeconds() - defenceBonus->getCollectionTime() >
+            defenceBonus->getDuration()) {
+            delete defenceBonus;
+            defenceBonus = nullptr;
+        }
+    }
+
+}
+
+void GameHero::setDefenceBonus(Bonus *dB) {
+    GameHero::defenceBonus = dB;
 }

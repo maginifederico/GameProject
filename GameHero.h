@@ -14,6 +14,8 @@
 
 class Weapon;
 
+class Bonus;
+
 class GameHero : public GameCharacter {
 
 
@@ -52,32 +54,29 @@ public:
 
     sf::View &getPlayerView();
 
-//    void loadGui();
-//
-//    std::vector<sf::Text *> &getGuiText();
-//
-//    std::vector<sf::RectangleShape *> &getGuiShapes();
+    void loadGui();
+
+    std::vector<sf::Text *> &getGuiText();
+
+    std::vector<sf::RectangleShape *> &getGuiShapes();
 
     Gui *getGui();
 
     void setHP(int hp, Map &map) override;
 
-    bool isWPressed() const;
-
-    int getShieldBonus() const;
-
-    void setShieldBonus(int shieldBonus);
+    ~GameHero() override {
+        delete gui;
+    };
 
     const sf::Clock &getClock() const;
 
     void manageBonuses();
 
+    void setDefenceBonus(Bonus *defenceBonus);
+
 private:
 
-    sf::Clock clock;
-
     void die(Map &map) override;
-
 
     //KEYBOARD WASD INPUTS
     bool W_Pressed;
@@ -98,11 +97,15 @@ private:
     sf::FloatRect viewPosition;
     int maxHP = 100;
 
-    int shieldBonus;
-
     std::unique_ptr<Weapon> weapon;
 
     Gui *gui;
+
+    sf::Clock clock;
+
+    Bonus *defenceBonus;
+
+
 };
 
 

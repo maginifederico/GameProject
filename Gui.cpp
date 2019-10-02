@@ -24,8 +24,8 @@ void Gui::load(sf::View &playerView) {
     float coinNumberY = 26.f;
 
 
-    sf::Texture *heart = new sf::Texture;
-    sf::Texture *coinTexture = new sf::Texture;
+    auto *heart = new sf::Texture;
+    auto *coinTexture = new sf::Texture;
 
     if (!heart->loadFromFile("./Textures/HealthPill.png"))
         std::cout << "Unable to load heart shape";
@@ -62,8 +62,8 @@ void Gui::load(sf::View &playerView) {
     coinIndicator->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + coinIndicatorX,
                                playerView.getCenter().y - playerView.getSize().y / 2 + coinIndicatorY);
 
-    sf::Text *coinNumber = new sf::Text;
-    sf::Font *font = new sf::Font;
+    auto *coinNumber = new sf::Text;
+    auto *font = new sf::Font;
 
     if (!font->loadFromFile("./Fonts/ImperfectaRegular.ttf"))
         std::cout << "Error loading the font" << std::endl;

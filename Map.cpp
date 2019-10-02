@@ -10,8 +10,8 @@
 
 
 Map::Map(float width, float height, sf::Vector2f sPoint, std::string bg, std::string grnd,
-         std::string obj) : width(width), height(height), spawn_point(sPoint), background(bg),
-                            ground(grnd), objects(obj) {
+         std::string obj, int id) : width(width), height(height), spawn_point(sPoint), background(bg),
+                                    ground(grnd), objects(obj), endLevel(false), mapID(id) {
     //crea 3 layer
     layer = new Layer[3]{Layer(int(width / 21), int(height / 21)), Layer(int(width / 21), int(height / 21)),
                          Layer(int(width / 21), int(height / 21))};
@@ -112,6 +112,18 @@ const std::string &Map::getObjects() const {
 
 void Map::setSpawnPoint(const sf::Vector2f &spawnPoint) {
     spawn_point = spawnPoint;
+}
+
+bool Map::isEndLevel() const {
+    return endLevel;
+}
+
+void Map::setEndLevel(bool endLvl) {
+    Map::endLevel = endLvl;
+}
+
+int Map::getMapId() const {
+    return mapID;
 }
 //std::vector<std::unique_ptr<Item>> &Map::getObjectsCollector() {
 //    return objectsCollector;

@@ -4,12 +4,8 @@
 
 #include "Coin.h"
 #include "Map.h"
-#include "GameHero.h"
 
-
-Coin::Coin(int cV, std::string &texturePath, int id) : Item(texturePath, id, true), coinValue(cV) {
-
-
+Coin::Coin(int cV, std::string &texturePath, int id) : Item(texturePath, id), coinValue(cV) {
 
 }
 

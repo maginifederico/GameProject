@@ -10,6 +10,7 @@
 #include "MapFactory.h"
 #include "Gui.h"
 
+
 using namespace sf;
 
 
@@ -32,38 +33,41 @@ int main() {
     //Factory per oggetti
     //Caverna e Stanza Speciale in Liv.1
     //Collisioni con layer oggetti
+    //monetine
     //gestione vita player
-    //collisioni con layer oggetti
     //coin counter
-    //die() method
+    //die() & setHp() method
     //checkpoint
+    //fallingStones
+    //spawnPoint
+    //reset GUI
+    //Gestione vita player
+
+    //BlueFlag
+
 
     ////DA RIVEDERE
     //TODO rivedere collisioni con layer ground (guardare i FIXME su GameHero)
-    //TODO aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, blueFlag, porte nere e marroni)
+    //TODO aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, BlueFlag, porte nere e marroni)
 
     ////DA FARE
-    //TODO Gestione vita player
     //TODO Unit Testing
-    //TODO smart pointer invece di raw pointer
-    //TODO gestione vita nemici con rettangolini rossi e verdi
-    //TODO Observer per Achievements
-    //TODO Menù principale
-    //TODO State Pattern per stato gioco
     //TODO creare nemici
-    //TODO Strategy per movimento nemici
-    //TODO implementare i bonus e monetine
+    //TODO Strategy per movimento nemici (classe base= MovementBehaviour, derivate= flying e wolking behaviour)
+    //TODO gestione vita nemici con rettangolini rossi e verdi
+    //TODO implementare i bonus
     //TODO implementare potenziamenti
-    //TODO implementare salvataggio progressi
+    //TODO smart pointer invece di raw pointer
+    //TODO Observer per Achievements
+    //TODO Menù principale (con MVC, Prima creare astratte Observer e Subject. Poi Model(Subject), Controller, View(obs)
+    //TODO State Pattern per stato gioco
+    //TODO implementare salvataggio progressi (letturea e scrittura da file)
 
 
     //TODO ::TODAY::
-    //TODO fallingStones
     //TODO doors
-    //TODO spawnPoint
-    //TODO reset GUI
-    //TODO blueFlag
     //TODO gameBonus (attack and shield)
+    //TODO conto vite
 
 
     ////INIT WINDOW
@@ -90,7 +94,7 @@ int main() {
     ////INIT PLAYER WEAPON
 
     WeaponFactory weaponFactory;
-    int weaponNumber = 0;
+    int weaponNumber = 1;
 
 //    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
 
@@ -113,9 +117,9 @@ int main() {
 
     ////INIT GUI
 
-    player.getGui()->load(player.getPlayerView());
+    player.loadGui();
 
-    ////TIME MANAGEMENT
+
 
 
     ////GAME LOOP
@@ -129,26 +133,30 @@ int main() {
             }
         }
 
+        if (!map->isEndLevel()) {
+            //user input
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+                player.setWPressed(true);
+            }
 
-        //user input
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-            player.setWPressed(true);
-        }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+                player.setAPressed(true);
+            }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-            player.setAPressed(true);
-        }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+                player.setSPressed(true);
+            }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-            player.setSPressed(true);
-        }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+                player.setDPressed(true);
+            }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-            player.setDPressed(true);
-        }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+                player.shoot();
+            }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-            player.shoot();
+        } else {
+            player.getSprite().move(player.getSpeed(), 0);
         }
 
         //update input
@@ -156,13 +164,10 @@ int main() {
 
         player.updateViewPosition(*map);
 
-
         player.getWeapon()->checkProjectileCollision(*map);
         player.checkCollection(*map);
-
-        player.manageBonuses();
-
         map->updateObjects();
+        player.manageBonuses();
 
         //render
         window.clear();
@@ -177,8 +182,7 @@ int main() {
 //        window.draw(map.getLayer()[2]);
 
         for (Item *item :map->getAnimatedObjects()) {
-            if (item->isToBeDrawn())
-                window.draw(item->getSprite());
+            window.draw(item->getSprite());
         }
 
         for (Projectile projectile : player.getWeapon()->getProjectiles()) {
@@ -196,11 +200,15 @@ int main() {
 //        window.draw(healthIndicator);
 
 //        gui.updatePosition(player.updateViewPosition(*map));
-        for (sf::RectangleShape *current : player.getGui()->getShapes())
+        for (sf::RectangleShape *current : player.getGuiShapes()) {
             window.draw(*current);
+//            delete current;
+        }
 
-        for (sf::Text *current : player.getGui()->getText())
+        for (sf::Text *current : player.getGuiText()) {
             window.draw(*current);
+//            delete(current);
+        }
 //        for (RectangleShape* shape : gui.getShapes())
 //            window.draw(*shape);
 //

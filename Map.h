@@ -13,15 +13,15 @@ class Item;
 
 class Layer;
 
-
 class Map {
 public:
     explicit Map(float width, float height, sf::Vector2f spawnPoint, std::string background, std::string ground,
-                 std::string objects);
+                 std::string objects, int id);
 
     ~Map() {
         delete[] layer;
         objectsCollector.erase(objectsCollector.begin(), objectsCollector.end());
+        delete this;
     };
 
     bool load();
@@ -63,8 +63,16 @@ public:
 
     const std::string &getObjects() const;
 
+    bool isEndLevel() const;
+
+    void setEndLevel(bool endLevel);
+
+    int getMapId() const;
+
 private:
     std::string background, ground, objects;
+
+    bool endLevel;
 
     float height;
     float width;
@@ -90,6 +98,8 @@ private:
 
     const float viewHeight = 300.f;
     const float viewWidth = 500.f;
+
+    int mapID;
 
 
 //    Item *item[];

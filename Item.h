@@ -6,13 +6,14 @@
 #ifndef _ITEM_H
 #define _ITEM_H
 
-#include "Map.h"
+#include "GameCharacter.h"
 
 class GameHero;
+
 class Item {
 
 public:
-    explicit Item(std::string &texturePath, int id, bool toBeDrawn);
+    explicit Item(std::string &texturePath, int id);
 
     virtual void interact(GameHero *player, Map &map) = 0;
 
@@ -28,13 +29,8 @@ public:
 
     int getId() const;
 
-    bool isToBeDrawn() const;
-
-protected:
-
-    bool toBeDrawn;
-
 private:
+
     int id;
     sf::FloatRect collision;
     sf::Sprite sprite;

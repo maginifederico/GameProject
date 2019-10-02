@@ -15,6 +15,10 @@ public:
 //    std::unique_ptr<Map> createMap(int id);
     Map *createMap(int id);
 
+//    ~MapFactory() {
+//        delete this;
+//    };
+
 };
 
 //std::unique_ptr<Map> MapFactory::createMap(int id) {
@@ -31,8 +35,10 @@ Map *MapFactory::createMap(int id) {
             float mapHeight = 525.f;
             sf::Vector2f spawnPoint(100.f, 300.f);
 
+//            result = std::unique_ptr<Map> (new Map(mapWidth, mapHeight, spawnPoint, "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt",
+//                                                   "./Map/objectsLevel1"));
             result = new Map(mapWidth, mapHeight, spawnPoint, "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt",
-                             "./Map/objectsLevel1");
+                             "./Map/objectsLevel1", id);
 
             result->load();
             result->setViewLimits();
@@ -48,8 +54,10 @@ Map *MapFactory::createMap(int id) {
             float mapHeight = 840.f;
             sf::Vector2f spawnPoint(84.f, 672.f);
 
+//            result = std::unique_ptr<Map> (new Map(mapWidth, mapHeight, spawnPoint, "./Map/caveBackgroundL1.txt", "./Map/caveGroundL1.txt",
+//                                          "./Map/caveObjectsL1.txt"));
             result = new Map(mapWidth, mapHeight, spawnPoint, "./Map/caveBackgroundL1.txt", "./Map/caveGroundL1.txt",
-                             "./Map/caveObjectsL1.txt");
+                             "./Map/caveObjectsL1.txt", id);
 
             result->load();
             result->setViewLimits();
@@ -65,8 +73,10 @@ Map *MapFactory::createMap(int id) {
             float mapHeight = 1155.f;
             sf::Vector2f spawnPoint(84.f, 945.f);
 
+//            result =std::unique_ptr<Map> (new Map(mapWidth, mapHeight, spawnPoint, "./Map/undergroundBackgroundL1.txt",
+//                                                  "./Map/undergroundGroundL1.txt", "./Map/undergroundObjectsL1.txt"));
             result = new Map(mapWidth, mapHeight, spawnPoint, "./Map/undergroundBackgroundL1.txt",
-                             "./Map/undergroundGroundL1.txt", "./Map/undergroundObjectsL1.txt");
+                             "./Map/undergroundGroundL1.txt", "./Map/undergroundObjectsL1.txt", id);
 
             result->load();
             result->setViewLimits();

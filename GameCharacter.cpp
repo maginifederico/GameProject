@@ -22,4 +22,8 @@ int GameCharacter::getHp() const {
     return HP;
 }
 
+float GameCharacter::getSpeed() const {
+    return speed;
+}
+
 GameCharacter::~GameCharacter() = default;
