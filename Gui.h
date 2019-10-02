@@ -33,6 +33,8 @@ public:
 
     void updateCoinCount(int value);
 
+    void updateLivesCount(int lives);
+
 //    ~Gui() {
 //        text.clear();
 //        shapes.clear();
@@ -47,6 +49,7 @@ private:
 
     int healthIndex = 2;
     int coinCountIndex = 0;
+    int livesCountIndex = 2;
 
     unsigned int coins;
 

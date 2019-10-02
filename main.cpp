@@ -48,6 +48,7 @@ int main() {
     //conto vite
 
 
+
     ////DA RIVEDERE
     //TODO rivedere collisioni con layer ground (guardare i FIXME su GameHero)
     //TODO aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, BlueFlag, porte nere e marroni)
@@ -92,7 +93,7 @@ int main() {
     ////INIT PLAYER WEAPON
 
     WeaponFactory weaponFactory;
-    int weaponNumber = 1;
+    int weaponNumber = 0;
 
 //    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
 
