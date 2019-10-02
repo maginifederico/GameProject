@@ -7,7 +7,7 @@
 #include "Map.h"
 #include "GameHero.h"
 
-HealthPill::HealthPill(int hPValue, std::string &texturePath, int id) : Item(texturePath, id, true), value(hPValue) {
+HealthPill::HealthPill(int hPValue, std::string &texturePath, int id) : Item(texturePath, id), value(hPValue) {
 
 }
 

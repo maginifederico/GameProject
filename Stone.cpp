@@ -6,8 +6,7 @@
 #include "Map.h"
 #include "GameHero.h"
 
-
-Stone::Stone(sf::FloatRect collision, std::string &texturePath, int id) : Item(texturePath, id, true) {
+Stone::Stone(sf::FloatRect collision, std::string &texturePath, int id) : Item(texturePath, id) {
 
     setCollision(collision);
 

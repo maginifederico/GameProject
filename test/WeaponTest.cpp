@@ -6,6 +6,7 @@
 #include "gtest/gtest.h"
 #include "../Weapon.h"
 #include "../WeaponFactory.h"
+#include "../Map.h"
 
 TEST(Weapon, shoot) {
 

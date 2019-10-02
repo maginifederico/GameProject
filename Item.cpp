@@ -12,7 +12,7 @@
 
 
 
-Item::Item(std::string &texturePath, int identifier, bool toDraw) : id(identifier), toBeDrawn(toDraw) {
+Item::Item(std::string &texturePath, int identifier) : id(identifier) {
 
     if (!texture.loadFromFile(texturePath))
         std::cout << "Unable to load the sprite";
@@ -38,8 +38,4 @@ void Item::setCollision(sf::FloatRect &c) {
 
 int Item::getId() const {
     return id;
-}
-
-bool Item::isToBeDrawn() const {
-    return toBeDrawn;
 }
