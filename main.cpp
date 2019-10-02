@@ -45,6 +45,7 @@ int main() {
 
     //BlueFlag
     //gameBonus (attack and shield)
+    //conto vite
 
 
     ////DA RIVEDERE
@@ -55,7 +56,6 @@ int main() {
     //TODO Unit Testing
     //TODO creare nemici
     //TODO Strategy per movimento nemici (classe base= MovementBehaviour, derivate= flying e walking behaviour)
-    //TODO gestione vita nemici con rettangolini rossi e verdi
     //TODO implementare potenziamenti armi
     //TODO smart pointer invece di raw pointer (oppure eliminare i leak con valgrind)
     //TODO Observer per Achievements
@@ -66,7 +66,6 @@ int main() {
 
     //TODO ::TODAY::
     //TODO doors
-    //TODO conto vite
 
 
     ////INIT WINDOW
@@ -85,7 +84,7 @@ int main() {
     MapFactory mapFactory;
 
     Map *map;
-    int id = 1;
+    int id = 3;
     map = mapFactory.createMap(id);
 
 
