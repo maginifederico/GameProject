@@ -4,7 +4,8 @@
 
 #include "Checkpoint.h"
 
-Checkpoint::Checkpoint(std::string &checkpointTexturePath, int id) : Item(checkpointTexturePath, id), achieved(false),
+Checkpoint::Checkpoint(std::string &checkpointTexturePath, int id) : Item(checkpointTexturePath, id, true),
+                                                                     achieved(false),
                                                                      animationNumber(0) {
 
     if (!animation1.loadFromFile(animationFlagPath1))

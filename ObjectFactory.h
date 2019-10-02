@@ -13,6 +13,7 @@
 #include "Spike.h"
 #include "Checkpoint.h"
 #include "StoneGenerator.h"
+#include "AttackBonus.h"
 
 class ObjectFactory {
 
@@ -40,6 +41,8 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
     const int blueFlag2 = 133;
     const int stoneID = 135; //Sarebbe blueFlagLow
     const int redFlagLow = 134;
+    const int attackBonus = 43;
+    const int shieldBonus = 45;
 //    const int redFlag1 = 52;
 //    const int redFlag2 = 132;
 
@@ -110,6 +113,18 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
             std::string stoneTexturePath = "./Textures/Transparent.png";
 
             result = new StoneGenerator(posX, posY, stoneTexturePath, id);
+
+            break;
+
+        }
+
+        case attackBonus: {
+
+            std::string attackBonusTexturePath = "./Textures/AttackBonus.png";
+            int bonus = 50;
+            float duration = 5.f;
+
+            result = new AttackBonus(attackBonusTexturePath, attackBonus, bonus, duration);
 
             break;
 

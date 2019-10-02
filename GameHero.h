@@ -62,10 +62,19 @@ public:
 
     void setHP(int hp, Map &map) override;
 
+    bool isWPressed() const;
 
+    int getShieldBonus() const;
 
+    void setShieldBonus(int shieldBonus);
+
+    const sf::Clock &getClock() const;
+
+    void manageBonuses();
 
 private:
+
+    sf::Clock clock;
 
     void die(Map &map) override;
 
@@ -88,6 +97,8 @@ private:
     sf::View playerView;
     sf::FloatRect viewPosition;
     int maxHP = 100;
+
+    int shieldBonus;
 
     std::unique_ptr<Weapon> weapon;
 

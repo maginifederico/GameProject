@@ -6,7 +6,7 @@
 #include "Map.h"
 
 
-Spike::Spike(std::string &texturePath, int id) : Item(texturePath, id) {
+Spike::Spike(std::string &texturePath, int id) : Item(texturePath, id, true) {
 
 }
 

@@ -13,12 +13,13 @@
 
 
 
-void Projectile::damage() {
+void Projectile::inflictDamage() {
 
 }
 
-Projectile::Projectile(std::string &texturePath, sf::Vector2f initPosition, float textureScale, bool movDirection)
-        : initialPosition(initPosition), direction(movDirection) {
+Projectile::Projectile(std::string &texturePath, sf::Vector2f initPosition, float textureScale, bool movDirection,
+                       int damage)
+        : initialPosition(initPosition), direction(movDirection), damage(damage) {
 
     sprite.setScale(textureScale, textureScale);
 

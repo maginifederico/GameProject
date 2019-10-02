@@ -10,7 +10,6 @@
 #include "MapFactory.h"
 #include "Gui.h"
 
-
 using namespace sf;
 
 
@@ -116,7 +115,7 @@ int main() {
 
     player.getGui()->load(player.getPlayerView());
 
-
+    ////TIME MANAGEMENT
 
 
     ////GAME LOOP
@@ -157,8 +156,12 @@ int main() {
 
         player.updateViewPosition(*map);
 
+
         player.getWeapon()->checkProjectileCollision(*map);
         player.checkCollection(*map);
+
+        player.manageBonuses();
+
         map->updateObjects();
 
         //render
@@ -174,7 +177,8 @@ int main() {
 //        window.draw(map.getLayer()[2]);
 
         for (Item *item :map->getAnimatedObjects()) {
-            window.draw(item->getSprite());
+            if (item->isToBeDrawn())
+                window.draw(item->getSprite());
         }
 
         for (Projectile projectile : player.getWeapon()->getProjectiles()) {

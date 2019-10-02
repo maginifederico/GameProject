@@ -6,7 +6,7 @@
 #include "Stone.h"
 #include "Map.h"
 
-StoneGenerator::StoneGenerator(float posX, float posY, std::string &texturePath, int id) : Item(texturePath, id),
+StoneGenerator::StoneGenerator(float posX, float posY, std::string &texturePath, int id) : Item(texturePath, id, false),
                                                                                            spawnPoint(posX, posY) {
 
 //    stoneTexturePath = "./Textures/Stone.png";

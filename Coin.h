@@ -7,7 +7,6 @@
 
 
 #include "Item.h"
-#include "Map.h"
 
 class Coin : public Item {
 

@@ -7158,7 +7158,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFqk01Qdqg5Sxw="
 							},
-							"name": "damage"
+							"name": "inflictDamage"
 						}
 					]
 				},

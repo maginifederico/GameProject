@@ -114,7 +114,9 @@ bool Layer::loadObject(Map *map) {
     float posY;
 
     int redFlagLow = 134;   //CHECKPOINT
-    int stoneGenerator = 135; //blueFlagLow
+    int stoneGenerator = 135;//blueFlagLow
+    int attackBonus = 43;
+    int shieldBonus = 45;
 
     for (int i = 0; i < width * height; i++) {
         my_file >> layer[i];
@@ -144,6 +146,13 @@ bool Layer::loadObject(Map *map) {
 
                     object->getSprite().setPosition(posX, posY);
                 }
+
+//                if(layer[i] == attackBonus || layer[i] == shieldBonus){
+//
+//                    map->getAnimatedObjects().push_back(object);
+//                    object->getSprite().setPosition(posX, posY);
+//
+//                }
 
                 map->getObjectsCollector().push_back(object);
 

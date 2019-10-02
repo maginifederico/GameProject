@@ -12,7 +12,7 @@
 
 
 GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, int HP,
-                   float speed, float underWaterSpeed, std::string texture) : weapon(gun),
+                   float speed, float underWaterSpeed, std::string texture) : weapon(gun), shieldBonus(0),
                                                                               GameCharacter(texture, initialPosition,
                                                                                             speed, underWaterSpeed,
                                                                                             HP) {
@@ -414,6 +414,8 @@ Gui *GameHero::getGui() {
 
 void GameHero::setHP(int hp, Map &map) {
 
+//    if (hp < HP && shieldBonus != 0)
+
     HP = hp;
 
     if (HP <= 0)
@@ -422,5 +424,32 @@ void GameHero::setHP(int hp, Map &map) {
         HP = 100;
 
     gui->updateHealth(HP);
+
+}
+
+
+void GameHero::setShieldBonus(int shieldBonus) {
+    GameHero::shieldBonus = shieldBonus;
+}
+
+bool GameHero::isWPressed() const {
+    return W_Pressed;
+}
+
+int GameHero::getShieldBonus() const {
+    return shieldBonus;
+}
+
+
+const sf::Clock &GameHero::getClock() const {
+    return clock;
+}
+
+void GameHero::manageBonuses() {
+
+    if (clock.getElapsedTime().asSeconds() - weapon->getAttackBonus()->getCollectionTime() >
+        weapon->getAttackBonus()->getDuration()) {
+        delete (weapon->getAttackBonus());
+    }
 
 }

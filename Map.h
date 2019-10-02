@@ -7,8 +7,12 @@
 #define _MAP_H
 
 #include "GameCharacter.h"
-#include "Item.h"
 #include "Layer.h"
+
+class Item;
+
+class Layer;
+
 
 class Map {
 public:
