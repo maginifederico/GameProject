@@ -7,9 +7,16 @@
 #define _FLYINGBEHAVIOUR_H
 
 #include "MovementBehaviour.h"
+#include "Map.h"
 
 
-class FlyingBehaviour : public MovmentBehaviour {
+class FlyingBehaviour : public MovementBehaviour {
+
+public:
+    void updatePosition(Map &map, GameCharacter &enemy) override;
+
+    void attack() override;
+
 };
 
 #endif //_FLYINGBEHAVIOUR_H

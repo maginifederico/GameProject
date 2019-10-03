@@ -9,7 +9,7 @@
 #include "WeaponFactory.h"
 #include "MapFactory.h"
 #include "Gui.h"
-
+#include "Enemy.h"
 
 using namespace sf;
 
@@ -167,6 +167,7 @@ int main() {
         player.checkCollection(*map);
         map->updateObjects();
         player.manageBonuses();
+        map->updateEnemies();
 
         //render
         window.clear();

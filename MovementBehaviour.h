@@ -3,20 +3,22 @@
  */
 
 
-#ifndef _MOVMENTBEHAVIOUR_H
-#define _MOVMENTBEHAVIOUR_H
+#ifndef _MOVEMENTBEHAVIOUR_H
+#define _MOVEMENTBEHAVIOUR_H
+
+#include "Map.h"
 
 class MovementBehaviour {
 public:
 
-    virtual void updatePosition() = 0;
+    virtual void updatePosition(Map &map, GameCharacter &enemy) = 0;
 
     virtual void attack() = 0;
 
 
-private:
-
+protected:
+    bool rightDirection;
 
 };
 
-#endif //_MOVMENTBEHAVIOUR_H
+#endif //_MOVEMENTBEHAVIOUR_H

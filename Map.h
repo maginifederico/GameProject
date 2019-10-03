@@ -8,10 +8,12 @@
 
 #include "GameCharacter.h"
 #include "Layer.h"
-#include "Enemy.h"
+//#include "Enemy.h"
 
 class Item;
 class Layer;
+
+class Enemy;
 
 class Map {
 public:
@@ -70,6 +72,8 @@ public:
     int getMapId() const;
 
     std::vector<Enemy *> &getEnemies();
+
+    void updateEnemies();
 
 private:
     std::string background, ground, objects;

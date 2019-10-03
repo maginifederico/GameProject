@@ -7,6 +7,9 @@
 
 
 #include "Enemy.h"
+#include "WalkingBehaviour.h"
+#include "FlyingBehaviour.h"
+#include "StillBehaviour.h"
 
 class EnemyFactory {
 
@@ -33,7 +36,8 @@ Enemy *EnemyFactory::createEnemy(int id, float posX, float posY) {
             float moleUnderWaterSpeed = 0.5f;
             int HP = 70;
 
-            result = new Enemy(moleTexturePath, sf::Vector2f(posX, posY), moleSpeed, moleUnderWaterSpeed, HP, id);
+            result = new Enemy(moleTexturePath, sf::Vector2f(posX, posY), moleSpeed, moleUnderWaterSpeed, HP, id,
+                               new WalkingBehaviour());
 
             break;
         }
@@ -55,7 +59,7 @@ Enemy *EnemyFactory::createEnemy(int id, float posX, float posY) {
             int HP = 50;
 
             result = new Enemy(shooterTexturePath, sf::Vector2f(posX, posY), shooterSpeed, shooterUnderWaterSpeed, HP,
-                               id);
+                               id, new StillBehaviour());
 
             break;
         }
@@ -67,7 +71,8 @@ Enemy *EnemyFactory::createEnemy(int id, float posX, float posY) {
             float flyUnderWaterSpeed = 0.5f;
             int HP = 30;
 
-            result = new Enemy(flyTexturePath, sf::Vector2f(posX, posY), flySpeed, flyUnderWaterSpeed, HP, id);
+            result = new Enemy(flyTexturePath, sf::Vector2f(posX, posY), flySpeed, flyUnderWaterSpeed, HP, id,
+                               new FlyingBehaviour());
 
             break;
         }
