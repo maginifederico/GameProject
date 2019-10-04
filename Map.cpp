@@ -4,6 +4,7 @@
 
 
 #include "Map.h"
+#include "Enemy.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
@@ -128,6 +129,14 @@ int Map::getMapId() const {
 
 std::vector<Enemy *> &Map::getEnemies() {
     return enemies;
+}
+
+void Map::updateEnemies() {
+
+    for (Enemy *current: enemies) {
+        current->updatePosition(*this);
+    }
+
 }
 //std::vector<std::unique_ptr<Item>> &Map::getObjectsCollector() {
 //    return objectsCollector;

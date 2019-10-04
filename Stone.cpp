@@ -9,6 +9,7 @@
 Stone::Stone(sf::FloatRect collision, std::string &texturePath, int id) : Item(texturePath, id) {
 
     setCollision(collision);
+//    getSprite().setScale(0.136363636,0.136363636);
 
 }
 

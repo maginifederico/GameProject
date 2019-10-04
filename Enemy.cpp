@@ -14,7 +14,8 @@
 //
 //}
 Enemy::Enemy(std::string &moleTexturePath, sf::Vector2f position, float moleSpeed, float moleUnderWaterSpeed, int HP,
-             int id) : GameCharacter(moleTexturePath, position, moleSpeed, moleUnderWaterSpeed, HP), id(id) {
+             int id, MovementBehaviour *behaviour) : GameCharacter(moleTexturePath, position, moleSpeed,
+                                                                   moleUnderWaterSpeed, HP), id(id) {
 
     const int mole = 38;
     const int shooterDX = 127;
@@ -26,4 +27,10 @@ Enemy::Enemy(std::string &moleTexturePath, sf::Vector2f position, float moleSpee
         sprite.scale(0.15f, 0.15f);
     }
 
+    movementBehaviour = behaviour;
+
+}
+
+void Enemy::setHP(int hp, Map &map) {
+    HP = hp;
 }
