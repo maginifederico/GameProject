@@ -3,7 +3,6 @@
  */
 
 
-
 #ifndef _GAMEHERO_H
 #define _GAMEHERO_H
 
@@ -97,7 +96,6 @@ private:
     sf::View playerView;
     sf::FloatRect viewPosition;
     int maxHP = 100;
-    int lives;
 
     std::unique_ptr<Weapon> weapon;
 

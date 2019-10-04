@@ -8,10 +8,3 @@
 /**
  * FlyingBehaviour implementation
  */
-void FlyingBehaviour::updatePosition(Map &map, GameCharacter &enemy) {
-
-}
-
-void FlyingBehaviour::attack() {
-
-}

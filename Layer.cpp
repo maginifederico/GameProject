@@ -15,8 +15,6 @@
 #include "ObjectFactory.h"
 #include "Layer.h"
 #include "DoorFactory.h"
-#include "Enemy.h"
-#include "EnemyFactory.h"
 
 
 Layer::Layer(int width, int height, std::string tileSet) : width(width), height(height), tileset(tileSet) {
@@ -112,8 +110,7 @@ bool Layer::loadObject(Map *map) {
 
     //Crea factory
     ObjectFactory objectsFactory;
-    EnemyFactory enemyFactory;
-//    DoorFactory doorFactory;
+    DoorFactory doorFactory;
 
 
     float posX;
@@ -160,12 +157,6 @@ bool Layer::loadObject(Map *map) {
 
                 map->getObjectsCollector().push_back(object);
                 object->getSprite().setPosition(posX, posY);
-
-            } else {
-
-                Enemy *enemy = enemyFactory.createEnemy(layer[i], posX, posY);
-                if (enemy != nullptr)
-                    map->getEnemies().push_back(enemy);
 
             }
         }

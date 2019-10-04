@@ -13,16 +13,7 @@
 
 
 
-void Projectile::inflictDamage(Map &map, Enemy *enemy) {
-
-    enemy->setHP(enemy->getHp() - damage, map);
-
-    if (enemy->getHp() <= 0) {
-        for (int i = 0; i < map.getEnemies().size(); i++) {
-            if (map.getEnemies()[i] == enemy)
-                map.getEnemies().erase(map.getEnemies().begin() + i);
-        }
-    }
+void Projectile::inflictDamage() {
 
 }
 

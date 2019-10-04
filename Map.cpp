@@ -4,7 +4,6 @@
 
 
 #include "Map.h"
-#include "Enemy.h"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
@@ -125,18 +124,6 @@ void Map::setEndLevel(bool endLvl) {
 
 int Map::getMapId() const {
     return mapID;
-}
-
-std::vector<Enemy *> &Map::getEnemies() {
-    return enemies;
-}
-
-void Map::updateEnemies() {
-
-    for (Enemy *current: enemies) {
-        current->updatePosition(*this);
-    }
-
 }
 //std::vector<std::unique_ptr<Item>> &Map::getObjectsCollector() {
 //    return objectsCollector;

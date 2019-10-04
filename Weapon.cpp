@@ -10,7 +10,6 @@
 #include "GameHero.h"
 #include "Map.h"
 #include "Bonus.h"
-#include "Enemy.h"
 
 /**
  * Weapon implementation
@@ -113,9 +112,7 @@ void Weapon::checkProjectileCollision(Map &map) {
                                                              int(map.getWidth() / 21)].getCollision();
 
 
-            if (projectiles[i].rightDirection()) {
-
-                //GROUND COLLISION
+            if (projectiles[i].rightDirection())
                 if (
                         (projectiles[i].getSprite().getPosition().x + projectileWidth >= map.getWidth()
                          || projectiles[i].getSprite().getGlobalBounds().intersects(rightCollision)
@@ -126,27 +123,7 @@ void Weapon::checkProjectileCollision(Map &map) {
                     collision = true;
                 else
                     collision = false;
-
-                //ENEMY COLLISION
-
-//                for(Enemy * en : map.getEnemies()){
-//
-//                    if (en->getSprite().getPosition().y == r)
-//                        ;
-//
-//                }
-
-                for (int y = 0; y < map.getEnemies().size(); y++) {
-                    if (projectiles[i].getSprite().getGlobalBounds().intersects(
-                            map.getEnemies()[y]->getSprite().getGlobalBounds())) {
-                        projectiles[i].inflictDamage(map, map.getEnemies()[y]);
-                        projectiles.erase(projectiles.begin() + i);
-                        break;
-                    }
-                }
-
-
-            } else {
+            else {
                 if (
                         (projectiles[i].getSprite().getPosition().x <= 0.f
                          || projectiles[i].getSprite().getGlobalBounds().intersects(leftCollision)
@@ -157,15 +134,6 @@ void Weapon::checkProjectileCollision(Map &map) {
                     collision = true;
                 else
                     collision = false;
-
-                for (int y = 0; y < map.getEnemies().size(); y++) {
-                    if (projectiles[i].getSprite().getGlobalBounds().intersects(
-                            map.getEnemies()[y]->getSprite().getGlobalBounds())) {
-                        projectiles[i].inflictDamage(map, map.getEnemies()[y]);
-                        projectiles.erase(projectiles.begin() + i);
-                        break;
-                    }
-                }
             }
 
 
