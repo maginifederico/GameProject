@@ -13,6 +13,7 @@ Bonus::Bonus(std::string &texturePath, int bonusV, float dur, int id) : Item(tex
     int defenceBonusID = 45;
 
     attackType = id == attackBonusID;
+    getSprite().scale(0.137254902, 0.137254902);
 }
 
 void Bonus::interact(GameHero *player, Map &map) {

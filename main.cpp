@@ -85,7 +85,7 @@ int main() {
     MapFactory mapFactory;
 
     Map *map;
-    int id = 3;
+    int id = 1;
     map = mapFactory.createMap(id);
 
 
@@ -165,7 +165,7 @@ int main() {
 
         player.getWeapon()->checkProjectileCollision(*map);
         player.checkCollection(*map);
-        
+
         map->updateObjects();
         player.manageBonuses();
         map->updateEnemies();

@@ -149,7 +149,7 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
                 bonus = 50;
                 duration = 5.f;
             } else {
-                bonusTexturePath = "./Textures/ShieldBonus.png";
+                bonusTexturePath = "./Textures/DefenceBonus.png";
                 bonus = 50;
                 duration = 5.f;
             }
