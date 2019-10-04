@@ -33,6 +33,7 @@ void WalkingBehaviour::updatePosition(Map &map, GameCharacter &enemy) {
     int waterSurface = 49;
     int groundSurface1 = 34;
     int groundSurface2 = 47;
+    int groundSurface3 = 42;
     int platform1 = 43;
     int platform2 = 44;
     int ground1 = 36;
@@ -42,7 +43,7 @@ void WalkingBehaviour::updatePosition(Map &map, GameCharacter &enemy) {
 
     if (rightDirection) {
         if ((down_right == groundSurface1 || down_right == ground1 || down_right == groundSurface2 ||
-             down_right == platform1 || down_right == platform2) && right == aria)
+             down_right == platform1 || down_right == platform2 || down_right == groundSurface3) && right == aria)
             enemy.getSprite().move(enemy.getSpeed(), 0.f);
         else {
             rightDirection = false;
@@ -50,7 +51,7 @@ void WalkingBehaviour::updatePosition(Map &map, GameCharacter &enemy) {
         }
     } else {
         if ((down_left == groundSurface1 || down_left == ground1 || down_left == groundSurface2 ||
-             down_left == platform1 || down_left == platform2) && left == aria)
+             down_left == platform1 || down_left == platform2 || down_left == groundSurface3) && left == aria)
             enemy.getSprite().move(-enemy.getSpeed(), 0.f);
         else {
             rightDirection = true;

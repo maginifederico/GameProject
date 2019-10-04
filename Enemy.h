@@ -17,7 +17,7 @@ public:
     Enemy(std::string &moleTexturePath, sf::Vector2f position, float moleSpeed, float moleUnderWaterSpeed, int HP,
           int id, MovementBehaviour *behaviour);
 
-    void setHP(int hp, Map &map) override {};
+    void setHP(int hp, Map &map) override;
 
     void updatePosition(Map &map) override {
         movementBehaviour->updatePosition(map, *this);

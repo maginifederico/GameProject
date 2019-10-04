@@ -30,3 +30,7 @@ Enemy::Enemy(std::string &moleTexturePath, sf::Vector2f position, float moleSpee
     movementBehaviour = behaviour;
 
 }
+
+void Enemy::setHP(int hp, Map &map) {
+    HP = hp;
+}
