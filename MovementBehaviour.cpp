@@ -6,6 +6,6 @@
 #include "MovementBehaviour.h"
 
 /**
- * MovmentBehaviour implementation
+ * MovementBehaviour implementation
  */
 

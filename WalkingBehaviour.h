@@ -9,7 +9,7 @@
 #include "MovementBehaviour.h"
 
 
-class WolkingBehaviour : public MovmentBehaviour {
+class WalkingBehaviour : public MovementBehaviour {
 };
 
 #endif //_WOLKINGBEHAVIOUR_H

@@ -14,8 +14,8 @@
 class Map;
 
 class GameCharacter {
-public:
 
+public:
     GameCharacter(std::string &texture, sf::Vector2f initialPosition, float speed, float underWaterSpeed, int HP);
 
     virtual void setHP(int hp, Map &map) = 0;
