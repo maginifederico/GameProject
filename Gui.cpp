@@ -22,6 +22,10 @@ void Gui::load(sf::View &playerView) {
     float coinIndicatorY = 28.f;
     float coinNumberX = 31.f;
     float coinNumberY = 26.f;
+    float livesX = 430.f;
+    float livesY = 4.f;
+    float livesCountX = 475.f;
+    float livesCountY = 4.f;
 
 
     auto *heart = new sf::Texture;
@@ -63,6 +67,8 @@ void Gui::load(sf::View &playerView) {
                                playerView.getCenter().y - playerView.getSize().y / 2 + coinIndicatorY);
 
     auto *coinNumber = new sf::Text;
+    auto *lives = new sf::Text;
+    auto *livesCount = new sf::Text;
     auto *font = new sf::Font;
 
     if (!font->loadFromFile("./Fonts/ImperfectaRegular.ttf"))
@@ -75,12 +81,28 @@ void Gui::load(sf::View &playerView) {
     coinNumber->setCharacterSize(21);
     coinNumber->setFillColor(sf::Color::Black);
 
+    lives->setFont(*font);
+    lives->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + livesX,
+                       playerView.getCenter().y - playerView.getSize().y / 2 + livesY);
+    lives->setString("Lives:");
+    lives->setCharacterSize(21);
+    lives->setFillColor(sf::Color::Black);
+
+    livesCount->setFont(*font);
+    livesCount->setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + livesCountX,
+                            playerView.getCenter().y - playerView.getSize().y / 2 + livesCountY);
+    livesCount->setString("3");
+    livesCount->setCharacterSize(21);
+    livesCount->setFillColor(sf::Color::Black);
+
     shapes.emplace_back(healthIndicator);
     shapes.emplace_back(bar);
     shapes.emplace_back(health);
     shapes.emplace_back(coinIndicator);
 
     text.emplace_back(coinNumber);
+    text.emplace_back(lives);
+    text.emplace_back(livesCount);
 
 
 }
@@ -156,22 +178,22 @@ std::vector<sf::Text *> &Gui::getText() {
 
 void Gui::updateHealth(int HP) {
 
-    shapes[2]->setSize(sf::Vector2f(shapes[1]->getSize().x * HP / 100, shapes[2]->getSize().y));
+    shapes[healthIndex]->setSize(sf::Vector2f(shapes[1]->getSize().x * HP / 100, shapes[healthIndex]->getSize().y));
 
     switch (HP / 33) {
 
         case 0: {
-            shapes[2]->setFillColor(sf::Color::Red);
+            shapes[healthIndex]->setFillColor(sf::Color::Red);
             break;
         }
 
         case 1: {
-            shapes[2]->setFillColor(sf::Color::Yellow);
+            shapes[healthIndex]->setFillColor(sf::Color::Yellow);
             break;
         }
 
         default:
-            shapes[2]->setFillColor(sf::Color::Green);
+            shapes[healthIndex]->setFillColor(sf::Color::Green);
 
     }
 
@@ -180,6 +202,12 @@ void Gui::updateHealth(int HP) {
 void Gui::updateCoinCount(int value) {
 
     coins += value;
-    text[0]->setString(std::to_string(coins));
+    text[coinCountIndex]->setString(std::to_string(coins));
+
+}
+
+void Gui::updateLivesCount(int lives) {
+
+    text[livesCountIndex]->setString(std::to_string(lives));
 
 }

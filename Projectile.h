@@ -8,6 +8,7 @@
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
+#include "Enemy.h"
 
 class Projectile {
 public:
@@ -17,7 +18,7 @@ public:
 
     void updatePosition();
 
-    void inflictDamage();
+    void inflictDamage(Map &map, Enemy *enemy);
 
     sf::Sprite &getSprite();
 

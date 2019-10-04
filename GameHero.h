@@ -21,7 +21,7 @@ class GameHero : public GameCharacter {
 
 public:
     explicit GameHero(sf::Vector2f initialPosition, sf::Vector2f playerView, Weapon *gun = nullptr,
-                      int HP = 100, float speed = 1.f, float underWaterSpeed = 0.5f,
+                      int HP = 100, float speed = 5.f, float underWaterSpeed = 0.5f,
                       std::string texture = "./Textures/PotatoDX.png");
 
     void updatePosition(Map &ground) override;
@@ -74,6 +74,8 @@ public:
 
     void setDefenceBonus(Bonus *defenceBonus);
 
+    void checkEnemyCollision(Map &map);
+
 private:
 
     void die(Map &map) override;
@@ -96,6 +98,7 @@ private:
     sf::View playerView;
     sf::FloatRect viewPosition;
     int maxHP = 100;
+    int lives;
 
     std::unique_ptr<Weapon> weapon;
 
