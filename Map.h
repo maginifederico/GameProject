@@ -73,7 +73,7 @@ public:
 
     std::vector<Enemy *> &getEnemies();
 
-    void updateEnemies();
+    void updateEnemies(GameHero &player);
 
 private:
     std::string background, ground, objects;

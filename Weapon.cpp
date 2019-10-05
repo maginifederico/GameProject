@@ -141,7 +141,7 @@ void Weapon::checkProjectileCollision(Map &map) {
                             map.getEnemies()[y]->getSprite().getGlobalBounds())) {
                         projectiles[i].inflictDamage(map, map.getEnemies()[y]);
                         projectiles.erase(projectiles.begin() + i);
-                        break;
+                        return;
                     }
                 }
 
@@ -163,7 +163,7 @@ void Weapon::checkProjectileCollision(Map &map) {
                             map.getEnemies()[y]->getSprite().getGlobalBounds())) {
                         projectiles[i].inflictDamage(map, map.getEnemies()[y]);
                         projectiles.erase(projectiles.begin() + i);
-                        break;
+                        return;
                     }
                 }
             }

@@ -165,10 +165,11 @@ int main() {
 
         player.getWeapon()->checkProjectileCollision(*map);
         player.checkCollection(*map);
+        player.checkEnemyCollision(*map);
 
         map->updateObjects();
         player.manageBonuses();
-        map->updateEnemies();
+        map->updateEnemies(player);
 
         //render
         window.clear();

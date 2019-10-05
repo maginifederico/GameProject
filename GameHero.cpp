@@ -371,6 +371,7 @@ const sf::Clock &GameHero::getClock() const {
 }
 
 void GameHero::manageBonuses() {
+
     if (weapon->getAttackBonus() != nullptr) {
         if (clock.getElapsedTime().asSeconds() - weapon->getAttackBonus()->getCollectionTime() >
             weapon->getAttackBonus()->getDuration()) {
@@ -379,8 +380,7 @@ void GameHero::manageBonuses() {
         }
     }
     if (defenceBonus != nullptr) {
-        if (clock.getElapsedTime().asSeconds() - defenceBonus->getCollectionTime() >
-            defenceBonus->getDuration()) {
+        if (clock.getElapsedTime().asSeconds() - defenceBonus->getCollectionTime() > defenceBonus->getDuration()) {
             delete defenceBonus;
             defenceBonus = nullptr;
         }
@@ -389,4 +389,18 @@ void GameHero::manageBonuses() {
 
 void GameHero::setDefenceBonus(Bonus *dB) {
     GameHero::defenceBonus = dB;
+}
+
+void GameHero::checkEnemyCollision(Map &map) {
+
+    const float tileSize = 21.f;
+
+    for (Enemy *enemy : map.getEnemies()) {
+        if (sprite.getGlobalBounds().intersects(enemy->getSprite().getGlobalBounds())) {
+            sprite.setPosition(sprite.getPosition().x, enemy->getSprite().getPosition().y - 21.f);
+            velocity.y = 3 * jumpSpeed / 4;
+            setHP(HP - enemy->getMeleeDamage(), map);
+        }
+    }
+
 }

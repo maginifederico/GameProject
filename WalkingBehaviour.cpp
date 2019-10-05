@@ -64,4 +64,6 @@ void WalkingBehaviour::updatePosition(Map &map, GameCharacter &enemy) {
 
 void WalkingBehaviour::attack() {
 
+    int a;
+
 }

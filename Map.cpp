@@ -8,7 +8,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
-
+#include "GameHero.h"
+#include "math.h"
 
 Map::Map(float width, float height, sf::Vector2f sPoint, std::string bg, std::string grnd,
          std::string obj, int id) : width(width), height(height), spawn_point(sPoint), background(bg),
@@ -131,13 +132,16 @@ std::vector<Enemy *> &Map::getEnemies() {
     return enemies;
 }
 
-void Map::updateEnemies() {
+void Map::updateEnemies(GameHero &player) {
 
     for (Enemy *current: enemies) {
-        current->updatePosition(*this);
+        if (fabs(player.getSprite().getPosition().x - current->getSprite().getPosition().x) < viewWidth * 2)
+//            if(current.)
+            current->updatePosition(*this);
     }
 
 }
+
 //std::vector<std::unique_ptr<Item>> &Map::getObjectsCollector() {
 //    return objectsCollector;
 //}
