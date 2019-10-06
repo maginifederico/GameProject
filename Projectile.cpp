@@ -27,7 +27,9 @@ void Projectile::inflictDamage(Map &map, Enemy *enemy) {
 }
 
 Projectile::Projectile(std::string &texturePath, sf::Vector2f initPosition, float textureScale, bool movDirection,
-                       int dmg) : initialPosition(initPosition), direction(movDirection), damage(dmg) {
+                       int dmg, float sp) : initialPosition(initPosition), direction(movDirection), damage(dmg) {
+
+    speed = sp;
 
     sprite.setScale(textureScale, textureScale);
 

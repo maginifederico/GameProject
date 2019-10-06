@@ -4,6 +4,7 @@
 
 
 #include "WalkingBehaviour.h"
+#include "Enemy.h"
 
 /**
  * WalkingBehaviour implementation
@@ -20,7 +21,7 @@ WalkingBehaviour::WalkingBehaviour(bool dir) {
 }
 
 
-void WalkingBehaviour::updatePosition(Map &map, GameCharacter &enemy) {
+void WalkingBehaviour::updatePosition(Map &map, Enemy &enemy) {
 
     int c = (int) enemy.getSprite().getPosition().x / 21;
     int r = (int) enemy.getSprite().getPosition().y / 21;

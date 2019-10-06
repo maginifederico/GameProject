@@ -10,6 +10,7 @@
 #include "MapFactory.h"
 #include "Gui.h"
 #include "Enemy.h"
+#include "StillBehaviour.h"
 
 using namespace sf;
 
@@ -93,7 +94,7 @@ int main() {
     ////INIT PLAYER WEAPON
 
     WeaponFactory weaponFactory;
-    int weaponNumber = 0;
+    int weaponNumber = 1;
 
 //    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
 
@@ -189,6 +190,16 @@ int main() {
 
         for (Projectile projectile : player.getWeapon()->getProjectiles()) {
             window.draw(projectile.getSprite());
+        }
+
+        for (Enemy *enemy: map->getEnemies()) {
+            StillBehaviour *ptr;
+            ptr = dynamic_cast<StillBehaviour *> (enemy->getMovementBehaviour());
+            if (ptr != nullptr) {
+                for (Projectile projectile : ptr->getProjectiles()) {
+                    window.draw(projectile.getSprite());
+                }
+            }
         }
 
         for (Enemy *enemy:map->getEnemies()) {

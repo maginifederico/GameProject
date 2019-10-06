@@ -15,7 +15,7 @@ class FlyingBehaviour : public MovementBehaviour {
 public:
     explicit FlyingBehaviour(bool dir = false);
 
-    void updatePosition(Map &map, GameCharacter &enemy) override;
+    void updatePosition(Map &map, Enemy &enemy) override;
 
     void attack() override;
 

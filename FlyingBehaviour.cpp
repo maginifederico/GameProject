@@ -4,6 +4,7 @@
 
 
 #include "FlyingBehaviour.h"
+#include "Enemy.h"
 
 /**
  * FlyingBehaviour implementation
@@ -33,7 +34,7 @@ FlyingBehaviour::FlyingBehaviour(bool dir) {
     animationNumber = 0;
 }
 
-void FlyingBehaviour::updatePosition(Map &map, GameCharacter &enemy) {
+void FlyingBehaviour::updatePosition(Map &map, Enemy &enemy) {
 
     if (animationClock.getElapsedTime().asSeconds() > animationTime) {
         if (rightDirection) {
@@ -52,6 +53,19 @@ void FlyingBehaviour::updatePosition(Map &map, GameCharacter &enemy) {
 
         animationClock.restart();
     }
+
+    if (playerPosition.x - enemy.getSprite().getPosition().x < 0) {
+        enemy.getSprite().move(-enemy.getSpeed(), 0);
+        rightDirection = false;
+    } else {
+        enemy.getSprite().move(enemy.getSpeed(), 0);
+        rightDirection = true;
+    }
+
+    if (playerPosition.y - enemy.getSprite().getPosition().y > 0)
+        enemy.getSprite().move(0, enemy.getSpeed());
+    else
+        enemy.getSprite().move(0, -enemy.getSpeed());
 
 //
 //    if (animationNumber == 2) {

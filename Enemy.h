@@ -25,6 +25,10 @@ public:
 
     int getMeleeDamage() const;
 
+    MovementBehaviour *getMovementBehaviour() const;
+
+    int getId() const;
+
 private:
 
     MovementBehaviour *movementBehaviour;

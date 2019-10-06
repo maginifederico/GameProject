@@ -43,3 +43,11 @@ void Enemy::setHP(int hp, Map &map) {
 int Enemy::getMeleeDamage() const {
     return meleeDamage;
 }
+
+MovementBehaviour *Enemy::getMovementBehaviour() const {
+    return movementBehaviour;
+}
+
+int Enemy::getId() const {
+    return id;
+}
