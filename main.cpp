@@ -93,7 +93,7 @@ int main() {
     ////INIT PLAYER WEAPON
 
     WeaponFactory weaponFactory;
-    int weaponNumber = 0;
+    int weaponNumber = 1;
 
 //    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
 

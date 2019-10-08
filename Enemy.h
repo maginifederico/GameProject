@@ -25,11 +25,17 @@ public:
 
     int getMeleeDamage() const;
 
+    bool isActive() const;
+
+    void setActive(bool active);
+
 private:
 
     MovementBehaviour *movementBehaviour;
     int id;
     int meleeDamage;
+
+    bool active;
 
 //    void attack();
 };

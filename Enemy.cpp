@@ -16,7 +16,7 @@
 Enemy::Enemy(std::string &moleTexturePath, sf::Vector2f position, float moleSpeed, float moleUnderWaterSpeed, int HP,
              int id, MovementBehaviour *behaviour, int melee) : GameCharacter(moleTexturePath, position, moleSpeed,
                                                                               moleUnderWaterSpeed, HP), id(id),
-                                                                meleeDamage(melee) {
+                                                                meleeDamage(melee), active(false) {
 
     const int mole = 38;
     const int shooterDX = 127;
@@ -38,4 +38,12 @@ void Enemy::setHP(int hp, Map &map) {
 
 int Enemy::getMeleeDamage() const {
     return meleeDamage;
+}
+
+bool Enemy::isActive() const {
+    return active;
+}
+
+void Enemy::setActive(bool active) {
+    Enemy::active = active;
 }
