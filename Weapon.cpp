@@ -179,3 +179,7 @@ Bonus *Weapon::getAttackBonus() {
 void Weapon::setAttackBonus(Bonus *aB) {
     Weapon::attackBonus = aB;
 }
+
+float Weapon::getRange() const {
+    return range;
+}

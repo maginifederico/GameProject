@@ -43,6 +43,8 @@ public:
 
     void setAttackBonus(Bonus *attackBonus);
 
+    float getRange() const;
+
 private:
 
     sf::Clock clock;

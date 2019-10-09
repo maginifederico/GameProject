@@ -26,7 +26,10 @@ add_subdirectory(test)
 
 #aggiungere all'istruzione seguente i file da sottoporre a test
 set(SOURCE_FILES GameHero.h GameHero.cpp GameCharacter.h GameCharacter.cpp Map.h Map.cpp Layer.h Layer.cpp Tile.h
-        Tile.cpp Weapon.h Weapon.cpp Projectile.h Projectile.cpp Item.cpp Item.h Coin.cpp Coin.h ObjectFactory.h)
+        Tile.cpp Weapon.h Weapon.cpp Projectile.h Projectile.cpp Item.cpp Item.h Coin.cpp Coin.h ObjectFactory.h Gui.cpp
+        BlueFlag.cpp Enemy.cpp WalkingBehaviour.cpp StillBehaviour.cpp FlyingBehaviour.cpp Checkpoint.cpp Bonus.cpp
+        StoneGenerator.cpp HealthPill.cpp Spike.cpp Stone.cpp)
+
 add_executable(patagame_unit_testing main.cpp ${SOURCE_FILES})
 add_library(core ${SOURCE_FILES})
 target_link_libraries(patagame_unit_testing core sfml-graphics sfml-window sfml-system sfml-audio)

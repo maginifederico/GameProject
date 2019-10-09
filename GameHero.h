@@ -65,7 +65,8 @@ public:
     void setHP(int hp, Map &map) override;
 
     ~GameHero() override {
-        delete gui;
+        if (gui != nullptr)
+            delete gui;
     };
 
     const sf::Clock &getClock() const;
