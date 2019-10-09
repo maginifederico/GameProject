@@ -10,9 +10,8 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include "GameHero.h"
-#include "Projectile.h"
-#include "Item.h"
 #include "Bonus.h"
+#include "Projectile.h"
 
 
 class Item;

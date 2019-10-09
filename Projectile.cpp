@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include "Projectile.h"
+#include "GameHero.h"
 
 /**
  * Projectile implementation
@@ -13,15 +14,27 @@
 
 
 
-void Projectile::inflictDamage(Map &map, Enemy *enemy) {
+void Projectile::inflictDamage(Map &map, GameCharacter *target) {
 
-    enemy->setHP(enemy->getHp() - damage, map);
+    Enemy *enemy = dynamic_cast<Enemy *>(target);
+    GameHero *hero = dynamic_cast<GameHero *>(target);
 
-    if (enemy->getHp() <= 0) {
-        for (int i = 0; i < map.getEnemies().size(); i++) {
-            if (map.getEnemies()[i] == enemy)
-                map.getEnemies().erase(map.getEnemies().begin() + i);
+    if (enemy != nullptr) {
+
+        enemy->setHP(enemy->getHp() - damage, map);
+
+        if (enemy->getHp() <= 0) {
+            for (int i = 0; i < map.getEnemies().size(); i++) {
+                if (map.getEnemies()[i] == enemy)
+                    map.getEnemies().erase(map.getEnemies().begin() + i);
+            }
         }
+    }
+
+    if (hero != nullptr) {
+
+        hero->setHP(hero->getHp() - damage, map);
+
     }
 
 }

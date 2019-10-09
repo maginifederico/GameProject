@@ -36,27 +36,36 @@ TEST(Enemy, Behaviour) {
 
     Map map(6300.f, 525.f, sf::Vector2f(0, 0), "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt", "objectsLevel1",
             1);
+    map.load();
 
     map.getEnemies().push_back(mole);
     map.getEnemies().push_back(shooterDX);
     map.getEnemies().push_back(shooterSX);
     map.getEnemies().push_back(bat);
 
+    StillBehaviour *ptrDX = dynamic_cast<StillBehaviour *>(shooterDX->getMovementBehaviour());
+    StillBehaviour *ptrSX = dynamic_cast<StillBehaviour *>(shooterSX->getMovementBehaviour());
+
+    ptrDX->setShootingCooldown(0.f);
+    ptrSX->setShootingCooldown(0.f);
+
     mole->updatePosition(map);
+    shooterDX->updatePosition(map);
+    shooterSX->updatePosition(map);
     bat->updatePosition(map);
 
-    StillBehaviour *ptrDX = dynamic_cast<StillBehaviour *>(shooterDX);
-    StillBehaviour *ptrSX = dynamic_cast<StillBehaviour *>(shooterSX);
-
-    if (ptrDX != nullptr && ptrSX != nullptr) {
-
-        while (ptrDX->getProjectiles().empty())
-            shooterDX->updatePosition(map);
-
-        while (ptrSX->getProjectiles().empty())
-            shooterSX->updatePosition(map);
-
-    }
+//    StillBehaviour *ptrDX = dynamic_cast<StillBehaviour *>(shooterDX);
+//    StillBehaviour *ptrSX = dynamic_cast<StillBehaviour *>(shooterSX);
+//
+//    if (ptrDX != nullptr && ptrSX != nullptr) {
+//
+//        while (ptrDX->getProjectiles().empty())
+//            shooterDX->updatePosition(map);
+//
+//        while (ptrSX->getProjectiles().empty())
+//            shooterSX->updatePosition(map);
+//
+//    }
 
     ASSERT_FLOAT_EQ(mole->getSprite().getPosition().x, 21 - mole->getSpeed());
     ASSERT_TRUE(ptrDX->getProjectiles()[0].rightDirection() == true);

@@ -122,14 +122,14 @@ void StillBehaviour::checkProjectileCollision(Map &map) {
 
 
                 //// SCRIVERE QUI LA COLLISIONE COL PLAYER. SERVE UN RIFERIMENTO AL PLAYER
-//                for (int y = 0; y < map.getEnemies().size(); y++) {
-//                    if (projectiles[i].getSprite().getGlobalBounds().intersects(
-//                            map.getEnemies()[y]->getSprite().getGlobalBounds())) {
-//                        projectiles[i].inflictDamage(map, map.getEnemies()[y]);
-//                        projectiles.erase(projectiles.begin() + i);
-//                        return;
-//                    }
-//                }
+                for (int y = 0; y < map.getEnemies().size(); y++) {
+                    if (projectiles[i].getSprite().getGlobalBounds().intersects(
+                            player->getSprite().getGlobalBounds())) {
+                        projectiles[i].inflictDamage(map, player);
+                        projectiles.erase(projectiles.begin() + i);
+                        return;
+                    }
+                }
 
 
             } else {
@@ -145,14 +145,14 @@ void StillBehaviour::checkProjectileCollision(Map &map) {
                     collision = false;
 
                 //// SCRIVERE QUI LA COLLISIONE COL PLAYER. SERVE UN RIFERIMENTO AL PLAYER
-//                for (int y = 0; y < map.getEnemies().size(); y++) {
-//                    if (projectiles[i].getSprite().getGlobalBounds().intersects(
-//                            map.getEnemies()[y]->getSprite().getGlobalBounds())) {
-//                        projectiles[i].inflictDamage(map, map.getEnemies()[y]);
-//                        projectiles.erase(projectiles.begin() + i);
-//                        return;
-//                    }
-//                }
+                for (int y = 0; y < map.getEnemies().size(); y++) {
+                    if (projectiles[i].getSprite().getGlobalBounds().intersects(
+                            player->getSprite().getGlobalBounds())) {
+                        projectiles[i].inflictDamage(map, player);
+                        projectiles.erase(projectiles.begin() + i);
+                        return;
+                    }
+                }
             }
 
 
@@ -165,4 +165,12 @@ void StillBehaviour::checkProjectileCollision(Map &map) {
                 projectiles[i].updatePosition();
         }
     }
+}
+
+void StillBehaviour::setShootingCooldown(float shootingCooldown) {
+    StillBehaviour::shootingCooldown = shootingCooldown;
+}
+
+void StillBehaviour::setPlayer(GameHero *player) {
+    StillBehaviour::player = player;
 }
