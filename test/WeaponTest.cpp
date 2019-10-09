@@ -27,7 +27,8 @@ TEST(Weapon, shoot) {
 
 TEST(Weapon, range) {
 
-    Map map(6300.f, 525.f, sf::Vector2f(0, 0), "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt", "objectsLevel1");
+    Map map(6300.f, 525.f, sf::Vector2f(0, 0), "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt", "objectsLevel1",
+            1);
     map.load();
 
     std::string weaponSpritePath = "./Textures/justOne.png";

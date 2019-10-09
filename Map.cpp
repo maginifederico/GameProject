@@ -8,7 +8,9 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
-
+#include "GameHero.h"
+#include "math.h"
+#include "FlyingBehaviour.h"
 
 Map::Map(float width, float height, sf::Vector2f sPoint, std::string bg, std::string grnd,
          std::string obj, int id) : width(width), height(height), spawn_point(sPoint), background(bg),
@@ -131,13 +133,22 @@ std::vector<Enemy *> &Map::getEnemies() {
     return enemies;
 }
 
-void Map::updateEnemies() {
+void Map::updateEnemies(GameHero &player) {
+
+    FlyingBehaviour *ptr;
 
     for (Enemy *current: enemies) {
-        current->updatePosition(*this);
+        if (fabs(player.getSprite().getPosition().x - current->getSprite().getPosition().x) < viewWidth * 2) {
+            ptr = dynamic_cast<FlyingBehaviour *> (current->getMovementBehaviour());
+            if (ptr != nullptr) {
+                ptr->setPlayerPosition(player.getSprite().getPosition());
+            }
+            current->updatePosition(*this);
+        }
     }
 
 }
+
 //std::vector<std::unique_ptr<Item>> &Map::getObjectsCollector() {
 //    return objectsCollector;
 //}

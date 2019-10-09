@@ -128,20 +128,12 @@ void Weapon::checkProjectileCollision(Map &map) {
                     collision = false;
 
                 //ENEMY COLLISION
-
-//                for(Enemy * en : map.getEnemies()){
-//
-//                    if (en->getSprite().getPosition().y == r)
-//                        ;
-//
-//                }
-
                 for (int y = 0; y < map.getEnemies().size(); y++) {
                     if (projectiles[i].getSprite().getGlobalBounds().intersects(
                             map.getEnemies()[y]->getSprite().getGlobalBounds())) {
                         projectiles[i].inflictDamage(map, map.getEnemies()[y]);
                         projectiles.erase(projectiles.begin() + i);
-                        break;
+                        return;
                     }
                 }
 
@@ -163,7 +155,7 @@ void Weapon::checkProjectileCollision(Map &map) {
                             map.getEnemies()[y]->getSprite().getGlobalBounds())) {
                         projectiles[i].inflictDamage(map, map.getEnemies()[y]);
                         projectiles.erase(projectiles.begin() + i);
-                        break;
+                        return;
                     }
                 }
             }

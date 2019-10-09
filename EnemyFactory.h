@@ -6,7 +6,6 @@
 #define GAME_ENEMYFACTORY_H
 
 
-#include "Enemy.h"
 #include "WalkingBehaviour.h"
 #include "FlyingBehaviour.h"
 #include "StillBehaviour.h"
@@ -68,7 +67,7 @@ Enemy *EnemyFactory::createEnemy(int id, float posX, float posY) {
 
         case fly: {
 
-            std::string flyTexturePath = "./Textures/FlyingEnemySX1.png";
+            std::string flyTexturePath = "./Textures/Bat1SX.png";
             float flySpeed = 0.5f;
             float flyUnderWaterSpeed = 0.5f;
             int HP = 30;

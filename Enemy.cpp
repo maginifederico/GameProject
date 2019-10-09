@@ -13,10 +13,11 @@
 //void Enemy::attack() {
 //
 //}
-Enemy::Enemy(std::string &moleTexturePath, sf::Vector2f position, float moleSpeed, float moleUnderWaterSpeed, int HP,
-             int id, MovementBehaviour *behaviour, int melee) : GameCharacter(moleTexturePath, position, moleSpeed,
-                                                                              moleUnderWaterSpeed, HP), id(id),
-                                                                meleeDamage(melee), active(false) {
+
+Enemy::Enemy(std::string &texturePath, sf::Vector2f position, float speed, float underWaterSpeed, int hp,
+             int id, MovementBehaviour *behaviour, int melee) : GameCharacter(texturePath, position, speed,
+                                                                              underWaterSpeed, hp), id(id),
+                                                                meleeDamage(melee) {
 
     const int mole = 38;
     const int shooterDX = 127;
@@ -26,6 +27,10 @@ Enemy::Enemy(std::string &moleTexturePath, sf::Vector2f position, float moleSpee
     if (id == mole) {
         sprite.setScale(sf::Vector2f(0.466666667, 0.7));
         sprite.scale(0.15f, 0.15f);
+    }
+
+    if (id == fly) {
+        sprite.scale(0.5f, 0.5f);
     }
 
     movementBehaviour = behaviour;
@@ -40,10 +45,10 @@ int Enemy::getMeleeDamage() const {
     return meleeDamage;
 }
 
-bool Enemy::isActive() const {
-    return active;
+MovementBehaviour *Enemy::getMovementBehaviour() const {
+    return movementBehaviour;
 }
 
-void Enemy::setActive(bool active) {
-    Enemy::active = active;
+int Enemy::getId() const {
+    return id;
 }

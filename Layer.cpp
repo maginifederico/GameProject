@@ -15,7 +15,6 @@
 #include "ObjectFactory.h"
 #include "Layer.h"
 #include "DoorFactory.h"
-#include "Enemy.h"
 #include "EnemyFactory.h"
 
 

@@ -10,6 +10,7 @@
 #include "MapFactory.h"
 #include "Gui.h"
 #include "Enemy.h"
+#include "StillBehaviour.h"
 
 using namespace sf;
 
@@ -166,10 +167,10 @@ int main() {
         player.getWeapon()->checkProjectileCollision(*map);
         player.checkCollection(*map);
         player.checkEnemyCollision(*map);
-        
+
         map->updateObjects();
         player.manageBonuses();
-        map->updateEnemies();
+        map->updateEnemies(player);
 
         //render
         window.clear();
@@ -189,6 +190,16 @@ int main() {
 
         for (Projectile projectile : player.getWeapon()->getProjectiles()) {
             window.draw(projectile.getSprite());
+        }
+
+        for (Enemy *enemy: map->getEnemies()) {
+            StillBehaviour *ptr;
+            ptr = dynamic_cast<StillBehaviour *> (enemy->getMovementBehaviour());
+            if (ptr != nullptr) {
+                for (Projectile projectile : ptr->getProjectiles()) {
+                    window.draw(projectile.getSprite());
+                }
+            }
         }
 
         for (Enemy *enemy:map->getEnemies()) {

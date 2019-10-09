@@ -7,7 +7,7 @@
 
 TEST(GameHero, Constructor) {
 
-    GameHero hero("./Textures/PotatoDX.png", sf::Vector2f(100.f, 0.f), sf::Vector2f(800.f, 525.f));
+    GameHero hero(sf::Vector2f(100.f, 0.f), sf::Vector2f(800.f, 525.f));
 
     ASSERT_EQ(100.f, hero.getSprite().getPosition().x);
     ASSERT_EQ(0.f, hero.getSprite().getPosition().y);
@@ -17,9 +17,10 @@ TEST(GameHero, Constructor) {
 
 TEST(GameHero, Collision) {
 
-    Map map(6300.f, 525.f, sf::Vector2f(0, 0), "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt", "objectsLevel1");
+    Map map(6300.f, 525.f, sf::Vector2f(0, 0), "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt", "objectsLevel1",
+            1);
     map.load();
-    GameHero hero("./Textures/PotatoDX.png", map.getSpawnPoint(), sf::Vector2f(800.f, 525.f));
+    GameHero hero(map.getSpawnPoint(), sf::Vector2f(800.f, 525.f));
 
     int c = (int) hero.getSprite().getPosition().x / 21;
     int r = (int) hero.getSprite().getPosition().y / 21;

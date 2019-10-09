@@ -11,7 +11,7 @@
 class MovementBehaviour {
 public:
 
-    virtual void updatePosition(Map &map, GameCharacter &enemy) = 0;
+    virtual void updatePosition(Map &map, Enemy &enemy) = 0;
 
     virtual void attack() = 0;
 
