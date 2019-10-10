@@ -86,7 +86,7 @@ int main() {
     MapFactory mapFactory;
 
     Map *map;
-    int id = 1;
+    int id = 3;
     map = mapFactory.createMap(id);
 
 
