@@ -7,7 +7,9 @@
 #include "math.h"
 
 
-StillBehaviour::StillBehaviour() {
+StillBehaviour::StillBehaviour(Direction dir) {
+
+    direction = dir;
 
     if (!projectileTexture.loadFromFile(projectilePath))
         std::cout << "Unable to load the sprite";
@@ -34,10 +36,7 @@ void StillBehaviour::attack() {
 
 void StillBehaviour::createProjectile(Enemy &enemy) {
 
-    rightDirection = enemy.getId() == shooterDX;
-
-
-    Projectile newProjectile(projectilePath, enemy.getSprite().getPosition(), projectileScale, rightDirection,
+    Projectile newProjectile(projectilePath, enemy.getSprite().getPosition(), projectileScale, direction,
                              enemy.getMeleeDamage(), projectileSpeed);
 
     newProjectile.getSprite().setTexture(projectileTexture);
@@ -104,7 +103,7 @@ void StillBehaviour::checkProjectileCollision(Map &map) {
                                                              int(map.getWidth() / 21)].getCollision();
 
 
-            if (projectiles[i].rightDirection()) {
+            if (projectiles[i].getDirection() == right) {
 
                 //GROUND COLLISION
                 if (

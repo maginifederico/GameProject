@@ -70,6 +70,7 @@ int main() {
     //TODO doors
 
 
+
     ////INIT WINDOW
 
     const unsigned int WINDOW_WIDTH = 1920;
@@ -213,6 +214,9 @@ int main() {
             }
         }
 
+        for (Door *door : map->getDoors())
+            window.draw(door->getSprite());
+        
         for (Enemy *enemy:map->getEnemies()) {
             window.draw(enemy->getSprite());
         }

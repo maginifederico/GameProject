@@ -32,11 +32,14 @@ TEST(Weapon, range) {
     map.load();
 
     std::string weaponSpritePath = "./Textures/justOne.png";
-    Weapon weapon(weaponSpritePath, 0.f, 0, 50.f, 0.f);
+    Weapon weapon(weaponSpritePath, 1.f, 0, 50.f, 0.f);
+
+    weapon.createProjectile(sf::Vector2f(10, 10), true);
+
 
     do { weapon.getProjectiles()[0].updatePosition(); }
-    while ((fabs(weapon.getProjectiles()[1].getSprite().getPosition().x -
-                 weapon.getProjectiles()[1].getInitialPosition().x)) > 50.f);
+    while ((fabs(weapon.getProjectiles()[0].getSprite().getPosition().x -
+                 weapon.getProjectiles()[0].getInitialPosition().x)) < weapon.getRange());
 
     weapon.checkProjectileCollision(map);
 

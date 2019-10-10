@@ -12,7 +12,7 @@
 class WalkingBehaviour : public MovementBehaviour {
 
 public:
-    explicit WalkingBehaviour(bool dir = false);
+    explicit WalkingBehaviour(Direction dir = left);
 
     void updatePosition(Map &map, Enemy &enemy) override;
 

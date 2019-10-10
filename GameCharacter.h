@@ -13,6 +13,13 @@
 
 class Map;
 
+enum Direction {
+    up,
+    right,
+    down,
+    left
+};
+
 class GameCharacter {
 public:
 

@@ -13,7 +13,7 @@
 class Projectile {
 public:
 
-    Projectile(std::string &texturePath, sf::Vector2f initialPosition, float textureScale, bool movDirection,
+    Projectile(std::string &texturePath, sf::Vector2f initialPosition, float textureScale, Direction movDirection,
                int damage, float speed = 3.f);
 
     void updatePosition();
@@ -24,7 +24,7 @@ public:
 
     const sf::Vector2f &getInitialPosition() const;
 
-    bool rightDirection() const;
+    Direction getDirection() const;
 
 private:
     sf::Sprite sprite;
@@ -34,7 +34,7 @@ private:
     float speed;
 
     //indica la direzione del proiettile, se è true va verso destra, se è false va verso sinistra
-    bool direction;
+    Direction direction;
 
     int damage;
 

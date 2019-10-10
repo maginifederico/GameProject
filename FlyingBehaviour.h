@@ -13,7 +13,7 @@
 class FlyingBehaviour : public MovementBehaviour {
 
 public:
-    explicit FlyingBehaviour(bool dir = false);
+    explicit FlyingBehaviour(Direction dir = left);
 
     void updatePosition(Map &map, Enemy &enemy) override;
 

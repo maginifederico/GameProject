@@ -20,7 +20,9 @@ TEST(GameHero, Collision) {
     Map map(6300.f, 525.f, sf::Vector2f(0, 0), "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt", "objectsLevel1",
             1);
     map.load();
+    map.setViewLimits();
     GameHero hero(map.getSpawnPoint(), sf::Vector2f(800.f, 525.f));
+    hero.loadGui();
 
     int c = (int) hero.getSprite().getPosition().x / 21;
     int r = (int) hero.getSprite().getPosition().y / 21;

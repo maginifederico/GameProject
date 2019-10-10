@@ -8,6 +8,7 @@
 
 #include "GameCharacter.h"
 #include "Layer.h"
+#include "Door.h"
 //#include "Enemy.h"
 
 class Item;
@@ -23,7 +24,6 @@ public:
     ~Map() {
         delete[] layer;
         objectsCollector.erase(objectsCollector.begin(), objectsCollector.end());
-        delete this;
     };
 
     bool load();
@@ -75,6 +75,8 @@ public:
 
     void updateEnemies(GameHero &player);
 
+    std::vector<Door *> &getDoors();
+
 private:
     std::string background, ground, objects;
 
@@ -100,6 +102,8 @@ private:
     std::vector<Item *> objectsCollector;
 
     std::vector<Item *> movingObjects;
+
+    std::vector<Door *> doors;
 
     std::vector<Enemy *> enemies;
 

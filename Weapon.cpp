@@ -36,7 +36,7 @@ Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float
 //}
 
 
-void Weapon::createProjectile(sf::Vector2f playerPosition, bool movementDirection) {
+void Weapon::createProjectile(sf::Vector2f playerPosition, Direction movementDirection) {
 
     //Gestione cooldown
     sf::Time elapsedTime = clock.getElapsedTime();
@@ -113,7 +113,7 @@ void Weapon::checkProjectileCollision(Map &map) {
                                                              int(map.getWidth() / 21)].getCollision();
 
 
-            if (projectiles[i].rightDirection()) {
+            if (projectiles[i].getDirection() == right) {
 
                 //GROUND COLLISION
                 if (
@@ -178,4 +178,8 @@ Bonus *Weapon::getAttackBonus() {
 
 void Weapon::setAttackBonus(Bonus *aB) {
     Weapon::attackBonus = aB;
+}
+
+float Weapon::getRange() const {
+    return range;
 }

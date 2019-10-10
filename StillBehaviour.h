@@ -13,7 +13,7 @@
 class StillBehaviour : public MovementBehaviour {
 
 public:
-    StillBehaviour();
+    StillBehaviour(Direction dir);
 
     void updatePosition(Map &map, Enemy &enemy) override;
 
@@ -42,9 +42,6 @@ private:
     std::string projectilePath = "./Textures/StillEnemyProjectile.png";
 
     std::vector<Projectile> projectiles;
-
-    const int shooterDX = 127;
-    const int shooterSX = 128;
 
     GameHero *player;
 };

@@ -17,7 +17,7 @@ public:
 
 
 protected:
-    bool rightDirection;
+    Direction direction;
 
 };
 
