@@ -36,7 +36,7 @@ Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float
 //}
 
 
-void Weapon::createProjectile(sf::Vector2f playerPosition, bool movementDirection) {
+void Weapon::createProjectile(sf::Vector2f shooterPosition, bool movementDirection) {
 
     //Gestione cooldown
     sf::Time elapsedTime = clock.getElapsedTime();
@@ -48,7 +48,7 @@ void Weapon::createProjectile(sf::Vector2f playerPosition, bool movementDirectio
             bonus = damage * attackBonus->getBonusValue() / 100;
         }
         Projectile newProjectile(
-                Projectile(texturePath, playerPosition, textureScale, movementDirection, damage + bonus));
+                Projectile(texturePath, shooterPosition, textureScale, movementDirection, damage + bonus));
         newProjectile.getSprite().setTexture(texture);
         projectiles.emplace_back(newProjectile);
         clock.restart();

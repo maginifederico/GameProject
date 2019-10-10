@@ -67,11 +67,11 @@ TEST(Enemy, Behaviour) {
 //
 //    }
 
-    ASSERT_FLOAT_EQ(mole->getSprite().getPosition().x, 21 - mole->getSpeed());
+    ASSERT_FLOAT_EQ(mole->getSprite().getPosition().x, 100 - mole->getSpeed());
     ASSERT_TRUE(ptrDX->getProjectiles()[0].rightDirection());
     ASSERT_FALSE(ptrSX->getProjectiles()[0].rightDirection());
-    ASSERT_FLOAT_EQ(bat->getSprite().getPosition().x, bat->getSpeed());
-    ASSERT_FLOAT_EQ(bat->getSprite().getPosition().y, 105.f - bat->getSpeed());
+    ASSERT_FLOAT_EQ(bat->getSprite().getPosition().x, 21.f - bat->getSpeed());
+    ASSERT_FLOAT_EQ(bat->getSprite().getPosition().y, 5 * 21.f - bat->getSpeed());
 
 
 }

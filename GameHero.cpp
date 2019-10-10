@@ -59,7 +59,7 @@ void GameHero::updatePosition(Map &map) {
 //              << down_left << std::endl << "down_right= " << down_right << std::endl
 //              << "velocity.y= " << velocity.y << std::endl << std::endl;
 
-    std::cout << getSprite().getPosition().x << std::endl << getSprite().getPosition().y << std::endl << std::endl;
+//    std::cout << getSprite().getPosition().x << std::endl << getSprite().getPosition().y << std::endl << std::endl;
 
     ////APPLICAZIONE GRAVITA'
     //Se il giocatore non è a terra e non c'è uno spigolo a right venendo dall' alto o da fermo sul terreno (cadendo -> velocity.y > 0), applica gravità
