@@ -14,7 +14,7 @@ class Enemy : public GameCharacter {
 
 public:
 
-    Enemy(std::string &moleTexturePath, sf::Vector2f position, float moleSpeed, float moleUnderWaterSpeed, int HP,
+    Enemy(std::string &texturePath, sf::Vector2f position, float speed, float underWaterSpeed, int HP,
           int id, MovementBehaviour *behaviour, int melee);
 
     void setHP(int hp, Map &map) override;

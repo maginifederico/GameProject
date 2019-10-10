@@ -8,6 +8,7 @@
 
 #include "MovementBehaviour.h"
 #include "Projectile.h"
+#include "GameHero.h"
 
 class StillBehaviour : public MovementBehaviour {
 
@@ -21,6 +22,10 @@ public:
     const std::vector<Projectile> &getProjectiles() const;
 
     void checkProjectileCollision(Map &map);
+
+    void setPlayer(GameHero *player);
+
+    void setShootingCooldown(float shootingCooldown);
 
 private:
 
@@ -41,6 +46,7 @@ private:
     const int shooterDX = 127;
     const int shooterSX = 128;
 
+    GameHero *player;
 };
 
 

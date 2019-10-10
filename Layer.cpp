@@ -15,7 +15,6 @@
 #include "ObjectFactory.h"
 #include "Layer.h"
 #include "DoorFactory.h"
-#include "Enemy.h"
 #include "EnemyFactory.h"
 
 
@@ -113,7 +112,7 @@ bool Layer::loadObject(Map *map) {
     //Crea factory
     ObjectFactory objectsFactory;
     EnemyFactory enemyFactory;
-//    DoorFactory doorFactory;
+    DoorFactory doorFactory;
 
 
     float posX;
@@ -133,43 +132,52 @@ bool Layer::loadObject(Map *map) {
 
             posX = (i % int(map->getWidth() / 21)) * 21.f;
             posY = (i / int(map->getWidth() / 21)) * 21.f;
+
+            sf::FloatRect collision(posX, posY, 21.f, 21.f);
+            sf::FloatRect checkpointCollision(posX, 0, 5.f, map->getHeight());
+            sf::FloatRect doorCollision(posX, posY, 21.f, 42.f);
+
 //            std::unique_ptr<Item> object = objectsFactory.createObject(layer[i]);
-            Item *object = objectsFactory.createObject(layer[i], posX, posY);
+            if (layer[i] == blackDoorID || layer[i] == brownDoorID) {
+                Door *door = doorFactory.createDoor(layer[i], map->getMapId(), i % int(map->getWidth() / 21), posX,
+                                                    posY);
 
-            if (object != nullptr) {
-
-                sf::FloatRect collision(posX, posY, 21.f, 21.f);
-                sf::FloatRect checkpointCollision(posX, 0, 5.f, map->getHeight());
-                sf::FloatRect doorCollision(posX, posY, 21.f, 42.f);
-
-                if (layer[i] == redFlagLow || layer[i] == blueFlag)
-                    object->setCollision(checkpointCollision);
-                else {
-
-                    if (layer[i] == blackDoorID || layer[i] == brownDoorID)
-                        object->setCollision(doorCollision);
-                    else
-                        object->setCollision(collision);
+                if (door != nullptr) {
+                    map->getDoors().push_back(door);
+                    door->setCollision(doorCollision);
                 }
-                if (layer[i] == stoneGenerator || layer[i] == blueFlag) {
-
-                    map->getAnimatedObjects().push_back(object);
-
-                }
-
-
-                map->getObjectsCollector().push_back(object);
-                object->getSprite().setPosition(posX, posY);
 
             } else {
+                Item *object = objectsFactory.createObject(layer[i], posX, posY);
 
-                Enemy *enemy = enemyFactory.createEnemy(layer[i], posX, posY);
-                if (enemy != nullptr)
-                    map->getEnemies().push_back(enemy);
+                if (object != nullptr) {
 
+                    if (layer[i] == redFlagLow || layer[i] == blueFlag)
+                        object->setCollision(checkpointCollision);
+                    else
+                        object->setCollision(collision);
+
+                    if (layer[i] == stoneGenerator || layer[i] == blueFlag) {
+
+                        map->getAnimatedObjects().push_back(object);
+
+                    }
+
+
+                    map->getObjectsCollector().push_back(object);
+                    object->getSprite().setPosition(posX, posY);
+
+                } else {
+
+                    Enemy *enemy = enemyFactory.createEnemy(layer[i], posX, posY);
+                    if (enemy != nullptr)
+                        map->getEnemies().push_back(enemy);
+
+                }
             }
         }
 
     }
 
+    return true;
 }

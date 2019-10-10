@@ -149,6 +149,10 @@ void Map::updateEnemies(GameHero &player) {
 
 }
 
+std::vector<Door *> &Map::getDoors() {
+    return doors;
+}
+
 //std::vector<std::unique_ptr<Item>> &Map::getObjectsCollector() {
 //    return objectsCollector;
 //}

@@ -18,7 +18,7 @@ public:
 
     void updatePosition();
 
-    void inflictDamage(Map &map, Enemy *enemy);
+    void inflictDamage(Map &map, GameCharacter *target);
 
     sf::Sprite &getSprite();
 

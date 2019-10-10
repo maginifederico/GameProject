@@ -94,7 +94,7 @@ int main() {
     ////INIT PLAYER WEAPON
 
     WeaponFactory weaponFactory;
-    int weaponNumber = 1;
+    int weaponNumber = 0;
 
 //    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
 
@@ -119,6 +119,17 @@ int main() {
 
     player.loadGui();
 
+
+
+    ////ENEMIES
+    StillBehaviour *behaviour;
+    for (Enemy *enemy : map->getEnemies()) {
+
+        behaviour = dynamic_cast<StillBehaviour *>(enemy->getMovementBehaviour());
+        if (behaviour != nullptr)
+            behaviour->setPlayer(&player);
+
+    }
 
 
 
@@ -202,6 +213,9 @@ int main() {
             }
         }
 
+        for (Door *door : map->getDoors())
+            window.draw(door->getSprite());
+        
         for (Enemy *enemy:map->getEnemies()) {
             window.draw(enemy->getSprite());
         }

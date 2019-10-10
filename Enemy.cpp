@@ -14,9 +14,10 @@
 //
 //}
 
-Enemy::Enemy(std::string &texturePath, sf::Vector2f position, float speed, float uWspeed, int hp,
+Enemy::Enemy(std::string &texturePath, sf::Vector2f position, float speed, float underWaterSpeed, int hp,
              int id, MovementBehaviour *behaviour, int melee) : GameCharacter(texturePath, position, speed,
-                                                                              uWspeed, hp), id(id), meleeDamage(melee) {
+                                                                              underWaterSpeed, hp), id(id),
+                                                                meleeDamage(melee) {
 
     const int mole = 38;
     const int shooterDX = 127;

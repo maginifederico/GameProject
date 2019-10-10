@@ -6,19 +6,47 @@
 #define GAME_DOORFACTORY_H
 
 
-#include "Item.h"
+#include "Door.h"
 
 class DoorFactory {
 
 public:
-    Item *createDoor(int id, float posX, float posY);
+    Door *createDoor(int id, int mapID, int column, float posX, float posY);
 
 };
 
-Item *DoorFactory::createDoor(int id, float posX, float posY) {
+Door *DoorFactory::createDoor(int id, int mapID, int column, float posX, float posY) {
 
 //    std::unique_ptr<Item> result;
-    Item *result;
+    Door *result;
+
+    const int brownDoorID = 54;
+    const int blackDoorID = 56;
+
+
+    switch (column) {
+        case blackDoorID:
+        case brownDoorID: {
+
+            std::string doorTexturePath;
+
+            if (id == blackDoorID)
+                doorTexturePath = "./Textures/BlackDoor.png";
+
+            if (id == brownDoorID)
+                doorTexturePath = "./Textures/BrownDoor.png";
+
+
+            result = new Door(mapID, 1, doorTexturePath, id);
+
+            break;
+
+        }
+
+        default:
+            return nullptr;
+
+    }
 
 //    case id:
 

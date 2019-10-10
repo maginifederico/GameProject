@@ -10,9 +10,8 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include "GameHero.h"
-#include "Projectile.h"
-#include "Item.h"
 #include "Bonus.h"
+#include "Projectile.h"
 
 
 class Item;
@@ -33,11 +32,11 @@ public:
 
     void checkProjectileCollision(Map &map);
 
-//    virtual ~Weapon() {
-//
-//        delete attackBonus;
-//
-//    }
+    virtual ~Weapon() {
+
+        delete attackBonus;
+
+    }
 
     Bonus *getAttackBonus();
 

@@ -161,25 +161,6 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
         }
 
 
-//        case blackDoorID:
-//        case brownDoorID: {
-//
-//            std::string doorTexturePath;
-//
-//            if (id == blackDoorID)
-//                doorTexturePath = "./Textures/BlackDoor.png";
-//
-//            if (id == brownDoorID)
-//                doorTexturePath = "./Textures/BrownDoor.png";
-//
-//
-//            result = new Door(doorTexturePath, id);
-//
-//            break;
-//
-//        }
-
-
         default:
             result = nullptr;
 

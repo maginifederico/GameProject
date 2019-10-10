@@ -12,7 +12,7 @@ class Door : public Item {
 
 public:
 
-    Door(int levelNumber, int doorNumber, std::string texturePath, int id);
+    explicit Door(int levelNumber, int doorNumber, std::string texturePath, int id);
 
     void interact(GameHero *player, Map &map) override;
 
