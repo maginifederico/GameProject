@@ -32,7 +32,7 @@ public:
 
 //    Item *item;
 
-    int getMovementDirection() const;
+    Direction getMovementDirection() const;
 
     const sf::Vector2f &getVelocity() const;
 
@@ -90,8 +90,7 @@ private:
 
     //serve per vedere qual era l'ultima direzione posseduta dal giocatore. In questo modo si evita di ricaricare la
     //texture della patata quando la direzione non è cambiata. Vale true se era destra, false altrimenti.
-    int movementDirection = true;
-
+    Direction movementDirection;
 
     sf::Vector2f velocity;
     const float jumpSpeed = -1.9f;

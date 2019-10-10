@@ -10,9 +10,9 @@
  * FlyingBehaviour implementation
  */
 
-FlyingBehaviour::FlyingBehaviour(bool dir) {
+FlyingBehaviour::FlyingBehaviour(Direction dir) {
 
-    rightDirection = dir;
+    direction = dir;
 
     std::string bat = "./Textures/Bat";
     std::string SX = "SX.png";
@@ -37,7 +37,7 @@ FlyingBehaviour::FlyingBehaviour(bool dir) {
 void FlyingBehaviour::updatePosition(Map &map, Enemy &enemy) {
 
     if (animationClock.getElapsedTime().asSeconds() > animationTime) {
-        if (rightDirection) {
+        if (direction == right) {
             if (animationNumber == 3) {
                 enemy.getSprite().setTexture(textureDX[0]);
                 animationNumber = 0;
@@ -56,10 +56,10 @@ void FlyingBehaviour::updatePosition(Map &map, Enemy &enemy) {
 
     if (playerPosition.x - enemy.getSprite().getPosition().x < 0) {
         enemy.getSprite().move(-enemy.getSpeed(), 0);
-        rightDirection = false;
+        direction = left;
     } else {
         enemy.getSprite().move(enemy.getSpeed(), 0);
-        rightDirection = true;
+        direction = right;
     }
 
     if (playerPosition.y - enemy.getSprite().getPosition().y > 0)
@@ -69,13 +69,13 @@ void FlyingBehaviour::updatePosition(Map &map, Enemy &enemy) {
 
 //
 //    if (animationNumber == 2) {
-//        if (rightDirection)
+//        if (getDirection)
 //            enemy.getSprite().setTexture(textureDX[0]);
 //        else
 //            enemy.getSprite().setTexture(textureSX[0]);
 //        animationNumber = 0;
 //    } else {
-//        if (rightDirection)
+//        if (getDirection)
 //            enemy.getSprite().setTexture(textureDX[animationNumber++]);
 //        else
 //            enemy.getSprite().setTexture(textureDX[animationNumber++]);

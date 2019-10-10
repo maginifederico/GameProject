@@ -70,6 +70,7 @@ int main() {
     //TODO doors
 
 
+
     ////INIT WINDOW
 
     const unsigned int WINDOW_WIDTH = 1920;
@@ -86,7 +87,7 @@ int main() {
     MapFactory mapFactory;
 
     Map *map;
-    int id = 1;
+    int id = 3;
     map = mapFactory.createMap(id);
 
 
@@ -207,7 +208,7 @@ int main() {
             StillBehaviour *ptr;
             ptr = dynamic_cast<StillBehaviour *> (enemy->getMovementBehaviour());
             if (ptr != nullptr) {
-                for (Projectile projectile : ptr->getProjectiles()) {
+                for (Projectile projectile : ptr->getWeapon()->getProjectiles()) {
                     window.draw(projectile.getSprite());
                 }
             }

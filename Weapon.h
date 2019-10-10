@@ -26,17 +26,19 @@ public:
 
 //    Weapon(Weapon &gun);
 
-    void createProjectile(sf::Vector2f playerPosition, bool movementDirection);
+    void createProjectile(sf::Vector2f playerPosition, Direction movementDirection);
 
     std::vector<Projectile> &getProjectiles();
 
-    void checkProjectileCollision(Map &map);
+    void checkProjectileCollision(Map &map, GameHero *player = nullptr);
 
     virtual ~Weapon() {
 
         delete attackBonus;
 
     }
+
+    void setCooldown(float cooldown);
 
     Bonus *getAttackBonus();
 

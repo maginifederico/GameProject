@@ -36,7 +36,7 @@ Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float
 //}
 
 
-void Weapon::createProjectile(sf::Vector2f shooterPosition, bool movementDirection) {
+void Weapon::createProjectile(sf::Vector2f shooterPosition, Direction movementDirection) {
 
     //Gestione cooldown
     sf::Time elapsedTime = clock.getElapsedTime();
@@ -60,7 +60,7 @@ std::vector<Projectile> &Weapon::getProjectiles() {
     return projectiles;
 }
 
-void Weapon::checkProjectileCollision(Map &map) {
+void Weapon::checkProjectileCollision(Map &map, GameHero *player) {
 
 
     int c;
@@ -113,7 +113,7 @@ void Weapon::checkProjectileCollision(Map &map) {
                                                              int(map.getWidth() / 21)].getCollision();
 
 
-            if (projectiles[i].rightDirection()) {
+            if (projectiles[i].getDirection() == right) {
 
                 //GROUND COLLISION
                 if (
@@ -122,21 +122,37 @@ void Weapon::checkProjectileCollision(Map &map) {
                          || projectiles[i].getSprite().getGlobalBounds().intersects(rightDownCollision))
                         && (rightID != water && rightID != waterSurface && downRightID != waterSurface)
 
+
                         )
                     collision = true;
                 else
                     collision = false;
 
-                //ENEMY COLLISION
-                for (int y = 0; y < map.getEnemies().size(); y++) {
-                    if (projectiles[i].getSprite().getGlobalBounds().intersects(
-                            map.getEnemies()[y]->getSprite().getGlobalBounds())) {
-                        projectiles[i].inflictDamage(map, map.getEnemies()[y]);
-                        projectiles.erase(projectiles.begin() + i);
-                        return;
+
+                ////DISTINGUERE CASO NEMICO STA SPARANDO DA PLAYER STA SPARANDO
+
+                if (player == nullptr) {
+                    //ENEMY COLLISION
+                    for (int y = 0; y < map.getEnemies().size(); y++) {
+                        if (projectiles[i].getSprite().getGlobalBounds().intersects(
+                                map.getEnemies()[y]->getSprite().getGlobalBounds())) {
+                            projectiles[i].inflictDamage(map, map.getEnemies()[y]);
+                            projectiles.erase(projectiles.begin() + i);
+                            return;
+                        }
+                    }
+
+                } else {
+                    //PLAYER COLLISION
+                    for (int y = 0; y < map.getEnemies().size(); y++) {
+                        if (projectiles[i].getSprite().getGlobalBounds().intersects(
+                                player->getSprite().getGlobalBounds())) {
+                            projectiles[i].inflictDamage(map, player);
+                            projectiles.erase(projectiles.begin() + i);
+                            return;
+                        }
                     }
                 }
-
 
             } else {
                 if (
@@ -150,13 +166,30 @@ void Weapon::checkProjectileCollision(Map &map) {
                 else
                     collision = false;
 
-                for (int y = 0; y < map.getEnemies().size(); y++) {
-                    if (projectiles[i].getSprite().getGlobalBounds().intersects(
-                            map.getEnemies()[y]->getSprite().getGlobalBounds())) {
-                        projectiles[i].inflictDamage(map, map.getEnemies()[y]);
-                        projectiles.erase(projectiles.begin() + i);
-                        return;
+                ////DISTINGUERE CASO NEMICO STA SPARANDO DA PLAYER STA SPARANDO
+
+                if (player == nullptr) {
+                    //ENEMY COLLISION
+                    for (int y = 0; y < map.getEnemies().size(); y++) {
+                        if (projectiles[i].getSprite().getGlobalBounds().intersects(
+                                map.getEnemies()[y]->getSprite().getGlobalBounds())) {
+                            projectiles[i].inflictDamage(map, map.getEnemies()[y]);
+                            projectiles.erase(projectiles.begin() + i);
+                            return;
+                        }
                     }
+                } else {
+                    //PLAYER COLLISION
+                    for (int y = 0; y < map.getEnemies().size(); y++) {
+                        if (projectiles[i].getSprite().getGlobalBounds().intersects(
+                                player->getSprite().getGlobalBounds())) {
+                            projectiles[i].inflictDamage(map, player);
+                            projectiles.erase(projectiles.begin() + i);
+                            return;
+                        }
+                    }
+
+
                 }
             }
 
@@ -182,4 +215,8 @@ void Weapon::setAttackBonus(Bonus *aB) {
 
 float Weapon::getRange() const {
     return range;
+}
+
+void Weapon::setCooldown(float cooldown) {
+    Weapon::cooldown = cooldown;
 }

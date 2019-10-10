@@ -39,7 +39,8 @@ void Projectile::inflictDamage(Map &map, GameCharacter *target) {
 
 }
 
-Projectile::Projectile(std::string &texturePath, sf::Vector2f initPosition, float textureScale, bool movDirection,
+Projectile::Projectile(std::string &texturePath, sf::Vector2f initPosition, float textureScale,
+                       enum Direction movDirection,
                        int dmg, float sp) : initialPosition(initPosition), direction(movDirection), damage(dmg) {
 
     speed = sp;
@@ -57,7 +58,7 @@ sf::Sprite &Projectile::getSprite() {
 
 void Projectile::updatePosition() {
 
-    if (direction)
+    if (direction == right)
         sprite.move(speed, 0);
     else
         sprite.move(-speed, 0);
@@ -68,6 +69,6 @@ const sf::Vector2f &Projectile::getInitialPosition() const {
     return initialPosition;
 }
 
-bool Projectile::rightDirection() const {
+Direction Projectile::getDirection() const {
     return direction;
 }

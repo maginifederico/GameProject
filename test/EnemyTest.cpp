@@ -46,30 +46,17 @@ TEST(Enemy, Behaviour) {
     StillBehaviour *ptrDX = dynamic_cast<StillBehaviour *>(shooterDX->getMovementBehaviour());
     StillBehaviour *ptrSX = dynamic_cast<StillBehaviour *>(shooterSX->getMovementBehaviour());
 
-    ptrDX->setShootingCooldown(0.f);
-    ptrSX->setShootingCooldown(0.f);
+    ptrDX->getWeapon()->setCooldown(0.f);
+    ptrSX->getWeapon()->setCooldown(0.f);
 
     mole->updatePosition(map);
     shooterDX->updatePosition(map);
     shooterSX->updatePosition(map);
     bat->updatePosition(map);
 
-//    StillBehaviour *ptrDX = dynamic_cast<StillBehaviour *>(shooterDX);
-//    StillBehaviour *ptrSX = dynamic_cast<StillBehaviour *>(shooterSX);
-//
-//    if (ptrDX != nullptr && ptrSX != nullptr) {
-//
-//        while (ptrDX->getProjectiles().empty())
-//            shooterDX->updatePosition(map);
-//
-//        while (ptrSX->getProjectiles().empty())
-//            shooterSX->updatePosition(map);
-//
-//    }
-
-    ASSERT_FLOAT_EQ(mole->getSprite().getPosition().x, 100 - mole->getSpeed());
-    ASSERT_TRUE(ptrDX->getProjectiles()[0].rightDirection());
-    ASSERT_FALSE(ptrSX->getProjectiles()[0].rightDirection());
+    ASSERT_FLOAT_EQ(mole->getSprite().getPosition().x, 100.f - mole->getSpeed());
+    ASSERT_TRUE(ptrDX->getWeapon()->getProjectiles()[0].getDirection() == right);
+    ASSERT_FALSE(ptrSX->getWeapon()->getProjectiles()[0].getDirection() == left);
     ASSERT_FLOAT_EQ(bat->getSprite().getPosition().x, 21.f - bat->getSpeed());
     ASSERT_FLOAT_EQ(bat->getSprite().getPosition().y, 5 * 21.f - bat->getSpeed());
 

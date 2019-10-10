@@ -18,7 +18,7 @@ TEST(Weapon, shoot) {
     std::string weaponSpritePath = "./Textures/justOne.png";
     Weapon weapon(weaponSpritePath, 0.f, 0, 50.f, 0.f);
 
-    weapon.createProjectile(sf::Vector2f(0, 0), true);
+    weapon.createProjectile(sf::Vector2f(0, 0), right);
 
     ASSERT_FALSE(weapon.getProjectiles().empty());
 
@@ -34,7 +34,7 @@ TEST(Weapon, range) {
     std::string weaponSpritePath = "./Textures/justOne.png";
     Weapon weapon(weaponSpritePath, 1.f, 0, 50.f, 0.f);
 
-    weapon.createProjectile(sf::Vector2f(10, 10), true);
+    weapon.createProjectile(sf::Vector2f(10, 10), right);
 
 
     do { weapon.getProjectiles()[0].updatePosition(); }
