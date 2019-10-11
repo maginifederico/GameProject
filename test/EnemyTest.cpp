@@ -49,6 +49,10 @@ TEST(Enemy, Behaviour) {
     ptrDX->getWeapon()->setCooldown(0.f);
     ptrSX->getWeapon()->setCooldown(0.f);
 
+    ptrDX->setPlayer(&hero);
+    ptrSX->setPlayer(&hero);
+
+
     mole->updatePosition(map);
     shooterDX->updatePosition(map);
     shooterSX->updatePosition(map);
@@ -56,7 +60,7 @@ TEST(Enemy, Behaviour) {
 
     ASSERT_FLOAT_EQ(mole->getSprite().getPosition().x, 100.f - mole->getSpeed());
     ASSERT_TRUE(ptrDX->getWeapon()->getProjectiles()[0].getDirection() == right);
-    ASSERT_FALSE(ptrSX->getWeapon()->getProjectiles()[0].getDirection() == left);
+    ASSERT_TRUE(ptrSX->getWeapon()->getProjectiles()[0].getDirection() == left);
     ASSERT_FLOAT_EQ(bat->getSprite().getPosition().x, 21.f - bat->getSpeed());
     ASSERT_FLOAT_EQ(bat->getSprite().getPosition().y, 5 * 21.f - bat->getSpeed());
 

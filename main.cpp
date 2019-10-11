@@ -97,19 +97,6 @@ int main() {
     WeaponFactory weaponFactory;
     int weaponNumber = 0;
 
-//    std::unique_ptr<Weapon> justOne = weaponFactory.createWeapon(0);
-
-//    std::unique_ptr<Weapon> frenchFries = weaponFactory.createWeapon(1);
-
-//    Weapon *justOne = weaponFactory.createWeapon(0);
-
-//    Weapon *frenchFries = weaponFactory.createWeapon(1);
-
-
-//    Weapon frenchFries(FRENCH_FRIES_TEXTURE, french_fries_texture_scale, french_fries_damage, french_fries_range,
-//                       french_fries_cooldown);
-
-
     ////INIT PLAYER
 
     GameHero player(Vector2f(map->getSpawnPoint().x, map->getSpawnPoint().y),
@@ -194,7 +181,6 @@ int main() {
 
         for (Item *item : map->getObjectsCollector())
             window.draw(item->getSprite());
-//        window.draw(map.getLayer()[2]);
 
         for (Item *item :map->getAnimatedObjects()) {
             window.draw(item->getSprite());
@@ -223,29 +209,15 @@ int main() {
 
         window.draw(player.getSprite());
 
-//        window.draw(text);
         window.setView(player.getPlayerView());
 
-//        player.updateGUIPosition(bar, health, healthIndicator, coinIndicator);
-//        window.draw(bar);
-//        window.draw(health);
-//        window.draw(healthIndicator);
-
-//        gui.updatePosition(player.updateViewPosition(*map));
         for (sf::RectangleShape *current : player.getGuiShapes()) {
             window.draw(*current);
-//            delete current;
         }
 
         for (sf::Text *current : player.getGuiText()) {
             window.draw(*current);
-//            delete(current);
         }
-//        for (RectangleShape* shape : gui.getShapes())
-//            window.draw(*shape);
-//
-//        for (Text* txt : gui.getText())
-//            window.draw(*txt);
 
         //render ui
         window.display();
