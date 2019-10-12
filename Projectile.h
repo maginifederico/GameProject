@@ -14,7 +14,7 @@ class Projectile {
 public:
 
     Projectile(std::string &texturePath, sf::Vector2f initialPosition, float textureScale, Direction movDirection,
-               int damage, float speed = 3.f);
+               int damage, float speed);
 
     void updatePosition();
 

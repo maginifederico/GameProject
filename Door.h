@@ -12,18 +12,24 @@ class Door : public Item {
 
 public:
 
-    explicit Door(int levelNumber, int doorNumber, std::string texturePath, int id);
+    explicit Door(sf::Vector2f nextMapPosition, int nextMapID, std::string doorTexturePath, int id,
+                  bool disabled = false);
 
     void interact(GameHero *player, Map &map) override;
 
     void update(Map *map) override;
 
+    int getNextMapId() const;
+
+    const sf::Vector2f &getNextSpawnPoint() const;
+
+    bool isDisabled() const;
 
 private:
 
     bool disabled;
 
-    std::string mapPathToLoad;
+    int nextMapID;
 
     sf::Vector2f nextSpawnPoint;
 

@@ -72,7 +72,6 @@ int main() {
 
 
     ////INIT WINDOW
-
     const unsigned int WINDOW_WIDTH = 1920;
     const unsigned int WINDOW_HEIGHT = 1010;
     int frameRate = 160;
@@ -83,7 +82,6 @@ int main() {
 
 
     ////INIT MAP
-
     MapFactory mapFactory;
 
     Map *map;
@@ -93,18 +91,17 @@ int main() {
 
 
     ////INIT PLAYER WEAPON
-
     WeaponFactory weaponFactory;
-    int weaponNumber = 0;
+    const int justOne = 0;
+    const int frenchFries = 1;
+
 
     ////INIT PLAYER
-
     GameHero player(Vector2f(map->getSpawnPoint().x, map->getSpawnPoint().y),
                     Vector2f(map->getViewWidth(), map->getViewHeight())/*, weapon*/);
-    player.setWeapon(weaponFactory.createWeapon(weaponNumber));
+    player.setWeapon(weaponFactory.createWeapon(frenchFries));
 
     ////INIT GUI
-
     player.loadGui();
 
 
@@ -171,6 +168,21 @@ int main() {
         player.manageBonuses();
         map->updateEnemies(player);
 
+        for (Door *door : map->getDoors()) {
+            if (player.getSprite().getGlobalBounds().intersects(door->getCollision())) {
+                if (!door->isDisabled()) {
+                    sf::Vector2f offset = player.getSprite().getPosition();
+                    map = mapFactory.createMap(door->getNextMapId());
+//                    player.getSprite().setPosition(door->getNextSpawnPoint());
+//                    offset = player.getSprite().getPosition() - offset;
+//                    player.getPlayerView().move(offset);
+//                    player.updateViewPosition(*map);
+
+//                player.updateViewPosition(*map);
+                }
+            }
+        }
+
         //render
         window.clear();
 
@@ -186,10 +198,6 @@ int main() {
             window.draw(item->getSprite());
         }
 
-        for (Projectile projectile : player.getWeapon()->getProjectiles()) {
-            window.draw(projectile.getSprite());
-        }
-
         for (Enemy *enemy: map->getEnemies()) {
             StillBehaviour *ptr;
             ptr = dynamic_cast<StillBehaviour *> (enemy->getMovementBehaviour());
@@ -200,10 +208,15 @@ int main() {
             }
         }
 
-        for (Door *door : map->getDoors())
+        for (Door *door : map->getDoors()) {
             window.draw(door->getSprite());
-        
-        for (Enemy *enemy:map->getEnemies()) {
+        }
+
+        for (Projectile projectile : player.getWeapon()->getProjectiles()) {
+            window.draw(projectile.getSprite());
+        }
+
+        for (Enemy *enemy : map->getEnemies()) {
             window.draw(enemy->getSprite());
         }
 

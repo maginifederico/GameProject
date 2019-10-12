@@ -45,19 +45,13 @@ Enemy *EnemyFactory::createEnemy(int id, float posX, float posY) {
 
                 result = new Enemy(shooterTexturePath, sf::Vector2f(posX, posY), shooterSpeed, shooterUnderWaterSpeed,
                                    HP, id, new StillBehaviour(right), melee);
-            }
-
-            if (id == shooterSX) {
+            } else {
                 shooterTexturePath = "./Textures/ShootingEnemySX.png";
 
                 result = new Enemy(shooterTexturePath, sf::Vector2f(posX, posY), shooterSpeed, shooterUnderWaterSpeed,
                                    HP, id, new StillBehaviour(left), melee);
             }
 
-
-
-//            result = new Enemy(shooterTexturePath, sf::Vector2f(posX, posY), shooterSpeed, shooterUnderWaterSpeed, HP,
-//                               id, new StillBehaviour(), melee);
 
             break;
         }

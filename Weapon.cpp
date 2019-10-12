@@ -17,12 +17,10 @@
  */
 
 
-Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float cDown, float explRange, int lvl)
-        : texturePath(textPath), textureScale(textScale), damage(dmg), range(rng), cooldown(cDown),
-          explosionRange(explRange), level(lvl) {
+Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float cDown, float spd, float explRange,
+               int lvl) : texturePath(textPath), textureScale(textScale), damage(dmg), range(rng), cooldown(cDown),
+                          speed(spd), explosionRange(explRange), level(lvl) {
 
-//    std::string pippo = "./Textures/Transparent.png";
-//    attackBonus = new Bonus(pippo, 0, 0.f, 0);
     attackBonus = nullptr;
     if (!texture.loadFromFile(textPath))
         std::cout << "Unable to load the sprite";
@@ -48,7 +46,7 @@ void Weapon::createProjectile(sf::Vector2f shooterPosition, Direction movementDi
             bonus = damage * attackBonus->getBonusValue() / 100;
         }
         Projectile newProjectile(
-                Projectile(texturePath, shooterPosition, textureScale, movementDirection, damage + bonus));
+                Projectile(texturePath, shooterPosition, textureScale, movementDirection, damage + bonus, speed));
         newProjectile.getSprite().setTexture(texture);
         projectiles.emplace_back(newProjectile);
         clock.restart();

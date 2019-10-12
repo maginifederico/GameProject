@@ -18,7 +18,10 @@ StillBehaviour::StillBehaviour(Direction dir) {
     int projectileDamage = 20;
     std::string projectilePath = "./Textures/StillEnemyProjectile.png";
 
-    weapon = new Weapon(projectilePath, projectileScale, projectileDamage, projectileRange, shootingCooldown);
+    weapon = new Weapon(projectilePath, projectileScale, projectileDamage, projectileRange, shootingCooldown,
+                        projectileSpeed);
+
+    player = nullptr;
 
 }
 

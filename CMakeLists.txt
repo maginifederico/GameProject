@@ -7,9 +7,9 @@ set(SOURCE_FILES Layer.h Layer.cpp Obstacle.h Item.h GameHero.h Map.h GameHero.c
         GameHero.cpp Tile.cpp Tile.h GameCharacter.cpp GameCharacter.h Map.cpp Weapon.cpp Weapon.h Projectile.cpp
         Projectile.h WeaponFactory.h ObjectFactory.h Coin.cpp Coin.h MapFactory.h HealthPill.h HealthPill.cpp Spike.cpp
         Spike.h Checkpoint.cpp Checkpoint.h Gui.cpp Gui.h StoneGenerator.cpp StoneGenerator.h Stone.cpp Stone.h
-        BlueFlag.cpp BlueFlag.h Door.cpp Door.h DoorFactory.h Bonus.cpp Bonus.h DefenceBonus.cpp DefenceBonus.h Enemy.h
+        BlueFlag.cpp BlueFlag.h Door.cpp Door.h DoorFactory.h Bonus.cpp Bonus.h Enemy.h
         Enemy.cpp MovementBehaviour.h MovementBehaviour.cpp EnemyFactory.h WalkingBehaviour.h WalkingBehaviour.cpp
-        FlyingBehaviour.h FlyingBehaviour.cpp StillBehaviour.cpp StillBehaviour.h EnemyFactory.cpp)
+        FlyingBehaviour.h FlyingBehaviour.cpp StillBehaviour.cpp StillBehaviour.h EnemyFactory.cpp MapFactory.cpp DoorFactory.cpp WeaponFactory.cpp)
 
 
 add_executable(Game main.cpp ${SOURCE_FILES})
