@@ -168,17 +168,25 @@ int main() {
         player.manageBonuses();
         map->updateEnemies(player);
 
+        ////DOOR MANAGEMENT
         for (Door *door : map->getDoors()) {
             if (player.getSprite().getGlobalBounds().intersects(door->getCollision())) {
-                if (!door->isDisabled()) {
-                    sf::Vector2f offset = player.getSprite().getPosition();
-                    map = mapFactory.createMap(door->getNextMapId());
-//                    player.getSprite().setPosition(door->getNextSpawnPoint());
-//                    offset = player.getSprite().getPosition() - offset;
-//                    player.getPlayerView().move(offset);
-//                    player.updateViewPosition(*map);
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+                    if (!door->isDisabled()) {
+                        sf::Vector2f offset = player.getSprite().getPosition();
+                        map = mapFactory.createMap(door->getNextMapId());
+                        player.getSprite().setPosition(door->getNextSpawnPoint());
+                        offset = player.getSprite().getPosition() - offset;
+                        player.getPlayerView().move(offset);
+                        //SISTEMARE RESPAWN
+//                        player.getPlayerView().reset(
+//                                sf::FloatRect(map->getSpawnPoint().x, map->getSpawnPoint().y, map->getViewWidth(),
+//                                              map->getViewHeight()));
 
-//                player.updateViewPosition(*map);
+//                      player.updateViewPosition(*map);
+
+                        player.loadGui();
+                    }
                 }
             }
         }

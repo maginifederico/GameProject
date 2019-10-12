@@ -144,8 +144,8 @@ bool Layer::loadObject(Map *map) {
 
                 if (door != nullptr) {
                     door->getSprite().setPosition(posX, posY);
-//                    door->setCollision(doorCollision);
-//                    map->getDoors().push_back(door);
+                    door->setCollision(doorCollision);
+                    map->getDoors().push_back(door);
                 }
 
             } else {

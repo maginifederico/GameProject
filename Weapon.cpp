@@ -127,10 +127,8 @@ void Weapon::checkProjectileCollision(Map &map, GameHero *player) {
                     collision = false;
 
 
-                ////DISTINGUERE CASO NEMICO STA SPARANDO DA PLAYER STA SPARANDO
-
                 if (player == nullptr) {
-                    //ENEMY COLLISION
+                    //ENEMY COLLISION, PLAYER STA SPARANDO
                     for (int y = 0; y < map.getEnemies().size(); y++) {
                         if (projectiles[i].getSprite().getGlobalBounds().intersects(
                                 map.getEnemies()[y]->getSprite().getGlobalBounds())) {
@@ -141,7 +139,7 @@ void Weapon::checkProjectileCollision(Map &map, GameHero *player) {
                     }
 
                 } else {
-                    //PLAYER COLLISION
+                    //PLAYER COLLISION, ENEMY STA SPARANDO
                     for (int y = 0; y < map.getEnemies().size(); y++) {
                         if (projectiles[i].getSprite().getGlobalBounds().intersects(
                                 player->getSprite().getGlobalBounds())) {
@@ -164,7 +162,6 @@ void Weapon::checkProjectileCollision(Map &map, GameHero *player) {
                 else
                     collision = false;
 
-                ////DISTINGUERE CASO NEMICO STA SPARANDO DA PLAYER STA SPARANDO
 
                 if (player == nullptr) {
                     //ENEMY COLLISION
@@ -178,13 +175,11 @@ void Weapon::checkProjectileCollision(Map &map, GameHero *player) {
                     }
                 } else {
                     //PLAYER COLLISION
-                    for (int y = 0; y < map.getEnemies().size(); y++) {
-                        if (projectiles[i].getSprite().getGlobalBounds().intersects(
-                                player->getSprite().getGlobalBounds())) {
-                            projectiles[i].inflictDamage(map, player);
-                            projectiles.erase(projectiles.begin() + i);
-                            return;
-                        }
+                    if (projectiles[i].getSprite().getGlobalBounds().intersects(
+                            player->getSprite().getGlobalBounds())) {
+                        projectiles[i].inflictDamage(map, player);
+                        projectiles.erase(projectiles.begin() + i);
+                        return;
                     }
 
 
