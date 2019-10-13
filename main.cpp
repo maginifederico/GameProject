@@ -186,6 +186,7 @@ int main() {
                     if (!door->isDisabled()) {
 
                         sf::Vector2f offset = -player.getSprite().getPosition();
+                        delete map;
                         map = mapFactory.createMap(door->getNextMapId());
 
                         for (Enemy *enemy : map->getEnemies()) {
@@ -195,6 +196,7 @@ int main() {
                                 behaviour->setPlayer(&player);
                         }
 
+                        player.setHP(100, *map);
                         player.getSprite().setPosition(door->getNextSpawnPoint());
                         offset += player.getSprite().getPosition();
                         player.getPlayerView().move(offset);
@@ -227,16 +229,8 @@ int main() {
 
                         player.getGui().reset();
 
-                        //SISTEMARE RESPAWN
-
-
-//                        player.getPlayerView().reset(
-//                                sf::FloatRect(map->getSpawnPoint().x, map->getSpawnPoint().y, map->getViewWidth(),
-//                                              map->getViewHeight()));
-
-//                      player.updateViewPosition(*map);
-
                         player.getGui().load(player.getPlayerView());
+                        break;
                     }
                 }
             }
