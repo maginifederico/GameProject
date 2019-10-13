@@ -20,9 +20,10 @@ class GameHero : public GameCharacter {
 
 
 public:
-    explicit GameHero(sf::Vector2f initialPosition, sf::Vector2f playerView, Weapon *gun = nullptr,
-                      int HP = 100, float speed = 1.f, float underWaterSpeed = 0.5f,
-                      std::string texture = "./Textures/PotatoDX.png");
+    explicit GameHero(sf::Vector2f initialPosition, sf::Vector2f playerView, Gui &gui, Weapon *gun = nullptr,
+                      int HP = 100,
+                      float speed = 5.f, float underWaterSpeed = 0.5f, std::string texture = "./Textures/PotatoDX.png"
+    );
 
     void updatePosition(Map &ground) override;
 
@@ -54,19 +55,19 @@ public:
 
     sf::View &getPlayerView();
 
-    void loadGui();
+//    void loadGui();
 
     std::vector<sf::Text *> &getGuiText();
 
     std::vector<sf::RectangleShape *> &getGuiShapes();
 
-    Gui *getGui();
+    Gui &getGui();
 
     void setHP(int hp, Map &map) override;
 
     ~GameHero() override {
-        if (gui != nullptr)
-            delete gui;
+//        if (gui != nullptr)
+//            delete gui;
     };
 
     const sf::Clock &getClock() const;
@@ -76,6 +77,8 @@ public:
     void setDefenceBonus(Bonus *defenceBonus);
 
     void checkEnemyCollision(Map &map);
+
+    void setGui(Gui &gui);
 
 private:
 
@@ -102,7 +105,7 @@ private:
 
     std::unique_ptr<Weapon> weapon;
 
-    Gui *gui;
+    Gui &gui;
 
     sf::Clock clock;
 

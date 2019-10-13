@@ -211,3 +211,15 @@ void Gui::updateLivesCount(int lives) {
     text[livesCountIndex]->setString(std::to_string(lives));
 
 }
+
+void Gui::reset() {
+
+    for (sf::Text *txt : text)
+        delete txt;
+    text.clear();
+
+    for (sf::RectangleShape *rect : shapes)
+        delete rect;
+    shapes.clear();
+
+}

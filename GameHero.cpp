@@ -13,8 +13,8 @@
  */
 
 
-GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun, int HP,
-                   float speed, float underWaterSpeed, std::string texture) : weapon(gun), lives(3),
+GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f playerView, Gui &gui, Weapon *gun, int HP, float speed,
+                   float underWaterSpeed, std::string texture) : weapon(gun), lives(3), gui(gui),
                                                                               GameCharacter(texture, initialPosition,
                                                                                             speed, underWaterSpeed,
                                                                                             HP) {
@@ -23,7 +23,7 @@ GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun,
     sprite.scale(0.15f, 0.15f);
     velocity.x = 0;
     velocity.y = 0;
-    playerView.reset(sf::FloatRect(0.f, 100.f, view.x, view.y));
+    playerView.reset(sf::FloatRect(0.f, 100.f, playerView.x, playerView.y));
     viewPosition.height = playerView.getSize().y;
     viewPosition.width = playerView.getSize().x;
     viewPosition.top = playerView.getCenter().y - playerView.getSize().y / 2;
@@ -33,7 +33,7 @@ GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f view, Weapon *gun,
     A_Pressed = false;
     S_Pressed = false;
     D_Pressed = false;
-    gui = new Gui();
+//    gui = new Gui();
     defenceBonus = nullptr;
 //    weapon = new Weapon(gun);
 }
@@ -250,7 +250,7 @@ sf::Vector2f GameHero::updateViewPosition(Map &map) {
         playerView.setCenter(playerView.getCenter().x, sprite.getPosition().y - defaultDistanceY);
         offset.y += playerView.getCenter().y;
     }
-    gui->updatePosition(offset);
+    gui.updatePosition(offset);
     return offset;
 }
 
@@ -327,29 +327,28 @@ void GameHero::die(Map &map) {
         playerView.setCenter(playerView.getCenter().x, map.getHeight() - playerView.getSize().y / 2);
     if (playerView.getCenter().y + 40.f < map.getViewVerticalLimitUp())
         playerView.setCenter(playerView.getCenter().x, playerView.getSize().y / 2);
-    gui->getText().clear();
-    gui->getShapes().clear();
-    gui->load(playerView);
-    gui->updateLivesCount(lives);
+    gui.reset();
+    gui.load(playerView);
+    gui.updateLivesCount(lives);
     velocity.x = 0;
     velocity.y = 0;
 //    }
 
 }
 
-void GameHero::loadGui() {
-    gui->load(playerView);
-}
+//void GameHero::loadGui() {
+//    gui->load(playerView);
+//}
 
 std::vector<sf::Text *> &GameHero::getGuiText() {
-    return gui->getText();
+    return gui.getText();
 }
 
 std::vector<sf::RectangleShape *> &GameHero::getGuiShapes() {
-    return gui->getShapes();
+    return gui.getShapes();
 }
 
-Gui *GameHero::getGui() {
+Gui &GameHero::getGui() {
     return gui;
 }
 
@@ -368,7 +367,7 @@ void GameHero::setHP(int hp, Map &map) {
         die(map);
     else if (HP > 100)
         HP = 100;
-    gui->updateHealth(HP);
+    gui.updateHealth(HP);
 }
 
 const sf::Clock &GameHero::getClock() const {
@@ -408,4 +407,8 @@ void GameHero::checkEnemyCollision(Map &map) {
         }
     }
 
+}
+
+void GameHero::setGui(Gui &gui) {
+    GameHero::gui = gui;
 }

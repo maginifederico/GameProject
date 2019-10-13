@@ -35,6 +35,8 @@ public:
 
     void updateLivesCount(int lives);
 
+    void reset();
+
 //    ~Gui() {
 //        text.clear();
 //        shapes.clear();

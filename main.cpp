@@ -87,7 +87,7 @@ int main() {
     MapFactory mapFactory;
 
     Map *map;
-    int id = 3;
+    int id = 1;
     map = mapFactory.createMap(id);
 
 
@@ -97,17 +97,17 @@ int main() {
     WeaponFactory weaponFactory;
     int weaponNumber = 0;
 
+    ////INIT GUI
+
+    Gui gui;
+
     ////INIT PLAYER
 
     GameHero player(Vector2f(map->getSpawnPoint().x, map->getSpawnPoint().y),
-                    Vector2f(map->getViewWidth(), map->getViewHeight())/*, weapon*/);
+                    Vector2f(map->getViewWidth(), map->getViewHeight()), gui/*, weapon*/);
     player.setWeapon(weaponFactory.createWeapon(weaponNumber));
 
-    ////INIT GUI
-
-    player.loadGui();
-
-
+    player.getGui().load(player.getPlayerView());
 
     ////ENEMIES
     StillBehaviour *behaviour;
