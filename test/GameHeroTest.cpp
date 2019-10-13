@@ -7,8 +7,8 @@
 
 TEST(GameHero, Constructor) {
 
-    GameHero hero(sf::Vector2f(100.f, 0.f), sf::Vector2f(800.f, 525.f), nullptr, 0, 0, 0, std::__cxx11::string(),
-                  <#initializer#>);
+    Gui gui;
+    GameHero hero(sf::Vector2f(100.f, 0.f), sf::Vector2f(800.f, 525.f), gui);
 
     ASSERT_EQ(100.f, hero.getSprite().getPosition().x);
     ASSERT_EQ(0.f, hero.getSprite().getPosition().y);
@@ -23,8 +23,7 @@ TEST(GameHero, Collision) {
     map.load();
     map.setViewLimits();
     Gui gui;
-    GameHero hero(map.getSpawnPoint(), sf::Vector2f(800.f, 525.f), nullptr, 0, 0, 0, std::__cxx11::string(),
-                  <#initializer#>);
+    GameHero hero(map.getSpawnPoint(), sf::Vector2f(800.f, 525.f), gui);
     hero.setGui(gui);
     hero.getGui().load(hero.getPlayerView());
 

@@ -18,7 +18,7 @@
 #include "EnemyFactory.h"
 
 
-Layer::Layer(int width, int height, std::string tileSet) : width(width), height(height), tileset(tileSet) {
+Layer::Layer(int w, int h, std::string tileSet) : width(w), height(h), tileset(tileSet) {
     tile = new Tile[width * height];
 }
 
@@ -143,8 +143,9 @@ bool Layer::loadObject(Map *map) {
                                                     posY);
 
                 if (door != nullptr) {
-                    map->getDoors().push_back(door);
+                    door->getSprite().setPosition(posX, posY);
                     door->setCollision(doorCollision);
+                    map->getDoors().push_back(door);
                 }
 
             } else {

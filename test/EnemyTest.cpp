@@ -8,8 +8,8 @@
 
 TEST (Enemy, EnemyFactory) {
 
-    GameHero hero(sf::Vector2f(105.f, 0.f), sf::Vector2f(800.f, 525.f), nullptr, 0, 0, 0, std::__cxx11::string(),
-                  <#initializer#>);
+    Gui gui;
+    GameHero hero(sf::Vector2f(105.f, 0.f), sf::Vector2f(800.f, 525.f), gui);
 
     EnemyFactory enemyFactory;
 
@@ -33,8 +33,8 @@ TEST(Enemy, Behaviour) {
     Enemy *shooterSX = enemyFactory.createEnemy(128, 100.f, 336.f);
     Enemy *bat = enemyFactory.createEnemy(129, 21.f, 5 * 21.f);
 
-    GameHero hero(sf::Vector2f(105.f, 0.f), sf::Vector2f(800.f, 525.f), nullptr, 0, 0, 0, std::__cxx11::string(),
-                  <#initializer#>);
+    Gui gui;
+    GameHero hero(sf::Vector2f(105.f, 0.f), sf::Vector2f(800.f, 525.f), gui);
 
     Map map(6300.f, 525.f, sf::Vector2f(0, 0), "./Map/backgroundLevel1.txt", "./Map/groundLevel1.txt", "objectsLevel1",
             1);

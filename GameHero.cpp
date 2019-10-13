@@ -23,11 +23,11 @@ GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f playerView, Gui &g
     sprite.scale(0.15f, 0.15f);
     velocity.x = 0;
     velocity.y = 0;
-    playerView.reset(sf::FloatRect(0.f, 100.f, playerView.x, playerView.y));
-    viewPosition.height = playerView.getSize().y;
-    viewPosition.width = playerView.getSize().x;
-    viewPosition.top = playerView.getCenter().y - playerView.getSize().y / 2;
-    viewPosition.left = playerView.getCenter().x - playerView.getSize().x / 2;
+    GameHero::playerView.reset(sf::FloatRect(0.f, 100.f, playerView.x, playerView.y));
+    viewPosition.height = GameHero::playerView.getSize().y;
+    viewPosition.width = GameHero::playerView.getSize().x;
+    viewPosition.top = GameHero::playerView.getCenter().y - GameHero::playerView.getSize().y / 2;
+    viewPosition.left = GameHero::playerView.getCenter().x - GameHero::playerView.getSize().x / 2;
     movementDirection = right;
     W_Pressed = false;
     A_Pressed = false;

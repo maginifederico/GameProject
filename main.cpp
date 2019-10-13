@@ -93,21 +93,24 @@ int main() {
 
 
     ////INIT PLAYER WEAPON
-
     WeaponFactory weaponFactory;
-    int weaponNumber = 0;
+    const int justOne = 0;
+    const int frenchFries = 1;
 
-    ////INIT GUI
-
-    Gui gui;
 
     ////INIT PLAYER
 
+    Gui gui;
+
     GameHero player(Vector2f(map->getSpawnPoint().x, map->getSpawnPoint().y),
                     Vector2f(map->getViewWidth(), map->getViewHeight()), gui/*, weapon*/);
-    player.setWeapon(weaponFactory.createWeapon(weaponNumber));
+    player.setWeapon(weaponFactory.createWeapon(frenchFries));
+
+    ////INIT GUI
 
     player.getGui().load(player.getPlayerView());
+
+
 
     ////ENEMIES
     StillBehaviour *behaviour;
@@ -119,6 +122,9 @@ int main() {
 
     }
 
+
+    const float defaultDistanceX = (player.getPlayerView().getSize().x / 2) - 125.f;
+    const float defaultDistanceY = 40.f;
 
 
     ////GAME LOOP
@@ -171,6 +177,71 @@ int main() {
         player.manageBonuses();
         map->updateEnemies(player);
 
+        ////DOOR MANAGEMENT
+
+
+        for (Door *door : map->getDoors()) {
+            if (player.getSprite().getGlobalBounds().intersects(door->getCollision())) {
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+                    if (!door->isDisabled()) {
+
+                        sf::Vector2f offset = -player.getSprite().getPosition();
+                        map = mapFactory.createMap(door->getNextMapId());
+
+                        for (Enemy *enemy : map->getEnemies()) {
+
+                            behaviour = dynamic_cast<StillBehaviour *>(enemy->getMovementBehaviour());
+                            if (behaviour != nullptr)
+                                behaviour->setPlayer(&player);
+                        }
+
+                        player.getSprite().setPosition(door->getNextSpawnPoint());
+                        offset += player.getSprite().getPosition();
+                        player.getPlayerView().move(offset);
+
+                        if (player.getSprite().getPosition().x !=
+                            player.getPlayerView().getCenter().x - defaultDistanceX)
+                            player.getPlayerView().setCenter(player.getSprite().getPosition().x + defaultDistanceX,
+                                                             player.getPlayerView().getCenter().y);
+
+                        if (player.getSprite().getPosition().y !=
+                            player.getPlayerView().getCenter().y + defaultDistanceY)
+                            player.getPlayerView().setCenter(player.getSprite().getPosition().x,
+                                                             player.getSprite().getPosition().y + defaultDistanceY);
+
+
+                        if (player.getPlayerView().getCenter().x - player.getPlayerView().getSize().x / 4 <
+                            map->getViewHorizontalLimitSx())
+                            player.getPlayerView().setCenter(player.getPlayerView().getSize().x / 2,
+                                                             player.getPlayerView().getCenter().y);
+                        if (player.getPlayerView().getCenter().x - player.getPlayerView().getSize().x / 4 >
+                            map->getViewHorizontalLimitDx())
+                            player.getPlayerView().setCenter(map->getWidth() - player.getPlayerView().getSize().x / 2,
+                                                             player.getPlayerView().getCenter().y);
+                        if (player.getPlayerView().getCenter().y + 40.f > map->getViewVerticalLimitDown())
+                            player.getPlayerView().setCenter(player.getPlayerView().getCenter().x,
+                                                             map->getHeight() - player.getPlayerView().getSize().y / 2);
+                        if (player.getPlayerView().getCenter().y + 40.f < map->getViewVerticalLimitUp())
+                            player.getPlayerView().setCenter(player.getPlayerView().getCenter().x,
+                                                             player.getPlayerView().getSize().y / 2);
+
+                        player.getGui().reset();
+
+                        //SISTEMARE RESPAWN
+
+
+//                        player.getPlayerView().reset(
+//                                sf::FloatRect(map->getSpawnPoint().x, map->getSpawnPoint().y, map->getViewWidth(),
+//                                              map->getViewHeight()));
+
+//                      player.updateViewPosition(*map);
+
+                        player.getGui().load(player.getPlayerView());
+                    }
+                }
+            }
+        }
+
         //render
         window.clear();
 
@@ -186,10 +257,6 @@ int main() {
             window.draw(item->getSprite());
         }
 
-        for (Projectile projectile : player.getWeapon()->getProjectiles()) {
-            window.draw(projectile.getSprite());
-        }
-
         for (Enemy *enemy: map->getEnemies()) {
             StillBehaviour *ptr;
             ptr = dynamic_cast<StillBehaviour *> (enemy->getMovementBehaviour());
@@ -200,10 +267,15 @@ int main() {
             }
         }
 
-        for (Door *door : map->getDoors())
+        for (Door *door : map->getDoors()) {
             window.draw(door->getSprite());
-        
-        for (Enemy *enemy:map->getEnemies()) {
+        }
+
+        for (Projectile projectile : player.getWeapon()->getProjectiles()) {
+            window.draw(projectile.getSprite());
+        }
+
+        for (Enemy *enemy : map->getEnemies()) {
             window.draw(enemy->getSprite());
         }
 
