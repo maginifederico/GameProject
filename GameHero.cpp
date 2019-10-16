@@ -336,10 +336,6 @@ void GameHero::die(Map &map) {
 
 }
 
-//void GameHero::loadGui() {
-//    gui->load(playerView);
-//}
-
 std::vector<sf::Text *> &GameHero::getGuiText() {
     return gui.getText();
 }

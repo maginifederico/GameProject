@@ -48,6 +48,14 @@ int main() {
     //gameBonus (attack and shield)
     //conto vite
 
+    //creare nemici
+    //Strategy per movimento nemici (classe base= MovementBehaviour, derivate= flying e walking behaviour)
+    //doors
+    //gui nel main
+    //metodo checkProjectileCollision aggiornato
+    //tolto
+    //Unit Testing
+
 
 
     ////DA RIVEDERE
@@ -55,20 +63,12 @@ int main() {
     //TODO aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, BlueFlag, porte nere e marroni)
 
     ////DA FARE
-    //TODO Unit Testing
-    //TODO creare nemici
-    //TODO Strategy per movimento nemici (classe base= MovementBehaviour, derivate= flying e walking behaviour)
     //TODO implementare potenziamenti armi
     //TODO smart pointer invece di raw pointer (oppure eliminare i leak con valgrind)
     //TODO Observer per Achievements
     //TODO Menù principale (con MVC, Prima creare astratte Observer e Subject. Poi Model(Subject), Controller, View(obs)
     //TODO State Pattern per stato gioco
     //TODO implementare salvataggio progressi (lettura e scrittura da file)
-
-
-    //TODO ::TODAY::
-    //TODO doors
-
 
 
     ////INIT WINDOW

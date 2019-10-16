@@ -31,7 +31,9 @@ void Gui::load(sf::View &playerView) {
     auto *heart = new sf::Texture;
     auto *coinTexture = new sf::Texture;
 
-    if (!heart->loadFromFile("./Textures/HealthPill.png"))
+
+    std::string healthPillPath = "./Textures/HealthPill.png";
+    if (!heart->loadFromFile(healthPillPath))
         std::cout << "Unable to load heart shape";
 
     if (!coinTexture->loadFromFile("./Textures/Coin.png"))
@@ -105,46 +107,8 @@ void Gui::load(sf::View &playerView) {
     text.emplace_back(livesCount);
 
 
+
 }
-
-//void Gui::draw(sf::RenderWindow &window/*sf::Vector2f viewTopLeft, int HP*/) {
-//
-//    for (sf::RectangleShape *current : shapes)
-//        window.draw(*current);
-//
-//
-//    for (sf::Text *current : text)
-//        window.draw(*current);
-
-
-//    bar.setPosition(viewTopLeft.x - viewTopLeft.x / 2 + barX,
-//                    viewTopLeft.y - viewTopLeft.y / 2 + barY);
-//
-//    health.setSize(sf::Vector2f(bar.getSize().x * (HP / 100.f), health.getSize().y)); //FIXME move to GameHero::takeDamage(); or Enemy::setHP();
-//
-//    health.setPosition(viewTopLeft.x - viewTopLeft.x / 2 + healthX,
-//                       viewTopLeft.y - viewTopLeft.y / 2 + healthY);
-//
-//    switch (HP / 33){
-//
-//        case 1: {
-//            health.setFillColor(sf::Color::Yellow);
-//            break;
-//        }
-//
-//        case 0: {
-//            health.setFillColor(sf::Color::Red);
-//            break;
-//        }
-//
-//        default:
-//            health.setFillColor(sf::Color::Green);
-//    }
-//
-//
-//    healthIndicator.setPosition(viewTopLeft.x - viewTopLeft.x / 2 + healthIndicatorX, viewTopLeft.y - viewTopLeft.y / 2 + healthIndicatorY);
-//
-//}
 
 void Gui::updatePosition(sf::Vector2f offset) {
 
@@ -156,17 +120,17 @@ void Gui::updatePosition(sf::Vector2f offset) {
         current->move(offset);
 }
 
-void Gui::add(sf::RectangleShape *shape) {
+//void Gui::add(sf::RectangleShape *shape) {
+//
+//    shapes.emplace_back(shape);
+//
+//}
 
-    shapes.emplace_back(shape);
-
-}
-
-void Gui::add(sf::Text *txt) {
-
-    text.emplace_back(txt);
-
-}
+//void Gui::add(sf::Text *txt) {
+//
+//    text.emplace_back(txt);
+//
+//}
 
 std::vector<sf::RectangleShape *> &Gui::getShapes() {
     return shapes;
