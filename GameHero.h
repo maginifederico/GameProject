@@ -57,9 +57,9 @@ public:
 
 //    void loadGui();
 
-    std::vector<sf::Text *> &getGuiText();
+    std::vector<sf::Text> &getGuiText();
 
-    std::vector<sf::RectangleShape *> &getGuiShapes();
+    std::vector<sf::RectangleShape> &getGuiShapes();
 
     Gui &getGui();
 

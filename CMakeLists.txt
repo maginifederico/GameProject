@@ -12,7 +12,7 @@ set(SOURCE_FILES Layer.h Layer.cpp Obstacle.h Item.h GameHero.h Map.h GameHero.c
         FlyingBehaviour.h FlyingBehaviour.cpp StillBehaviour.cpp StillBehaviour.h EnemyFactory.cpp MapFactory.cpp DoorFactory.cpp WeaponFactory.cpp ObjectFactory.cpp)
 
 
-add_executable(Game main.cpp ${SOURCE_FILES})
+add_executable(Game main.cpp ${SOURCE_FILES} Subject.cpp Subject.h Observer.cpp Observer.h)
 
 
 # Detect and add SFML

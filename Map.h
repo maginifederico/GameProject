@@ -122,13 +122,4 @@ private:
 //    GameCharacter *GameCharacter[];
 };
 
-//Map::Map(SharedContext *l_context, BaseState *l_currentState)
-//        : m_context(l_context), m_defaultTile(l_context),
-//          m_maxMapSize(32, 32), m_tileCount(0), m_tileSetCount(0),
-//          m_mapGravity(512.f), m_loadNextMap(false),
-//          m_currentState(l_currentState) {
-//    m_context->m_gameMap = this;
-//    LoadTiles("tiles.cfg");
-//}
-
 #endif //_MAP_H

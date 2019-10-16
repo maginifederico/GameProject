@@ -340,11 +340,11 @@ void GameHero::die(Map &map) {
 //    gui->load(playerView);
 //}
 
-std::vector<sf::Text *> &GameHero::getGuiText() {
+std::vector<sf::Text> &GameHero::getGuiText() {
     return gui.getText();
 }
 
-std::vector<sf::RectangleShape *> &GameHero::getGuiShapes() {
+std::vector<sf::RectangleShape> &GameHero::getGuiShapes() {
     return gui.getShapes();
 }
 

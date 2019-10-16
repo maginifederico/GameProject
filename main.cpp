@@ -47,27 +47,24 @@ int main() {
     //BlueFlag
     //gameBonus (attack and shield)
     //conto vite
+    //rivedere collisioni con layer ground (guardare i FIXME su GameHero)
+    //aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, BlueFlag, porte nere e marroni)
+    //Unit Testing
+    //creare nemici
+    //Strategy per movimento nemici (classe base= MovementBehaviour, derivate= flying e walking behaviour)
+    //Doors
 
 
 
     ////DA RIVEDERE
-    //TODO rivedere collisioni con layer ground (guardare i FIXME su GameHero)
-    //TODO aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, BlueFlag, porte nere e marroni)
 
     ////DA FARE
-    //TODO Unit Testing
-    //TODO creare nemici
-    //TODO Strategy per movimento nemici (classe base= MovementBehaviour, derivate= flying e walking behaviour)
     //TODO implementare potenziamenti armi
     //TODO smart pointer invece di raw pointer (oppure eliminare i leak con valgrind)
     //TODO Observer per Achievements
     //TODO Menù principale (con MVC, Prima creare astratte Observer e Subject. Poi Model(Subject), Controller, View(obs)
     //TODO State Pattern per stato gioco
     //TODO implementare salvataggio progressi (lettura e scrittura da file)
-
-
-    //TODO ::TODAY::
-    //TODO doors
 
 
 
@@ -104,7 +101,7 @@ int main() {
 
     GameHero player(Vector2f(map->getSpawnPoint().x, map->getSpawnPoint().y),
                     Vector2f(map->getViewWidth(), map->getViewHeight()), gui/*, weapon*/);
-    player.setWeapon(weaponFactory.createWeapon(frenchFries));
+    player.setWeapon(weaponFactory.createWeapon(justOne));
 
     ////INIT GUI
 
@@ -277,12 +274,12 @@ int main() {
 
         window.setView(player.getPlayerView());
 
-        for (sf::RectangleShape *current : player.getGuiShapes()) {
-            window.draw(*current);
+        for (sf::RectangleShape current : player.getGuiShapes()) {
+            window.draw(current);
         }
 
-        for (sf::Text *current : player.getGuiText()) {
-            window.draw(*current);
+        for (sf::Text curren : player.getGuiText()) {
+            window.draw(curren);
         }
 
         //render ui

@@ -21,13 +21,13 @@ public:
 
     void updatePosition(sf::Vector2f offset);
 
-    void add(sf::Text *txt);
+//    void add(sf::Text *txt);
+//
+//    void add(sf::RectangleShape *shape);
 
-    void add(sf::RectangleShape *shape);
+    std::vector<sf::RectangleShape> &getShapes();
 
-    std::vector<sf::RectangleShape *> &getShapes();
-
-    std::vector<sf::Text *> &getText();
+    std::vector<sf::Text> &getText();
 
     void updateHealth(int HP);
 
@@ -46,8 +46,8 @@ public:
 
 private:
 
-    std::vector<sf::RectangleShape *> shapes;
-    std::vector<sf::Text *> text;
+    std::vector<sf::RectangleShape> shapes;
+    std::vector<sf::Text> text;
 
     int healthIndex = 2;
     int coinCountIndex = 0;
