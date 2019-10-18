@@ -3,3 +3,23 @@
 //
 
 #include "Subject.h"
+
+//void Subject::notify() {
+//    for (Observer *o : observers)
+//        o->update();
+//}
+//
+//void Subject::subscribe(Observer *o) {
+//    observers.emplace_back(o);
+//}
+//
+//void Subject::unsubscribe(Observer *o) {
+//    for (int i = 0; i < observers.size(); i++) {
+//        if (observers[i] == o) {
+//            observers.erase(observers.begin() + i);
+//            return;
+//        }
+//
+//    }
+//
+//}

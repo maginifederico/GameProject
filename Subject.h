@@ -12,15 +12,13 @@
 class Subject {
 
 public:
-    void subscribe(Observer *o);
 
-    void unsubscribe(Observer *o);
 
-    void notify();
+    virtual void subscribe(Observer *o) = 0;
 
-protected:
+    virtual void unsubscribe(Observer *o) = 0;
 
-    std::vector<Observer *> observers;
+    virtual void notify() = 0;
 
 };
 

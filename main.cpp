@@ -195,19 +195,21 @@ int main() {
 
                         player.setHP(100, *map);
                         player.getSprite().setPosition(door->getNextSpawnPoint());
-                        offset += player.getSprite().getPosition();
-                        player.getPlayerView().move(offset);
+//                        offset += player.getSprite().getPosition();
+//                        player.getPlayerView().move(offset);
+//
+//                        if (player.getSprite().getPosition().x !=
+//                            player.getPlayerView().getCenter().x - defaultDistanceX)
+//                            player.getPlayerView().setCenter(player.getSprite().getPosition().x + defaultDistanceX,
+//                                                             player.getPlayerView().getCenter().y);
+//
+//                        if (player.getSprite().getPosition().y !=
+//                            player.getPlayerView().getCenter().y + defaultDistanceY)
+//                            player.getPlayerView().setCenter(player.getSprite().getPosition().x,
+//                                                             player.getSprite().getPosition().y + defaultDistanceY);
 
-                        if (player.getSprite().getPosition().x !=
-                            player.getPlayerView().getCenter().x - defaultDistanceX)
-                            player.getPlayerView().setCenter(player.getSprite().getPosition().x + defaultDistanceX,
-                                                             player.getPlayerView().getCenter().y);
-
-                        if (player.getSprite().getPosition().y !=
-                            player.getPlayerView().getCenter().y + defaultDistanceY)
-                            player.getPlayerView().setCenter(player.getSprite().getPosition().x,
-                                                             player.getSprite().getPosition().y + defaultDistanceY);
-
+                        player.getPlayerView().setCenter(player.getSprite().getPosition().x + defaultDistanceX,
+                                                         player.getSprite().getPosition().y - defaultDistanceY);
 
                         if (player.getPlayerView().getCenter().x - player.getPlayerView().getSize().x / 4 <
                             map->getViewHorizontalLimitSx())

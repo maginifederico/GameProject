@@ -9,6 +9,7 @@
 #include "GameCharacter.h"
 #include "Weapon.h"
 #include "Gui.h"
+#include "Subject.h"
 #include <list>
 
 
@@ -16,13 +17,13 @@ class Weapon;
 
 class Bonus;
 
-class GameHero : public GameCharacter {
+class GameHero : public GameCharacter, public Subject {
 
 
 public:
     explicit GameHero(sf::Vector2f initialPosition, sf::Vector2f playerView, Gui &gui, Weapon *gun = nullptr,
                       int HP = 100,
-                      float speed = 1.f, float underWaterSpeed = 0.5f, std::string texture = "./Textures/PotatoDX.png"
+                      float speed = 2.f, float underWaterSpeed = 0.5f, std::string texture = "./Textures/PotatoDX.png"
     );
 
     void updatePosition(Map &ground) override;
@@ -65,10 +66,7 @@ public:
 
     void setHP(int hp, Map &map) override;
 
-    ~GameHero() override {
-//        if (gui != nullptr)
-//            delete gui;
-    };
+    ~GameHero() {};
 
     const sf::Clock &getClock() const;
 
@@ -79,6 +77,12 @@ public:
     void checkEnemyCollision(Map &map);
 
     void setGui(Gui &gui);
+
+    void subscribe(Observer *o) override;
+
+    void unsubscribe(Observer *o) override;
+
+    void notify() override;
 
 private:
 
@@ -110,6 +114,8 @@ private:
     sf::Clock clock;
 
     Bonus *defenceBonus;
+
+    std::vector<Observer *> observers;
 
 
 };
