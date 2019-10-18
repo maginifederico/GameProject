@@ -22,8 +22,6 @@ public:
 
     bool load(sf::Vector2u tileSize, std::string &map_path);
 
-
-//    bool loadObject(sf::Vector2u tileSize, std::string &map_path, std::vector<std::unique_ptr<Item>> objectsCollector);
     bool loadObject(Map *map);
 
     Tile *getTile() const;

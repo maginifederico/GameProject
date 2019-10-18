@@ -55,12 +55,13 @@ int main() {
     //metodo checkProjectileCollision aggiornato
     //tolto
     //Unit Testing
+    //aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, BlueFlag, porte nere e marroni)
+
 
 
 
     ////DA RIVEDERE
     //TODO rivedere collisioni con layer ground (guardare i FIXME su GameHero)
-    //TODO aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, BlueFlag, porte nere e marroni)
 
     ////DA FARE
     //TODO implementare potenziamenti armi
@@ -123,7 +124,7 @@ int main() {
     }
 
 
-    const float defaultDistanceX = (player.getPlayerView().getSize().x / 2) - 125.f;
+    const float defaultDistanceX = player.getPlayerView().getSize().x / 4;
     const float defaultDistanceY = 40.f;
 
 
@@ -186,6 +187,7 @@ int main() {
                     if (!door->isDisabled()) {
 
                         sf::Vector2f offset = -player.getSprite().getPosition();
+                        delete map;
                         map = mapFactory.createMap(door->getNextMapId());
 
                         for (Enemy *enemy : map->getEnemies()) {
@@ -195,6 +197,7 @@ int main() {
                                 behaviour->setPlayer(&player);
                         }
 
+                        player.setHP(100, *map);
                         player.getSprite().setPosition(door->getNextSpawnPoint());
                         offset += player.getSprite().getPosition();
                         player.getPlayerView().move(offset);
@@ -227,16 +230,8 @@ int main() {
 
                         player.getGui().reset();
 
-                        //SISTEMARE RESPAWN
-
-
-//                        player.getPlayerView().reset(
-//                                sf::FloatRect(map->getSpawnPoint().x, map->getSpawnPoint().y, map->getViewWidth(),
-//                                              map->getViewHeight()));
-
-//                      player.updateViewPosition(*map);
-
                         player.getGui().load(player.getPlayerView());
+                        break;
                     }
                 }
             }
@@ -283,12 +278,12 @@ int main() {
 
         window.setView(player.getPlayerView());
 
-        for (sf::RectangleShape *current : player.getGuiShapes()) {
-            window.draw(*current);
+        for (sf::RectangleShape current : player.getGuiShapes()) {
+            window.draw(current);
         }
 
-        for (sf::Text *current : player.getGuiText()) {
-            window.draw(*current);
+        for (sf::Text curren : player.getGuiText()) {
+            window.draw(curren);
         }
 
         //render ui

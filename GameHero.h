@@ -21,7 +21,7 @@ class GameHero : public GameCharacter {
 
 public:
     explicit GameHero(sf::Vector2f initialPosition, sf::Vector2f playerView, Gui &gui, Weapon *gun = nullptr,
-                      int HP = 100, float speed = 5.f, float underWaterSpeed = 0.5f,
+                      int HP = 100, float speed = 3.f, float underWaterSpeed = 0.5f,
                       std::string texture = "./Textures/PotatoDX.png"
     );
 
@@ -57,9 +57,9 @@ public:
 
 //    void loadGui();
 
-    std::vector<sf::Text *> &getGuiText();
+    std::vector<sf::Text> &getGuiText();
 
-    std::vector<sf::RectangleShape *> &getGuiShapes();
+    std::vector<sf::RectangleShape> &getGuiShapes();
 
     Gui &getGui();
 

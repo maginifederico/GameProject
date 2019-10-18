@@ -15,9 +15,9 @@
 
 GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f playerView, Gui &gui, Weapon *gun, int HP, float speed,
                    float underWaterSpeed, std::string texture) : weapon(gun), lives(3), gui(gui),
-                                                                              GameCharacter(texture, initialPosition,
-                                                                                            speed, underWaterSpeed,
-                                                                                            HP) {
+                                                                 GameCharacter(texture, initialPosition,
+                                                                               speed, underWaterSpeed,
+                                                                               HP) {
 
     sprite.setScale(sf::Vector2f(0.7142857f, 1.044776f));
     sprite.scale(0.15f, 0.15f);
@@ -45,7 +45,7 @@ void GameHero::updatePosition(Map &map) {
     int rightTile = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + 1].getId();
     int downLeftTile = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + int(map.getWidth() / 21)].getId();
     int downRightTile = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + int(map.getWidth() / 21) +
-                                                 1].getId();
+                                                    1].getId();
     int water = 48;
     int waterSurface = 49;
     int groundSurface = 34;
@@ -314,18 +314,26 @@ void GameHero::die(Map &map) {
         //TODO torna al menu' principale
     }
 //    else {
-    sf::Vector2f offset(-sprite.getPosition().x, -sprite.getPosition().y);
+
+    float defaultDistanceY = 40.f;
+
+    sf::Vector2f initialPosition(sprite.getPosition());
+    sf::Vector2f offset(-initialPosition);
     sprite.setPosition(map.getSpawnPoint());
     offset += sprite.getPosition();
     HP = maxHP;
-    playerView.move(offset);
+    if (initialPosition.x <= map.getViewHorizontalLimitSx())
+        playerView.move(0, offset.y);
+    else
+        playerView.move(offset);
+
     if (playerView.getCenter().x - playerView.getSize().x / 4 < map.getViewHorizontalLimitSx())
         playerView.setCenter(playerView.getSize().x / 2, playerView.getCenter().y);
     if (playerView.getCenter().x - playerView.getSize().x / 4 > map.getViewHorizontalLimitDx())
         playerView.setCenter(map.getWidth() - playerView.getSize().x / 2, playerView.getCenter().y);
-    if (playerView.getCenter().y + 40.f > map.getViewVerticalLimitDown())
+    if (playerView.getCenter().y + defaultDistanceY > map.getViewVerticalLimitDown())
         playerView.setCenter(playerView.getCenter().x, map.getHeight() - playerView.getSize().y / 2);
-    if (playerView.getCenter().y + 40.f < map.getViewVerticalLimitUp())
+    if (playerView.getCenter().y + defaultDistanceY < map.getViewVerticalLimitUp())
         playerView.setCenter(playerView.getCenter().x, playerView.getSize().y / 2);
     gui.reset();
     gui.load(playerView);
@@ -336,11 +344,11 @@ void GameHero::die(Map &map) {
 
 }
 
-std::vector<sf::Text *> &GameHero::getGuiText() {
+std::vector<sf::Text> &GameHero::getGuiText() {
     return gui.getText();
 }
 
-std::vector<sf::RectangleShape *> &GameHero::getGuiShapes() {
+std::vector<sf::RectangleShape> &GameHero::getGuiShapes() {
     return gui.getShapes();
 }
 
