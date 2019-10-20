@@ -178,3 +178,7 @@ void Gui::reset() {
     shapes.clear();
 
 }
+
+unsigned int Gui::getCoins() const {
+    return coins;
+}

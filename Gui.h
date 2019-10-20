@@ -37,6 +37,8 @@ public:
 
     void reset();
 
+    unsigned int getCoins() const;
+
 //    ~Gui() {
 //        text.clear();
 //        shapes.clear();

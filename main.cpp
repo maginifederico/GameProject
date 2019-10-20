@@ -11,6 +11,8 @@
 #include "Gui.h"
 #include "Enemy.h"
 #include "StillBehaviour.h"
+#include "MenuState.h"
+#include "LevelState.h"
 
 using namespace sf;
 
@@ -26,7 +28,7 @@ int main() {
     //movimento view verticale
     //Factory per armi
 
-    //Gestione input nel main
+    //Gestione input nel mainMenu
     //Metodo shoot del player
     //Tolta mappa in player, passata map ad updatePosition
     //Proiettili con intersect
@@ -52,8 +54,10 @@ int main() {
     //Unit Testing
     //creare nemici
     //Strategy per movimento nemici (classe base= MovementBehaviour, derivate= flying e walking behaviour)
-    //Doors
 
+    //Doors
+    //Menù principale (con MVC, Prima creare astratte Observer e Subject. Poi Model(Subject), Controller, View(obs)
+    //State Pattern per stato gioco
 
 
     ////DA RIVEDERE
@@ -62,14 +66,11 @@ int main() {
     //TODO implementare potenziamenti armi
     //TODO smart pointer invece di raw pointer (oppure eliminare i leak con valgrind)
     //TODO Observer per Achievements
-    //TODO Menù principale (con MVC, Prima creare astratte Observer e Subject. Poi Model(Subject), Controller, View(obs)
-    //TODO State Pattern per stato gioco
     //TODO implementare salvataggio progressi (lettura e scrittura da file)
 
 
 
     ////INIT WINDOW
-
     const unsigned int WINDOW_WIDTH = 1920;
     const unsigned int WINDOW_HEIGHT = 1010;
     int frameRate = 160;
@@ -78,15 +79,14 @@ int main() {
     RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "PATAMAN ADVENTURES");
     window.setFramerateLimit(frameRate);
 
+    ////INIT GAME CLOCK
+    Clock clock;
 
-    ////INIT MAP
+    ////INIT GAME STATE
+    State *gameState = new MenuState();
+    gameState->setStateChanged(false);
 
-    MapFactory mapFactory;
-
-    Map *map;
-    int id = 1;
-    map = mapFactory.createMap(id);
-
+    LevelState *copyState;
 
 
     ////INIT PLAYER WEAPON
@@ -96,38 +96,29 @@ int main() {
 
 
     ////INIT PLAYER
-
     Gui gui;
 
-    GameHero player(Vector2f(map->getSpawnPoint().x, map->getSpawnPoint().y),
-                    Vector2f(map->getViewWidth(), map->getViewHeight()), gui/*, weapon*/);
+    GameHero player(Vector2f(), Vector2f(), gui);
+
     player.setWeapon(weaponFactory.createWeapon(justOne));
 
     ////INIT GUI
-
     player.getGui().load(player.getPlayerView());
 
 
+    ////INIT MENU
+    MenuModel modelMVC(gameState);
+    MenuController controllerMVC(&modelMVC);
+    MenuView viewMVC(&controllerMVC, &modelMVC);
 
-    ////ENEMIES
-    StillBehaviour *behaviour;
-    for (Enemy *enemy : map->getEnemies()) {
-
-        behaviour = dynamic_cast<StillBehaviour *>(enemy->getMovementBehaviour());
-        if (behaviour != nullptr)
-            behaviour->setPlayer(&player);
-
-    }
-
-
-    const float defaultDistanceX = (player.getPlayerView().getSize().x / 2) - 125.f;
-    const float defaultDistanceY = 40.f;
-
+    ////INIT LEVEL
+    Level level;
 
     ////GAME LOOP
     while (window.isOpen()) {
 
         Event event;
+
 
         while (window.pollEvent(event)) {
             if (event.type == Event::Closed) {
@@ -135,157 +126,181 @@ int main() {
             }
         }
 
-        if (!map->isEndLevel()) {
-            //user input
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-                player.setWPressed(true);
+        copyState = dynamic_cast<LevelState *>(gameState);
+
+        if (copyState != nullptr) {
+
+            if (gameState->isStateChanged()) {
+
+                level.loadMap(modelMVC.getLevelNumber(), player);
+                player.getSprite().setPosition(level.getMap()->getSpawnPoint().x, level.getMap()->getSpawnPoint().y);
+                player.getPlayerView().reset(
+                        sf::FloatRect(0.f, 100.f, level.getMap()->getViewWidth(), level.getMap()->getViewHeight()));
+
+                gui.reset();
+                gui.updateCoinCount(-gui.getCoins());
+                gui.load(player.getPlayerView());
+
+                player.setWeapon(weaponFactory.createWeapon(modelMVC.getWeaponId()));
+
+                gameState->setStateChanged(false);
+
             }
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-                player.setAPressed(true);
-            }
+            if (!level.getMap()->isEndLevel()) {
+                //user input
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+                    player.setWPressed(true);
+                }
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-                player.setSPressed(true);
-            }
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+                    player.setAPressed(true);
+                }
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-                player.setDPressed(true);
-            }
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-                player.shoot();
-            }
-
-        } else {
-            player.getSprite().move(player.getSpeed(), 0);
-        }
-
-        //update input
-        player.updatePosition(*map);
-
-        player.updateViewPosition(*map);
-
-        player.getWeapon()->checkProjectileCollision(*map);
-        player.checkCollection(*map);
-        player.checkEnemyCollision(*map);
-
-        map->updateObjects();
-        player.manageBonuses();
-        map->updateEnemies(player);
-
-        ////DOOR MANAGEMENT
-
-
-        for (Door *door : map->getDoors()) {
-            if (player.getSprite().getGlobalBounds().intersects(door->getCollision())) {
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-                    if (!door->isDisabled()) {
+                    player.setSPressed(true);
+                }
 
-                        sf::Vector2f offset = -player.getSprite().getPosition();
-                        delete map;
-                        map = mapFactory.createMap(door->getNextMapId());
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+                    player.setDPressed(true);
+                }
 
-                        for (Enemy *enemy : map->getEnemies()) {
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+                    player.shoot();
+                }
 
-                            behaviour = dynamic_cast<StillBehaviour *>(enemy->getMovementBehaviour());
-                            if (behaviour != nullptr)
-                                behaviour->setPlayer(&player);
-                        }
+            } else {
 
-                        player.setHP(100, *map);
-                        player.getSprite().setPosition(door->getNextSpawnPoint());
-//                        offset += player.getSprite().getPosition();
-//                        player.getPlayerView().move(offset);
-//
-//                        if (player.getSprite().getPosition().x !=
-//                            player.getPlayerView().getCenter().x - defaultDistanceX)
-//                            player.getPlayerView().setCenter(player.getSprite().getPosition().x + defaultDistanceX,
-//                                                             player.getPlayerView().getCenter().y);
-//
-//                        if (player.getSprite().getPosition().y !=
-//                            player.getPlayerView().getCenter().y + defaultDistanceY)
-//                            player.getPlayerView().setCenter(player.getSprite().getPosition().x,
-//                                                             player.getSprite().getPosition().y + defaultDistanceY);
+                if (player.getSprite().getPosition().x < 6260.f)
+                    player.getSprite().move(player.getSpeed(), 0);
+                else {
+                    gameState = gameState->getNextState();
+                }
+            }
 
-                        player.getPlayerView().setCenter(player.getSprite().getPosition().x + defaultDistanceX,
-                                                         player.getSprite().getPosition().y - defaultDistanceY);
+            //update input
+            player.updatePosition(*level.getMap());
 
-                        if (player.getPlayerView().getCenter().x - player.getPlayerView().getSize().x / 4 <
-                            map->getViewHorizontalLimitSx())
-                            player.getPlayerView().setCenter(player.getPlayerView().getSize().x / 2,
-                                                             player.getPlayerView().getCenter().y);
-                        if (player.getPlayerView().getCenter().x - player.getPlayerView().getSize().x / 4 >
-                            map->getViewHorizontalLimitDx())
-                            player.getPlayerView().setCenter(map->getWidth() - player.getPlayerView().getSize().x / 2,
-                                                             player.getPlayerView().getCenter().y);
-                        if (player.getPlayerView().getCenter().y + 40.f > map->getViewVerticalLimitDown())
-                            player.getPlayerView().setCenter(player.getPlayerView().getCenter().x,
-                                                             map->getHeight() - player.getPlayerView().getSize().y / 2);
-                        if (player.getPlayerView().getCenter().y + 40.f < map->getViewVerticalLimitUp())
-                            player.getPlayerView().setCenter(player.getPlayerView().getCenter().x,
-                                                             player.getPlayerView().getSize().y / 2);
+            player.updateViewPosition(*level.getMap());
 
-                        player.getGui().reset();
+            player.getWeapon()->checkProjectileCollision(*level.getMap());
+            player.checkCollection(*level.getMap());
+            player.checkEnemyCollision(*level.getMap());
 
-                        player.getGui().load(player.getPlayerView());
-                        break;
+            level.getMap()->updateObjects();
+            player.manageBonuses();
+            level.getMap()->updateEnemies(player);
+
+            ////DOOR MANAGEMENT
+
+            level.manageDoors(player);
+
+            //render
+            window.clear();
+
+
+            //render game elements
+            window.draw(level.getMap()->getLayer()[0]);
+            window.draw(level.getMap()->getLayer()[1]);
+
+            for (Item *item : level.getMap()->getObjectsCollector())
+                window.draw(item->getSprite());
+
+            for (Item *item :level.getMap()->getAnimatedObjects()) {
+                window.draw(item->getSprite());
+            }
+
+            for (Enemy *enemy: level.getMap()->getEnemies()) {
+                StillBehaviour *behaviour;
+                behaviour = dynamic_cast<StillBehaviour *> (enemy->getMovementBehaviour());
+                if (behaviour != nullptr) {
+                    for (Projectile projectile : behaviour->getWeapon()->getProjectiles()) {
+                        window.draw(projectile.getSprite());
                     }
                 }
             }
-        }
 
-        //render
-        window.clear();
+            for (Door *door : level.getMap()->getDoors()) {
+                window.draw(door->getSprite());
+            }
 
+            for (Projectile projectile : player.getWeapon()->getProjectiles()) {
+                window.draw(projectile.getSprite());
+            }
 
-        //render game elements
-        window.draw(map->getLayer()[0]);
-        window.draw(map->getLayer()[1]);
+            for (Enemy *enemy : level.getMap()->getEnemies()) {
+                window.draw(enemy->getSprite());
+            }
 
-        for (Item *item : map->getObjectsCollector())
-            window.draw(item->getSprite());
+            window.draw(player.getSprite());
 
-        for (Item *item :map->getAnimatedObjects()) {
-            window.draw(item->getSprite());
-        }
+            window.setView(player.getPlayerView());
 
-        for (Enemy *enemy: map->getEnemies()) {
-            StillBehaviour *ptr;
-            ptr = dynamic_cast<StillBehaviour *> (enemy->getMovementBehaviour());
-            if (ptr != nullptr) {
-                for (Projectile projectile : ptr->getWeapon()->getProjectiles()) {
-                    window.draw(projectile.getSprite());
+            for (sf::RectangleShape current : player.getGuiShapes()) {
+                window.draw(current);
+            }
+
+            for (sf::Text current : player.getGuiText()) {
+                window.draw(current);
+            }
+
+            //render ui
+            window.display();
+
+        } else {
+
+            if (gameState->isStateChanged()) {
+
+                modelMVC.setScreen(mainMenu);
+                modelMVC.setCurrent(0);
+                modelMVC.setLevelNumber(-1);
+
+                gameState->setStateChanged(false);
+            }
+
+            if (clock.getElapsedTime().asSeconds() > 0.3f) {
+
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+                    viewMVC.registerW();
+                    clock.restart();
+                }
+
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+                    viewMVC.registerA();
+                    clock.restart();
+                }
+
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+                    viewMVC.registerS();
+                    clock.restart();
+                }
+
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+                    viewMVC.registerD();
+                    clock.restart();
+                }
+
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+                    if (modelMVC.getScreen() == start && modelMVC.getCurrent() == 1) {
+                        window.close();
+                        return 0;
+                    }
+
+                    if (viewMVC.registerSpace()) {
+                        gameState = gameState->getNextState();
+                    }
+                    clock.restart();
                 }
             }
+
+            window.clear();
+
+            for (sf::Text current : viewMVC.getCurrentScreenOptions())
+                window.draw(current);
+
+            //render ui
+            window.display();
         }
-
-        for (Door *door : map->getDoors()) {
-            window.draw(door->getSprite());
-        }
-
-        for (Projectile projectile : player.getWeapon()->getProjectiles()) {
-            window.draw(projectile.getSprite());
-        }
-
-        for (Enemy *enemy : map->getEnemies()) {
-            window.draw(enemy->getSprite());
-        }
-
-        window.draw(player.getSprite());
-
-        window.setView(player.getPlayerView());
-
-        for (sf::RectangleShape current : player.getGuiShapes()) {
-            window.draw(current);
-        }
-
-        for (sf::Text curren : player.getGuiText()) {
-            window.draw(curren);
-        }
-
-        //render ui
-        window.display();
     }
 
     return 0;
