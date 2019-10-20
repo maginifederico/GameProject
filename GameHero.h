@@ -78,9 +78,9 @@ public:
 
     void setGui(Gui &gui);
 
-    void subscribe(Observer *o) override;
+    void addObserver(Observer *o) override;
 
-    void unsubscribe(Observer *o) override;
+    void removeObserver(Observer *o) override;
 
     void notify() override;
 

@@ -10,8 +10,9 @@ set(SOURCE_FILES Layer.h Layer.cpp Obstacle.h Item.h GameHero.h Map.h GameHero.c
         BlueFlag.cpp BlueFlag.h Door.cpp Door.h DoorFactory.h Bonus.cpp Bonus.h Enemy.h
         Enemy.cpp MovementBehaviour.h MovementBehaviour.cpp EnemyFactory.h WalkingBehaviour.h WalkingBehaviour.cpp
         FlyingBehaviour.h FlyingBehaviour.cpp StillBehaviour.cpp StillBehaviour.h EnemyFactory.cpp MapFactory.cpp
-        DoorFactory.cpp WeaponFactory.cpp ObjectFactory.cpp MainMenu.cpp MainMenu.h Subject.h Observer.cpp
-        Observer.h)
+        DoorFactory.cpp WeaponFactory.cpp ObjectFactory.cpp Subject.cpp Subject.h Observer.cpp Observer.h State.h
+        State.cpp MenuModel.h MenuModel.cpp MenuView.h MenuView.cpp MenuController.h MenuController.cpp MenuState.h
+        MenuState.cpp LevelState.h LevelState.cpp Level.h Level.cpp)
 
 
 add_executable(Game main.cpp ${SOURCE_FILES})

@@ -13,9 +13,10 @@ class Subject {
 
 public:
 
-    virtual void subscribe(Observer *o) = 0;
 
-    virtual void unsubscribe(Observer *o) = 0;
+    virtual void addObserver(Observer *o) = 0;
+
+    virtual void removeObserver(Observer *o) = 0;
 
     virtual void notify() = 0;
 

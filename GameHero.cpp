@@ -423,13 +423,13 @@ void GameHero::setGui(Gui &gui) {
     GameHero::gui = gui;
 }
 
-void GameHero::subscribe(Observer *o) {
+void GameHero::addObserver(Observer *o) {
 
     observers.emplace_back(o);
 
 }
 
-void GameHero::unsubscribe(Observer *o) {
+void GameHero::removeObserver(Observer *o) {
 
     for (int i = 0; i < observers.size(); i++)
         if (observers[i] == o)
