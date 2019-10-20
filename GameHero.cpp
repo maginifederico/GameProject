@@ -229,7 +229,10 @@ void GameHero::updatePosition(Map &map) {
 
 
 sf::Vector2f GameHero::updateViewPosition(Map &map) {
+
     sf::Vector2f offset(0.f, 0.f);
+
+    float defaultDistanceX = 126.f;
     ////MOVIMENTO VIEW
     //Orizzontale
     if (sprite.getPosition().x >= map.getViewHorizontalLimitSx() &&
@@ -314,18 +317,21 @@ void GameHero::die(Map &map) {
         //TODO torna al menu' principale
     }
 //    else {
-
     float defaultDistanceY = 40.f;
+    float defaultDistanceX = 126.f;
 
-    sf::Vector2f initialPosition(sprite.getPosition());
-    sf::Vector2f offset(-initialPosition);
+//    sf::Vector2f offset(-sprite.getPosition().x, -sprite.getPosition().y);
     sprite.setPosition(map.getSpawnPoint());
-    offset += sprite.getPosition();
+//    offset += sprite.getPosition();
     HP = maxHP;
-    if (initialPosition.x <= map.getViewHorizontalLimitSx())
-        playerView.move(0, offset.y);
-    else
-        playerView.move(offset);
+//    playerView.move(offset);
+//    if (sprite.getPosition().x !=
+//        playerView.getCenter().x - defaultDistanceX)
+
+//    if (sprite.getPosition().y !=
+//        playerView.getCenter().y + defaultDistanceY)
+//        playerView.setCenter(sprite.getPosition().x, sprite.getPosition().y + defaultDistanceY);
+    playerView.setCenter(sprite.getPosition().x + defaultDistanceX, sprite.getPosition().y + defaultDistanceY);
 
     if (playerView.getCenter().x - playerView.getSize().x / 4 < map.getViewHorizontalLimitSx())
         playerView.setCenter(playerView.getSize().x / 2, playerView.getCenter().y);
@@ -415,4 +421,22 @@ void GameHero::checkEnemyCollision(Map &map) {
 
 void GameHero::setGui(Gui &gui) {
     GameHero::gui = gui;
+}
+
+void GameHero::subscribe(Observer *o) {
+
+    observers.emplace_back(o);
+
+}
+
+void GameHero::unsubscribe(Observer *o) {
+
+    for (int i = 0; i < observers.size(); i++)
+        if (observers[i] == o)
+            observers.erase(observers.begin() + i);
+}
+
+void GameHero::notify() {
+
+
 }
