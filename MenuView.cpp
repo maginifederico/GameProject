@@ -23,13 +23,13 @@ MenuView::MenuView(MenuController *c, MenuModel *m) : controller(c), model(m), s
     startScreenOptions.emplace_back(sf::Sprite());
 
 
-    if (!startScreenTextures[0].loadFromFile("./Textures/playSelected.png"))
+    if (!startScreenTextures[0].loadFromFile("./Textures/selectPlay.png"))
         std::cout << "error loading texture";
 
-    if (!startScreenTextures[1].loadFromFile("./Textures/optionSelected.png"))
+    if (!startScreenTextures[1].loadFromFile("./Textures/selectOptions.png"))
         std::cout << "error loading texture";
 
-    if (!startScreenTextures[2].loadFromFile("./Textures/quitSelected.png"))
+    if (!startScreenTextures[2].loadFromFile("./Textures/selectQuit.png"))
         std::cout << "error loading texture";
 
     startScreenOptions[0].setTexture(startScreenTextures[0]);
@@ -38,8 +38,8 @@ MenuView::MenuView(MenuController *c, MenuModel *m) : controller(c), model(m), s
 
     //posizionamento startScreen
     for (int i = 0; i < startScreenOptions.size(); i++) {
-        startScreenOptions[i].setScale(2.f, 2.f);
-        startScreenOptions[i].setPosition(windowWidth / 3, windowHeight / 7);
+        startScreenOptions[i].setScale(1.f, 0.95);
+        startScreenOptions[i].setPosition(0, 0);
     }
 
     ////INIT MAIN MENU
