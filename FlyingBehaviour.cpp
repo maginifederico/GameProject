@@ -67,23 +67,6 @@ void FlyingBehaviour::updatePosition(Map &map, Enemy &enemy) {
     else
         enemy.getSprite().move(0, -enemy.getSpeed());
 
-//
-//    if (animationNumber == 2) {
-//        if (getDirection)
-//            enemy.getSprite().setTexture(textureDX[0]);
-//        else
-//            enemy.getSprite().setTexture(textureSX[0]);
-//        animationNumber = 0;
-//    } else {
-//        if (getDirection)
-//            enemy.getSprite().setTexture(textureDX[animationNumber++]);
-//        else
-//            enemy.getSprite().setTexture(textureDX[animationNumber++]);
-//        animationNumber++;
-//    }
-
-//    if()
-
 }
 
 void FlyingBehaviour::attack() {

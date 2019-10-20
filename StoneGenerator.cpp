@@ -8,17 +8,8 @@
 
 StoneGenerator::StoneGenerator(float posX, float posY, std::string &texturePath, int id) : Item(texturePath, id),
                                                                                            spawnPoint(posX, posY) {
-
-//    stoneTexturePath = "./Textures/Stone.png";
 }
 
-//void StoneGenerator::interact(GameHero *player, Map &map, int objectNumber) {
-//
-//    //Fai 20 danno al player
-//    //Autodistruggi la pietra
-//
-//
-//}
 
 void StoneGenerator::update(Map *map) {
 

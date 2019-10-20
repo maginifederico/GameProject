@@ -26,14 +26,6 @@ Weapon::Weapon(std::string &textPath, float textScale, int dmg, float rng, float
         std::cout << "Unable to load the sprite";
 }
 
-//
-//Weapon::Weapon(Weapon &gun) : texturePath(gun.texturePath), textureScale(gun.textureScale), inflictDamage(gun.setHP),
-//                              range(gun.range), cooldown(gun.cooldown), level(gun.level),
-//                              explosionRange(gun.explosionRange) {
-//
-//}
-
-
 void Weapon::createProjectile(sf::Vector2f shooterPosition, Direction movementDirection) {
 
     //Gestione cooldown

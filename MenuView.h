@@ -48,8 +48,6 @@ private:
     int selected;
     Screen currentScreen;
 
-//    sf::Clock clock;
-
 };
 
 

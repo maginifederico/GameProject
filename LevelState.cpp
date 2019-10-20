@@ -9,13 +9,6 @@ State *LevelState::getNextState() {
     return new MenuState();
 }
 
-//Level &LevelState::generateLevel(int levelNumber, int weaponId) {
-//
-//    Level* level = new Level(levelNumber, weaponId);
-//    return *level;
-//
-//}
-
 LevelState::LevelState() {
 
 }

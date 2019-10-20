@@ -8,10 +8,6 @@
 
 MenuState::MenuState() {
 
-//    model = new MenuModel();
-//    controller = new MenuController(model);
-//    view = new MenuView(controller, model);
-
 }
 
 State *MenuState::getNextState() {

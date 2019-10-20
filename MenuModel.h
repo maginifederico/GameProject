@@ -30,17 +30,7 @@ public:
 
     void notify() override;
 
-//    void loadStart();
-//
-//    void loadMain();
-//
-//    void loadLevels();
-//
-//    void loadWeapons();
-
     bool enterLevel();
-
-//    void quitGame();
 
     Screen getScreen() const;
 

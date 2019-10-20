@@ -112,3 +112,4 @@ std::vector<sf::Text> &MenuView::getCurrentScreenOptions() {
             return weaponSelectOptions;
     }
 }
+

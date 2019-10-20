@@ -23,7 +23,7 @@ class GameHero : public GameCharacter, public Subject {
 public:
     explicit GameHero(sf::Vector2f initialPosition, sf::Vector2f playerView, Gui &gui, Weapon *gun = nullptr,
                       int HP = 100,
-                      float speed = 2.f, float underWaterSpeed = 0.5f, std::string texture = "./Textures/PotatoDX.png"
+                      float speed = 1.f, float underWaterSpeed = 0.5f, std::string texture = "./Textures/PotatoDX.png"
     );
 
     void updatePosition(Map &ground) override;
@@ -78,6 +78,12 @@ public:
 
     void setGui(Gui &gui);
 
+    bool isDead() const;
+
+    void setDead(bool dead);
+
+    void setLives(int lives);
+
     void addObserver(Observer *o) override;
 
     void removeObserver(Observer *o) override;
@@ -106,6 +112,7 @@ private:
     sf::FloatRect viewPosition;
     int maxHP = 100;
     int lives;
+    bool dead;
 
     std::unique_ptr<Weapon> weapon;
 

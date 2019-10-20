@@ -17,13 +17,7 @@ public:
 
     void load(sf::View &playerView);
 
-//    void draw(/*sf::Vector2f viewPosition, int HP*/sf::RenderWindow &window);
-
     void updatePosition(sf::Vector2f offset);
-
-//    void add(sf::Text *txt);
-//
-//    void add(sf::RectangleShape *shape);
 
     std::vector<sf::RectangleShape> &getShapes();
 
@@ -39,13 +33,6 @@ public:
 
     unsigned int getCoins() const;
 
-//    ~Gui() {
-//        text.clear();
-//        shapes.clear();
-//    };
-
-
-
 private:
 
     std::vector<sf::RectangleShape> shapes;
@@ -56,24 +43,6 @@ private:
     int livesCountIndex = 2;
 
     unsigned int coins;
-
-
-//    sf::RectangleShape bar;
-//    sf::RectangleShape health;
-//    sf::RectangleShape healthIndicator;
-//    sf::RectangleShape coinIndicator;
-//    sf::Text coinNumber;
-//
-//    float barX = 40.f;
-//    float barY = 12.f;
-//    float healthX = 40.f;
-//    float healthY = 12.f;
-//    float healthIndicatorX = 7.f;
-//    float healthIndicatorY = 8.f;
-//    float coinIndicatorX;
-//    float coinIndicatorY;
-//    float coinNumberX;
-//    float coinNumberY;
 
 };
 

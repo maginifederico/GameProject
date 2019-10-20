@@ -8,33 +8,6 @@ MenuModel::MenuModel(State *s) : screen(start), current(0), levelNumber(-1), wea
 
 }
 
-//void MenuModel::loadStart() {
-//
-//    screen = start;
-//    current = 0;
-//    notify();
-//}
-//
-//void MenuModel::loadMain() {
-//
-//    screen = mainMenu;
-//    current = 0;
-//    notify();
-//}
-//
-//void MenuModel::loadLevels() {
-//
-//    screen = levelSelect;
-//    current = 0;
-//    notify();
-//}
-//
-//void MenuModel::loadWeapons() {
-//
-//    screen = weaponSelect;
-//    current = 0;
-//    notify();
-//}
 
 void MenuModel::addObserver(Observer *o) {
     observers.emplace_back(o);
@@ -99,7 +72,3 @@ int MenuModel::getLevelNumber() const {
 int MenuModel::getWeaponId() const {
     return weaponId;
 }
-
-//void MenuModel::quitGame() {
-//
-//}

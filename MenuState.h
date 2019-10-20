@@ -21,10 +21,6 @@ public:
 
 private:
 
-//    MenuView* view;
-//    MenuController* controller;
-//    MenuModel* model;
-
 };
 
 

@@ -14,8 +14,8 @@
 
 
 GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f playerView, Gui &gui, Weapon *gun, int HP, float speed,
-                   float underWaterSpeed, std::string texture) : weapon(gun), lives(3), gui(gui),
-                                                                              GameCharacter(texture, initialPosition,
+                   float underWaterSpeed, std::string texture) : weapon(gun), lives(3), gui(gui), dead(false),
+                                                                 GameCharacter(texture, initialPosition,
                                                                                             speed, underWaterSpeed,
                                                                                             HP) {
 
@@ -328,7 +328,8 @@ sf::View &GameHero::getPlayerView() {
 
 void GameHero::die(Map &map) {
     if (--lives < 0) {
-        //TODO torna al menu' principale
+        dead = true;
+        return;
     }
 //    else {
     float defaultDistanceY = 40.f;
@@ -457,4 +458,16 @@ void GameHero::removeObserver(Observer *o) {
 void GameHero::notify() {
 
 
+}
+
+bool GameHero::isDead() const {
+    return dead;
+}
+
+void GameHero::setDead(bool d) {
+    dead = d;
+}
+
+void GameHero::setLives(int l) {
+    lives = l;
 }
