@@ -9,6 +9,7 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Window/Keyboard.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 #include "Observer.h"
 #include "MenuController.h"
 #include "MenuModel.h"
@@ -19,7 +20,7 @@ public:
 
     MenuView(MenuController *c, MenuModel *m);
 
-    std::vector<sf::Text> &getCurrentScreenOptions();
+    std::vector<sf::Sprite> &getCurrentScreenOptions();
 
     void registerW();
 
@@ -40,10 +41,15 @@ private:
 
     MenuModel *model;
 
-    std::vector<sf::Text> startScreenOptions;
-    std::vector<sf::Text> mainMenuOptions;
-    std::vector<sf::Text> levelSelectOptions;
-    std::vector<sf::Text> weaponSelectOptions;
+    std::vector<sf::Texture> startScreenTextures;
+    std::vector<sf::Texture> mainMenuOptionsTextures;
+    std::vector<sf::Texture> levelSelectOptionsTextures;
+    std::vector<sf::Texture> weaponSelectOptionsTextures;
+
+    std::vector<sf::Sprite> startScreenOptions;
+    std::vector<sf::Sprite> mainMenuOptions;
+    std::vector<sf::Sprite> levelSelectOptions;
+    std::vector<sf::Sprite> weaponSelectOptions;
 
     int selected;
     Screen currentScreen;

@@ -22,7 +22,7 @@ class MenuModel : public Subject {
 
 public:
 
-    MenuModel(State *s);
+    explicit MenuModel(State *s);
 
     void addObserver(Observer *o) override;
 

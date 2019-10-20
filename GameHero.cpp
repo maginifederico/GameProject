@@ -224,8 +224,7 @@ void GameHero::updatePosition(Map &map) {
 //    std::cout << "Center= " << playerView.getCenter().x << std::endl << playerView.getCenter().y << std::endl;
 //    std::cout << getSprite().getPosition().x << std::endl << getSprite().getPosition().y << std::endl << std::endl;
 
-//std::cout << "defDistanceX= " << playerView.getCenter().x - sprite.getPosition().x << std::endl;
-//std::cout << "defDistanceY= " << -(playerView.getCenter().y - sprite.getPosition().y) << std::endl;
+
 }
 
 
@@ -241,19 +240,6 @@ sf::Vector2f GameHero::updateViewPosition(Map &map) {
         playerView.move(velocity.x, 0.f);
         offset.x = velocity.x;
     }
-//
-//    if (
-//        //Queste due condizioni impediscono il movimento della view oltre i limiti della mappa. Il centro della
-//        //view è sempre compreso tra il limite sinistro e destro
-//            sprite.getPosition().x + defaultDistanceX >= map.getViewHorizontalLimitDx()
-//            && sprite.getPosition().x + defaultDistanceX <= map.getViewHorizontalLimitSx()
-//            //&& playerView.getCenter().x - sprite.getPosition().x != defaultDistanceX
-//            ) {
-//        offset.x -= playerView.getCenter().x;
-//        playerView.setCenter(sprite.getPosition().x + defaultDistanceX, playerView.getCenter().y);
-//        offset.x += playerView.getCenter().x;
-//    }
-
     float defaultDistanceY = 40.f;
     //Verticale
     if (
@@ -364,10 +350,6 @@ void GameHero::die(Map &map) {
 //    }
 
 }
-
-//void GameHero::loadGui() {
-//    gui->load(playerView);
-//}
 
 std::vector<sf::Text> &GameHero::getGuiText() {
     return gui.getText();

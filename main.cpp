@@ -29,7 +29,7 @@ int main() {
     //movimento view verticale
     //Factory per armi
 
-    //Gestione input nel mainMenu
+    //Gestione input nel main
     //Metodo shoot del player
     //Tolta mappa in player, passata map ad updatePosition
     //Proiettili con intersect
@@ -51,14 +51,18 @@ int main() {
     //gameBonus (attack and shield)
     //conto vite
     //rivedere collisioni con layer ground (guardare i FIXME su GameHero)
-    //aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, BlueFlag, porte nere e marroni)
-    //Unit Testing
     //creare nemici
     //Strategy per movimento nemici (classe base= MovementBehaviour, derivate= flying e walking behaviour)
 
     //Doors
     //Menù principale (con MVC, Prima creare astratte Observer e Subject. Poi Model(Subject), Controller, View(obs)
     //State Pattern per stato gioco
+    //gui nel main
+    //metodo checkProjectileCollision aggiornato
+    //tolto
+    //Unit Testing
+    //aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, BlueFlag, porte nere e marroni)
+
 
 
     ////DA RIVEDERE
@@ -130,7 +134,6 @@ int main() {
     while (window.isOpen()) {
 
         Event event;
-
 
         while (window.pollEvent(event)) {
             if (event.type == Event::Closed) {
@@ -327,8 +330,8 @@ int main() {
 
             window.clear();
 
-            for (sf::Text current : viewMVC.getCurrentScreenOptions())
-                window.draw(current);
+//            for (sf::Sprite current : viewMVC.getCurrentScreenOptions())
+            window.draw(viewMVC.getCurrentScreenOptions()[modelMVC.getCurrent()]);
 
             //render ui
             window.display();
