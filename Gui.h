@@ -17,13 +17,7 @@ public:
 
     void load(sf::View &playerView);
 
-//    void draw(/*sf::Vector2f viewPosition, int HP*/sf::RenderWindow &window);
-
     void updatePosition(sf::Vector2f offset);
-
-//    void add(sf::Text *txt);
-//
-//    void add(sf::RectangleShape *shape);
 
     std::vector<sf::RectangleShape> &getShapes();
 
@@ -38,13 +32,6 @@ public:
     void reset();
 
     unsigned int getCoins() const;
-
-//    ~Gui() {
-//        text.clear();
-//        shapes.clear();
-//    };
-
-
 
 private:
 

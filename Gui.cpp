@@ -66,10 +66,6 @@ void Gui::load(sf::View &playerView) {
     coinIndicator.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + coinIndicatorX,
                                playerView.getCenter().y - playerView.getSize().y / 2 + coinIndicatorY);
 
-//    auto *coinNumber = new sf::Text;
-//    auto *lives = new sf::Text;
-//    auto *livesCount = new sf::Text;
-//    auto *font = new sf::Font;
     sf::Text coinNumber;
     sf::Text lives;
     sf::Text livesCount;

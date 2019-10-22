@@ -113,13 +113,6 @@ private:
 
     int mapID;
 
-
-//    Item *item[];
-
-
-
-//    Obstacle *obstacle[];
-//    GameCharacter *GameCharacter[];
 };
 
 #endif //_MAP_H

@@ -12,16 +12,8 @@
 
 Level::Level() {
 
-
     map = nullptr;
     mapId = -1;
-//            weaponId = -1;
-//            gui = nullptr;
-//            player = nullptr;
-
-//        default:
-
-
 
 }
 

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <SFML/Audio/Music.hpp>
 #include <fstream>
 #include "Layer.h"
 #include "GameHero.h"
@@ -86,6 +87,17 @@ int main() {
     ////INIT GAME CLOCK
     Clock clock;
 
+    ////INIT MUSIC
+    sf::Music levelMusic;
+    if (!levelMusic.openFromFile("./Music/Level1Theme.ogg"))
+        return -1; // error
+
+    sf::Music menuMusic;
+    if (!menuMusic.openFromFile("./Music/MenuTheme.ogg"))
+        return -1;
+
+    menuMusic.play();
+
     ////INIT GAME STATE
     State *gameState = new MenuState();
     gameState->setStateChanged(false);
@@ -93,7 +105,7 @@ int main() {
     LevelState *copyState;
 
 
-    ////INIT PLAYER WEAPON
+    ////INIT PLAYER WEAPON;
     WeaponFactory weaponFactory;
     const int justOne = 0;
     const int frenchFries = 1;
@@ -135,15 +147,23 @@ int main() {
 
             if (gameState->isStateChanged()) {
 
+                menuMusic.stop();
+                levelMusic.play();
+
+                window.clear();
+
                 level.loadMap(modelMVC.getLevelNumber(), player);
                 player.getSprite().setPosition(level.getMap()->getSpawnPoint().x, level.getMap()->getSpawnPoint().y);
                 player.getPlayerView().reset(
                         sf::FloatRect(0.f, 100.f, level.getMap()->getViewWidth(), level.getMap()->getViewHeight()));
 
+                player.setHP(100, *level.getMap());
+                player.setLives(3);
+
                 gui.reset();
                 gui.updateCoinCount(-gui.getCoins());
                 gui.load(player.getPlayerView());
-
+                gui.updateLivesCount(3);
                 player.setWeapon(weaponFactory.createWeapon(modelMVC.getWeaponId()));
 
                 gameState->setStateChanged(false);
@@ -174,7 +194,8 @@ int main() {
 
             } else {
 
-                if (player.getSprite().getPosition().x < 6260.f)
+                if (player.getSprite().getPosition().x <
+                    level.getMap()->getWidth() - 2 * player.getSprite().getGlobalBounds().width)
                     player.getSprite().move(player.getSpeed(), 0);
                 else {
                     gameState = gameState->getNextState();
@@ -194,6 +215,10 @@ int main() {
             player.manageBonuses();
             level.getMap()->updateEnemies(player);
 
+            if (player.isDead()) {
+                gameState = gameState->getNextState();
+                player.setDead(false);
+            }
             ////DOOR MANAGEMENT
 
             level.manageDoors(player);
@@ -250,9 +275,16 @@ int main() {
             //render ui
             window.display();
 
+
         } else {
 
             if (gameState->isStateChanged()) {
+
+                levelMusic.stop();
+                menuMusic.play();
+
+                window.clear();
+                window.setView(window.getDefaultView());
 
                 modelMVC.setScreen(mainMenu);
                 modelMVC.setCurrent(0);

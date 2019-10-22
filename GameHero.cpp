@@ -14,10 +14,10 @@
 
 
 GameHero::GameHero(sf::Vector2f initialPosition, sf::Vector2f playerView, Gui &gui, Weapon *gun, int HP, float speed,
-                   float underWaterSpeed, std::string texture) : weapon(gun), lives(3), gui(gui),
+                   float underWaterSpeed, std::string texture) : weapon(gun), lives(3), gui(gui), dead(false),
                                                                  GameCharacter(texture, initialPosition,
-                                                                               speed, underWaterSpeed,
-                                                                               HP) {
+                                                                                            speed, underWaterSpeed,
+                                                                                            HP) {
 
     sprite.setScale(sf::Vector2f(0.7142857f, 1.044776f));
     sprite.scale(0.15f, 0.15f);
@@ -45,7 +45,7 @@ void GameHero::updatePosition(Map &map) {
     int rightTile = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + 1].getId();
     int downLeftTile = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + int(map.getWidth() / 21)].getId();
     int downRightTile = map.getLayer()[1].getTile()[c + r * int(map.getWidth() / 21) + int(map.getWidth() / 21) +
-                                                    1].getId();
+                                                 1].getId();
     int water = 48;
     int waterSurface = 49;
     int groundSurface = 34;
@@ -314,7 +314,8 @@ sf::View &GameHero::getPlayerView() {
 
 void GameHero::die(Map &map) {
     if (--lives < 0) {
-        //TODO torna al menu' principale
+        dead = true;
+        return;
     }
 //    else {
     float defaultDistanceY = 40.f;
@@ -439,4 +440,16 @@ void GameHero::removeObserver(Observer *o) {
 void GameHero::notify() {
 
 
+}
+
+bool GameHero::isDead() const {
+    return dead;
+}
+
+void GameHero::setDead(bool d) {
+    dead = d;
+}
+
+void GameHero::setLives(int l) {
+    lives = l;
 }

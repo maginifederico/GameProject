@@ -21,21 +21,11 @@ public:
 
     Map *getMap();
 
-//    Gui *getGui() ;
-//
-//    GameHero *getPlayer() ;
-
 private:
 
     MapFactory mapFactory;
     Map *map;
     int mapId;
-//    WeaponFactory weaponFactory;
-//    int weaponId;
-//    Gui* gui;
-//    GameHero* player;
-//    const float defaultDistanceX = (player.getPlayerView().getSize().x / 4);
-//    const float defaultDistanceY = 40.f;
 
 };
 

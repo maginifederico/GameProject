@@ -18,8 +18,6 @@ public:
 
     LevelState();
 
-//    Level& generateLevel(int levelNumber, int weaponId);
-
     State *getNextState() override;
 
 private:

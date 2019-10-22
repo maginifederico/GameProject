@@ -10,6 +10,7 @@ StoneGenerator::StoneGenerator(float posX, float posY, std::string &texturePath,
                                                                                            spawnPoint(posX, posY) {
 }
 
+
 void StoneGenerator::update(Map *map) {
 
     //genera un' altra pietra ogni cooldown e le inserisce nel vettore di oggetti dinamici

@@ -232,3 +232,4 @@ std::vector<sf::Sprite> &MenuView::getCurrentScreenOptions() {
             return weaponSelectOptions;
     }
 }
+

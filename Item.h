@@ -35,17 +35,6 @@ private:
     sf::FloatRect collision;
     sf::Sprite sprite;
     sf::Texture texture;
-
-
-//    float posX;
-//    float posY;
-//    int coinValue;
-//    int pillValue;
-//    int shieldValue;
-//    int attackValue;
-//    float shieldTimer;
-//    float attackTimer;
-
 };
 
 #endif //_ITEM_H
