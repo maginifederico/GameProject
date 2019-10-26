@@ -51,13 +51,13 @@ MenuView::MenuView(MenuController *c, MenuModel *m) : controller(c), model(m), s
     mainMenuOptions.emplace_back(sf::Sprite());
     mainMenuOptions.emplace_back(sf::Sprite());
 
-    if (!mainMenuOptionsTextures[0].loadFromFile("./Textures/Coin.png"))
+    if (!mainMenuOptionsTextures[0].loadFromFile("./Textures/selectLevel.png"))
         std::cout << "error loading texture";
 
-    if (!mainMenuOptionsTextures[1].loadFromFile("./Textures/Coin.png"))
+    if (!mainMenuOptionsTextures[1].loadFromFile("./Textures/selectWeapon.png"))
         std::cout << "error loading texture";
 
-    if (!mainMenuOptionsTextures[2].loadFromFile("./Textures/Coin.png"))
+    if (!mainMenuOptionsTextures[2].loadFromFile("./Textures/backLWB.png"))
         std::cout << "error loading texture";
 
     mainMenuOptions[0].setTexture(mainMenuOptionsTextures[0]);
@@ -66,10 +66,9 @@ MenuView::MenuView(MenuController *c, MenuModel *m) : controller(c), model(m), s
 
 
     //posizionamento mainMenu
-    mainMenuOptions[0].setPosition(50.f, 40.f);
-    for (int i = 1; i < mainMenuOptions.size(); i++) {
-        mainMenuOptions[i].setPosition(mainMenuOptions[i - 1].getPosition().x,
-                                       mainMenuOptions[i - 1].getPosition().y + 70.f);
+//    mainMenuOptions[0].setPosition(50.f, 40.f);
+    for (int i = 0; i < mainMenuOptions.size(); i++) {
+        mainMenuOptions[i].setPosition(0.f, 0.f);
     }
 
 
@@ -80,10 +79,10 @@ MenuView::MenuView(MenuController *c, MenuModel *m) : controller(c), model(m), s
     levelSelectOptions.emplace_back(sf::Sprite());
     levelSelectOptions.emplace_back(sf::Sprite());
 
-    if (!levelSelectOptionsTextures[0].loadFromFile("./Textures/Coin.png"))
+    if (!levelSelectOptionsTextures[0].loadFromFile("./Textures/level1Selected.png"))
         std::cout << "error loading texture";
 
-    if (!levelSelectOptionsTextures[1].loadFromFile("./Textures/Coin.png"))
+    if (!levelSelectOptionsTextures[1].loadFromFile("./Textures/levelSelectionBack.png"))
         std::cout << "error loading texture";
 
 
@@ -91,10 +90,9 @@ MenuView::MenuView(MenuController *c, MenuModel *m) : controller(c), model(m), s
     levelSelectOptions[1].setTexture(levelSelectOptionsTextures[1]);
 
     //posizionamento levelSelect
-    levelSelectOptions[0].setPosition((windowWidth / 2) - 80.f, (windowHeight / 2) + 40.f);
-    for (int i = 1; i < levelSelectOptions.size(); i++) {
-        levelSelectOptions[i].setPosition(levelSelectOptions[i - 1].getPosition().x + 300.f,
-                                          levelSelectOptions[i - 1].getPosition().y);
+//    levelSelectOptions[0].setPosition((windowWidth / 2) - 80.f, (windowHeight / 2) + 40.f);
+    for (int i = 0; i < levelSelectOptions.size(); i++) {
+        levelSelectOptions[i].setPosition(0.f, 0.f);
 
     }
 
@@ -108,13 +106,13 @@ MenuView::MenuView(MenuController *c, MenuModel *m) : controller(c), model(m), s
     weaponSelectOptions.emplace_back(sf::Sprite());
     weaponSelectOptions.emplace_back(sf::Sprite());
 
-    if (!weaponSelectOptionsTextures[0].loadFromFile("./Textures/Coin.png"))
+    if (!weaponSelectOptionsTextures[0].loadFromFile("./Textures/frenchFriesSelected.png"))
         std::cout << "error loading texture";
 
-    if (!weaponSelectOptionsTextures[1].loadFromFile("./Textures/Coin.png"))
+    if (!weaponSelectOptionsTextures[1].loadFromFile("./Textures/frenchFriesCannonSelected.png"))
         std::cout << "error loading texture";
 
-    if (!weaponSelectOptionsTextures[2].loadFromFile("./Textures/Coin.png"))
+    if (!weaponSelectOptionsTextures[2].loadFromFile("./Textures/selectBackWeapon.png"))
         std::cout << "error loading texture";
 
     weaponSelectOptions[0].setTexture(weaponSelectOptionsTextures[0]);
@@ -122,10 +120,9 @@ MenuView::MenuView(MenuController *c, MenuModel *m) : controller(c), model(m), s
     weaponSelectOptions[2].setTexture(weaponSelectOptionsTextures[2]);
 
     //posizionamento weaponSelect
-    weaponSelectOptions[0].setPosition(50.f, 40.f);
-    for (int i = 1; i < weaponSelectOptions.size(); i++) {
-        weaponSelectOptions[i].setPosition(weaponSelectOptions[i - 1].getPosition().x,
-                                           weaponSelectOptions[i - 1].getPosition().y + 70.f);
+//    weaponSelectOptions[0].setPosition(50.f, 40.f);
+    for (int i = 0; i < weaponSelectOptions.size(); i++) {
+        weaponSelectOptions[i].setPosition(0.f, 0.f);
 
     }
 
@@ -199,22 +196,22 @@ bool MenuView::registerSpace() {
 }
 
 void MenuView::registerW() {
-    if (currentScreen != levelSelect && selected > 0)
+    if (selected > 0)
         controller->moveUp();
 }
 
 void MenuView::registerA() {
-    if (currentScreen == levelSelect && selected > 0)
+    if (selected > 0)
         controller->moveLeft();
 }
 
 void MenuView::registerS() {
-    if (currentScreen != levelSelect && selected < getCurrentScreenOptions().size() - 1)
+    if (selected < getCurrentScreenOptions().size() - 1)
         controller->moveDown();
 }
 
 void MenuView::registerD() {
-    if (currentScreen == levelSelect && selected < getCurrentScreenOptions().size() - 1)
+    if (selected < getCurrentScreenOptions().size() - 1)
         controller->moveRight();
 }
 

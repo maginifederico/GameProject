@@ -96,6 +96,9 @@ int main() {
     if (!menuMusic.openFromFile("./Music/MenuTheme.ogg"))
         return -1;
 
+    levelMusic.setLoop(true);
+    menuMusic.setLoop(true);
+
     menuMusic.play();
 
     ////INIT GAME STATE
