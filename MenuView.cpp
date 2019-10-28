@@ -10,8 +10,8 @@ MenuView::MenuView(MenuController *c, MenuModel *m) : controller(c), model(m), s
 
     model->addObserver(this);
 
-    float windowWidth = 1920;
-    float windowHeight = 1010;
+//    float windowWidth = 1920;
+//    float windowHeight = 1010;
 
     ////INIT START SCREEN
     startScreenTextures.emplace_back(sf::Texture());
@@ -66,7 +66,6 @@ MenuView::MenuView(MenuController *c, MenuModel *m) : controller(c), model(m), s
 
 
     //posizionamento mainMenu
-//    mainMenuOptions[0].setPosition(50.f, 40.f);
     for (int i = 0; i < mainMenuOptions.size(); i++) {
         mainMenuOptions[i].setPosition(0.f, 0.f);
     }
@@ -120,79 +119,46 @@ MenuView::MenuView(MenuController *c, MenuModel *m) : controller(c), model(m), s
     weaponSelectOptions[2].setTexture(weaponSelectOptionsTextures[2]);
 
     //posizionamento weaponSelect
-//    weaponSelectOptions[0].setPosition(50.f, 40.f);
     for (int i = 0; i < weaponSelectOptions.size(); i++) {
         weaponSelectOptions[i].setPosition(0.f, 0.f);
 
     }
 
-////
+    ////INIT SETTINGS
+    settingsTextures.emplace_back(sf::Texture());
+    settingsTextures.emplace_back(sf::Texture());
+    settingsTextures.emplace_back(sf::Texture());
 
+    settingsOptions.emplace_back(sf::Sprite());
+    settingsOptions.emplace_back(sf::Sprite());
+    settingsOptions.emplace_back(sf::Sprite());
 
-//    sf::Font *font = new sf::Font;
-//    font->loadFromFile("./Fonts/ImperfectaRegular.ttf");
-//
-//    startScreenOptions.emplace_back(sf::Text("Start Game", *new sf::Font(*font)));
-//    startScreenOptions.emplace_back(sf::Text("Quit", *new sf::Font(*font)));
-//
-//    //posizionamento startScreen
-//    startScreenOptions[0].setFillColor(sf::Color::Green);
-//    startScreenOptions[0].setPosition((windowWidth / 2) - 80.f, (windowHeight / 2) + 40.f);
-//    for (int i = 1; i < startScreenOptions.size(); i++) {
-//        startScreenOptions[i].setPosition(startScreenOptions[i - 1].getPosition().x,
-//                                          startScreenOptions[i - 1].getPosition().y + 70.f);
-//
-//    }
-//
-//
-//    mainMenuOptions.emplace_back(sf::Text("Select level", *new sf::Font(*font)));
-//    mainMenuOptions.emplace_back(sf::Text("Select weapon", *new sf::Font(*font)));
-//    mainMenuOptions.emplace_back(sf::Text("Back", *new sf::Font(*font)));
-//
-//    //posizionamento mainMenu
-//    mainMenuOptions[0].setPosition(50.f, 40.f);
-//    for (int i = 1; i < mainMenuOptions.size(); i++) {
-//        mainMenuOptions[i].setPosition(mainMenuOptions[i - 1].getPosition().x,
-//                                       mainMenuOptions[i - 1].getPosition().y + 70.f);
-//    }
-//
-//    levelSelectOptions.emplace_back(sf::Text("1-1", *new sf::Font(*font)));
-//    levelSelectOptions.emplace_back(sf::Text("Back", *new sf::Font(*font)));
-//
-//    //posizionamento levelSelect
-//    levelSelectOptions[0].setPosition((windowWidth / 2) - 80.f, (windowHeight / 2) + 40.f);
-//    for (int i = 1; i < levelSelectOptions.size(); i++) {
-//        levelSelectOptions[i].setPosition(levelSelectOptions[i - 1].getPosition().x + 300.f,
-//                                          levelSelectOptions[i - 1].getPosition().y);
-//
-//    }
-//
-//    weaponSelectOptions.emplace_back(sf::Text("French Fry Gun", *new sf::Font(*font)));
-//    weaponSelectOptions.emplace_back(sf::Text("French Fry Cannon", *new sf::Font(*font)));
-//    weaponSelectOptions.emplace_back(sf::Text("Back", *new sf::Font(*font)));
-//
-//    //posizionamento weaponSelect
-//    weaponSelectOptions[0].setPosition(50.f, 40.f);
-//    for (int i = 1; i < weaponSelectOptions.size(); i++) {
-//        weaponSelectOptions[i].setPosition(weaponSelectOptions[i - 1].getPosition().x,
-//                                           weaponSelectOptions[i - 1].getPosition().y + 70.f);
-//
-//    }
-//
-//    delete font;
+    if (!settingsTextures[0].loadFromFile("./Textures/soundOptionON.png"))
+        std::cout << "error loading texture";
 
+    if (!settingsTextures[1].loadFromFile("./Textures/soundOptionOFF.png"))
+        std::cout << "error loading texture";
+
+    if (!settingsTextures[2].loadFromFile("./Textures/soundOptionBack.png"))
+        std::cout << "error loading texture";
+
+    settingsOptions[0].setTexture(settingsTextures[0]);
+    settingsOptions[1].setTexture(settingsTextures[1]);
+    settingsOptions[2].setTexture(settingsTextures[2]);
+
+    for (int i = 0; i < settingsOptions.size(); i++) {
+        settingsOptions[i].setPosition(0.f, 0.f);
+    }
 }
 
 void MenuView::update() {
 
-//    getCurrentScreenOptions()[selected].setFillColor(sf::Color::White);
     selected = model->getCurrent();
     currentScreen = model->getScreen();
-//    getCurrentScreenOptions()[selected].setFillColor(sf::Color::Green);
 }
 
-bool MenuView::registerSpace() {
-    return controller->enter();
+void MenuView::registerSpace() {
+    controller->enter();
 }
 
 void MenuView::registerW() {
@@ -227,6 +193,8 @@ std::vector<sf::Sprite> &MenuView::getCurrentScreenOptions() {
             return levelSelectOptions;
         case weaponSelect:
             return weaponSelectOptions;
+        case options:
+            return settingsOptions;
     }
 }
 

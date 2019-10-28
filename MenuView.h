@@ -30,7 +30,7 @@ public:
 
     void registerD();
 
-    bool registerSpace();
+    void registerSpace();
 
     void update() override;
 
@@ -45,11 +45,13 @@ private:
     std::vector<sf::Texture> mainMenuOptionsTextures;
     std::vector<sf::Texture> levelSelectOptionsTextures;
     std::vector<sf::Texture> weaponSelectOptionsTextures;
+    std::vector<sf::Texture> settingsTextures;
 
     std::vector<sf::Sprite> startScreenOptions;
     std::vector<sf::Sprite> mainMenuOptions;
     std::vector<sf::Sprite> levelSelectOptions;
     std::vector<sf::Sprite> weaponSelectOptions;
+    std::vector<sf::Sprite> settingsOptions;
 
     int selected;
     Screen currentScreen;

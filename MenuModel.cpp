@@ -4,7 +4,7 @@
 
 #include "MenuModel.h"
 
-MenuModel::MenuModel(State *s) : screen(start), current(0), levelNumber(-1), weaponId(0), state(s) {
+MenuModel::MenuModel() : screen(start), current(0), levelNumber(-1), weaponId(0), musicEnabled(true) {
 
 }
 
@@ -61,14 +61,18 @@ void MenuModel::setWeaponId(int wI) {
     weaponId = wI;
 }
 
-bool MenuModel::enterLevel() {
-    return true;
-}
-
 int MenuModel::getLevelNumber() const {
     return levelNumber;
 }
 
 int MenuModel::getWeaponId() const {
     return weaponId;
+}
+
+bool MenuModel::isMusicEnabled() const {
+    return musicEnabled;
+}
+
+void MenuModel::setMusicEnabled(bool mE) {
+    musicEnabled = mE;
 }

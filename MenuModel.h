@@ -15,22 +15,21 @@ enum Screen {
     start,
     mainMenu,
     levelSelect,
-    weaponSelect
+    weaponSelect,
+    options
 };
 
 class MenuModel : public Subject {
 
 public:
 
-    explicit MenuModel(State *s);
+    explicit MenuModel();
 
     void addObserver(Observer *o) override;
 
     void removeObserver(Observer *o) override;
 
     void notify() override;
-
-    bool enterLevel();
 
     Screen getScreen() const;
 
@@ -48,6 +47,10 @@ public:
 
     int getWeaponId() const;
 
+    bool isMusicEnabled() const;
+
+    void setMusicEnabled(bool musicEnabled);
+
 private:
 
     Screen screen;
@@ -59,7 +62,7 @@ private:
 
     std::vector<Observer *> observers;
 
-    State *state;
+    bool musicEnabled;
 
 };
 

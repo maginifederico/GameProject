@@ -26,7 +26,7 @@ public:
 
     void moveRight();
 
-    bool enter();
+    void enter();
 
 private:
 
