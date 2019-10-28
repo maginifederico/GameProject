@@ -14,6 +14,7 @@
 #include "StillBehaviour.h"
 #include "MenuState.h"
 #include "LevelState.h"
+//#include <SFML/Audio/SoundSource.hpp>
 
 using namespace sf;
 
@@ -126,7 +127,7 @@ int main() {
 
 
     ////INIT MENU
-    MenuModel modelMVC(gameState);
+    MenuModel modelMVC;
     MenuController controllerMVC(&modelMVC);
     MenuView viewMVC(&controllerMVC, &modelMVC);
 
@@ -150,8 +151,10 @@ int main() {
 
             if (gameState->isStateChanged()) {
 
-                menuMusic.stop();
-                levelMusic.play();
+                if (menuMusic.getStatus() != sf::Music::Stopped)
+                    menuMusic.stop();
+                if (modelMVC.isMusicEnabled())
+                    levelMusic.play();
 
                 window.clear();
 
@@ -283,8 +286,10 @@ int main() {
 
             if (gameState->isStateChanged()) {
 
-                levelMusic.stop();
-                menuMusic.play();
+                if (levelMusic.getStatus() != sf::Music::Stopped)
+                    levelMusic.stop();
+                if (modelMVC.isMusicEnabled())
+                    menuMusic.play();
 
                 window.clear();
                 window.setView(window.getDefaultView());
@@ -319,12 +324,21 @@ int main() {
                 }
 
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-                    if (modelMVC.getScreen() == start && modelMVC.getCurrent() == 1) {
+                    if (modelMVC.getScreen() == start && modelMVC.getCurrent() == 2) {
                         window.close();
                         return 0;
                     }
 
-                    if (viewMVC.registerSpace()) {
+                    viewMVC.registerSpace();
+
+                    if (!modelMVC.isMusicEnabled() && menuMusic.getStatus() == sf::Music::Playing)
+                        menuMusic.stop();
+
+                    if (modelMVC.isMusicEnabled() && menuMusic.getStatus() == sf::Music::Stopped)
+                        menuMusic.play();
+
+
+                    if (modelMVC.getLevelNumber() != -1) {
                         gameState = gameState->getNextState();
                     }
                     clock.restart();

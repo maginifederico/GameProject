@@ -8,7 +8,7 @@ MenuController::MenuController(MenuModel *m) : model(m) {
 
 }
 
-bool MenuController::enter() {
+void MenuController::enter() {
 
     switch (model->getScreen()) {
         case start: {
@@ -18,14 +18,20 @@ bool MenuController::enter() {
                     break;
 
                 case 1: {
+                    model->setScreen(options);
+                    break;
+                }
+
+                case 2: {
                     break;
                 }
 
                 default:
-                    return false;
+                    return;
             }
             break;
         }
+
         case mainMenu: {
             switch (model->getCurrent()) {
                 case 0: {
@@ -43,7 +49,7 @@ bool MenuController::enter() {
                     break;
                 }
                 default:
-                    return false;
+                    return;
             }
             break;
         }
@@ -51,14 +57,14 @@ bool MenuController::enter() {
             switch (model->getCurrent()) {
                 case 0: {
                     model->setLevelNumber(1);
-                    return model->enterLevel();
+                    break;
                 }
                 case 1: {
                     model->setScreen(mainMenu);
                     break;
                 }
                 default:
-                    return false;
+                    return;
             }
             break;
         }
@@ -77,17 +83,42 @@ bool MenuController::enter() {
                     break;
                 }
                 default:
-                    return false;
+                    return;
+            }
+            break;
+        }
+
+        case options: {
+            switch (model->getCurrent()) {
+                case 0: {
+                    //enable music
+                    model->setMusicEnabled(true);
+                    break;
+                }
+
+                case 1: {
+                    //disable music
+                    model->setMusicEnabled(false);
+                    break;
+                }
+
+                case 2: {
+                    model->setScreen(start);
+                    break;
+                }
+
+                default:
+                    return;
             }
             break;
         }
 
         default:
-            return false;
+            return;
     }
 
     //Produci un output audio di conferma
-    return false;
+    return;
 }
 
 void MenuController::moveUp() {
