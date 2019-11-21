@@ -392,18 +392,21 @@ void GameHero::manageBonuses() {
             weapon->getAttackBonus()->getDuration()) {
             delete weapon->getAttackBonus();
             weapon->setAttackBonus(nullptr);
+            notify();
         }
     }
     if (defenceBonus != nullptr) {
         if (clock.getElapsedTime().asSeconds() - defenceBonus->getCollectionTime() > defenceBonus->getDuration()) {
             delete defenceBonus;
             defenceBonus = nullptr;
+            notify();
         }
     }
 }
 
 void GameHero::setDefenceBonus(Bonus *dB) {
     GameHero::defenceBonus = dB;
+    notify();
 }
 
 void GameHero::checkEnemyCollision(Map &map) {
@@ -420,25 +423,27 @@ void GameHero::checkEnemyCollision(Map &map) {
 
 }
 
-void GameHero::setGui(Gui &gui) {
-    GameHero::gui = gui;
+void GameHero::setGui(Gui &g) {
+    GameHero::gui = g;
 }
 
 void GameHero::addObserver(Observer *o) {
 
-    observers.emplace_back(o);
+    gameBonusObservers.emplace_back(o);
 
 }
 
 void GameHero::removeObserver(Observer *o) {
 
-    for (int i = 0; i < observers.size(); i++)
-        if (observers[i] == o)
-            observers.erase(observers.begin() + i);
+    for (int i = 0; i < gameBonusObservers.size(); i++)
+        if (gameBonusObservers[i] == o)
+            gameBonusObservers.erase(gameBonusObservers.begin() + i);
 }
 
 void GameHero::notify() {
 
+    for (Observer *obs : gameBonusObservers)
+        obs->update();
 
 }
 
@@ -452,4 +457,11 @@ void GameHero::setDead(bool d) {
 
 void GameHero::setLives(int l) {
     lives = l;
+}
+
+void GameHero::setAttackBonus(Bonus *aB) {
+
+    weapon->setAttackBonus(aB);
+    notify();
+
 }

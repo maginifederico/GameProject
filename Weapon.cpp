@@ -111,8 +111,6 @@ void Weapon::checkProjectileCollision(Map &map, GameHero *player) {
                          || projectiles[i].getSprite().getGlobalBounds().intersects(rightCollision)
                          || projectiles[i].getSprite().getGlobalBounds().intersects(rightDownCollision))
                         && (rightID != water && rightID != waterSurface && downRightID != waterSurface)
-
-
                         )
                     collision = true;
                 else
@@ -202,6 +200,6 @@ float Weapon::getRange() const {
     return range;
 }
 
-void Weapon::setCooldown(float cooldown) {
-    Weapon::cooldown = cooldown;
+void Weapon::setCooldown(float c) {
+    Weapon::cooldown = c;
 }

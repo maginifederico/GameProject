@@ -22,7 +22,7 @@ void Bonus::interact(GameHero *player, Map &map) {
     collectionTime = player->getClock().getElapsedTime().asSeconds();
 
     if (attackType)
-        player->getWeapon()->setAttackBonus(this);
+        player->setAttackBonus(this);
     else
         player->setDefenceBonus(this);
 

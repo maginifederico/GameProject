@@ -17,22 +17,21 @@ class Weapon;
 
 class Bonus;
 
+class Gui;
+
 class GameHero : public GameCharacter, public Subject {
 
 
 public:
     explicit GameHero(sf::Vector2f initialPosition, sf::Vector2f playerView, Gui &gui, Weapon *gun = nullptr,
-                      int HP = 100,
-                      float speed = 1.f, float underWaterSpeed = 0.5f, std::string texture = "./Textures/PotatoDX.png"
-    );
+                      int HP = 100, float speed = 1.f, float underWaterSpeed = 0.5f,
+                      std::string texture = "./Textures/PotatoDX.png");
 
     void updatePosition(Map &ground) override;
 
     Weapon *getWeapon() const;
 
     void setWeapon(std::unique_ptr<Weapon> weapon);
-
-//    Item *item;
 
     Direction getMovementDirection() const;
 
@@ -44,7 +43,7 @@ public:
 
     void setWPressed(bool wPressed);
 
-    void setAPressed(bool sPressed);
+    void setAPressed(bool aPressed);
 
     void setSPressed(bool sPressed);
 
@@ -90,6 +89,9 @@ public:
 
     void notify() override;
 
+    void setAttackBonus(Bonus *attackBonus);
+
+
 private:
 
     void die(Map &map) override;
@@ -122,7 +124,7 @@ private:
 
     Bonus *defenceBonus;
 
-    std::vector<Observer *> observers;
+    std::vector<Observer *> gameBonusObservers;
 
 
 };

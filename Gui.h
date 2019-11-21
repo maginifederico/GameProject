@@ -9,8 +9,12 @@
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include "Observer.h"
+#include "GameHero.h"
 
-class Gui {
+class GameHero;
+
+class Gui : public Observer {
 public:
 
     explicit Gui();
@@ -25,13 +29,19 @@ public:
 
     void updateHealth(int HP);
 
-    void updateCoinCount(int value);
+    void updateCoinCount();
 
     void updateLivesCount(int lives);
+
+    void updateDefenceBonus();
 
     void reset();
 
     unsigned int getCoins() const;
+
+    void update() override;
+
+    void setSubject(GameHero *subject);
 
 private:
 
@@ -42,7 +52,12 @@ private:
     int coinCountIndex = 0;
     int livesCountIndex = 2;
 
+    bool attackBonusCollected;
+    bool defenceBonusCollected;
+
     unsigned int coins;
+
+    GameHero *subject;
 
 };
 

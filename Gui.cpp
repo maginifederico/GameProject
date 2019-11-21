@@ -7,6 +7,9 @@
 
 Gui::Gui() : coins(0) {
 
+    attackBonusCollected = false;
+    defenceBonusCollected = false;
+    subject = nullptr;
 
 }
 
@@ -150,9 +153,9 @@ void Gui::updateHealth(int HP) {
 
 }
 
-void Gui::updateCoinCount(int value) {
+void Gui::updateCoinCount() {
 
-    coins += value;
+    coins++;
     text[coinCountIndex].setString(std::to_string(coins));
 
 }
@@ -177,4 +180,21 @@ void Gui::reset() {
 
 unsigned int Gui::getCoins() const {
     return coins;
+}
+
+void Gui::update() {
+
+
+    updateDefenceBonus();
+
+}
+
+void Gui::updateDefenceBonus() {
+
+//    if()
+
+}
+
+void Gui::setSubject(GameHero *s) {
+    Gui::subject = s;
 }

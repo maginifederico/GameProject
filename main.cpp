@@ -51,7 +51,7 @@ int main() {
     //BlueFlag
     //gameBonus (attack and shield)
     //conto vite
-    //rivedere collisioni con layer ground (guardare i FIXME su GameHero)
+    //rivedere collisioni con layer ground
     //creare nemici
     //Strategy per movimento nemici (classe base= MovementBehaviour, derivate= flying e walking behaviour)
 
@@ -60,19 +60,9 @@ int main() {
     //State Pattern per stato gioco
     //gui nel main
     //metodo checkProjectileCollision aggiornato
-    //tolto
+    //tolto checkProjectile collision da StillBehaviour
     //Unit Testing
-    //aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, BlueFlag, porte nere e marroni)
-
-
-
-    ////DA RIVEDERE
-
-    ////DA FARE
-    //TODO implementare potenziamenti armi
-    //TODO smart pointer invece di raw pointer (oppure eliminare i leak con valgrind)
-    //TODO Observer per Achievements
-    //TODO implementare salvataggio progressi (lettura e scrittura da file)
+    //aggiungere tutti gli oggetti nella ObjectsFactory
 
 
 
@@ -119,6 +109,9 @@ int main() {
     Gui gui;
 
     GameHero player(Vector2f(), Vector2f(), gui);
+
+    gui.setSubject(&player);
+    player.addObserver(&gui);
 
     player.setWeapon(weaponFactory.createWeapon(justOne));
 
@@ -167,7 +160,7 @@ int main() {
                 player.setLives(3);
 
                 gui.reset();
-                gui.updateCoinCount(-gui.getCoins());
+                gui.updateCoinCount();
                 gui.load(player.getPlayerView());
                 gui.updateLivesCount(3);
                 player.setWeapon(weaponFactory.createWeapon(modelMVC.getWeaponId()));
@@ -301,7 +294,7 @@ int main() {
                 gameState->setStateChanged(false);
             }
 
-            if (clock.getElapsedTime().asSeconds() > 0.3f) {
+            if (clock.getElapsedTime().asSeconds() > 0.2f) {
 
                 if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
                     viewMVC.registerW();
@@ -347,7 +340,6 @@ int main() {
 
             window.clear();
 
-//            for (sf::Sprite current : viewMVC.getCurrentScreenOptions())
             window.draw(viewMVC.getCurrentScreenOptions()[modelMVC.getCurrent()]);
 
             //render ui
