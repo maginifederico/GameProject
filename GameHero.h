@@ -12,7 +12,6 @@
 #include "Subject.h"
 #include <list>
 
-
 class Weapon;
 
 class Bonus;
@@ -87,6 +86,8 @@ public:
     void setDead(bool dead);
 
     void setLives(int lives);
+
+    int getLives() const;
 
     void addObserver(Observer *o) override;
 

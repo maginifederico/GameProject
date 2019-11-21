@@ -378,7 +378,7 @@ void GameHero::setHP(int hp, Map &map) {
         die(map);
     else if (HP > 100)
         HP = 100;
-    gui.updateHealth(HP);
+    notify();
 }
 
 const sf::Clock &GameHero::getClock() const {
@@ -467,4 +467,8 @@ void GameHero::setLives(int l) {
 
 Bonus *GameHero::getDefenceBonus() {
     return defenceBonus;
+}
+
+int GameHero::getLives() const {
+    return lives;
 }

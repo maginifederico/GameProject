@@ -76,13 +76,19 @@ void Gui::load(sf::View &playerView) {
                                playerView.getCenter().y - playerView.getSize().y / 2 + coinIndicatorY);
 
     sf::RectangleShape attackBonus(sf::Vector2f(22.f, 22.f));
-    attackBonus.setTexture(&transparent);
+    if (attackBonusCollected)
+        attackBonus.setTexture(&attackBonusTexture, true);
+    else
+        attackBonus.setTexture(&transparent, true);
     attackBonus.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + attackBonusX,
                             playerView.getCenter().y - playerView.getSize().y / 2 + attackBonusY);
 
 
     sf::RectangleShape defenceBonus(sf::Vector2f(22.f, 22.f));
-    defenceBonus.setTexture(&transparent);
+    if (defenceBonusCollected)
+        defenceBonus.setTexture(&defenceBonusTexture, true);
+    else
+        defenceBonus.setTexture(&transparent, true);
     defenceBonus.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + defenceBonusX,
                              playerView.getCenter().y - playerView.getSize().y / 2 + defenceBonusY);
 
@@ -149,11 +155,12 @@ std::vector<sf::Text> &Gui::getText() {
     return text;
 }
 
-void Gui::updateHealth(int HP) {
+void Gui::updateHealth() {
 
-    shapes[healthIndex].setSize(sf::Vector2f(shapes[1].getSize().x * HP / 100, shapes[healthIndex].getSize().y));
+    shapes[healthIndex].setSize(
+            sf::Vector2f(shapes[1].getSize().x * subject->getHp() / 100, shapes[healthIndex].getSize().y));
 
-    switch (HP / 33) {
+    switch (subject->getHp() / 33) {
 
         case 0: {
             shapes[healthIndex].setFillColor(sf::Color::Red);
@@ -174,8 +181,7 @@ void Gui::updateHealth(int HP) {
 
 void Gui::updateCoinCount() {
 
-    coins++;
-    text[coinCountIndex].setString(std::to_string(coins));
+    text[coinCountIndex].setString(std::to_string(++coins));
 
 }
 
@@ -199,13 +205,18 @@ unsigned int Gui::getCoins() const {
 
 void Gui::update() {
 
-    if ((subject->getWeapon()->getAttackBonus() == nullptr) == attackBonusCollected) {
+    if ((subject->getWeapon()->getAttackBonus() == nullptr) == attackBonusCollected)
         updateAttackBonus();
-    }
+
 
     if ((subject->getDefenceBonus() == nullptr) == defenceBonusCollected)
         updateDefenceBonus();
 
+    updateHealth();
+
+//    updateCoinCount();
+
+    updateLivesCount(subject->getLives());
 }
 
 void Gui::updateAttackBonus() {

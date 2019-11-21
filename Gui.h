@@ -27,7 +27,7 @@ public:
 
     std::vector<sf::Text> &getText();
 
-    void updateHealth(int HP);
+    void updateHealth();
 
     void setCoins(unsigned int coins);
 

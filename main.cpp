@@ -63,6 +63,7 @@ int main() {
     //Unit Testing
     //aggiungere tutti gli oggetti nella ObjectsFactory
 
+    //aggiungere indicatori per i bonus
 
     ////INIT WINDOW
     const unsigned int WINDOW_WIDTH = 1920;
@@ -149,6 +150,7 @@ int main() {
                 player.getPlayerView().reset(
                         sf::FloatRect(0.f, 100.f, level.getMap()->getViewWidth(), level.getMap()->getViewHeight()));
 
+                player.setWeapon(weaponFactory.createWeapon(modelMVC.getWeaponId()));
                 player.setHP(100, *level.getMap());
                 player.setLives(3);
 
@@ -157,7 +159,6 @@ int main() {
                 gui.setCoins(0);
                 gui.load(player.getPlayerView());
                 gui.updateLivesCount(3);
-                player.setWeapon(weaponFactory.createWeapon(modelMVC.getWeaponId()));
 
                 gameState->setStateChanged(false);
 
