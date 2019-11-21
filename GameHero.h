@@ -17,6 +17,8 @@ class Weapon;
 
 class Bonus;
 
+class Gui;
+
 class GameHero : public GameCharacter, public Subject {
 
 
@@ -44,7 +46,7 @@ public:
 
     void setWPressed(bool wPressed);
 
-    void setAPressed(bool sPressed);
+    void setAPressed(bool aPressed);
 
     void setSPressed(bool sPressed);
 
@@ -55,8 +57,6 @@ public:
     void checkCollection(Map &map);
 
     sf::View &getPlayerView();
-
-//    void loadGui();
 
     std::vector<sf::Text> &getGuiText();
 
@@ -73,6 +73,10 @@ public:
     void manageBonuses();
 
     void setDefenceBonus(Bonus *defenceBonus);
+
+    void setAttackBonus(Bonus *atkBonus);
+
+    Bonus *getDefenceBonus();
 
     void checkEnemyCollision(Map &map);
 

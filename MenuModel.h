@@ -59,10 +59,9 @@ private:
 
     int levelNumber;
     int weaponId;
+    bool musicEnabled;
 
     std::vector<Observer *> observers;
-
-    bool musicEnabled;
 
 };
 

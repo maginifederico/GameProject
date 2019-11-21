@@ -388,22 +388,31 @@ const sf::Clock &GameHero::getClock() const {
 void GameHero::manageBonuses() {
 
     if (weapon->getAttackBonus() != nullptr) {
-        if (clock.getElapsedTime().asSeconds() - weapon->getAttackBonus()->getCollectionTime() >
+        if (clock.getElapsedTime() - weapon->getAttackBonus()->getCollectionTime() >
             weapon->getAttackBonus()->getDuration()) {
             delete weapon->getAttackBonus();
             weapon->setAttackBonus(nullptr);
+            notify();
         }
     }
     if (defenceBonus != nullptr) {
-        if (clock.getElapsedTime().asSeconds() - defenceBonus->getCollectionTime() > defenceBonus->getDuration()) {
+        if (clock.getElapsedTime() - defenceBonus->getCollectionTime() > defenceBonus->getDuration()) {
             delete defenceBonus;
             defenceBonus = nullptr;
+            notify();
         }
     }
 }
 
 void GameHero::setDefenceBonus(Bonus *dB) {
-    GameHero::defenceBonus = dB;
+    defenceBonus = dB;
+    notify();
+}
+
+void GameHero::setAttackBonus(Bonus *atkBonus) {
+
+    weapon->setAttackBonus(atkBonus);
+    notify();
 }
 
 void GameHero::checkEnemyCollision(Map &map) {
@@ -439,6 +448,8 @@ void GameHero::removeObserver(Observer *o) {
 
 void GameHero::notify() {
 
+    for (Observer *obs : observers)
+        obs->update();
 
 }
 
@@ -452,4 +463,8 @@ void GameHero::setDead(bool d) {
 
 void GameHero::setLives(int l) {
     lives = l;
+}
+
+Bonus *GameHero::getDefenceBonus() {
+    return defenceBonus;
 }

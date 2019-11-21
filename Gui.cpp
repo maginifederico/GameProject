@@ -5,8 +5,16 @@
 #include <iostream>
 #include "Gui.h"
 
-Gui::Gui() : coins(0) {
+Gui::Gui() : coins(0), attackBonusCollected(false), defenceBonusCollected(false), subject(nullptr) {
 
+    if (!attackBonusTexture.loadFromFile("./Textures/AttackBonus.png"))
+        std::cout << "Failed to load texture";
+
+    if (!defenceBonusTexture.loadFromFile("./Textures/DefenceBonus.png"))
+        std::cout << "Failed to load texture";
+
+    if (!transparent.loadFromFile("./Textures/Transparent.png"))
+        std::cout << "Failed to load texture";
 
 }
 
@@ -26,10 +34,11 @@ void Gui::load(sf::View &playerView) {
     float livesY = 4.f;
     float livesCountX = 475.f;
     float livesCountY = 4.f;
+    float attackBonusX = 5.f;
+    float attackBonusY = 52.f;
+    float defenceBonusX = 29.f;
+    float defenceBonusY = 52.f;
 
-
-//    auto *heart = new sf::Texture;
-//    auto *coinTexture = new sf::Texture;
     sf::Texture heart;
     sf::Texture coinTexture;
 
@@ -66,6 +75,17 @@ void Gui::load(sf::View &playerView) {
     coinIndicator.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + coinIndicatorX,
                                playerView.getCenter().y - playerView.getSize().y / 2 + coinIndicatorY);
 
+    sf::RectangleShape attackBonus(sf::Vector2f(22.f, 22.f));
+    attackBonus.setTexture(&transparent);
+    attackBonus.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + attackBonusX,
+                            playerView.getCenter().y - playerView.getSize().y / 2 + attackBonusY);
+
+
+    sf::RectangleShape defenceBonus(sf::Vector2f(22.f, 22.f));
+    defenceBonus.setTexture(&transparent);
+    defenceBonus.setPosition(playerView.getCenter().x - playerView.getSize().x / 2 + defenceBonusX,
+                             playerView.getCenter().y - playerView.getSize().y / 2 + defenceBonusY);
+
     sf::Text coinNumber;
     sf::Text lives;
     sf::Text livesCount;
@@ -100,6 +120,8 @@ void Gui::load(sf::View &playerView) {
     shapes.push_back(bar);
     shapes.push_back(health);
     shapes.push_back(coinIndicator);
+    shapes.push_back(attackBonus);
+    shapes.push_back(defenceBonus);
 
     text.push_back(coinNumber);
     text.push_back(lives);
@@ -150,9 +172,9 @@ void Gui::updateHealth(int HP) {
 
 }
 
-void Gui::updateCoinCount(int value) {
+void Gui::updateCoinCount() {
 
-    coins += value;
+    coins++;
     text[coinCountIndex].setString(std::to_string(coins));
 
 }
@@ -165,16 +187,55 @@ void Gui::updateLivesCount(int lives) {
 
 void Gui::reset() {
 
-//    for (sf::Text *txt : text)
-//        delete txt;
     text.clear();
 
-//    for (sf::RectangleShape *rect : shapes)
-//        delete rect;
     shapes.clear();
 
 }
 
 unsigned int Gui::getCoins() const {
     return coins;
+}
+
+void Gui::update() {
+
+    if ((subject->getWeapon()->getAttackBonus() == nullptr) == attackBonusCollected) {
+        updateAttackBonus();
+    }
+
+    if ((subject->getDefenceBonus() == nullptr) == defenceBonusCollected)
+        updateDefenceBonus();
+
+}
+
+void Gui::updateAttackBonus() {
+
+    if (attackBonusCollected) {
+        attackBonusCollected = false;
+        shapes[4].setTexture(&transparent, true);
+    } else {
+        attackBonusCollected = true;
+        shapes[4].setTexture(&attackBonusTexture, true);
+    }
+}
+
+void Gui::setSubject(GameHero *s) {
+    subject = s;
+}
+
+void Gui::updateDefenceBonus() {
+
+    if (defenceBonusCollected) {
+        defenceBonusCollected = false;
+        shapes[5].setTexture(&transparent, true);
+    } else {
+        defenceBonusCollected = true;
+        shapes[5].setTexture(&defenceBonusTexture, true);
+
+    }
+
+}
+
+void Gui::setCoins(unsigned int c) {
+    Gui::coins = c;
 }

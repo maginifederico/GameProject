@@ -15,38 +15,22 @@ class Bonus : public Item {
 
 public:
 
-    explicit Bonus(std::string &texturePath, int bonusValue, float duration, int id);
+    explicit Bonus(std::string &texturePath, int bonusValue, sf::Time duration, int id);
 
     void interact(GameHero *player, Map &map) override;
 
     int getBonusValue() const;
 
-    float getCollectionTime() const;
+    sf::Time getCollectionTime() const;
 
-    float getDuration() const;
-
-//    void update(Map *map) override {};
-
-//    float getDuration() const;
-//
-//    float getCollectionTime() const;
-//
-//    void setDuration(float duration);
-//
-//    void setCollectionTime(float collectionTime);
-//
-//    void setCollected(bool collected);
-//
-//    int getBonus() const;
-//
-//    virtual ~Bonus();
+    sf::Time getDuration() const;
 
 private:
 
     bool attackType;
     int bonusValue;
-    float duration;
-    float collectionTime;
+    sf::Time duration;
+    sf::Time collectionTime;
     bool collected;
 };
 

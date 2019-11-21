@@ -117,17 +117,15 @@ Item *ObjectFactory::createObject(int id, float posX, float posY) {
         case attackBonus: {
 
             int bonus;
-            float duration;
+            sf::Time duration = sf::seconds(5.f);
             std::string bonusTexturePath;
 
             if (id == attackBonus) {
                 bonusTexturePath = "./Textures/AttackBonus.png";
                 bonus = 50;
-                duration = 5.f;
             } else {
                 bonusTexturePath = "./Textures/DefenceBonus.png";
                 bonus = 50;
-                duration = 5.f;
             }
 
             result = new Bonus(bonusTexturePath, bonus, duration, id);

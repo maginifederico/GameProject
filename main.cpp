@@ -14,7 +14,6 @@
 #include "StillBehaviour.h"
 #include "MenuState.h"
 #include "LevelState.h"
-//#include <SFML/Audio/SoundSource.hpp>
 
 using namespace sf;
 
@@ -51,7 +50,7 @@ int main() {
     //BlueFlag
     //gameBonus (attack and shield)
     //conto vite
-    //rivedere collisioni con layer ground (guardare i FIXME su GameHero)
+    //rivedere collisioni con layer ground
     //creare nemici
     //Strategy per movimento nemici (classe base= MovementBehaviour, derivate= flying e walking behaviour)
 
@@ -62,18 +61,7 @@ int main() {
     //metodo checkProjectileCollision aggiornato
     //tolto
     //Unit Testing
-    //aggiungere tutti gli oggetti nella ObjectsFactory (rimangono i bonus, BlueFlag, porte nere e marroni)
-
-
-
-    ////DA RIVEDERE
-
-    ////DA FARE
-    //TODO implementare potenziamenti armi
-    //TODO smart pointer invece di raw pointer (oppure eliminare i leak con valgrind)
-    //TODO Observer per Achievements
-    //TODO implementare salvataggio progressi (lettura e scrittura da file)
-
+    //aggiungere tutti gli oggetti nella ObjectsFactory
 
 
     ////INIT WINDOW
@@ -109,22 +97,20 @@ int main() {
     LevelState *copyState;
 
 
-    ////INIT PLAYER WEAPON;
+    ////INIT PLAYER WEAPON
     WeaponFactory weaponFactory;
-    const int justOne = 0;
-    const int frenchFries = 1;
+
 
 
     ////INIT PLAYER
     Gui gui;
 
     GameHero player(Vector2f(), Vector2f(), gui);
-
-    player.setWeapon(weaponFactory.createWeapon(justOne));
+    player.addObserver(&gui);
 
     ////INIT GUI
     player.getGui().load(player.getPlayerView());
-
+    gui.setSubject(&player);
 
     ////INIT MENU
     MenuModel modelMVC;
@@ -167,7 +153,8 @@ int main() {
                 player.setLives(3);
 
                 gui.reset();
-                gui.updateCoinCount(-gui.getCoins());
+//                gui.updateCoinCount();
+                gui.setCoins(0);
                 gui.load(player.getPlayerView());
                 gui.updateLivesCount(3);
                 player.setWeapon(weaponFactory.createWeapon(modelMVC.getWeaponId()));
@@ -225,6 +212,7 @@ int main() {
                 gameState = gameState->getNextState();
                 player.setDead(false);
             }
+
             ////DOOR MANAGEMENT
 
             level.manageDoors(player);
@@ -347,7 +335,6 @@ int main() {
 
             window.clear();
 
-//            for (sf::Sprite current : viewMVC.getCurrentScreenOptions())
             window.draw(viewMVC.getCurrentScreenOptions()[modelMVC.getCurrent()]);
 
             //render ui
