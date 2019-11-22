@@ -13,7 +13,6 @@
 
 class Item;
 class Layer;
-
 class Enemy;
 
 class Map {

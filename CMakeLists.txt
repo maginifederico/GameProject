@@ -3,7 +3,7 @@ project(Game)
 set(CMAKE_CXX_STANDARD 11)
 
 
-set(SOURCE_FILES Layer.h Layer.cpp Obstacle.h Item.h GameHero.h Map.h GameHero.cpp Obstacle.cpp Item.cpp
+set(SOURCE_FILES Layer.h Layer.cpp Item.h GameHero.h Map.h GameHero.cpp Item.cpp
         GameHero.cpp Tile.cpp Tile.h GameCharacter.cpp GameCharacter.h Map.cpp Weapon.cpp Weapon.h Projectile.cpp
         Projectile.h WeaponFactory.h ObjectFactory.h Coin.cpp Coin.h MapFactory.h HealthPill.h HealthPill.cpp Spike.cpp
         Spike.h Checkpoint.cpp Checkpoint.h Gui.cpp Gui.h StoneGenerator.cpp StoneGenerator.h Stone.cpp Stone.h

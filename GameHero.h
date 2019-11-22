@@ -12,7 +12,6 @@
 #include "Subject.h"
 #include <list>
 
-
 class Weapon;
 
 class Bonus;
@@ -55,8 +54,6 @@ public:
 
     sf::View &getPlayerView();
 
-//    void loadGui();
-
     std::vector<sf::Text> &getGuiText();
 
     std::vector<sf::RectangleShape> &getGuiShapes();
@@ -73,6 +70,10 @@ public:
 
     void setDefenceBonus(Bonus *defenceBonus);
 
+    void setAttackBonus(Bonus *atkBonus);
+
+    bool hasDefenceBonus();
+
     void checkEnemyCollision(Map &map);
 
     void setGui(Gui &gui);
@@ -83,14 +84,13 @@ public:
 
     void setLives(int lives);
 
+    int getLives() const;
+
     void addObserver(Observer *o) override;
 
     void removeObserver(Observer *o) override;
 
     void notify() override;
-
-    void setAttackBonus(Bonus *attackBonus);
-
 
 private:
 
@@ -124,7 +124,7 @@ private:
 
     Bonus *defenceBonus;
 
-    std::vector<Observer *> gameBonusObservers;
+    std::vector<Observer *> observers;
 
 
 };

@@ -188,8 +188,8 @@ void Weapon::checkProjectileCollision(Map &map, GameHero *player) {
 
 }
 
-Bonus *Weapon::getAttackBonus() {
-    return attackBonus;
+bool Weapon::hasAttackBonus() {
+    return attackBonus != nullptr;
 }
 
 void Weapon::setAttackBonus(Bonus *aB) {
@@ -202,4 +202,8 @@ float Weapon::getRange() const {
 
 void Weapon::setCooldown(float c) {
     Weapon::cooldown = c;
+}
+
+Bonus *Weapon::getAttackBonus() const {
+    return attackBonus;
 }

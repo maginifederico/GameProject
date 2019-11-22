@@ -40,11 +40,13 @@ public:
 
     void setCooldown(float cooldown);
 
-    Bonus *getAttackBonus();
+    bool hasAttackBonus();
 
     void setAttackBonus(Bonus *attackBonus);
 
     float getRange() const;
+
+    Bonus *getAttackBonus() const;
 
 private:
 

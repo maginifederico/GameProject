@@ -12,6 +12,7 @@
 #include "math.h"
 #include "FlyingBehaviour.h"
 
+
 Map::Map(float w, float h, sf::Vector2f sPoint, std::string bg, std::string grnd,
          std::string obj, int id) : width(w), height(h), spawn_point(sPoint), background(bg),
                                     ground(grnd), objects(obj), endLevel(false), mapID(id) {

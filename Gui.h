@@ -27,21 +27,23 @@ public:
 
     std::vector<sf::Text> &getText();
 
-    void updateHealth(int HP);
+    void updateHealth();
+
+    void setCoins(unsigned int coins);
 
     void updateCoinCount();
 
     void updateLivesCount(int lives);
 
+    void updateAttackBonus();
+
     void updateDefenceBonus();
 
     void reset();
 
-    unsigned int getCoins() const;
+    void setSubject(GameHero *subject);
 
     void update() override;
-
-    void setSubject(GameHero *subject);
 
 private:
 
@@ -54,6 +56,10 @@ private:
 
     bool attackBonusCollected;
     bool defenceBonusCollected;
+
+    sf::Texture attackBonusTexture;
+    sf::Texture defenceBonusTexture;
+    sf::Texture transparent;
 
     unsigned int coins;
 

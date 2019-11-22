@@ -14,7 +14,6 @@
 #include "StillBehaviour.h"
 #include "MenuState.h"
 #include "LevelState.h"
-//#include <SFML/Audio/SoundSource.hpp>
 
 using namespace sf;
 
@@ -64,7 +63,7 @@ int main() {
     //Unit Testing
     //aggiungere tutti gli oggetti nella ObjectsFactory
 
-
+    //aggiungere indicatori per i bonus
 
     ////INIT WINDOW
     const unsigned int WINDOW_WIDTH = 1920;
@@ -99,25 +98,20 @@ int main() {
     LevelState *copyState;
 
 
-    ////INIT PLAYER WEAPON;
+    ////INIT PLAYER WEAPON
     WeaponFactory weaponFactory;
-    const int justOne = 0;
-    const int frenchFries = 1;
+
 
 
     ////INIT PLAYER
     Gui gui;
 
     GameHero player(Vector2f(), Vector2f(), gui);
-
-    gui.setSubject(&player);
     player.addObserver(&gui);
-
-    player.setWeapon(weaponFactory.createWeapon(justOne));
 
     ////INIT GUI
     player.getGui().load(player.getPlayerView());
-
+    gui.setSubject(&player);
 
     ////INIT MENU
     MenuModel modelMVC;
@@ -156,14 +150,15 @@ int main() {
                 player.getPlayerView().reset(
                         sf::FloatRect(0.f, 100.f, level.getMap()->getViewWidth(), level.getMap()->getViewHeight()));
 
+                player.setWeapon(weaponFactory.createWeapon(modelMVC.getWeaponId()));
                 player.setHP(100, *level.getMap());
                 player.setLives(3);
 
                 gui.reset();
-                gui.updateCoinCount();
+//                gui.updateCoinCount();
+                gui.setCoins(0);
                 gui.load(player.getPlayerView());
                 gui.updateLivesCount(3);
-                player.setWeapon(weaponFactory.createWeapon(modelMVC.getWeaponId()));
 
                 gameState->setStateChanged(false);
 
@@ -218,6 +213,7 @@ int main() {
                 gameState = gameState->getNextState();
                 player.setDead(false);
             }
+
             ////DOOR MANAGEMENT
 
             level.manageDoors(player);
