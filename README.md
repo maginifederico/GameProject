@@ -5,7 +5,7 @@ Il giocatore impersonerà una patata di nome Johnny Potato, armata di patatine f
  con l'obiettivo di raggiungere la bandierina blu di fine livello.
  
  
- ##Immagini e GIF
+ ## Immagini e GIF
  
  ![Level 1](./Images/MainMenu.png) <br>
  
